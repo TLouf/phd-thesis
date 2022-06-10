@@ -51,3 +51,6 @@ Bibliography.bib.bak
 Bibliography.bib.sav
 
 Examples/
+
+build/chapters
+build/frontbackmatter

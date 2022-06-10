@@ -55,7 +55,7 @@
 %\hyphenation{put special hyphenation here}
 
 % ********************************************************************
-% Loaad subfiles last
+% Load subfiles last
 %*******************************************************
 \usepackage{subfiles}
 
@@ -70,18 +70,27 @@
 %\setbibpreamble{}
 \pagenumbering{roman}
 \pagestyle{plain}
+
+
 %********************************************************************
 % Frontmatter
 %*******************************************************
-\include{frontbackmatter/DirtyTitlepage}
-\include{frontbackmatter/Titlepage}
-\include{frontbackmatter/Titleback}
-\cleardoublepage\include{frontbackmatter/Dedication}
-%\cleardoublepage\include{frontbackmatter/Foreword}
-\cleardoublepage\include{frontbackmatter/Abstract}
-\cleardoublepage\include{frontbackmatter/Publications}
-\cleardoublepage\include{frontbackmatter/Acknowledgments}
-\cleardoublepage\include{frontbackmatter/Contents}
+\subfile{frontbackmatter/DirtyTitlepage}
+\subfile{frontbackmatter/Titlepage}
+\subfile{frontbackmatter/Titleback}
+\cleardoublepage
+\subfile{frontbackmatter/Dedication}
+%\cleardoublepage\subfile{frontbackmatter/Foreword}
+\cleardoublepage
+\subfile{frontbackmatter/Abstract}
+\cleardoublepage
+\subfile{frontbackmatter/Publications}
+\cleardoublepage
+\subfile{frontbackmatter/Acknowledgments}
+\cleardoublepage
+\subfile{frontbackmatter/Contents}
+
+
 %********************************************************************
 % Mainmatter
 %*******************************************************
@@ -89,10 +98,15 @@
 \pagestyle{scrheadings}
 \pagenumbering{arabic}
 %\setcounter{page}{90}
+
 % use \cleardoublepage here to avoid problems with pdfbookmark
 \cleardoublepage
-\part{Some Kind of Manual}\label{pt:manual}
-\include{chapters/Chapter01}
+\part{Some Kind of Manual}
+\label{pt:manual}
+
+\subfile{chapters/Chapter01}
+
+
 \cleardoublepage
 \ctparttext{You can put some informational part preamble text here.
 Illo principalmente su nos. Non message \emph{occidental} angloromanic
@@ -101,24 +115,35 @@ se avantiate publicationes via. Pan in terra summarios, capital
 interlingua se que. Al via multo esser specimen, campo responder que
 da. Le usate medical addresses pro, europa origine sanctificate nos se.}
 \part{The Showcase}\label{pt:showcase}
-\include{chapters/Chapter02}
-%\addtocontents{toc}{\protect\clearpage} % <--- just debug stuff, ignore
-\include{chapters/Chapter03}
-%\include{multiToC} % <--- just debug stuff, ignore for your documents
+\subfile{chapters/Chapter02}
+
+\subfile{chapters/Chapter03}
+
+
 % ********************************************************************
 % Backmatter
 %*******************************************************
 \appendix
 %\renewcommand{\thechapter}{\alph{chapter}}
+
 \cleardoublepage
 \part{Appendix}
-\include{chapters/Chapter0A}
+\subfile{chapters/Chapter0A}
+
+
 %********************************************************************
 % Other Stuff in the Back
 %*******************************************************
-\cleardoublepage\include{frontbackmatter/Bibliography}
-\cleardoublepage\include{frontbackmatter/Declaration}
-\cleardoublepage\include{frontbackmatter/Colophon}
+\cleardoublepage
+\subfile{frontbackmatter/Bibliography}
+
+\cleardoublepage
+\subfile{frontbackmatter/Declaration}
+
+\cleardoublepage
+\subfile{frontbackmatter/Colophon}
+
+
 % ********************************************************************
 % Game Over: Restore, Restart, or Quit?
 %*******************************************************
