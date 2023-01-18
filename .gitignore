@@ -56,3 +56,5 @@ build/chapters
 build/frontbackmatter
 chapters/*.pdf
 frontbackmatter/*.pdf
+
+.vscode/
