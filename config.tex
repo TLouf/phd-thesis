@@ -80,6 +80,19 @@
     \usepackage{babel}
 
 \usepackage{csquotes}
+\usepackage{epigraph}
+\usepackage{etoolbox}
+\makeatletter
+\newlength\epitextskip
+\pretocmd{\@epitext}{\slshape}{}{}
+\apptocmd{\@epitext}{\slshape}{}{}
+\patchcmd{\epigraph}{\@epitext{#1}\\}{\@epitext{#1}\\[\epitextskip]}{}{}
+\makeatother
+
+\setlength\epigraphrule{0pt}
+% \setlength\epitextskip{2ex}
+\setlength\epigraphwidth{.7\textwidth}
+
 \PassOptionsToPackage{%
   backend=biber,bibencoding=utf8, %instead of bibtex
   % backend=bibtex8,bibencoding=ascii,%
@@ -96,6 +109,7 @@
     \usepackage{biblatex}
 
 \newrobustcmd*{\citefirstlastauthor}{\AtNextCite{\DeclareNameAlias{labelname}{given-family}}\citeauthor}
+\newcommand{\epigraphcite}[1]{--- \citefirstlastauthor{#1}, \citetitle{#1}~\cite{#1}}
 
 \PassOptionsToPackage{fleqn}{amsmath}       % math environments and more by the AMS
   \usepackage{amsmath}
