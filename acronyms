@@ -1,0 +1,3 @@
+\DeclareAcronym{API}{long = Application Programming Interface}
+\DeclareAcronym{RT}{long = Retweet}
+\DeclareAcronym{QRT}{long = Quote Retweet}

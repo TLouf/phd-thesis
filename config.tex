@@ -121,14 +121,19 @@
 \graphicspath{{figs/}}
 \usepackage{scrhack} % fix warnings when using KOMA with listings package
 \usepackage{xspace} % to get the spacing after macros right
-\PassOptionsToPackage{printonlyused,smaller}{acronym}
-  \usepackage{acronym} % nice macros for handling all acronyms in the thesis
-  %\renewcommand{\bflabel}[1]{{#1}\hfill} % fix the list of acronyms --> no longer working
-  %\renewcommand*{\acsfont}[1]{\textsc{#1}}
-  %\renewcommand*{\aclabelfont}[1]{\acsfont{#1}}
-  %\def\bflabel#1{{#1\hfill}}
-  \def\bflabel#1{{\acsfont{#1}\hfill}}
-  \def\aclabelfont#1{\acsfont{#1}}
+
+\usepackage{acro}
+\acsetup{
+  make-links,
+  use-id-as-short=true,
+  % list/template=tabular,
+  pages/display=all, %first,
+  pages/fill={\qquad},
+  % pages/name=true,
+  format/first-long=\itshape,
+  format/short=\scshape,
+}
+\input{acronyms} 
 % ****************************************************************************************************
 %\usepackage{pgfplots} % External TikZ/PGF support (thanks to Andreas Nautsch)
 %\usetikzlibrary{external}
