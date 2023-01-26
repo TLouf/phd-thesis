@@ -1,3 +1,11 @@
 \DeclareAcronym{API}{long=application programming interface}
 \DeclareAcronym{RT}{long=retweet}
 \DeclareAcronym{QRT}{long=quote retweet}
+\DeclareAcronym{OD}{long=origin-destination}
+\DeclareAcronym{EMD}{long=earth mover's distance}
+\DeclareAcronym{EMR}{long=earth mover's ratio}
+\DeclareAcronym{POI}{long=point of interest}
+\DeclareAcronym{IPF}{long=iterative proportional fitting}
+\DeclareAcronym{CLD}{long=Compact Language Detector}
+\DeclareAcronym{ABM}{long=agent-based model}
+\DeclareAcronym{PCA}{long=principal component analysis}
