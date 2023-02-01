@@ -1,5 +1,6 @@
 \documentclass[../thesis.tex]{subfiles}
 \graphicspath{{\subfix{figs/}}}
+\addbibresource{biblio.bib}
 \begin{document}
 
 \chapter{Methodology}
@@ -29,7 +30,13 @@
 
 \subsection{The case of Twitter}
 
-The biggest source of data we have used throughout this thesis is Twitter. Twitter is a microblogging website where people can register to share and view short posts called Tweets. These can be of three kinds:
+The biggest source of data we have used throughout this thesis is Twitter. Twitter is a
+microblogging website where people can register to share and view short posts called
+Tweets. In them, they can write, mention another user, share images, videos or links to
+other websites. The platform is called a \emph{micro}blogging website because these
+posts cannot exceed 280 characters (140 before 2017). Tweets
+can have a public geotag if the user wishes to include one, which is suggested to the
+user when they tweet with their device's GPS turned on. Tweets can be of three kinds:
 \begin{itemize}
   \item a simple post that appears on the user profile and is shown on the homepage of
   all the users following this user, which is what people generally refer to with the
@@ -41,7 +48,25 @@ The biggest source of data we have used throughout this thesis is Twitter. Twitt
   \item a retweet but with some added text commenting on the quoted post, called
   \ac{QRT}.
 \end{itemize}
-The platform is called a \emph{micro}blogging website because these posts cannot exceed 280 characters (140 before 2017). % TODO more
+There are thus many ways to interact with others, and Twitter thus hosts a huge network
+of inter-user interactions. It is one of the most popular online social media, with
+hundreds of millions of users worldwide. In the US, for instance, since 2015, more than
+\SI{20}{\percent} of the population use the platform \cite{AuxierSocialMedia2021}. Other
+than in the US, it is also popular in many countries globally, although with a slight
+bias towards developed, western countries \cite{HawelkaGeolocatedTwitter2014}. Although
+only around \SI{1}{\percent} of Tweets are geotagged \cite{MorstatterSampleGood2021},
+when only counting in users who tweet with a geotag, in around 80 countries there is more
+than one Twitter user for ten thousand inhabitants \cite{MocanuTwitterBabel2013}.
+
+Hence why Twitter has been extensively used for the analysis of geographically-embedded
+text \cite{ArthurHumanGeography2019, BokanyiRaceReligion2016, BokanyiScalingWords2019,
+GoncalvesCrowdsourcingDialect2014, GoncalvesLearningSpanish2016,
+GoncalvesMappingAmericanization2018, GrieveMappingLexical2019,
+HuangUnderstandingRegional2016, KoyluUncoveringGeoSocial2018, MocanuTwitterBabel2013,
+NguyenAudienceUse2015}.
+
+In the following, we will thoroughly present the steps we take to leverage Twitter as a
+source of geotagged text.
 
 
 \subsubsection{Accessing the data}
@@ -68,26 +93,26 @@ for each Tweet.
   \\
   \begin{SubFloat}{\label{subfig:json}}
     \begin{minipage}[b]{0.95\linewidth}
-      \begin{verbatim}
-        {
-          "id": "1234567890",
-          "text": "Hello, World!",
-          "created_at": "1996-02-07T04:29:05.000Z",
-          "geo": {
-            "place_id": "f68f3d5396bd681c",
-            "coordinates": {
-              "type": "Point",
-              "coordinates": "[2.3295, 51.0249]"
-            }
-          },
-          "source": "Twitter for Minitel",
-          "user": {
-            "id": "123",
-            "username": "t_louf",
-            "name": "Thomas Louf"
-          }
-        }
-      \end{verbatim}
+        \begin{lstlisting}[frame=single,xleftmargin=5mm]
+{
+  "id": "1234567890",
+  "text": "Hello, World!",
+  "created_at": "1996-02-07T04:29:05.000Z",
+  "geo": {
+    "place_id": "f68f3d5396bd681c",
+    "coordinates": {
+      "type": "Point",
+      "coordinates": "[2.3295, 51.0249]"
+    }
+  },
+  "source": "Twitter for Minitel",
+  "user": {
+    "id": "123",
+    "username": "t_louf",
+    "name": "Thomas Louf"
+  }
+}
+      \end{lstlisting}
     \end{minipage}
   \end{SubFloat}
   \caption[]{A Tweet data. We show \subref{subfig:tweet} an example Tweet as displayed
@@ -232,13 +257,13 @@ between $p$ and $c$, respectively, the partial attribution described above yield
 To attribute a cell of residence to each user $u$, we first only consider cells where
 $r_{u, c} \geq 3$ and $r_{u, c} / \sum_{c'} r_{u, c'} \geq 0.1$. We also compute
 $r_{u,c}$ considering only Tweets posted at nighttime (from 6pm to 8am), that we denote
-$r_{u, c}^\text{NT}$. Among those left, the cell of residence $c^*$ is then the one
-such that $r_{u, c^*}^\text{NT} / \sum_{c'} r_{u, c'}^\text{NT} \geq 0.5$, if any. This
+$r_{u, c}^\text{NT}$. Among those left, the cell of residence $c^*$ is then the one such
+that $r_{u, c^*}^\text{NT} / \sum_{c'} r_{u, c'}^\text{NT} \geq 0.5$, if any. This
 roughly means that we impose that a user must have tweeted at least three times and at
 least \SI{10}{\percent} of the time from that cell, and that at night the majority of
 their Tweets were from there. All users for whom a cell of residence cannot be
-attributed are subsequently discarded from the analysis. All three thresholds may be
-adjusted to each analysis, and also tweaked for sensitivity analyses.  
+attributed are subsequently discarded from the analysis. The three thresholds given
+above may be adjusted to each analysis, and also tweaked for sensitivity analyses.  
 
 
 % TODO: rearrange to make this first pre-processing subsubsec? since it's the one done
@@ -246,8 +271,8 @@ adjusted to each analysis, and also tweaked for sensitivity analyses.
 % you need to understand what geotags are...
 \subsubsection{Selecting relevant users}
 \label{sec:method_users_select}
-As we are interested in the natural speech produced by individuals, we start our
-analyses by filtering out users whose behaviour resembles that of a bot. We first
+As we are interested in the natural speech produced by individuals, we actually start
+our analyses by filtering out users whose behaviour resembles that of a bot. We first
 eliminate those tweeting at an inhuman rate, set at an average of ten tweets per hour
 over their whole tweeting period. Then, we only keep those who tweeted either from a
 Twitter official app, Instagram, Foursquare or Tweetbot (a popular third-party app).
@@ -259,8 +284,17 @@ from there in at least three consecutive months.
 
 
 \subsubsection{Caveats}
-No data source is without bias, and Twitter is no exception.
-% cover Twitter (biases but also basic technical details, API, what Tweet looks like), why remove HTs, blabla, language IDtion data driven analysis, cite Bruno papers eg
+No data source is without bias, and Twitter is no exception. First, at the global scale,
+as we already mentioned, Twitter is more representative of people living in western,
+developed countries with widespread access to the Internet
+\cite{HawelkaGeolocatedTwitter2014}. In terms of more local geographical biases, densely
+populated urban areas are usually overrepresented
+\cite{MisloveUnderstandingDemographics2011,JiangUnderstandingDemographic2019,AuxierSocialMedia2021}.
+As for demographics, Twitter users are on average younger
+\cite{NguyenHowOld2013,AuxierSocialMedia2021}, with more degrees and income, and are
+more likely to be a male than the overall population
+\cite{MisloveUnderstandingDemographics2011,AuxierSocialMedia2021}.
+% TODO: conclude
 
 % theoretical models: AS, MW 
 
@@ -272,6 +306,10 @@ No data source is without bias, and Twitter is no exception.
 \subsection{What for}
 
 \subsection{What kind}
+% The traditional theoretical models in science blabla. also social science, but some theory without any empiric evidence
+
+%  Hence machine learning models, learning mathematical models based on observations. But remember what it is we wanted out of the models. Predict yes, but first problem of generalization (what about the data we don't have access to) and second, understanding: finding a mathematical expression that fits our data does not mean it explains it (word that is wrongly used by ML people). Or it explains teh data, but just the data, not the underlying mechanisms. This is why we need both: ML + data can be good to uncover patterns and direct theory, but theory is definitely needed to get proper understanding of nature.
+
 
 \ac{ABM}
 
