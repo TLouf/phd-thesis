@@ -9,3 +9,5 @@
 \DeclareAcronym{CLD}{long=Compact Language Detector}
 \DeclareAcronym{ABM}{long=agent-based model}
 \DeclareAcronym{PCA}{long=principal component analysis}
+\DeclareAcronym{MSOA}{long=middle layer super output area}
+\DeclareAcronym{SES}{long=socio-economic status}
