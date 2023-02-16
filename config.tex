@@ -96,17 +96,21 @@
 \PassOptionsToPackage{%
   backend=biber,bibencoding=utf8, %instead of bibtex
   % backend=bibtex8,bibencoding=ascii,%
-  language=auto,%
-  style=numeric-comp,%
+  language=auto,
+  style=numeric-comp,
   %style=authoryear-comp, % Author 1999, 2010
   %bibstyle=authoryear,dashed=false, % dashed: substitute rep. author with ---
   sorting=nyt, % name, year, title
   maxbibnames=3, % default: 3, et al.
   %backref=true,%
+  eprint=false,
   url=false,
   natbib=true % natbib compatibility mode (\citep and \citet still work)
 }{biblatex}
-    \usepackage{biblatex}
+\usepackage{biblatex}
+\makeatletter
+\newcommand\Setmaxbibnames[1]{\renewcommand\blx@maxbibnames{#1}}
+\makeatother
 
 \newrobustcmd*{\citefirstlastauthor}{\AtNextCite{\DeclareNameAlias{labelname}{given-family}}\citeauthor}
 \newcommand{\epigraphcite}[1]{--- \citefirstlastauthor{#1}, \citetitle{#1}~\cite{#1}}
