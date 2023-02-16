@@ -11,3 +11,4 @@
 \DeclareAcronym{PCA}{long=principal component analysis}
 \DeclareAcronym{MSOA}{long=middle layer super output area}
 \DeclareAcronym{SES}{long=socio-economic status}
+\DeclareAcronym{NLP}{long=natural language processing}

@@ -6,6 +6,8 @@
 \chapter{Methodology}
 \label{ch:methods}
 
+As exposed in the previous chapter, language and society are interwoven in so many ways that sociolinguistics should be studied most carefully. As scientists, we would like to establish simple laws that explain reasonably well the interactions between society and language. But to proclaim a law is not enough to establish it: to do so one needs evidence that supports its claims. That is why we will start this chapter with a presentation of the empirical aspect of our methods, which should come before anything else, before introducing the kind of modelling that is relevant to this study.
+
 % start with recap of previous chapters, into: ok so now what tools can we use. start with "old" way: classic linguistics, transition into computational and finish with complex systems stuff.
 % \cite{NguyenComputationalSociolinguistics2016} 
 
@@ -13,20 +15,109 @@
 % HERE written language exclusively, WHY: our methods, because that's what computers process better
 % SO we lose a lot of things that cannot be transcribed, or that are simply not because it would require considerable effort to do so  (accent, intonation), and access to spoken language is much more limited. also lose all non-verbal communication between human
 
-
-% Enormous amount of information exchanged through language. Data and metadata: . Someone's language tells a lot about them
-
-% methods with books "older data"
-
 % data can say if model is wrong, but not if it's a good one: machine scientist stuff
 
 \section{Data}
 
 \subsection{What for}
+To understand a phenomenon, one should first observe it carefully. From the observation,
+we may then be able to make representative measurements of reality and encounter
+patterns, expected according to our previous knowledge and intuition, or not --- the
+latter being the most interesting case. Indeed, since all models are approximations of
+reality, it is of utmost importance to be able to find out where they fall short.
+Observed data also serve as an essential guide to make sensible hypotheses on which to
+build models.
+
+As we are dealing with language, there is no doubt that the centre of our attention
+should be the language produced by individuals. It is so omnipresent in our lives that
+we can find it anywhere there are human beings, in all kinds of context and in very
+different forms. The amount of information that is available is thus colossal. In
+comparison, our ability to retrieve it is very limited.
+
 
 \subsection{Traditional sources in linguistics}
+This was especially true historically. The field of linguistics is centuries-old, and
+has relied mostly on written texts and transcriptions of interviews throughout its
+history. But despite the considerable efforts that have been made to conserve written records, only a tiny proportion of texts survived through
+centuries. The diachronic study of how language evolves with time has thus very limited
+empirical resources. These sources also used to be only accessible physically, meaning
+the researcher would need to travel to collect the data --- or the other way around.
+This has a cost and is a source of bias: collecting a geographically uniform
+sample is very challenging in these conditions. Less accessible areas, and countries
+where there was no institution systematically keeping written records are thus vastly
+underrepresented.
+
+The texts that were originally in written form present other significant biases. Since
+only the elites were able to write until a couple of centuries ago, the texts available
+to us from the distant past are not representative of the societies of the time. Also,
+for the very nature of the texts that were conserved, colloquial language is almost
+completely absent from those.
+
+Transcriptions of oral productions may help in this regard. Indeed, they potentially
+give access to a different kind of language produced by more diverse speakers. They are
+thus very valuable, but unfortunately also very costly to produce, as they require
+direct involvement of the researcher in the collection process. This takes considerable
+time and effort. This direct involvement also calls for careful procedures to collect
+representative samples of languages, and avoid tainting them with the researchers' own
+biases. 
+
+Using the same kinds of sources to study the languages spoken today has become slightly
+easier. Travelling to most parts of the world is fast and affordable, and anyway
+collected texts can be digitized and then analysed and shared on large scales. There are
+now very large corpora of modern languages, produced in both written
+\cite{GrieveCorpusbasedRegional2009,GrieveRegionalVariation2016,BiberCorpusBasedInvestigations1996,McEnerySwearingModern2004}
+and spoken
+\cite{McEnerySwearingModern2004,SchweinbergerSwearingIrish2018,StenstromTrendsTeenage2002,LabovSocialStratification1966}
+forms, that have been shared among researchers for a vast array of analyses. But the
+written texts still suffer from a lack of representativity, because still today, few
+social classes publish books, articles or letters. Although they are still highly
+relevant for the access they provide to spoken language, conducting interviews and
+transcribing them faithfully still remains time-consuming. Hence the reduced size of the
+oral speech corpora, which are almost exclusively in English.
+
 
 \subsection{New sources from online media}
+The telecommunication age has brought great promise for the collection of natural
+language data. As we already mentioned, sharing information and texts has been made much
+easier. But more importantly, the very nature of the new channels of
+communication that have been opened allow for systematic collection of natural speech,
+both in spoken and written forms. Technically, a mobile network operator can record
+calls, an internet provider or a social media platform can record text sent through them
+--- when not end-to-end encrypted. As these media become more and more globally
+accessible to people, gone should be the issues of sample representativity, and much
+easier should be the collection of linguistic data overall.
+% It would then seem we have built a perfect world for linguistics research with these masses of data being collected through every online interaction.
+
+There are two major caveats to mention here though. First, the systematic collection of
+such data opens up the potential for serious privacy violations. That is why the
+majority of countries have extensive legislation to regulate the collection, processing
+and sharing of telecommunication data. Whether all communication service providers
+actually abide by these laws internally is doubtful
+\cite{GDPREnforcement,GDPRFines2023}, but regardless, they cannot carelessly share
+private data with researchers. This brings us to the second caveat: these data are owned
+by private companies. There is little to no incentive for them to share their data, and
+especially if it requires efforts from them to anonymize the data or make sure that the
+use that is made of them does not breach privacy laws. That is why, when they do open
+channels for sharing them, they are almost always paid. Further, even with good will,
+respecting the privacy of individuals when processing their data is far from trivial. It
+has been shown repetitively that anonymization is tricky, as researchers managed
+to deanonymize some public datasets
+\cite{NarayananRobustDeanonymization2008,GambsDeanonymizationAttack2014}. In order to
+conduct research that is both ethical and legal
+\cite{OhmBrokenPromises2009a,KulkBraveNew2012}, researchers dealing with such data thus
+have to take very particular care.
+
+All in all, the advent of telecommunication has not proven to be the panacea for
+linguistic data that some may have hoped for. But there is still more linguistic
+material to study than ever, as demonstrated by the multiplication of the number of
+works in the field of computational (socio)-linguistics
+\cite{NguyenComputationalSociolinguistics2016}. These have drawn form a variety of
+sources, like blogs \cite{NguyenAuthorAge2011,SchlerEffectsAge2006}, online forums
+\cite{BaruaWhatAre2014,GarleyBeefmovesDissemination2012,NguyenAuthorAge2011}, online
+reviews
+\cite{HovyUserReview2015,Danescu-Niculescu-MizilNoCountry2013,OtterbacherInferringGender2010},
+or a certain microblogging website called Twitter \cite{MocanuTwitterBabel2013,AlshaabiStorywranglerMassive2021,CodyClimateChange2015,ZamalHomophilyLatent2012,LiaoLifetimeLexical2014}.
+
 
 \subsection{The case of Twitter}
 
@@ -48,7 +139,7 @@ user when they tweet with their device's GPS turned on. Tweets can be of three k
   \item a retweet but with some added text commenting on the quoted post, called
   \ac{QRT}.
 \end{itemize}
-There are thus many ways to interact with others, and Twitter thus hosts a huge network
+There are thus many ways to interact with others, and so Twitter hosts a huge network
 of inter-user interactions. It is one of the most popular online social media, with
 hundreds of millions of users worldwide. In the US, for instance, since 2015, more than
 \SI{20}{\percent} of the population use the platform \cite{AuxierSocialMedia2021}. Other
@@ -59,11 +150,7 @@ when only counting in users who tweet with a geotag, in around 80 countries ther
 than one Twitter user for ten thousand inhabitants \cite{MocanuTwitterBabel2013}.
 
 Hence why Twitter has been extensively used for the analysis of geographically-embedded
-text \cite{ArthurHumanGeography2019, BokanyiRaceReligion2016, BokanyiScalingWords2019,
-GoncalvesCrowdsourcingDialect2014, GoncalvesLearningSpanish2016,
-GoncalvesMappingAmericanization2018, GrieveMappingLexical2019,
-HuangUnderstandingRegional2016, KoyluUncoveringGeoSocial2018, MocanuTwitterBabel2013,
-NguyenAudienceUse2015}.
+text \cite{ArthurHumanGeography2019,BokanyiRaceReligion2016,BokanyiScalingWords2019,GoncalvesCrowdsourcingDialect2014,GoncalvesLearningSpanish2016,GoncalvesMappingAmericanization2018, GrieveMappingLexical2019,HuangUnderstandingRegional2016,KoyluUncoveringGeoSocial2018,MocanuTwitterBabel2013,NguyenAudienceUse2015,LamannaImmigrantCommunity2018}.
 
 In the following, we will thoroughly present the steps we take to leverage Twitter as a
 source of geotagged text.
@@ -287,23 +374,60 @@ from there in at least three consecutive months.
 No data source is without bias, and Twitter is no exception. First, at the global scale,
 as we already mentioned, Twitter is more representative of people living in western,
 developed countries with widespread access to the Internet
-\cite{HawelkaGeolocatedTwitter2014}. In terms of more local geographical biases, densely
-populated urban areas are usually overrepresented
+\cite{HawelkaGeolocatedTwitter2014,MocanuTwitterBabel2013}. In terms of more local
+geographical biases, densely populated urban areas are usually overrepresented
 \cite{MisloveUnderstandingDemographics2011,JiangUnderstandingDemographic2019,AuxierSocialMedia2021}.
 As for demographics, Twitter users are on average younger
-\cite{NguyenHowOld2013,AuxierSocialMedia2021}, with more degrees and income, and are
-more likely to be a male than the overall population
-\cite{MisloveUnderstandingDemographics2011,AuxierSocialMedia2021}.
+\cite{NguyenHowOld2013,AuxierSocialMedia2021,SloanWhoTweets2017}, with more degrees and
+income, and more likely to be males
+\cite{MisloveUnderstandingDemographics2011,AuxierSocialMedia2021,SloanWhoTweets2017} than the general population.
 % TODO: conclude
-
-% theoretical models: AS, MW 
 
 % finally computational methods, very general (data, PCA...)
 
 
+\subsection{Tools for natural language processing}
+The increased availability of natural language data has also been followed by the
+development of new tools for \ac{NLP}. Rather than an in-depth review, we will here
+simply mention a few algorithms and tools that were useful to us throughout this thesis.
+Nowadays \ac{NLP} has become familiar to the general public through large language
+models: deep neural networks with billions of parameters trained on billions or
+soon-to-be trillions of tokens. Popular examples are Open AI's GPT models
+\cite{BrownLanguageModels2020} or Google's BERT \cite{DevlinBERTPretraining2019} and its
+derivatives \cite{SanhDistilBERTDistilled2020}, with an increasing number of pre-trained
+models made freely accessible
+\cite{WolfTransformersStateoftheArt2020,MontaniExplosionSpaCy2023}. These kinds of
+models are best known for their derivatives optimized for usage as chatbots, but they
+have many variants and parts that can serve many different functions: lemmatize, that is
+to find the base forms of words (like removing plurals or conjugation), classify
+documents, find similarity between words and documents by embedding them in a vector
+space (with for instance ``word2vec'' \cite{MikolovEfficientEstimation2013} and
+``tok2vec'' \cite{AngelovTop2VecDistributed2020}, respectively). Although they are very
+powerful tools to carry out some tasks, their training is very costly, and most of the
+pre-trained models were trained on rather formal speech, like blog or news articles.
+They are thus not always well suited to analyse social media speech, as found on Twitter
+for instance. Some works have strived to normalize more informal texts, but doing so
+throws away valuable information \cite{EisensteinWhatBad2013}. Also, \ac{NLP} has
+existed for some decades now, and some simpler tools developed further in the past may
+sometimes suffice to carry out some tasks. Latent semantic analysis
+\cite{DumaisLatentSemantic2004} can be good enough to compute document similarities and
+then cluster documents together. Latent dirichlet allocation
+\cite{BleiLatentDirichlet2003} can perform good topic modelling in some settings. A
+recent work has shown that algorithms developed to infer communities in networks can be
+adapted to provide robust topic modeling and document clustering at the same time
+\cite{GerlachNetworkApproach2018}. The tools are thus many, but the context in which
+they are used greatly conditions their actual power.
+
+
+% theoretical models: AS, MW 
+
 \section{Models}
 
+When facing such a complex endeavour, there is only one way to start: simple.
+
 \subsection{What for}
+
+
 
 \subsection{What kind}
 % The traditional theoretical models in science blabla. also social science, but some theory without any empiric evidence
@@ -335,9 +459,6 @@ style\footnote{Hosted at \url{https://www.ctan.org/pkg/classicthesis}} developed
 Andr\'e Miede and Ivo Pletikosić, and the LaTeX Workshop extension\footnote{Hosted at
 \url{https://github.com/James-Yu/LaTeX-Workshop}} of Visual Studio Code.
 % managed the references cited in this work with Zotero https://www.zotero.org/
-
-
-\section{Outline}
 
 
 
