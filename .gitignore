@@ -58,3 +58,4 @@ chapters/*.pdf
 frontbackmatter/*.pdf
 
 .vscode/
+**/*.synctex
