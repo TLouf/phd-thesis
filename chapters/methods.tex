@@ -14,9 +14,6 @@ evidence that supports its claims. That is why we will start this chapter with a
 presentation of the empirical aspect of our methods, before introducing the kind of
 theoretical modelling that is relevant to this study.
 
-% start with recap of previous chapters, into: ok so now what tools can we use. start with "old" way: classic linguistics, transition into computational and finish with complex systems stuff.
-% \cite{NguyenComputationalSociolinguistics2016} 
-
 % different media to convey language
 % HERE written language exclusively, WHY: our methods, because that's what computers process better
 % SO we lose a lot of things that cannot be transcribed, or that are simply not because it would require considerable effort to do so  (accent, intonation), and access to spoken language is much more limited. also lose all non-verbal communication between human
@@ -106,7 +103,7 @@ use that is made of them does not breach privacy laws. That is why, when they do
 channels for sharing them, they are almost always paid. Further, even with good will,
 respecting the privacy of individuals when processing their data is far from trivial. It
 has been shown repetitively that anonymization is tricky, as researchers managed
-to deanonymize some public datasets
+to de-anonymize some public datasets
 \cite{NarayananRobustDeanonymization2008,GambsDeanonymizationAttack2014}. In order to
 conduct research that is both ethical and legal
 \cite{OhmBrokenPromises2009a,KulkBraveNew2012}, researchers dealing with such data thus
@@ -174,7 +171,6 @@ for each Tweet.
 \captionsetup[subfigure]{position=top, labelfont=it,textfont=normalfont,singlelinecheck=off,justification=raggedright}
 \begin{figure}
   \centering
-  % \subfloat{\includegraphics[width=1\textwidth]{tweet_fields.png}}
   \subfloat[][]{
     \label{subfig:tweet}
     \includegraphics[width=0.95\textwidth]{tweet.png}}
@@ -401,7 +397,7 @@ derivatives \cite{SanhDistilBERTDistilled2020}, with an increasing number of pre
 models made freely accessible
 \cite{WolfTransformersStateoftheArt2020,MontaniExplosionSpaCy2023}. These kinds of
 models are best known for their derivatives optimized for usage as chatbots, but they
-have many variants and parts that can serve many different functions: lemmatize, that is
+have many variants and parts that can serve different functions: lemmatize, that is
 to find the base forms of words (like removing plurals or conjugation), classify
 documents, find similarity between words and documents by embedding them in a vector
 space (with for instance ``word2vec'' \cite{MikolovEfficientEstimation2013} and
@@ -414,26 +410,55 @@ throws away valuable information \cite{EisensteinWhatBad2013}. Also, \ac{NLP} ha
 existed for some decades now, and some simpler tools developed further in the past may
 sometimes suffice to carry out some tasks. Latent semantic analysis
 \cite{DumaisLatentSemantic2004} can be good enough to compute document similarities and
-then cluster documents together. Latent dirichlet allocation
+then cluster documents together. Latent Dirichlet allocation
 \cite{BleiLatentDirichlet2003} can perform good topic modelling in some settings. A
 recent work has shown that algorithms developed to infer communities in networks can be
-adapted to provide robust topic modeling and document clustering at the same time
+adapted to provide robust topic modelling and document clustering at the same time
 \cite{GerlachNetworkApproach2018}. The tools are thus many, but the context in which
 they are used greatly conditions their actual power.
 
 
 % theoretical models: AS, MW 
+% data can say if model is wrong, but not if it's a good one: machine scientist stuff
 
-\section{Models}
-
-When facing such a complex endeavour, there is only one way to start: simple.
-
-\subsection{What for}
+\section{Theoretical models}
 
 
+\subsection{What for?}
+We mentioned some models just above, but there is an important distinction to make here
+with the models we will describe further down. The former are machine learning models:
+they are algorithms that, after being trained on input data, can predict some output
+when presented with new data. Hence their name: they are models learnt from data through
+an algorithm. They can even learn so much from the data that they can end up having
+learned the training data itself, which makes them unusable to make further predictions.
+This is what is called over-fitting. But there are many techniques, like
+cross-validation, that can be used to avoid this pitfall. They can also be so complex
+that they become what is known as a black-box model: a model that cannot be interpreted
+in terms of the influence of the input variables, and whose behaviour is thus
+unpredictable. Again, this issue can be alleviated with methods such as the computation
+of Shapley values \cite{ShapleyNotesNPerson1951,StrumbeljExplainingPrediction2014}. But
+crucially, what even the best-trained algorithms cannot provide is explanation. Models,
+as those we will mention further down, and as understood by most scientists, try to
+uncover the mechanisms underlying some observed phenomena. They do not only aim to
+predict, but also lay a fertile ground for further development, and may help
+understand other phenomena than the one they were initially intended to explain
+\cite{EpsteinWhyModel2008}. Additionally, they are built on explicit assumptions, which
+allow to clearly set out their scope of validity. Incidentally, a machine learning model
+needs input data to be trained, but how does one select what variables to look for, what
+measurements to make, and how? That is again where a theory can help. That is why many
+times, throughout the history of science, it was the theory that preceded the empirical
+works \cite{EpsteinWhyModel2008}.
 
-\subsection{What kind}
+
+\subsection{What kind?}
+One of the first things to consider when trying to model a phenomenon is at what level we wish to study it. % TODO meh
+We will here distinguish between two levels: the micro and the macro. 
+% start iwth macr only approach, then hey but we can start from micro and get macro behaviour ,that's like statistical physics
+There are two perspectives one can take when trying to understand the mechanisms at play that make individuals vary their language based on their interactions within society: 
 % The traditional theoretical models in science blabla. also social science, but some theory without any empiric evidence
+% micro \cite{AxelrodDisseminationCulture1997}, \cite{SchellingDynamicModels1971}
+% macro \cite{HanskiMetapopulationDynamics1998}
+% Modeling language shift has been the subject of much research in the last decades \cite{Castellano2009,Boissonneault2021}, which employed various approaches such as the formulation of evolution equations based on ecological models \cite{Mira2005, Pinasco2006, Kandler2008, Sole2010,Heinsalu2014}, of reaction-diffusion equations \cite{Kandler2009,Patriarca2009,Isern2014,Prochazka2017}, or approaches within the framework of agent-based modeling \cite{Castello2006, Minett2008,Castello2013,Prochazka2017}.
 
 %  Hence machine learning models, learning mathematical models based on observations. But remember what it is we wanted out of the models. Predict yes, but first problem of generalization (what about the data we don't have access to) and second, understanding: finding a mathematical expression that fits our data does not mean it explains it (word that is wrongly used by ML people). Or it explains teh data, but just the data, not the underlying mechanisms. This is why we need both: ML + data can be good to uncover patterns and direct theory, but theory is definitely needed to get proper understanding of nature.
 
