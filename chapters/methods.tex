@@ -6,7 +6,13 @@
 \chapter{Methodology}
 \label{ch:methods}
 
-As exposed in the previous chapter, language and society are interwoven in so many ways that sociolinguistics should be studied most carefully. As scientists, we would like to establish simple laws that explain reasonably well the interactions between society and language. But to proclaim a law is not enough to establish it: to do so one needs evidence that supports its claims. That is why we will start this chapter with a presentation of the empirical aspect of our methods, which should come before anything else, before introducing the kind of modelling that is relevant to this study.
+As shown in the previous chapter, language and society are interwoven in so many ways
+that sociolinguistics should be studied most carefully. As scientists, we would like to
+establish simple laws that explain reasonably well the interactions between society and
+language. But to proclaim a law is not enough to establish it: to do so one needs
+evidence that supports its claims. That is why we will start this chapter with a
+presentation of the empirical aspect of our methods, before introducing the kind of
+theoretical modelling that is relevant to this study.
 
 % start with recap of previous chapters, into: ok so now what tools can we use. start with "old" way: classic linguistics, transition into computational and finish with complex systems stuff.
 % \cite{NguyenComputationalSociolinguistics2016} 
@@ -15,10 +21,9 @@ As exposed in the previous chapter, language and society are interwoven in so ma
 % HERE written language exclusively, WHY: our methods, because that's what computers process better
 % SO we lose a lot of things that cannot be transcribed, or that are simply not because it would require considerable effort to do so  (accent, intonation), and access to spoken language is much more limited. also lose all non-verbal communication between human
 
-% data can say if model is wrong, but not if it's a good one: machine scientist stuff
 
 \section{Data}
-
+% TODO: \cite{LazerMeaningfulMeasures2021}?
 \subsection{What for}
 To understand a phenomenon, one should first observe it carefully. From the observation,
 we may then be able to make representative measurements of reality and encounter
@@ -69,9 +74,9 @@ now very large corpora of modern languages, produced in both written
 and spoken
 \cite{McEnerySwearingModern2004,SchweinbergerSwearingIrish2018,StenstromTrendsTeenage2002,LabovSocialStratification1966}
 forms, that have been shared among researchers for a vast array of analyses. But the
-written texts still suffer from a lack of representativity, because still today, few
-social classes publish books, articles or letters. Although they are still highly
-relevant for the access they provide to spoken language, conducting interviews and
+written texts still suffer from a lack of representativity, because, still today, few
+social classes publish books, articles or letters. As for interviews, although they are
+still highly relevant for the access they provide to spoken language, conducting and
 transcribing them faithfully still remains time-consuming. Hence the reduced size of the
 oral speech corpora, which are almost exclusively in English.
 
@@ -127,7 +132,7 @@ Tweets. In them, they can write, mention another user, share images, videos or l
 other websites. The platform is called a \emph{micro}blogging website because these
 posts cannot exceed 280 characters (140 before 2017). Tweets
 can have a public geotag if the user wishes to include one, which is suggested to the
-user when they tweet with their device's GPS turned on. Tweets can be of three kinds:
+user when they tweet with their device's GPS turned on. Tweets can be of four kinds:
 \begin{itemize}
   \item a simple post that appears on the user profile and is shown on the homepage of
   all the users following this user, which is what people generally refer to with the
@@ -139,27 +144,27 @@ user when they tweet with their device's GPS turned on. Tweets can be of three k
   \item a retweet but with some added text commenting on the quoted post, called
   \ac{QRT}.
 \end{itemize}
-There are thus many ways to interact with others, and so Twitter hosts a huge network
-of inter-user interactions. It is one of the most popular online social media, with
+There are many ways to interact with others, and Twitter thus hosts a huge network of
+inter-user interactions. It is one of the most popular online social media, with
 hundreds of millions of users worldwide. In the US, for instance, since 2015, more than
 \SI{20}{\percent} of the population use the platform \cite{AuxierSocialMedia2021}. Other
 than in the US, it is also popular in many countries globally, although with a slight
-bias towards developed, western countries \cite{HawelkaGeolocatedTwitter2014}. Although
-only around \SI{1}{\percent} of Tweets are geotagged \cite{MorstatterSampleGood2021},
-when only counting in users who tweet with a geotag, in around 80 countries there is more
-than one Twitter user for ten thousand inhabitants \cite{MocanuTwitterBabel2013}.
-
-Hence why Twitter has been extensively used for the analysis of geographically-embedded
-text \cite{ArthurHumanGeography2019,BokanyiRaceReligion2016,BokanyiScalingWords2019,GoncalvesCrowdsourcingDialect2014,GoncalvesLearningSpanish2016,GoncalvesMappingAmericanization2018, GrieveMappingLexical2019,HuangUnderstandingRegional2016,KoyluUncoveringGeoSocial2018,MocanuTwitterBabel2013,NguyenAudienceUse2015,LamannaImmigrantCommunity2018}.
-
-In the following, we will thoroughly present the steps we take to leverage Twitter as a
-source of geotagged text.
+bias towards developed, western countries \cite{HawelkaGeolocatedTwitter2014}. Even
+though only around \SI{1}{\percent} of Tweets are geotagged
+\cite{MorstatterSampleGood2021}, when only counting users who tweet with a geotag, in
+around 80 countries there is more than one Twitter user for ten thousand inhabitants
+\cite{MocanuTwitterBabel2013}. Hence why Twitter has been extensively used for the
+analysis of geographically-embedded text
+\cite{ArthurHumanGeography2019,BokanyiRaceReligion2016,BokanyiScalingWords2019,GoncalvesCrowdsourcingDialect2014,GoncalvesLearningSpanish2016,GoncalvesMappingAmericanization2018,
+GrieveMappingLexical2019,HuangUnderstandingRegional2016,KoyluUncoveringGeoSocial2018,MocanuTwitterBabel2013,NguyenAudienceUse2015,LamannaImmigrantCommunity2018},
+and why do so in this thesis as well. In the following, we will thoroughly present the
+steps we take to leverage Twitter as a source of geotagged text.
 
 
 \subsubsection{Accessing the data}
 A major advantage of Twitter for academic research is how open the platform is to giving
 access to its data to researchers. One can send automatic queries to Twitter for data
-through their public \ac{API} \cite{TwitterAPI}. In these queries one can specify rules
+through their public \ac{API} \cite{TwitterAPI}. In these queries, one can specify rules
 to, for instance, retrieve all the Tweets posted in a given country, in a given time
 period, or which contain some given text. All the Twitter data we have used throughout
 this thesis was retrieved from the filtered stream endpoint of the Twitter \ac{API}
@@ -223,7 +228,7 @@ mentions of other users (in the form \texttt{@username}) and hashtags (in the fo
 \texttt{\#topic}). It is not completely obvious that the latter should be discarded
 though. Hashtags are used on Twitter to aggregate Tweets by topics. It is an important
 feature of the website, whose aim is to enable users to easily find the Tweets of other
-users discussing similar topics, inversely to make one's Tweets more discoverable by
+users discussing similar topics, or inversely to make one's Tweets more discoverable by
 others, and to see real time trends on the platform. Hence, there can be completely
 different motivations behind writing a hashtag: to actually tag a Tweet with one or more
 topic, to promote the Tweet, or simply follow a trend. Thus, the content of hashtags can
@@ -260,7 +265,7 @@ stripped of the parts which are irrelevant to us.
 \subsubsection{Inferring geolocation}
 \label{sec:method_geoloc}
 The steps presented above allow us to measure linguistic features of interest from our
-Tweets. A next step we usually take is to map those measurements geographically. We are
+Tweets. A next step we usually take is to map those geographically. We are
 able to do so thanks to the information contained in the \texttt{"geo"} field of a
 Tweet, an example of which is shown in \cref{fig:tweet_data}. This example is actually a
 particular case, because of the presence of the \texttt{"coordinates"} field. This gives
@@ -382,8 +387,6 @@ As for demographics, Twitter users are on average younger
 income, and more likely to be males
 \cite{MisloveUnderstandingDemographics2011,AuxierSocialMedia2021,SloanWhoTweets2017} than the general population.
 % TODO: conclude
-
-% finally computational methods, very general (data, PCA...)
 
 
 \subsection{Tools for natural language processing}
