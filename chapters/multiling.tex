@@ -44,7 +44,7 @@ of reaction-diffusion equations
 or approaches within the framework of agent-based modelling
 \cite{CastelloOrderingDynamics2006,MinettModellingEndangered2008,CaridiSchellingvoterModel2013,ProchazkaQuantifyingDriving2017}.
 While global evolution equations determine how the proportions of each language group
-will evolve in a system, agent-based models (ABMs) describe the shifting mechanisms on
+will evolve in a system, \acp{ABM} describe the shifting mechanisms on
 an individual level, as they provide probabilities to switch to another language group.
 These transition probabilities depend on the linguistic environment of the individual,
 environment which may be defined in many ways. Different networks of interactions can be
@@ -52,13 +52,13 @@ introduced, ranging from the simplest (fully-connected networks) to more realist
 less tractable ones (like a real-world social network). The former lend themselves
 easily to mathematical analysis as they can be equivalently written in terms of global
 evolution equations for large population sizes. As a result, models based on global
-evolution equations are a subset of the more general, agent-based ones. Moreover, ABMs
+evolution equations are a subset of the more general, agent-based ones. Moreover, \acp{ABM}
 allow to assess the impact of the social structure on the dynamics. This social
 structure is closely related to space, but in a non-trivial way, and as there is no
 model that can claim to be the universal solution to build spatial interaction networks
 \cite{BarbosaHumanMobility2018}, being able to plug in any kind of interaction network
-is an interesting feature of ABMs. It is for all these reasons that the focus of this
-article will be on ABMs. The first notable model to mention is the Abrams-Strogatz model
+is an interesting feature of \acp{ABM}. It is for all these reasons that the focus of this
+article will be on \acp{ABM}. The first notable model to mention is the Abrams-Strogatz model
 \cite{AbramsModellingDynamics2003}. It was the first to attract considerable attention
 as the authors were able to fit their model to the historical data of multiple languages
 threatened by extinction, and subsequently predicted their death. The model is very
@@ -99,7 +99,7 @@ In this work, we combine a large-scale empirical study of the spatial distributi
 languages with agent-based modelling. In Sec. II, we show empirically that multilingual
 societies are characterized by different spatial patterns in the populations of
 monolinguals and bilinguals, encompassing fully mixed states and segregated
-distributions with a clear linguistic boundary. As the existing ABMs are not able to
+distributions with a clear linguistic boundary. As the existing \acp{ABM} are not able to
 explain the range of spatial mixing observed, we introduce in Sec. III a model able to
 capture the diversity seen in the data. The model also shows how the behaviour of
 bilinguals and the ease of learning a language have their importance for the coexistence
@@ -204,7 +204,7 @@ the mixing at the cell level.
 
 \begin{figure*}[p!]
   \centering
-  \includegraphics{cat_be_maps}
+  \includegraphics{cat_be_maps.png}
   \caption{Paradigmatic examples illustrating the diversity of multilingual societies.
   For each cell of $10 \times 10 \, \si{\kilo \meter \squared}$, the proportions
   $p_{L,i}$ of monolinguals in (a) French, (b) Catalan, (c) Dutch and (d) Spanish in
@@ -311,14 +311,14 @@ Luxembourg), and it is widespread in the second (Fig.
 multilingual regions listed in the SI Table S1 are shown in the SI Figs. S1-S14
 \cite{supp}. These findings are summarized in Fig.
 \ref{fig:EMR_countries}(g)-(h), which presents the ranges of
-values reached by the EMR of respectively the monolingual and multilingual groups in 14
+values reached by the \ac{EMR} of respectively the monolingual and multilingual groups in 14
 of our 16 regions of interest. We filtered out regions where we deemed not sufficient
 the statistics gathered from Twitter (see the SI Table S2 for all measured metrics and
 cell sizes used \cite{supp}). A wide diversity of situations can be observed.
 Multilingual societies may have rather balanced monolingual groups separated by a
-clear-cut border, which have thus high but quite similar EMR values, like in Belgium and
+clear-cut border, which have thus high but quite similar \ac{EMR} values, like in Belgium and
 Switzerland. One can also see unbalanced situations where one language is majoritarian,
-and has thus a much lower EMR than the monolinguals and multilinguals of other smaller,
+and has thus a much lower \ac{EMR} than the monolinguals and multilinguals of other smaller,
 isolated languages. This is for example the case on the island of Java, where Indonesian
 is widespread, and Javanese and Sundanese are more localised. Multilinguals may also be
 mixing well in the whole population, like the bilinguals in Galicia and Catalonia. These
@@ -507,7 +507,7 @@ unnecessary complexity.
 
 \begin{figure*}
     \centering
-    \includegraphics[width=\textwidth]{single_pop_stream_plots}
+    \includegraphics[width=\textwidth]{single_pop_stream_plots.png}
     \caption{Flow diagrams for the dynamics of two languages according to our model
     described in equation \eqref{eq:bipref_model} set in a well-mixed population.
     $p_{\text{A}}$ and $p_{\text{B}}$ denote the proportions of monolinguals in A and B,
@@ -608,7 +608,7 @@ distance-kernel-based models
 
 \begin{figure}[hp!]
 \centering
-    \includegraphics{single_to_metapop_BE}
+    \includegraphics{single_to_metapop_BE.png}
     \caption{Types of stable states of convergence of our model in a metapopulation set
     for Belgium. (a) Diagram illustrating the effect of adding metapopulations
     in the stable states of a single population: the former extinction state bifurcates
@@ -632,8 +632,8 @@ socio-demographic biases
 reflect language use online, not necessarily the offline practices in the full
 population. Since in the census we found information on the total number of persons per
 language group and of residents per municipality, we have scaled the $L$-speakers that
-we find on Twitter to match these two sets of marginal sums via Iterative Proportional
-Fitting (IPF) \cite{DemingLeastSquares1940,FienbergIterativeProcedure1970}.
+we find on Twitter to match these two sets of marginal sums via iterative proportional
+fitting \cite{DemingLeastSquares1940,FienbergIterativeProcedure1970}.
 
 Once the metapopulation has been initialised, the model can be simulated. As in Ref.
 \cite{Fernandez-GraciaVoterModel2014}, the day is divided in two parts: the individuals
@@ -690,24 +690,24 @@ monolinguals elsewhere (see SI Fig. S15 \cite{supp}).
 \subsection{Dynamics in the parameters}
 \begin{figure}
 \centering
-    \includegraphics{varying_c_sep_to_mix_to_sep}
+    \includegraphics{varying_c_sep_to_mix_to_sep.png}
     \caption{Evolution of the state of the metapopulation model in Belgium when $c$
     varies, first slowly increased and then decreased to recover the original value. We
     fixed $s=q=1/2$ and $\mu=0.02$. (a) Evolution of the global proportions
     $p_L$ of individuals belonging to each $L$-group. The blue curve corresponds to
     French monolinguals, light green to Dutch monolinguals and dark green to bilinguals.
-    (b) Trajectory of the system in the EMR space: on the $x$-axis the average
-    of the EMR between each monolingual community and the whole population, and on the
+    (b) Trajectory of the system in the \ac{EMR} space: on the $x$-axis the average
+    of the \ac{EMR} between each monolingual community and the whole population, and on the
     $y$-axis the one between bilinguals and the whole population. The initial state and
     the stable states the system went through are marked by coloured circles, while black
-    ones mark additional points where the EMR was calculated, and the dashed line the
+    ones mark additional points where the \ac{EMR} was calculated, and the dashed line the
     interpolation between them. (c) Polarization maps of French in the initial
     and final states, both featuring a boundary but located in different areas, thus
     showing the irreversibility of the dynamics. (d)-(e) Polarization
     maps of French in the final states of simulations including transborder commuters
     from France and the Netherlands, respectively with proportions $p_{\text{TB}}$ equal
     to $0.5\%$ and $0.2\%$ of the population of the border municipalities of these two
-    countries. The points in the EMR space corresponding to these final states are also
+    countries. The points in the \ac{EMR} space corresponding to these final states are also
     represented in panel (b).}
     \label{fig:varying_c_sep_to_mix_to_sep}
 \end{figure}
@@ -730,7 +730,7 @@ monolinguals, like in Fig. \ref{fig:single_to_metapop_BE}(e). $c$ is then
 decreased at the same rate as before to reach its initial value of $0.005$. The system
 eventually converges to a state displaying a boundary, but displaced compared to its
 initial position. The
-resulting trajectory in the EMR space in Fig.
+resulting trajectory in the \ac{EMR} space in Fig.
 \ref{fig:varying_c_sep_to_mix_to_sep}(b) shows that the final stable state
 exhibits more segregation for both monolinguals and bilinguals, since the boundary
 between communities lies in the countryside, and not around Brussels as in the original
@@ -751,7 +751,7 @@ Fig. \ref{fig:varying_c_sep_to_mix_to_sep}(d-e)). This positioning is a
 clear improvement over the closed-system simulation, albeit still not quite the one we
 observed in Fig. \ref{fig:cat_be_maps}. In Fig.
 \ref{fig:varying_c_sep_to_mix_to_sep}(b), the positions of these two states in
-the EMR space are also shown to be much closer to the original state than the final
+the \ac{EMR} space are also shown to be much closer to the original state than the final
 state of the first trajectory.
 
 More complex settings could be envisaged to get closer to a realistic solution. A
