@@ -451,19 +451,95 @@ works \cite{EpsteinWhyModel2008}.
 
 
 \subsection{What kind?}
-One of the first things to consider when trying to model a phenomenon is at what level we wish to study it. % TODO meh
-We will here distinguish between two levels: the micro and the macro. 
-% start iwth macr only approach, then hey but we can start from micro and get macro behaviour ,that's like statistical physics
-There are two perspectives one can take when trying to understand the mechanisms at play that make individuals vary their language based on their interactions within society: 
-% The traditional theoretical models in science blabla. also social science, but some theory without any empiric evidence
-% micro \cite{AxelrodDisseminationCulture1997}, \cite{SchellingDynamicModels1971}
-% macro \cite{HanskiMetapopulationDynamics1998}
-% Modeling language shift has been the subject of much research in the last decades \cite{Castellano2009,Boissonneault2021}, which employed various approaches such as the formulation of evolution equations based on ecological models \cite{Mira2005, Pinasco2006, Kandler2008, Sole2010,Heinsalu2014}, of reaction-diffusion equations \cite{Kandler2009,Patriarca2009,Isern2014,Prochazka2017}, or approaches within the framework of agent-based modeling \cite{Castello2006, Minett2008,Castello2013,Prochazka2017}.
+One of the first things to consider when trying to model a phenomenon is at what level
+we wish to study it. % TODO meh
+We will here distinguish between two levels: the microscopic and the macroscopic. To
+illustrate this distinction, we will take the example of the modelling of language
+competition, which has been approached by many physicists and applied mathematicians
+with different frameworks
+\cite{CastellanoStatisticalPhysics2009,BoissonneaultSystematicInterdisciplinary2021}.
 
-%  Hence machine learning models, learning mathematical models based on observations. But remember what it is we wanted out of the models. Predict yes, but first problem of generalization (what about the data we don't have access to) and second, understanding: finding a mathematical expression that fits our data does not mean it explains it (word that is wrongly used by ML people). Or it explains teh data, but just the data, not the underlying mechanisms. This is why we need both: ML + data can be good to uncover patterns and direct theory, but theory is definitely needed to get proper understanding of nature.
+At the macro level, one considers the system of interest as a whole and tries to come up
+with equations that describe the dynamics of some global metrics that summarise the
+state of the system. In language competition, the system can be a society with many more
+internal than external interactions, like a country, and the global metrics can be the
+proportions of people speaking each language. One such model that has been very
+influential in language competition modelling is the Abrams-Strogatz model
+\cite{AbramsModellingDynamics2003}. It considers a group where individuals speak either
+language A or B. It captures the fact that, the more people speak A, and the more
+prestigious A is in society, the more B speakers will want to switch to A, and
+inversely. Its proposal is considered a seminal work in this field for the simplicity of
+its formulation, which inspired many further works. The model is defined by a single
+equation:
+\begin{equation}
+  \label{eq:AS_dt}
+  \dv{p_A}{t} = (1 - p_A) s p_A^a - p_A (1 - s) (1 - p_A)^a,
+\end{equation}
+thus describing the evolution with time of the proportions of A speakers $p_A$, which
+depends on an exponent $a$ and a factor $s \in [0, 1]$ called the relative status of
+language A. When this status has a value above 0.5, A is relatively more prestigious
+than B, and the inverse is true when it is below 0.5. The exponent $a$, later on called
+(inverse) volatility, controls the effect of social pressure. For instance, in the first
+term of equation \eqref{eq:AS_dt}, it controls how much influence the proportion of A
+speakers $p_A$ will have on the B speakers --- present in a proportion equal to $(1 -
+p_A)$ --- when considering learning A. The lower $a$, or the higher the volatility, the
+more importance this term will have, so the easier the switch. A clear advantage of such
+a model is its high tractability. First, it is straightforward to fit to existing data,
+which is what \citeauthor{AbramsModellingDynamics2003} did in
+\cite{AbramsModellingDynamics2003} with historical data on the proportion of speakers of
+Scottish Gaelic, Welsh and Quechua, thus predicting the death of these languages.
+Second, it lends itself to mathematical analysis, which in this instance allowed
+\citeauthor{VazquezAgentBased2010} to determine that the model only allowed stable
+coexistence of two languages for $a > 1$ \cite{VazquezAgentBased2010}. Many other models
+of the same kind have been proposed to understand language shift, extending previous
+formulations to consider additional aspects of the problem
+\cite{MiraInterlinguisticSimilarity2005,PinascoCoexistenceLanguages2006,HeinsaluRoleBilinguals2014,MinettModellingEndangered2008},
+with several taking inspiration from models of interspecies competition from ecology
+\cite{KandlerEcologicalModels2008,SoleDiversityCompetition2010}, and others taking the
+spatial evolution into account as well using reaction-diffusion-like models
+\cite{KandlerDemographyLanguage2009,PatriarcaInfluenceGeography2009,IsernLanguageExtinction2014,ProchazkaQuantifyingDriving2017}.
+% macro \cite{HanskiMetapopulationDynamics1998}??
 
+While some social aspects can be modelled with some parameters in global equations, the
+social structure itself can hardly be incorporated into this kind of model. That is
+where the micro approach shines, notably with a class of models called \acp{ABM}. In
+such a model, it is not the evolution of the global population that is modelled, but the
+evolution of the state of each individual, or agent, in that population. Their state
+could be linked to a linguistic variable, or even a set of them. In the case of language
+competition, it may be the language(s) they speak. The model then defines switching
+rules between states. For instance, one can rewrite the Abrams-Strogatz model of
+\eqref{eq:AS_dt} as an \ac{ABM}, writing the following transition probabilities:
+\begin{equation}
+  \label{eq:AS_ABM}
+  \begin{aligned}
+    P(A \rightarrow B) &= (1 - s) (1 - p_A)^a, \\
+    P(B \rightarrow A) &= s p_A^a,
+  \end{aligned}
+\end{equation}
+from A to B, and B to A, respectively. Each agent, in function of their current state,
+may switch to another, with potentially their own probability. Indeed, if each agent
+sees different proportions $p_A$, because they interact with different people, then the
+social structure can be reflected in \eqref{eq:AS_ABM}. And from this transition rule,
+any kind of social structure can be plugged into the model, from the very basic but
+mathematically-tractable complete network, to more realistic social networks from
+synthetic models or even real-world data. \Acp{ABM} of language competition have thus
+been tested in 2D lattices, small-world networks \cite{WattsCollectiveDynamics1998}, or
+synthetic networks with community structure
+\cite{CastelloOrderingDynamics2006,MinettModellingEndangered2008,CaridiSchellingvoterModel2013,CastelloAgentbasedModels2013,VazquezAgentBased2010}. They may still allow for analytic study, especially working in the simple case of a complete network of interactions and in mean-field, as these approximations enable to write evolution equations that may provide a good, approximate prediction of the average global trend in the population \cite{VazquezAgentBased2010}. We have here cited works focused on language dynamics, from physicists mainly, but there is a long tradition of leveraging \acp{ABM} in the social sciences, with the seminal works of Axelrod on the dissemination of culture \cite{AxelrodDisseminationCulture1997}, or Schelling's on the emergence of segregation \cite{SchellingDynamicModels1971}.
 
-\ac{ABM}
+Despite their nature, one should not expect these models to offer predictions at the
+micro, or individual, level. Even though they define rules at this level, they do not
+--- or at least should not --- claim that they predict the behaviour of each individual.
+Rather, what they try to achieve is chiefly to capture the crucial mechanisms that give
+rise to observed global trends \cite{MacyFactorsActors2002}. In that regard they are
+thus not so different from models defined at the macroscopic level. What they definitely
+bring to the table is how they enable us to study how some properties of the social
+structure may matter in sustaining the observed dynamics. For example, they can provide
+insights into questions with a long history in social sciences
+\cite{LatanePsychologySocial1981}, such as: does this cultural feature persist in part
+of the population partly because it creates a sense a group identity that binds people
+together? Will the increasing number of contacts between these populations tend to
+smooth out differences between them?
 
 
 \section{Source materials and tools}
