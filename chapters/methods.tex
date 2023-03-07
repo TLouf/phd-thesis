@@ -21,7 +21,7 @@ theoretical modelling that is relevant to this study.
 
 \section{Data}
 % TODO: \cite{LazerMeaningfulMeasures2021}?
-\subsection{What for}
+\subsection{What for?}
 To understand a phenomenon, one should first observe it carefully. From the observation,
 we may then be able to make representative measurements of reality and encounter
 patterns, expected according to our previous knowledge and intuition, or not --- the
@@ -84,7 +84,7 @@ language data. As we already mentioned, sharing information and texts has been m
 easier. But more importantly, the very nature of the new channels of
 communication that have been opened allow for systematic collection of natural speech,
 both in spoken and written forms. Technically, a mobile network operator can record
-calls, an internet provider or a social media platform can record text sent through them
+calls, and an internet provider or a social media platform can record text sent through them
 --- when not end-to-end encrypted. As these media become more and more globally
 accessible to people, gone should be the issues of sample representativity, and much
 easier should be the collection of linguistic data overall.
@@ -168,7 +168,7 @@ this thesis was retrieved from the filtered stream endpoint of the Twitter \ac{A
 \cite{TwitterAPIa}. We show in \cref{fig:tweet_data} an example of the data we can have
 for each Tweet.
 
-\captionsetup[subfigure]{position=top, labelfont=it,textfont=normalfont,singlelinecheck=off,justification=raggedright}
+\captionsetup[subfigure]{position=top,textfont=normalfont,singlelinecheck=off,justification=raggedright}
 \begin{figure}
   \centering
   \subfloat[][]{
@@ -380,7 +380,7 @@ geographical biases, densely populated urban areas are usually overrepresented
 \cite{MisloveUnderstandingDemographics2011,JiangUnderstandingDemographic2019,AuxierSocialMedia2021}.
 As for demographics, Twitter users are on average younger
 \cite{NguyenHowOld2013,AuxierSocialMedia2021,SloanWhoTweets2017}, with more degrees and
-income, and more likely to be males
+income, and more likely to be male
 \cite{MisloveUnderstandingDemographics2011,AuxierSocialMedia2021,SloanWhoTweets2017} than the general population.
 % TODO: conclude
 
@@ -397,18 +397,18 @@ derivatives \cite{SanhDistilBERTDistilled2020}, with an increasing number of pre
 models made freely accessible
 \cite{WolfTransformersStateoftheArt2020,MontaniExplosionSpaCy2023}. These kinds of
 models are best known for their derivatives optimized for usage as chatbots, but they
-have many variants and parts that can serve different functions: lemmatize, that is
-to find the base forms of words (like removing plurals or conjugation), classify
-documents, find similarity between words and documents by embedding them in a vector
+have many variants and parts that can serve different functions: lemmatizing, that is
+finding the base forms of words (like removing plurals or conjugation), classifying
+documents, finding similarity between words and documents by embedding them in a vector
 space (with for instance ``word2vec'' \cite{MikolovEfficientEstimation2013} and
 ``tok2vec'' \cite{AngelovTop2VecDistributed2020}, respectively). Although they are very
 powerful tools to carry out some tasks, their training is very costly, and most of the
 pre-trained models were trained on rather formal speech, like blog or news articles.
 They are thus not always well suited to analyse social media speech, as found on Twitter
-for instance. Some works have strived to normalize more informal texts, but doing so
-throws away valuable information \cite{EisensteinWhatBad2013}. Also, \ac{NLP} has
-existed for some decades now, and some simpler tools developed further in the past may
-sometimes suffice to carry out some tasks. Latent semantic analysis
+for instance. Some works have strived to normalize informal texts, but doing so throws
+away valuable information \cite{EisensteinWhatBad2013}. Also, \ac{NLP} has existed for
+some decades now, and some simpler tools developed further in the past may sometimes
+suffice to carry out some tasks. Latent semantic analysis
 \cite{DumaisLatentSemantic2004} can be good enough to compute document similarities and
 then cluster documents together. Latent Dirichlet allocation
 \cite{BleiLatentDirichlet2003} can perform good topic modelling in some settings. A
@@ -431,7 +431,7 @@ they are algorithms that, after being trained on input data, can predict some ou
 when presented with new data. Hence their name: they are models learnt from data through
 an algorithm. They can even learn so much from the data that they can end up having
 learned the training data itself, which makes them unusable to make further predictions.
-This is what is called over-fitting. But there are many techniques, like
+This is what is called over-fitting. But there are many techniques, like regularization or
 cross-validation, that can be used to avoid this pitfall. They can also be so complex
 that they become what is known as a black-box model: a model that cannot be interpreted
 in terms of the influence of the input variables, and whose behaviour is thus
