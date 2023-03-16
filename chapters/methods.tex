@@ -1,6 +1,9 @@
 \documentclass[../thesis.tex]{subfiles}
 \graphicspath{{\subfix{figs/methods/}}}
 \addbibresource{biblio.bib}
+\pgfplotstableset{
+  search path={\subfix{data}},
+}
 \begin{document}
 
 \chapter{Methodology}
@@ -8,7 +11,7 @@
 
 As shown in the previous chapter, language and society are interwoven in so many ways
 that sociolinguistics should be studied most carefully. As scientists, we would like to
-establish simple laws that explain reasonably well the interactions between society and
+establish general principles that explain reasonably well the interactions between society and
 language. But to proclaim a law is not enough to establish it: to do so one needs
 evidence that supports its claims. That is why we will start this chapter with a
 presentation of the empirical aspect of our methods, before introducing the kind of
@@ -20,7 +23,7 @@ theoretical modelling that is relevant to this study.
 
 
 \section{Data}
-% TODO: \cite{LazerMeaningfulMeasures2021}?
+% TODO: \cite{LazerMeaningfulMeasures2021}? \cite{LazerComputationalSocial2009}?
 \subsection{What for?}
 To understand a phenomenon, one should first observe it carefully. From the observation,
 we may then be able to make representative measurements of reality and encounter
@@ -34,14 +37,14 @@ As we are dealing with language, there is no doubt that the centre of our attent
 should be the language produced by individuals. It is so omnipresent in our lives that
 we can find it anywhere there are human beings, in all kinds of context and in very
 different forms. The amount of information that is available is thus colossal. In
-comparison, our ability to retrieve it is very limited.
+comparison, our ability to retrieve it is quite limited.
 
 
 \subsection{Traditional sources in linguistics}
 This was especially true historically. The field of linguistics is centuries-old, and
 has relied mostly on written texts and transcriptions of interviews throughout its
 history. But despite the considerable efforts that have been made to conserve written records, only a tiny proportion of texts survived through
-centuries. The diachronic study of how language evolves with time has thus very limited
+centuries. The diachronic study of how language evolves with time has thus limited
 empirical resources. These sources also used to be only accessible physically, meaning
 the researcher would need to travel to collect the data --- or the other way around.
 This has a cost and is a source of bias: collecting a geographically uniform
@@ -71,7 +74,7 @@ now very large corpora of modern languages, produced in both written
 and spoken
 \cite{McEnerySwearingModern2004,SchweinbergerSwearingIrish2018,StenstromTrendsTeenage2002,LabovSocialStratification1966}
 forms, that have been shared among researchers for a vast array of analyses. But the
-written texts still suffer from a lack of representativity, because, still today, few
+written texts still suffer from a lack of representativity, since, still today, few
 social classes publish books, articles or letters. As for interviews, although they are
 still highly relevant for the access they provide to spoken language, conducting and
 transcribing them faithfully still remains time-consuming. Hence the reduced size of the
@@ -164,9 +167,15 @@ through their public \ac{API} \cite{TwitterAPI}. In these queries, one can speci
 to, for instance, retrieve all the Tweets posted in a given country, in a given time
 period, or which contain some given text. All the Twitter data we have used throughout
 this thesis was retrieved from the filtered stream endpoint of the Twitter \ac{API}
-\cite{TwitterAPIa}. We show in \cref{fig:tweet_data} an example of the data we can have
-for each Tweet.
+\cite{TwitterAPIa}. They are all geotagged Tweets posted between 2015 and 2021, both
+years included, without any geographic restriction, which implies that, a priori, they
+could have originated from anywhere in the world.
 
+We show in \cref{fig:tweet_data} an example of the data we can have for each Tweet.
+There are two fields in these data that particularly interest us for the works we will
+present in the next part and that need careful processing: the textual content of the
+Tweet (in \texttt{"text"}) and its geotag (in \texttt{"geo"}). Next, we detail the usual
+steps we take to process these. 
 \captionsetup[subfigure]{position=top,textfont=normalfont,singlelinecheck=off,justification=raggedright}
 \begin{figure}
   \centering
@@ -209,11 +218,6 @@ for each Tweet.
   \label{fig:tweet_data}
 \end{figure}
 
-There are two fields in these data that particularly interest us for the works we will
-present in the next part and that need careful processing: the textual content of the
-Tweet (in \texttt{"text"}) and its geotag (in \texttt{"geo"}). Next, we detail the usual
-steps we take to process these. 
-
 
 \subsubsection{Text processing}
 \label{sec:method_text_process}
@@ -236,9 +240,10 @@ characters within a hashtag compared to the total number of characters left in t
 Tweets. This proportion was found to be consistently below \SI{5}{\percent}. We thus
 consider the precaution of stripping hashtags off of Tweets worth taking. One last kind
 of element that we discard are source-dependent. We will not go into details --- our
-text processing code is freely available online anyway --- but, for instance, when a
-Tweet was sent from Foursquare, we strip all location-related content, which can be
-located after either a \texttt{``I'm at''} or \texttt{``( @ ''} string.
+text-processing code is freely available online anyway \cite{LoufWordsuse2023} --- but,
+for instance, when a Tweet was sent from Foursquare, we strip all location-related
+content, which can be located after either a \texttt{``I'm at''} or \texttt{``( @ ''}
+string.
 
 In practice, all the elements cited above are stripped off of Tweets using regular
 expressions. After this cleaning step, for what follows we then keep only the Tweets
@@ -272,8 +277,8 @@ actually have this enabled: from our measurements, roughly between $10$ and
 \SI{20}{\percent} of those who posted with their GPS enabled between 2015 and 2019,
 depending on the country. This setting has been in place since 2015, which is the
 starting year of the datasets we have used throughout this thesis. So when a user
-enables their device's GPS with precise geolocation disabled and this
-\texttt{"coordinates"} field is absent, how do we infer geolocation? In this majority
+has enabled their device's GPS but has disabled precise geotagging, this
+\texttt{"coordinates"} field is absent, how do we then infer geolocation? In this majority
 case, the geotag we have is the \texttt{"place\_id"} we show in the example. This
 identifies a place: a specific, named location, which can be of different scales:
 \begin{itemize}
@@ -310,17 +315,32 @@ doing this cell matching, we thus rather do a partial attribution. We attribute 
 Tweet to possibly more than one cell, with ratios defined by the ones of the place's
 area that lies within each cell. For the example above, and when computing a basic
 metric like a count, this means that we attribute \SI{51}{\percent} of the count to one
-cell and \SI{49}{\percent} to the other. Because the scales of places span orders of
+cell and \SI{49}{\percent} to the other. Because the sizes of places span orders of
 magnitude, some may intersect many cells. There can then be so much uncertainty in the
 actual geographic origin of the Tweet that it is preferable to discard it. Our criterion
 here is that when the four cells which contain most of the place's area put together do
 not contain more than \SI{90}{\percent} of its total area, the place, and all the Tweets
-assigned to it, are discarded. 
+assigned to it, are discarded.
 
 As the activity of Twitter users was found to follow a log-normal distribution spanning
-almost four orders of magnitude \cite{MocanuTwitterBabel2013}, it can be preferable to
-compute metrics at the user level. Indeed, at the Tweet level, the linguistic behaviour
+almost four orders of magnitude, as shown in \cref{fig:distrib_user_acty}, it can be
+preferable to compute metrics at the user level.
+Indeed, at the Tweet level, the linguistic behaviour
 of the most active users could overshadow the one of the many, less active users.
+\begin{figure}[hb]
+\centering
+  \includegraphics[width=\textwidth]{distrib_user_acty}
+  \caption{Distribution of the activity of Twitter users. The probability density $p(N)$
+  of user activity (number of daily tweets $N$) grouped by country (left) and language
+  (right) is plotted. Different curves collapse naturally, which indicates the presence
+  of a seemingly universal distribution of user activity, independent of cultural
+  backgrounds. Dashed lines represent log-normal distributions $p(N) \sim 1 / (N \sigma
+  \sqrt{2 \pi}) \cdot \exp[-( \ln N - \mu)^2 / 2 \sigma^2]$ with $\mu = -5.16$ and
+  $\sigma = 1.67$ on the left and $\mu = -5.55$ and $\sigma = 1.70$ on the right.
+  Adapted from \cite{MocanuTwitterBabel2013}.}
+  \label{fig:distrib_user_acty}
+\end{figure}
+
 Individuals are mobile but for the vast majority they have a preferred location, namely
 their place of residence. That is why we often strive to attribute a cell of residence
 to the users in our datasets. To explain the heuristics we defined for residence
@@ -328,12 +348,11 @@ attribution, let us first formalise some notation. For each user $u$, there are 
 counts we get directly from their Tweets: the number of them with GPS coordinates that
 fall in cell $c$: $n_{u, c}^{\text{GPS}}$, and those without coordinates but tagged as
 being from place $p$: $n_{u, p}$.  We wish to compute $r_{u, c} \in \mathbb{R}^+$, the
-ratio of Tweets of user $u$ in cell $c$. It can be decomposed into the contributions of
-those with GPS coordinates $r_{u, c}^{\text{GPS}}$, and of the others: $r_{u,
+weighted count of Tweets of user $u$ in cell $c$. It can be decomposed into the contributions of
+those with GPS coordinates, $n_{u, c}^{\text{GPS}}$, and of those tagged with a place, $r_{u,
 c}^{\text{P}}$:
 \begin{equation}
   r_{u, c}
-    = r_{u, c}^{\text{GPS}} + r_{u, c}^{\text{P}}
     = n_{u, c}^{\text{GPS}} + r_{u, c}^{\text{P}}.
 \end{equation}
 Denoting $A_p$ and $A_{p \cap c}$ the areas of the place $p$ and of the intersection
@@ -341,6 +360,21 @@ between $p$ and $c$, respectively, the partial attribution described above yield
 \begin{equation}
   r_{u, c} = n_{u, c}^{\text{GPS}} + \sum_p n_{u, p} \frac{A_{p \cap c}}{A_p}.
 \end{equation}
+We provide an illustration for this cell attribution in
+\cref{fig:tweet_partial_attrib_diagram}.
+\begin{figure}[hb]
+\centering
+  \includegraphics{tweet_partial_attrib_diagram}
+  \caption{Diagram illustrating how geotagged Tweets are attributed to cells. A first
+  Tweet has GPS coordinates $(x, y)$ attached to it, and can thus be directly attributed
+  to $c_4$. It thus increments $n_{u, c_4}^{\text{GPS}}$ by 1. Another is tagged in
+  place $p$, defined by a bounding box, shown in blue. It will be attributed partially
+  to $c_2$, $c_3$ and $c_5$, with weights equal to the ratio of overlapping area
+  $A_{p \cap c_k} / A_p$, thus incrementing $r_{u, c_k}^{\text{P}}$ by these
+  values for the three cells.}
+  \label{fig:tweet_partial_attrib_diagram}
+\end{figure}
+
 To attribute a cell of residence to each user $u$, we first only consider cells where
 $r_{u, c} \geq 3$ and $r_{u, c} / \sum_{c'} r_{u, c'} \geq 0.1$. We also compute
 $r_{u,c}$ considering only Tweets posted at nighttime (from 6pm to 8am), that we denote
@@ -350,12 +384,11 @@ roughly means that we impose that a user must have tweeted at least three times 
 least \SI{10}{\percent} of the time from that cell, and that at night the majority of
 their Tweets were from there. All users for whom a cell of residence cannot be
 attributed are subsequently discarded from the analysis. The three thresholds given
-above may be adjusted to each analysis, and also tweaked for sensitivity analyses.  
+above were chosen because we believe them to be reasonable, but they may be adjusted to
+each analysis, and also tweaked for sensitivity analyses. They are summarised along with
+other criteria in \cref{tab:twitter_criteria}.
 
 
-% TODO: rearrange to make this first pre-processing subsubsec? since it's the one done
-% first chronologically / at same time to compute movespeed between consecutive tweets
-% you need to understand what geotags are...
 \subsubsection{Selecting relevant users}
 \label{sec:method_users_select}
 As we are interested in the natural speech produced by individuals, we actually start
@@ -367,8 +400,69 @@ These were selected because they are significantly popular among real users. Als
 consecutive geolocations implying speeds higher than a plane's (\SI{1000}{\kilo \meter
 \per \hour}) are detected to discard users. The final filter is optional: when we wish
 to only keep residents of the region considered, we impose for a user to have tweeted
-from there in at least three consecutive months.
+from there in at least three consecutive months. Again, the values for the criteria
+given above were set as they were deemed reasonable and allowed us to safely discard
+problematic users. A summary of these values is given in \cref{tab:twitter_criteria},
+while \cref{tab:region_counts} gives the counts of Twitter users in our dataset that we
+found to be locals of one of several multilingual regions, using these criteria.
 
+\begin{table}[h]
+  \centering
+  \begin{tabular}{
+    @{}
+    p{0.2\textwidth-2\tabcolsep}
+    >{\raggedright}p{0.45\textwidth-2\tabcolsep}
+    >{\centering\arraybackslash}p{0.35\textwidth-2\tabcolsep}
+    @{}
+  }
+    \toprule
+    Language detector & Minimum length of Tweets after cleaning & 4 words \\
+    & Minimum confidence of the model & \SI{90}{\percent} \\
+    % \midrule
+    \addlinespace
+    Relevant places & Maximum number of overlapped cells & 4 cells contain \SI{90}{\percent} of its area \\
+    % \midrule
+    \addlinespace
+    \multirow[t]{3}{0.2\textwidth-2\tabcolsep}{Residence cell} & Minimum activity in cell & 3 Tweets \\
+    & Minimum proportion of activity in cell & \SI{10}{\percent} \\
+    & Minimum proportion of nighttime activity in cell & \SI{50}{\percent} \\
+    % \midrule
+    \addlinespace
+    Real users & Maximum tweeting rate & 10 Tweets per hour \\
+    & Maximum speed & \SI{1000}{\kilo \meter \per \hour} \\
+    & Minimum period of activity & Once a month for 3 consecutive months \\
+    \bottomrule
+  \end{tabular}
+  \caption{Criteria used for Twitter data preprocessing. They are applied over the whole
+    tweeting span of a user in our dataset, which, in this work, is at most from the
+    years 2015 to 2021, both included. This means for example that the tweeting rate is
+    the total number of Tweets posted by a user divided by the amount of time that
+    passed between their first and last Tweet in the dataset.}
+  \label{tab:twitter_criteria}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \pgfplotstabletypeset[
+    column type=l,
+    % assign column name/.style={/pgfplots/table/column name={\textbf{#1}}},
+    every head row/.style={after row=\midrule, before row=\toprule},
+    every last row/.style={after row=\bottomrule},
+    columns/regionname/.style={
+      string type,
+      column name=Region
+    },
+    columns/countlocals/.style={
+      string type,
+      column name={\text{Number of local Twitter users}},
+      column type={S}
+    },
+  ]
+  {count_locals.csv}
+  \caption{ Number of Twitter users found to be residents and speaking a local language
+    between 2015 and 2019 in several multilingual regions.}
+  \label{tab:region_counts}
+\end{table}
 
 \subsubsection{Caveats}
 No data source is without bias, and Twitter is no exception. First, at the global scale,
@@ -385,7 +479,6 @@ than the general population. These biases have to be taken into consideration, a
 alleviated whenever possible. For instance, some metrics can be rescaled non-uniformly
 across space, matching marginals obtained from the census using iterative proportional
 fitting \cite{DemingLeastSquares1940,FienbergIterativeProcedure1970}.
-
 
 
 \subsection{Tools for natural language processing}
@@ -493,8 +586,14 @@ which is what \citeauthor{AbramsModellingDynamics2003} did with historical data 
 proportion of speakers of Scottish Gaelic, Welsh and Quechua, thus predicting the death
 of these languages \cite{AbramsModellingDynamics2003}. Second, it lends itself to
 mathematical analysis, which in this instance allowed \citeauthor{VazquezAgentBased2010}
-to determine that the model only allowed stable coexistence of two languages for $a > 1$
-\cite{VazquezAgentBased2010}. Many other models of the same kind have been proposed to
+to determine that the model only allowed stable coexistence of two languages for $a > 1$, as shown in \cref{fig:AS_fc_param_space}.
+\begin{figure}[hb]
+\centering
+  \includegraphics[width=0.6\textwidth]{AS_fc_param_space}
+  \caption{Parameter space of the Abrams-Strogatz model. The different stable fixed points are presented, split into two kinds by the $a = 1$ line: coexistence and dominance. In the coexistence region of the parameter space, the stable fixed point is such that $0 < p_A^* < 1$, meaning that the proportions of both A and B speakers are non-null. Adapted from \cite{VazquezAgentBased2010}.}
+  \label{fig:AS_fc_param_space}
+\end{figure}
+Many other models of the same kind have been proposed to
 understand language shift, extending previous formulations to consider additional
 aspects of the problem
 \cite{MiraInterlinguisticSimilarity2005,PinascoCoexistenceLanguages2006,HeinsaluRoleBilinguals2014,MinettModellingEndangered2008},
@@ -568,9 +667,10 @@ sometimes edited, or entirely drawn, with Inkscape\footnote{Available at
 \url{https://inkscape.org}}.
 
 This document was prepared using \LaTeX\ with the \texttt{classicthesis}
-style\footnote{Hosted at \url{https://www.ctan.org/pkg/classicthesis}} developed by
-Andr\'e Miede and Ivo Pletikosić, and the LaTeX Workshop extension\footnote{Hosted at
-\url{https://github.com/James-Yu/LaTeX-Workshop}} of Visual Studio Code.
+style\footnote{Hosted at \url{https://www.ctan.org/pkg/classicthesis}}, and the LaTeX
+Workshop extension\footnote{Hosted at \url{https://github.com/James-Yu/LaTeX-Workshop}}
+of Visual Studio Code, and the references were managed using Zotero\footnote{Available
+at \url{https://www.zotero.org}}.
 % managed the references cited in this work with Zotero https://www.zotero.org/
 
 

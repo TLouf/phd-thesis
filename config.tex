@@ -122,7 +122,7 @@
 % General useful packages
 % ********************************************************************
 \usepackage{graphicx} %
-\graphicspath{{figs/}{figs/methods}{figs/multiling}{figs/acr}}
+\graphicspath{{figs/}{figs/methods}{figs/multiling}{figs/acr}{figs/ses_ling}}
 \usepackage{scrhack} % fix warnings when using KOMA with listings package
 \usepackage{xspace} % to get the spacing after macros right
 
@@ -269,6 +269,16 @@
     }{\relax}
 \makeatother
 
+
+% \usepackage{pgfplots}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{calc}
+\usepackage{pgfplotstable}
+\pgfplotstableset{
+  col sep=comma,
+  search path={data},
+}
 
 % ********************************************************************
 % Development Stuff
