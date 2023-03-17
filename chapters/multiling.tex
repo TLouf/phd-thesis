@@ -134,7 +134,7 @@ statistics for multilingual communities (see the list in the Table S1 of the SI
 \cite{supp}), and analysed geotagged Tweets sent from them from early 2015 to the end
 of 2019. A regular grid was laid over each area of interest, dividing them in square
 cells (see for instance the grids laid over Belgium and Catalonia in Fig.
-\ref{fig:cat_be_maps}). The cell size has to be adapted for each studied region, as
+\cref{fig:cat_be_maps}). The cell size has to be adapted for each studied region, as
 explained in Sec. I C of the SI \cite{supp}. We have checked the effect of modifying the
 cell size and made sure that our results are robust (see Supplementary Figs. S10, S11
 and S12 \cite{supp}). The language of the messages is detected using the \ac{CLD} that
@@ -296,7 +296,7 @@ reliable metric when a careful statistical analysis is made.
 
 \subsection{Empirical results}
 We propose a first visualisation of the collected data in Fig.
-\ref{fig:cat_be_maps}(a)-(d), where the proportions of
+\cref{fig:cat_be_maps}(a)-(d), where the proportions of
 monolinguals in Dutch and French, Catalan and Spanish, are displayed for Belgium and
 Catalonia, respectively. The cell size is here of $10 \times 10 \, \si{\kilo \meter
 \squared}$ (see Supplementary Figs. S10 and S11 \cite{supp} for equivalent maps with
@@ -307,10 +307,10 @@ monolingual domains (Belgium) or high mixing in every cell with local coexistenc
 (Catalonia). The population of bilingual users concentrates in the border in the first
 case (especially in the region around Brussels and in the southern border with
 Luxembourg), and it is widespread in the second (Fig.
-\ref{fig:cat_be_maps}(e)-(f)). Results for the other
+\cref{fig:cat_be_maps}(e)-(f)). Results for the other
 multilingual regions listed in the SI Table S1 are shown in the SI Figs. S1-S14
 \cite{supp}. These findings are summarized in Fig.
-\ref{fig:EMR_countries}(g)-(h), which presents the ranges of
+\cref{fig:EMR_countries}(g)-(h), which presents the ranges of
 values reached by the \ac{EMR} of respectively the monolingual and multilingual groups in 14
 of our 16 regions of interest. We filtered out regions where we deemed not sufficient
 the statistics gathered from Twitter (see the SI Table S2 for all measured metrics and
@@ -330,7 +330,7 @@ The metrics introduced to evaluate the spatial mixing of languages can be calcul
 using similar data taken from other sources. Although data on language use on a fine
 enough spatial scale are difficult to find, it can, for instance, be obtained for Quebec
 from the Canadian census of 2016. Maps equivalent to the ones of Fig.
-\ref{fig:cat_be_maps} are shown using both data from the census and from
+\cref{fig:cat_be_maps} are shown using both data from the census and from
 Twitter for Quebec in the SI Figs. S13 and S14 \cite{supp}. Similar mixing patterns can
 be observed from both data sources.
 
@@ -355,7 +355,7 @@ a significant element that could be key to language preservation.
 The individuals in a population can be in states representing their use of one or
 several languages. Under this framework, the dynamics are governed by the permitted
 transitions between states and their corresponding probabilities of occurring. Fig.
-\ref{fig:models_diagram} displays the states: monolingual in A and B, and bilingual AB,
+\cref{fig:models_diagram} displays the states: monolingual in A and B, and bilingual AB,
 with the associated transition probabilities in two previous models and in our proposal.
 We denote $p_{\text{A}}$ and $p_{\text{B}}$ the proportions of monolinguals in A and B,
 respectively, and $p_{\text{AB}}$ the proportion of bilinguals. Within a mean-field
@@ -367,7 +367,7 @@ $p_{\text{A}} > 0$ and $p_{\text{B}} > 0$. Extinction of A (B), for instance,
 corresponds to $p_{\text{A}} = p_{\text{AB}} = 0$ ($p_{\text{B}} = p_{\text{AB}} = 0$).
 \begin{figure}
 \centering
-    \includegraphics[width=0.8\linewidth]{models_diagram}
+    \includegraphics{models_diagram}
     \caption{Diagrams of the models presented in the text, showing the transition
     probabilities from one state to another. (a) Abrams-Strogatz model from
     \cite{AbramsModellingDynamics2003}. (b) Bilinguals model from
@@ -379,7 +379,7 @@ corresponds to $p_{\text{A}} = p_{\text{AB}} = 0$ ($p_{\text{B}} = p_{\text{AB}}
 
 The first model to mention is the one introduced in Ref.
 \cite{AbramsModellingDynamics2003} by Abrams and Strogatz (Fig.
-\ref{fig:models_diagram}A). The model only contains monolinguals, who can change their
+\cref{fig:models_diagram}A). The model only contains monolinguals, who can change their
 languages with a probability that depends on the proportion of speakers of the other
 language to an exponent $a$ (called volatility), which controls if the dependence on the
 proportion of the other language group is linear ($a = 1$), sublinear ($a<1$) or
@@ -395,7 +395,7 @@ shrinks, as not all values of prestige enable coexistence for $a < 1$. It is imp
 to note that the linear version of the model does not predict coexistence.    
 
 Later, an extended model with bilinguals was proposed by Castell\'o et al.
-\cite{CastelloOrderingDynamics2006} (see Fig. \ref{fig:models_diagram}(b)). The
+\cite{CastelloOrderingDynamics2006} (see Fig. \cref{fig:models_diagram}(b)). The
 transitions to lose a language are there related to the proportion of bilinguals besides
 the monolinguals of the other side. The idea is that since A can be spoken to both A and
 AB individuals, the utility to retain B decreases with an increasing proportion of these
@@ -424,7 +424,7 @@ favoured when speakers are more loosely attached to their spoken languages. This
 nonlinearity is hence hard to explain from a practical point of view, and it has the
 effect of making the transitions less dependent on the actual proportions of speakers.
 Thirdly, it is important to note that the bilingual model of Fig.
-\ref{fig:models_diagram}(b) is not able to produce a stable solution in which the
+\cref{fig:models_diagram}(b) is not able to produce a stable solution in which the
 bilinguals coexist with monolinguals of a single language.
 
 
@@ -474,7 +474,7 @@ and more spoken around them.
 
 We define $s$ and $q$ as symmetric around $1/2$, and thus define $s = s_\text{A} = 1 -
 s_\text{B}$ and $q = q_\text{A} = 1 - q_\text{B}$. The transitions in our model are
-illustrated in Fig. \ref{fig:models_diagram}(c) and we write here below the
+illustrated in Fig. \cref{fig:models_diagram}(c) and we write here below the
 transition probabilities that define it:
 \begin{equation}
 \label{eq:bipref_model}
@@ -532,13 +532,13 @@ performing a linear perturbation analysis around them, which requires the calcul
 the Jacobian of the linearized equations and of its eigenvalues. Points for which all
 the eigenvalues have strictly negative real parts are stable, while if any eigenvalue's
 real part is zero or positive the fixed point is unstable. Stream plots in Fig.
-\ref{fig:stream_plots} show where the model converges to in three characteristic
+\cref{fig:stream_plots} show where the model converges to in three characteristic
 examples, depending on the model parameters. In the first one (Fig.
-\ref{fig:stream_plots}(a)), the stable (blue) points lie over the axis at values
+\cref{fig:stream_plots}(a)), the stable (blue) points lie over the axis at values
 1 and the system has as only solution the extinction of one of the two languages. In
-Fig. \ref{fig:stream_plots}(b), the stable fixed point falls in the middle of the
+Fig. \cref{fig:stream_plots}(b), the stable fixed point falls in the middle of the
 diagram and, therefore, the solution is symmetric coexistence with a majority ($\sim
-1/2$) of bilinguals. Finally, in Fig. \ref{fig:stream_plots}(c), we find a stable
+1/2$) of bilinguals. Finally, in Fig. \cref{fig:stream_plots}(c), we find a stable
 fixed point over the $x$-axis that represents the extinction of monolinguals B but
 coexistence between A-monolinguals and bilinguals. Surprisingly enough, this represents
 the survival of a less prestigious language within a relatively small bilingual
@@ -558,7 +558,7 @@ population.
 \end{figure}
 
 We change now the viewpoint from the phase space to the parameter space. In Fig.
-\ref{fig:coex_region}, we plot the region of parameters where the model converges to
+\cref{fig:coex_region}, we plot the region of parameters where the model converges to
 stable coexistence. Since $c$ and $\mu$ act over the stability only in a combined form,
 their contributions can be merged into a new variable $r$ defined as $r = \mu/(c \,
 (1-\mu))$, which stands for the ratio between the mortality and learning rates. The
@@ -624,7 +624,7 @@ distance-kernel-based models
 \end{figure}
 
 The populations and commuting are thus obtained from the national census at municipality
-scale (see Methods for how to access them). We implement a mapping process from
+scale. We implement a mapping process from
 municipalities to our cells based on area overlap (details in the SI Sec. IV A
 \cite{supp}). Regarding the language groups, Twitter data may suffer from different
 socio-demographic biases
@@ -659,11 +659,11 @@ states have negative real parts, and they are thus stable fixed points.
 
 To explore the parameter space systematically, we perform a number of simulations until
 convergence to a stable state. We show the results for the metapopulation setting of
-Belgium in Fig. \ref{fig:single_to_metapop_BE}. Remarkably, a new kind of stable state
+Belgium in Fig. \cref{fig:single_to_metapop_BE}. Remarkably, a new kind of stable state
 emerges. While in a single population we had only two stable configurations: extinction
-or mixing, here we can find full mixing (Fig. \ref{fig:single_to_metapop_BE}(e)),
+or mixing, here we can find full mixing (Fig. \cref{fig:single_to_metapop_BE}(e)),
 global extinction and local extinction of a language in part of the territory leading to
-a boundary-like state (Fig. \ref{fig:single_to_metapop_BE}(d)). This state of
+a boundary-like state (Fig. \cref{fig:single_to_metapop_BE}(d)). This state of
 convergence is similar to the initial conditions, corresponding to the language border
 we observe today. We have thus checked that our model, in these conditions, is able to
 obtain the present state as a stable solution. A surprising aspect of the results is
@@ -674,7 +674,7 @@ states. When $r$ shrinks bilinguals become more numerous on the boundary, until 
 expand beyond the boundary and spread bilingualism across the region. Still, if this
 happens when $r$ is not low enough, the two languages cannot coexist and one ends up
 extinct, as the coexistence region of the parameter space in a single population shown
-in Fig. \ref{fig:coex_region} may not have been reached. 
+in Fig. \cref{fig:coex_region} may not have been reached. 
 
 We also wished to explore the possibility of having a hybrid state, consisting in an
 area where a minority language survives through bilinguals within an otherwise
@@ -719,19 +719,19 @@ the similarity between the languages or by teaching in both languages at school,
 instance. Next, we investigate whether a parameter changing in time can perturb the
 system out of a stable state, and how the transition to a completely different
 configuration occurs. To this end, we run a simulation for 23000 steps and present the
-results in Fig. \ref{fig:varying_c_sep_to_mix_to_sep}. To explore the effects of the $c$
+results in Fig. \cref{fig:varying_c_sep_to_mix_to_sep}. To explore the effects of the $c$
 parameter evolution alone, we fix the other parameters $s = q = 1/2$ and $\mu = 0.02$.
 We start from our initial conditions with $c = 0.005$, which converges to a stable state
 with a boundary (see the first map of Fig.
-\ref{fig:varying_c_sep_to_mix_to_sep}(c)). After 2200 steps, we then increase $c$
+\cref{fig:varying_c_sep_to_mix_to_sep}(c)). After 2200 steps, we then increase $c$
 by $0.005$ every $400$ steps until we reach $c = 0.055$. The system converges quickly to
 a state of mixed coexistence, with a majority of bilinguals and equal proportions of
-monolinguals, like in Fig. \ref{fig:single_to_metapop_BE}(e). $c$ is then
+monolinguals, like in Fig. \cref{fig:single_to_metapop_BE}(e). $c$ is then
 decreased at the same rate as before to reach its initial value of $0.005$. The system
 eventually converges to a state displaying a boundary, but displaced compared to its
 initial position. The
 resulting trajectory in the \ac{EMR} space in Fig.
-\ref{fig:varying_c_sep_to_mix_to_sep}(b) shows that the final stable state
+\cref{fig:varying_c_sep_to_mix_to_sep}(b) shows that the final stable state
 exhibits more segregation for both monolinguals and bilinguals, since the boundary
 between communities lies in the countryside, and not around Brussels as in the original
 scenario. The importance of the history of languages is hence clearly shown by this
@@ -747,10 +747,10 @@ during the workday with the local population (for more details, see SI Sec. IV D
 \cite{supp}). These boundary conditions stabilize the final state of convergence, as the
 linguistic boundary resulting from the process of varying $c$ is similar for the two
 values of $p_{\text{TB}}$, following the orientation of the two opposite borders (see
-Fig. \ref{fig:varying_c_sep_to_mix_to_sep}(d-e)). This positioning is a
+Fig. \cref{fig:varying_c_sep_to_mix_to_sep}(d-e)). This positioning is a
 clear improvement over the closed-system simulation, albeit still not quite the one we
-observed in Fig. \ref{fig:cat_be_maps}. In Fig.
-\ref{fig:varying_c_sep_to_mix_to_sep}(b), the positions of these two states in
+observed in Fig. \cref{fig:cat_be_maps}. In Fig.
+\cref{fig:varying_c_sep_to_mix_to_sep}(b), the positions of these two states in
 the \ac{EMR} space are also shown to be much closer to the original state than the final
 state of the first trajectory.
 
