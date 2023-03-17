@@ -601,17 +601,31 @@ with several taking inspiration from models of interspecies competition from eco
 \cite{KandlerEcologicalModels2008,SoleDiversityCompetition2010}, and others taking the
 spatial evolution into account as well using reaction-diffusion-like models
 \cite{KandlerDemographyLanguage2009,PatriarcaInfluenceGeography2009,IsernLanguageExtinction2014,ProchazkaQuantifyingDriving2017}.
-% macro \cite{HanskiMetapopulationDynamics1998}??
 
-While some social aspects can be modelled with some parameters in global equations, the
-social structure itself can hardly be incorporated into this kind of model. That is
-where the micro approach shines, notably with a class of models called \acp{ABM}. In
-such a model, it is not the evolution of the global population that is modelled, but the
-evolution of the state of each individual, or agent, in that population. Their state
-could be linked to a linguistic variable, or even a set of them. In the case of language
-competition, it may be the language(s) they speak. The model then defines switching
-rules between states. For instance, one can rewrite the Abrams-Strogatz model of
-\eqref{eq:AS_dt} as an \ac{ABM}, writing the following transition probabilities:
+Instead of a single population, one may consider a metapopulation, that is a population
+of populations that may interact with each other as they move around. This has been used
+extensively in ecological models to take into account the movements of species for the
+dynamics of inter-species competition \cite{HanskiMetapopulationDynamics1998}. It was
+used similarly in epidemiology to try to understand how the propensity of individuals to
+stay in their home region or to move to others and potentially transmit a disease to
+another population may contribute to an epidemic
+\cite{SattenspielStructuredEpidemic1995,BalcanModelingSpatial2010,ApolloniMetapopulationEpidemic2014}.
+Even closer to our topic, the metapopulation framework has proved useful to study a
+model of voting behaviours \cite{Fernandez-GraciaVoterModel2014}. It can thus surely be
+adequate to test a sociolinguistic model, and in particular a model of language shift,
+as we will show in \cref{ch:multiling}.
+
+While some social aspects can be modelled with some parameters in global equations, or
+the mobility of the population can be taken into account in a metapopulation framework,
+the social structure itself can hardly be incorporated into these two kinds of model.
+That is where the micro approach shines, notably with a class of models called
+\acp{ABM}. In such a model, it is not the evolution of the global population that is
+modelled, but the evolution of the state of each individual, or agent, in that
+population. Their state could be linked to a linguistic variable, or even a set of them.
+In the case of language competition, it may be the language(s) they speak. The model
+then defines switching rules between states. For instance, one can rewrite the
+Abrams-Strogatz model of \eqref{eq:AS_dt} as an \ac{ABM}, writing the following
+transition probabilities:
 \begin{equation}
   \label{eq:AS_ABM}
   \begin{aligned}
