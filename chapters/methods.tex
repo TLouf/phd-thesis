@@ -481,45 +481,55 @@ across space, matching marginals obtained from the census using iterative propor
 fitting \cite{DemingLeastSquares1940,FienbergIterativeProcedure1970}.
 
 
-\subsection{Tools for natural language processing}
+
+\section{Computational models of natural language}
 The increased availability of natural language data has also been followed by the
 development of new tools for \ac{NLP}. Rather than an in-depth review, we will here
-simply mention a few algorithms and tools that were useful to us throughout this thesis.
-Nowadays \ac{NLP} has become familiar to the general public through large language
-models: deep neural networks with billions of parameters trained on billions or
-soon-to-be trillions of tokens. Popular examples are Open AI's GPT models
-\cite{BrownLanguageModels2020} Google's BERT \cite{DevlinBERTPretraining2019} and its
-derivatives \cite{SanhDistilBERTDistilled2020}, or the BigScience workshop's BLOOM \cite{WorkshopBLOOM176BParameter2022}, with an increasing number of pre-trained
-models made freely accessible
+simply give a very brief overview of the field and mention a few algorithms and tools
+that were useful to us throughout this thesis. Nowadays \ac{NLP} has become familiar to
+the general public through large language models: deep neural networks with billions of
+parameters trained on billions or soon-to-be trillions of tokens. Popular examples are
+Open AI's GPT models \cite{BrownLanguageModels2020} Google's BERT
+\cite{DevlinBERTPretraining2019} and its derivatives \cite{SanhDistilBERTDistilled2020},
+or the BigScience workshop's BLOOM \cite{WorkshopBLOOM176BParameter2022}, with an
+increasing number of pre-trained models made freely accessible
 \cite{WolfTransformersStateoftheArt2020,MontaniExplosionSpaCy2023}. These kinds of
 models are best known for their derivatives optimised for usage as chatbots, but they
 have many variants and parts that can serve different functions: lemmatising, that is
 finding the base forms of words (like removing plurals or conjugation), classifying
-documents or finding similarity between words and documents by embedding them in a
-vector space (with for instance ``word2vec'' \cite{MikolovEfficientEstimation2013} and
-``tok2vec'' \cite{AngelovTop2VecDistributed2020}, respectively). Although they are very
-powerful tools to carry out some tasks, their training is very costly
+documents, or finding similarity between words and documents by embedding them in a
+vector space (with for instance \texttt{word2vec} \cite{MikolovEfficientEstimation2013}
+and \texttt{tok2vec} \cite{AngelovTop2VecDistributed2020}, respectively). As said above
+in \cref{sec:method_text_process}, and as we will see in the next chapters, these kinds
+of models can also be used to detect the language a text is written in. Although they
+are very powerful tools to carry out some tasks, their training is very costly
 \cite{AnanthaswamyAIBigger2023}, and most of the pre-trained models were trained on
 rather formal speech, like blog or news articles. They are thus not always well suited
-to analyse social media speech, as found on Twitter for instance. Some works have
-strived to normalise informal texts to be able to use such tools, but doing so throws
-away valuable information \cite{EisensteinWhatBad2013}. Also, \ac{NLP} has existed for
-some decades now, and some simpler tools developed further in the past may sometimes
-suffice to carry out some tasks. Latent semantic analysis
+to analyse social media speech, as the one found on Twitter for instance. Some works
+have strived to normalise informal texts to be able to use such tools, but doing so
+throws away valuable information \cite{EisensteinWhatBad2013}. Also, \ac{NLP} has
+existed for some decades now, and some simpler tools developed further in the past may
+sometimes suffice to carry out some tasks. Latent semantic analysis
 \cite{DumaisLatentSemantic2004} can be good enough to compute document similarities and
-then cluster documents together. Latent Dirichlet allocation
-\cite{BleiLatentDirichlet2003} can perform good topic modelling in some settings. A
-recent work has shown that algorithms developed to infer communities in networks can be
-adapted to provide robust topic modelling and document clustering at the same time
-\cite{GerlachNetworkApproach2018}. The tools are thus many, but the context in which
-they are used greatly conditions their actual power.
+then cluster documents together. It simply consists in computing a matrix of word
+frequencies by document, reducing its dimensionality with a singular value
+decomposition, thus performing \ac{PCA} \cite{WoldPrincipalComponent1987} to then
+cluster documents together based on their cosine similarity. This method can be adapted,
+by using a matrix containing a different metric than simple frequencies, or clustering
+based on a different method to compute similarity, as we will show in \cref{ch:acr}.
+Latent Dirichlet allocation \cite{BleiLatentDirichlet2003} can perform good topic
+modelling in some settings. A recent work has shown that algorithms developed to infer
+communities in networks can be adapted to provide robust topic modelling and document
+clustering at the same time \cite{GerlachNetworkApproach2018}. Our results presented in
+\cref{ch:ses_ling}, based on the detection of the use of standard language, are based on
+a grammar and spell checker, LanguageTool, which simply performs part-of-speech tagging
+before searching for matches of patterns indicating a broken rule of the standard
+language. The tools are thus many, but the context in which they are used greatly
+conditions their actual power.
 
 
-% theoretical models: AS, MW 
-% data can say if model is wrong, but not if it's a good one: machine scientist stuff
 
 \section{Theoretical models}
-
 
 \subsection{What for?}
 We mentioned some models just above, but there is an important distinction to make here
