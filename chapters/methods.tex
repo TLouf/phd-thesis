@@ -477,8 +477,13 @@ income, and more likely to be male
 \cite{MisloveUnderstandingDemographics2011,AuxierSocialMedia2021,SloanWhoTweets2017}
 than the general population. These biases have to be taken into consideration, and
 alleviated whenever possible. For instance, some metrics can be rescaled non-uniformly
-across space, matching marginals obtained from the census using iterative proportional
-fitting \cite{DemingLeastSquares1940,FienbergIterativeProcedure1970}.
+across space, matching marginals obtained from the census using \ac{IPF}
+\cite{DemingLeastSquares1940,FienbergIterativeProcedure1970}. For instance, as we will
+see in \cref{ch:multiling}, we used it when rescaling cell counts of speakers of
+different languages in a given region found on Twitter. \Ac{IPF} allowed us to make
+their sum over cells by language match a given country's official statistics on overall
+number of speakers by language, and also to match the real number of residents of every
+cell.
 
 
 
