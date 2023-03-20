@@ -33,7 +33,7 @@ cultural regions of a nation is therefore a crucial part of understanding the co
 landscape of human behavior that nation encompasses, providing an accessible and broad
 classification of the populations of a country~\cite{lane2016culture}.
 
-Mapping cultural regions has been a particularly active area of research in the US,
+Mapping cultural regions has been a particularly active area of research in the United States,
 where there has long been debate over the cultural geography of the country, with a wide
 range of theories of American cultural regions having been proposed. Seven of the most
 prominent theories
@@ -140,13 +140,13 @@ based on any substantial source of regionalized everyday language use.
 
 Specifically, to map modern American cultural regions, we identify regional patterns in
 the topics that Americans tend to discuss on social media through a quantitative
-analysis of ten thousand lexical items in over 3.3 billion geotagged Tweets from across
+analysis of ten thousand lexical items in over 3.3 billion geotagged tweets from across
 the US, collected between 2015 and 2021. Large corpora of geotagged Twitter data have
 been used frequently in computational sociolinguistics to
 identify~\cite{NguyenComputationalSociolinguistics2016}, including to map patterns of
 dialect
 variation~\cite{GrieveStatisticalMethod2011,EisensteinDiffusionLexical2014,GoncalvesCrowdsourcingDialect2014,HuangUnderstandingRegional2016,GrieveRegionalVariation2016,
-Donoso2017,GoncalvesMappingAmericanization2018,LevyAbitbolSocioeconomicDependencies2018,GrieveMappingLexical2019},
+DonosoDialectometricAnalysis2017,GoncalvesMappingAmericanization2018,AbitbolSocioeconomicDependencies2018,GrieveMappingLexical2019},
 while others leveraged methods such as Latent Dirichlet Allocation to identify regional
 topical patterns~\cite{KoyluUncoveringGeoSocial2018,FunknerGeographicalTopic2021}.
 Despite this wealth of research that has used large corpora of social media to identify
@@ -158,7 +158,7 @@ of regional patterns in overall topics of discussion in a region. In general, bi
 corpora generated from microblogging platforms certainly present a number of biases:
 incomplete demographic representativeness~\cite{MisloveUnderstandingDemographics2011},
 particularly for users geotagging their
-Tweets~\cite{PavalanathanConfoundsConsequences2015}, non-homogeneous spatio-temporal
+tweets~\cite{PavalanathanConfoundsConsequences2015}, non-homogeneous spatio-temporal
 distribution~\cite{steiger2015advanced}, or severe topic differences with the offline
 world~\cite{diaz2016online}. However, if cultural regions are real and pervasive, then
 we should expect these regions to manifest themselves in any large sample of everyday
@@ -194,22 +194,22 @@ where future works could build on it comes to conclude the work.
 
 \section{Dataset}
 
-We analyze 3.3 billion geotagged Tweets from the contiguous US, posted from January
+We analyze 3.3 billion geotagged tweets from the contiguous US, posted from January
 $1^\text{st}$, 2015 to December $31^\text{st}$, 2021. Importantly, we discard users
-tweeting at an inhuman rate, which we define to be any rate superior to 10 Tweets per
+tweeting at an inhuman rate, which we define to be any rate superior to 10 tweets per
 hour over one's whole tweeting span. We also discard users tweeting from any platform
 that is not a Twitter mobile application or their website. In our dataset, we thus
-retain 17 million users. We strip Tweets of any link, hashtag or user mention, and only
+retain 17 million users. We strip tweets of any link, hashtag or user mention, and only
 keep those which still have more than 4 words after this filter. We subsequently use the
-\ac{CLD} to eliminate Tweets written in a language other than English. We also remove
-Tweets with a geotag that did not allow for reliable assignment to our unit areas, which
+\ac{CLD} to eliminate tweets written in a language other than English. We also remove
+tweets with a geotag that did not allow for reliable assignment to our unit areas, which
 are the US counties and county equivalents ($\SI{3108}{}$ in total). Certainly, counties
 vary in both size and population but most of them form a useful division sufficiently
-large to show a sizeable amount of Tweets and sufficiently small to allow for a careful
+large to show a sizeable amount of tweets and sufficiently small to allow for a careful
 delimitation of cultural areas (states would be too big units whereas towns would be too
 small).
 
-From the remaining Tweets, we extract and count the tokens in their text, and assign
+From the remaining tweets, we extract and count the tokens in their text, and assign
 them to counties. Counties that accumulate fewer than \SI{50000}{} tokens are not taken
 into account, leaving us with $N_c = \SI{2576}{}$ counties which define our sub-corpora.
 We thus keep $\SI{83}{\percent}$ of the total number of counties. After this filtering,
@@ -251,7 +251,7 @@ We then measure and map the relative frequencies $f_{c, w}$ for every word $w$ i
 county $c$. We illustrate our raw results by plotting in \cref{fig:example_words_maps}
 the relative frequency in each county of four representative words: (a) \textit{today},
 (c) \textit{mountain}, (e) \textit{traffic} and (g) \textit{bruh} (cells that appear
-greyed out do not reach a minimum number of Tweets as explained in the paragraph above).
+greyed out do not reach a minimum number of tweets as explained in the paragraph above).
 In the first case, \textit{today} appears at relatively stable rates in most of the
 counties, as expected. Alternatively, \textit{mountain} is a regionally-dependent word
 as clearly seen. The item \textit{traffic} appears more frequently in urban areas.
@@ -320,7 +320,7 @@ latent Dirichlet allocation on the word frequency matrix, to then infer a distri
 of topics for every county. It is however more computationally intensive, and poses the
 questions of the selection of the number of topics, their interpretability and their
 internal coherence \cite{ArunFindingNatural2010,HasanNormalizedApproach2021}. In a case
-like ours where documents are so large (aggregating all Tweets in a county), it is far
+like ours where documents are so large (aggregating all tweets in a county), it is far
 from obvious to select a number of topics such that there is little overlap between
 them, and to know that these topics are actually representative of the dataset as a
 whole. This is much more clear when selecting components in \ac{PC} analysis, as we show
@@ -491,7 +491,7 @@ more generally.
 The first cluster [blue in \cref{fig:whole_data_clust}(a)], which identifies a
 southeastern region, largely reflects African American culture, as can be predicted
 based on the close correlation between our map and the distribution of counties with
-relatively large African American populations (see Fig.~S1). Most notably, Tweets from
+relatively large African American populations (see Fig.~S1). Most notably, tweets from
 the South are more likely to contain words related to African American culture,
 including, for example, cuisine (e.g. \textit{grits, cookout}), fashion (e.g.
 \textit{braids, dreads}), and music (e.g. \textit{rappers, rapping}). As noted above,

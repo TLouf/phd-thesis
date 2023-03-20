@@ -128,18 +128,18 @@ or a certain microblogging website called Twitter \cite{MocanuTwitterBabel2013,A
 
 The biggest source of data we have used throughout this thesis is Twitter. Twitter is a
 microblogging website where people can register to share and view short posts called
-Tweets. In them, they can write, mention another user, share images, videos or links to
+tweets. In them, they can write, mention another user, share images, videos or links to
 other websites. The platform is called a \emph{micro}blogging website because these
-posts cannot exceed 280 characters (140 before 2017). Tweets
+posts cannot exceed 280 characters (140 before 2017). tweets
 can have a public geotag if the user wishes to include one, which is suggested to the
-user when they tweet with their device's GPS turned on. Tweets can be of four kinds:
+user when they tweet with their device's GPS turned on. tweets can be of four kinds:
 \begin{itemize}
   \item a simple post that appears on the user profile and is shown on the homepage of
   all the users following this user, which is what people generally refer to with the
-  term \emph{Tweet};
+  term \emph{tweet};
   \item a reply to another post, which can be seen by anyone but only shown on the
   homepage of the users involved in the conversation;
-  \item a repost to one's profile, to share a Tweet that is already posted (which can be
+  \item a repost to one's profile, to share a tweet that is already posted (which can be
   one's own), called \ac{RT};
   \item a retweet but with some added text commenting on the quoted post, called
   \ac{QRT}.
@@ -150,7 +150,7 @@ hundreds of millions of users worldwide. In the US, for instance, since 2015, mo
 \SI{20}{\percent} of the population uses the platform \cite{AuxierSocialMedia2021}. Other
 than in the US, it is also popular in many countries globally, although with a slight
 bias towards developed, western countries \cite{HawelkaGeolocatedTwitter2014}. Even
-though only around \SI{1}{\percent} of Tweets are geotagged
+though only around \SI{1}{\percent} of tweets are geotagged
 \cite{MorstatterSampleGood2021}, when only counting users who tweet with a geotag, in
 around 80 countries there is more than one Twitter user for ten thousand inhabitants
 \cite{MocanuTwitterBabel2013}. Hence why Twitter has been extensively used for the
@@ -165,17 +165,17 @@ steps we take to leverage Twitter as a source of geotagged text.
 A major advantage of Twitter for academic research is how open the platform is to giving
 access to its data to researchers. One can send automatic queries to Twitter for data
 through their public \ac{API} \cite{TwitterAPI}. In these queries, one can specify rules
-to, for instance, retrieve all the Tweets posted in a given country, in a given time
+to, for instance, retrieve all the tweets posted in a given country, in a given time
 period, or which contain some given text. All the Twitter data we have used throughout
 this thesis was retrieved from the filtered stream endpoint of the Twitter \ac{API}
-\cite{TwitterAPIa}. They are all geotagged Tweets posted between 2015 and 2021, both
+\cite{TwitterAPIa}. They are all geotagged tweets posted between 2015 and 2021, both
 years included, without any geographic restriction, which implies that, a priori, they
 could have originated from anywhere in the world.
 
-We show in \cref{fig:tweet_data} an example of the data we can have for each Tweet.
+We show in \cref{fig:tweet_data} an example of the data we can have for each tweet.
 There are two fields in these data that particularly interest us for the works we will
 present in the next part and that need careful processing: the textual content of the
-Tweet (in \texttt{"text"}) and its geotag (in \texttt{"geo"}). Next, we detail the usual
+tweet (in \texttt{"text"}) and its geotag (in \texttt{"geo"}). Next, we detail the usual
 steps we take to process these. 
 \captionsetup[subfigure]{position=top,textfont=normalfont,singlelinecheck=off,justification=raggedright}
 \begin{figure}
@@ -212,7 +212,7 @@ steps we take to process these.
       \end{lstlisting}
     \end{minipage}
   \end{SubFloat}
-  \caption[]{A Tweet data. We show \subref{subfig:tweet} an example Tweet as displayed
+  \caption[]{A tweet data. We show \subref{subfig:tweet} an example tweet as displayed
   on Twitter and \subref{subfig:annotated_tweet} a version annotated with the name of the
   fields in \subref{subfig:json} the data as it would be sent by the \ac{API}, which is
   simply text formatted in a dictionary-like structure (JSON).}
@@ -226,52 +226,52 @@ Since we are interested in the speech produced by users, we need to clean parts 
 text which cannot be considered as natural language production. Those are the URLs,
 mentions of other users (in the form \texttt{@username}) and hashtags (in the form
 \texttt{\#topic}). It is not completely obvious that the latter should be discarded
-though. Hashtags are used on Twitter to aggregate Tweets by topics. It is an important
-feature of the website, whose aim is to enable users to easily find the Tweets of other
-users discussing similar topics, or inversely to make one's Tweets more discoverable by
+though. Hashtags are used on Twitter to aggregate tweets by topics. It is an important
+feature of the website, whose aim is to enable users to easily find the tweets of other
+users discussing similar topics, or inversely to make one's tweets more discoverable by
 others, and to see real time trends on the platform. Hence, there can be completely
-different motivations behind writing a hashtag: to actually tag a Tweet with one or more
-topic, to promote the Tweet, or simply follow a trend. Thus, the content of hashtags can
+different motivations behind writing a hashtag: to actually tag a tweet with one or more
+topic, to promote the tweet, or simply follow a trend. Thus, the content of hashtags can
 deviate significantly from normal speech \cite{PageLinguisticsSelfbranding2012}. It is
 therefore safer to discard hashtags entirely, which is no issue as long as we can
 collect enough textual content without them anyway. We actually made some measurements
-in our Tweets' database to see if that was the case. We took several random samples of a
-million Tweets each, stripped them of URLs and mentions, and then computed the ratio of
+in our tweets' database to see if that was the case. We took several random samples of a
+million tweets each, stripped them of URLs and mentions, and then computed the ratio of
 characters within a hashtag compared to the total number of characters left in those
-Tweets. This proportion was found to be consistently below \SI{5}{\percent}. We thus
-consider the precaution of stripping hashtags off of Tweets worth taking. One last kind
+tweets. This proportion was found to be consistently below \SI{5}{\percent}. We thus
+consider the precaution of stripping hashtags off of tweets worth taking. One last kind
 of element that we discard are source-dependent. We will not go into details --- our
 text-processing code is freely available online anyway \cite{LoufWordsuse2023} --- but,
-for instance, when a Tweet was sent from Foursquare, we strip all location-related
+for instance, when a tweet was sent from Foursquare, we strip all location-related
 content, which can be located after either a \texttt{``I'm at''} or \texttt{``( @ ''}
 string.
 
-In practice, all the elements cited above are stripped off of Tweets using regular
-expressions. After this cleaning step, for what follows we then keep only the Tweets
+In practice, all the elements cited above are stripped off of tweets using regular
+expressions. After this cleaning step, for what follows we then keep only the tweets
 still containing at least four words. The next important step that was crucial to all
-our works was to infer the language the Tweets are written in. To do so, we leverage a
+our works was to infer the language the tweets are written in. To do so, we leverage a
 trained neural network model for language identification: the Compact Language Detector
 \cite{SalcianuCompactLanguage2023}. It was designed as part of Chromium-based web
 browsers to detect the language web pages are written in in order to make translation
 suggestions to users, and it is now openly accessible. Its output is a language
 prediction along with the confidence of the model. Whenever we focus on a language, we
-thus keep Tweets which are tagged in that language with a confidence above
+thus keep tweets which are tagged in that language with a confidence above
 \SI{90}{\percent}.
 
 We have now described the basic steps of text pre-processing that are recurrent in our
-works: out of it we get the Tweets for which we could reliably assign a language,
+works: out of it we get the tweets for which we could reliably assign a language,
 for which we kept only the text that can be considered the author's natural language production.
 
 
 \subsubsection{Inferring geolocation}
 \label{sec:method_geoloc}
 The steps presented above allow us to measure linguistic features of interest from our
-Tweets. A next step we usually take is to map those geographically. We are
+tweets. A next step we usually take is to map those geographically. We are
 able to do so thanks to the information contained in the \texttt{"geo"} field of a
-Tweet, an example of which is shown in \cref{fig:tweet_data}. This example is actually a
+tweet, an example of which is shown in \cref{fig:tweet_data}. This example is actually a
 particular case, because of the presence of the \texttt{"coordinates"} field. This gives
-precise GPS coordinates of the location of the device used to send out the Tweet: a
-longitude, latitude pair. It is present in a Tweet's metadata when the device's GPS is
+precise GPS coordinates of the location of the device used to send out the tweet: a
+longitude, latitude pair. It is present in a tweet's metadata when the device's GPS is
 enabled \emph{and} when the user opted in for precise location tagging in the parameters
 of the application. As this setting is opt-in (so off by default), very few users
 actually have this enabled: from our measurements, roughly between $10$ and
@@ -287,7 +287,7 @@ identifies a place: a specific, named location, which can be of different scales
     \item an administrative unit: province, region or department for instance,
     \item a city,
     \item a \ac{POI}: any kind of public place: restaurant, school, event venue, etc.
-    These are represented by a point, so Tweets tagged with a \ac{POI} can be considered
+    These are represented by a point, so tweets tagged with a \ac{POI} can be considered
     similarly to the ones with coordinates.
 \end{itemize}
 When a user tweets with their device's GPS activated, a place (usually the city they
@@ -297,11 +297,11 @@ close-by places. These places were fed to Twitter by Foursquare
 for more than 190 countries. The geographical extent of places other than \acp{POI} is
 defined by bounding boxes.
 
-To map linguistic features, Tweets must be attributed to the geographical areas of
+To map linguistic features, tweets must be attributed to the geographical areas of
 interest of the study. These may be defined by administrative boundaries (US counties,
 for example) or by us (a regular grid of cells of equal area, for instance). As ``area''
 is an ambiguous term that can also refer to the measure of the size of a surface, in the
-following we will refer to these areas only by the term \emph{cells}. So, when a Tweet
+following we will refer to these areas only by the term \emph{cells}. So, when a tweet
 has GPS coordinates or a \ac{POI} as a geotag, the attribution is straightforward: there
 can be only one matching cell. When it has a place defined by a bounding box, it is not
 so trivial. The naive approach would be to take the centroid of the place and attribute
@@ -311,22 +311,22 @@ with the most overlap. A less naive approach would then consist in computing the
 overlap for every candidate cell and match to the one with biggest such area. This would
 still be an all-or-nothing attribution though. What if the place has \SI{51}{\percent}
 of its area in one cell and \SI{49}{\percent} in another? It would not be reasonable to
-attribute that Tweet to the first cell only. To account for the uncertainty we have when
+attribute that tweet to the first cell only. To account for the uncertainty we have when
 doing this cell matching, we thus rather do a partial attribution. We attribute the
-Tweet to possibly more than one cell, with ratios defined by the ones of the place's
+tweet to possibly more than one cell, with ratios defined by the ones of the place's
 area that lies within each cell. For the example above, and when computing a basic
 metric like a count, this means that we attribute \SI{51}{\percent} of the count to one
 cell and \SI{49}{\percent} to the other. Because the sizes of places span orders of
 magnitude, some may intersect many cells. There can then be so much uncertainty in the
-actual geographic origin of the Tweet that it is preferable to discard it. Our criterion
+actual geographic origin of the tweet that it is preferable to discard it. Our criterion
 here is that when the four cells which contain most of the place's area put together do
-not contain more than \SI{90}{\percent} of its total area, the place, and all the Tweets
+not contain more than \SI{90}{\percent} of its total area, the place, and all the tweets
 assigned to it, are discarded.
 
 As the activity of Twitter users was found to follow a log-normal distribution spanning
 almost four orders of magnitude, as shown in \cref{fig:distrib_user_acty}, it can be
 preferable to compute metrics at the user level.
-Indeed, at the Tweet level, the linguistic behaviour
+Indeed, at the tweet level, the linguistic behaviour
 of the most active users could overshadow the one of the many, less active users.
 \begin{figure}[hb]
 \centering
@@ -346,10 +346,10 @@ Individuals are mobile but for the vast majority they have a preferred location,
 their place of residence. That is why we often strive to attribute a cell of residence
 to the users in our datasets. To explain the heuristics we defined for residence
 attribution, let us first formalise some notation. For each user $u$, there are two
-counts we get directly from their Tweets: the number of them with GPS coordinates that
+counts we get directly from their tweets: the number of them with GPS coordinates that
 fall in cell $c$: $n_{u, c}^{\text{GPS}}$, and those without coordinates but tagged as
 being from place $p$: $n_{u, p}$.  We wish to compute $r_{u, c} \in \mathbb{R}^+$, the
-weighted count of Tweets of user $u$ in cell $c$. It can be decomposed into the contributions of
+weighted count of tweets of user $u$ in cell $c$. It can be decomposed into the contributions of
 those with GPS coordinates, $n_{u, c}^{\text{GPS}}$, and of those tagged with a place, $r_{u,
 c}^{\text{P}}$:
 \begin{equation}
@@ -366,8 +366,8 @@ We provide an illustration for this cell attribution in
 \begin{figure}[hb]
 \centering
   \includegraphics{tweet_partial_attrib_diagram}
-  \caption{Diagram illustrating how geotagged Tweets are attributed to cells. A first
-  Tweet has GPS coordinates $(x, y)$ attached to it, and can thus be directly attributed
+  \caption{Diagram illustrating how geotagged tweets are attributed to cells. A first
+  tweet has GPS coordinates $(x, y)$ attached to it, and can thus be directly attributed
   to $c_4$. It thus increments $n_{u, c_4}^{\text{GPS}}$ by 1. Another is tagged in
   place $p$, defined by a bounding box, shown in blue. It will be attributed partially
   to $c_2$, $c_3$ and $c_5$, with weights equal to the ratio of overlapping area
@@ -378,12 +378,12 @@ We provide an illustration for this cell attribution in
 
 To attribute a cell of residence to each user $u$, we first only consider cells where
 $r_{u, c} \geq 3$ and $r_{u, c} / \sum_{c'} r_{u, c'} \geq 0.1$. We also compute
-$r_{u,c}$ considering only Tweets posted at nighttime (from 6pm to 8am), that we denote
+$r_{u,c}$ considering only tweets posted at nighttime (from 6pm to 8am), that we denote
 $r_{u, c}^\text{NT}$. Among those left, the cell of residence $c^*$ is then the one such
 that $r_{u, c^*}^\text{NT} / \sum_{c'} r_{u, c'}^\text{NT} \geq 0.5$, if any. This
 roughly means that we impose that a user must have tweeted at least three times and at
 least \SI{10}{\percent} of the time from that cell, and that at night the majority of
-their Tweets were from there. All users for whom a cell of residence cannot be
+their tweets were from there. All users for whom a cell of residence cannot be
 attributed are subsequently discarded from the analysis. The three thresholds given
 above were chosen because we believe them to be reasonable, but they may be adjusted to
 each analysis, and also tweaked for sensitivity analyses. They are summarised along with
@@ -417,19 +417,19 @@ found to be locals of one of several multilingual regions, using these criteria.
     @{}
   }
     \toprule
-    Language detector & Minimum length of Tweets after cleaning & 4 words \\
+    Language detector & Minimum length of tweets after cleaning & 4 words \\
     & Minimum confidence of the model & \SI{90}{\percent} \\
     % \midrule
     \addlinespace
     Relevant places & Maximum number of overlapped cells & 4 cells contain \SI{90}{\percent} of its area \\
     % \midrule
     \addlinespace
-    \multirow[t]{3}{0.2\textwidth-2\tabcolsep}{Residence cell} & Minimum activity in cell & 3 Tweets \\
+    \multirow[t]{3}{0.2\textwidth-2\tabcolsep}{Residence cell} & Minimum activity in cell & 3 tweets \\
     & Minimum proportion of activity in cell & \SI{10}{\percent} \\
     & Minimum proportion of nighttime activity in cell & \SI{50}{\percent} \\
     % \midrule
     \addlinespace
-    Real users & Maximum tweeting rate & 10 Tweets per hour \\
+    Real users & Maximum tweeting rate & 10 tweets per hour \\
     & Maximum speed & \SI{1000}{\kilo \meter \per \hour} \\
     & Minimum period of activity & Once a month for 3 consecutive months \\
     \bottomrule
@@ -437,8 +437,8 @@ found to be locals of one of several multilingual regions, using these criteria.
   \caption{Criteria used for Twitter data preprocessing. They are applied over the whole
     tweeting span of a user in our dataset, which, in this work, is at most from the
     years 2015 to 2021, both included. This means for example that the tweeting rate is
-    the total number of Tweets posted by a user divided by the amount of time that
-    passed between their first and last Tweet in the dataset.}
+    the total number of tweets posted by a user divided by the amount of time that
+    passed between their first and last tweet in the dataset.}
   \label{tab:twitter_criteria}
 \end{table}
 
@@ -613,7 +613,7 @@ Many other models of the same kind have been proposed to understand language shi
 extending previous formulations to consider additional aspects of the problem. Notably,
 most subsequent models have incorporated bilingualism, as they included a third
 population of bilinguals AB, which may influence the dynamics in different ways. For
-instance, including interlinguistic similarity in a model with bilinguals, the latter
+instance, including inter-linguistic similarity in a model with bilinguals, the latter
 may keep a minority language alive when this similarity is high enough
 \cite{MiraImportanceInterlinguistic2011}. \Citeauthor{MinettModellingEndangered2008}
 have stressed the importance of considering different maximum rates between the
@@ -634,7 +634,7 @@ reaction-diffusion-like models
 Instead of a single population, one may consider a metapopulation, that is a population
 of populations that may interact with each other as they move around. This has been used
 extensively in ecological models to take into account the movements of species for the
-dynamics of inter-species competition \cite{HanskiMetapopulationDynamics1998}. It was
+dynamics of interspecies competition \cite{HanskiMetapopulationDynamics1998}. It was
 used similarly in epidemiology to try to understand how the propensity of individuals to
 stay in their home region or to move to others and potentially transmit a disease to
 another population may contribute to an epidemic
@@ -691,7 +691,8 @@ with a long history in social sciences \cite{LatanePsychologySocial1981}, such a
 this cultural feature persist in part of the population partly because it creates a
 sense a group identity that binds people together? Will the increasing number of
 contacts between these populations tend to smooth out differences between them?
-
+% TODO: reformulate more specifically for sociolinguistics, and ref chapters multiling
+% and ses as places we use them.
 
 \section{Source materials and tools}
 Following the principles of open science, throughout my thesis, I have made all source
