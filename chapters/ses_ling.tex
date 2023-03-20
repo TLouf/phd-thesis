@@ -18,68 +18,91 @@
 }
 
 Language bounds individuals together just as much as it divides them. Upon reading the
-last sentence, one may first think of inter-language boundaries: if two individuals
-cannot understand each other's language, communication is effectively very limited. In
-this work, however, we delve into intra-language differences: when people speak the same
-language, but differently, which is also a strong source of social divides. Language
-variation in a population is driven by many factors, among which the socio-economic
-background of individuals is essential. As the sociologist Pierre Bourdieu put it,
-individuals possess different quantities of ``linguistic capital''
-\cite{BourdieuLanguageSymbolic2009}, which gives them more or less power both in the
-political and economic spheres. \Ac{SES} and this linguistic
-variation are thus mutually sustaining: one inherits a \ac{SES} along which comes a
-linguistic capital that contributes --- among other things --- to constrain them to
-their status of origin. Understanding the mechanisms that lead to this linguistic
-segregation is therefore of great importance. 
+last sentence, one may first think of interlanguage boundaries as the ones we have seen
+in the previous chapter: if two individuals cannot understand each other's language,
+communication is effectively very limited. This chapter, on the other hand, is dedicated
+to intra-language differences: when people speak the same language, but differently,
+which is also a strong marker of social divides. As we already emphasized in
+\cref{ch:origins_lang_diversity}, language variation in a population is driven by many
+factors, among which the socio-economic background of individuals is essential.
 
-A first step toward understanding is to quantify the phenomenon. It has already been
-measured by the PISA reports of the OECD \cite{OECDWhereAll2019}, which survey, among
-others, the reading proficiency of 15-year-olds in 79 countries. They consistently show
-that students with lower socio-economic background tend to perform worse at this test.
-While these confirm there is an issue to tackle, they are not extensive enough. They do
-not test language production, and not the whole population, but only a sample of
-students of a specific age. Alternative empirical works are thus needed. In that vein,
-some past work has investigated the dependence on \ac{SES} of the frequency of a few markers
-of non-standard language in France, as seen on Twitter
-\cite{LevyAbitbolSocioeconomicDependencies2018}, showing the potential of this data
-source for such an analysis.
-% TODO: references! \cite{LabovSocialStratification1966,TrudgillSocialDifferentiation1974} trudgill: preference of non standard of working class men
-% \cite{DavilaInevitabilityStandard2016} why should standard language be considered normal or correct, superior
-% \cite{EagleNetworkDiversity2010} We find that the diversity of individuals’ relationships is strongly correlated with the economic development of communities.
-% \cite{ChambersSociolinguisticTheory2007} there is link between linguistic variation and social factors
+Understanding the mechanisms that lead to this linguistic
+segregation is therefore of great importance.
+
+Linguistic capital can often be associated to one's ability to use the standard form of
+their language. Indeed, this form is the one taught at schools, considered by many as
+the only \emph{correct} form, which is thus seen as the norm, or even the
+\emph{superior} form \cite{MilroyIdeologyStandard2006,DavilaInevitabilityStandard2016}.
+However, different social groups may have different perceptions of what is the normal
+way to speak \cite{KretzschmarLanguageVariation2010}, and generally have different
+attitudes towards their language's variants \cite{GarrettLanguageAttitudes2006}. It is
+thus not uncommon that some classes of the population prefer to use the non-standard
+form. This has been shown by prominent sociolinguists in the past, as they conducted
+field studies and analysed differences between different socio-economic classes
+\cite{LabovSocialStratification1966,TrudgillSocialDifferentiation1974}. Although this
+phenomenon has long been known \cite{ChambersSociolinguisticTheory2007}, it has been
+observed on very limited scales, and, more importantly, no real explanation of how it
+might emerge has been proposed. These are the two shortcomings we wish to address in
+this chapter.
+
+First, as we have already shown in previous chapters, a first step toward understanding
+is measurement of the phenomenon. It has already been quantified by the PISA reports of
+the OECD \cite{OECDWhereAll2019}, which survey, among others, the reading proficiency of
+15-year-olds in 79 countries. They consistently show that students with lower
+socio-economic background tend to perform worse at this test. While these confirm there
+is an issue to tackle, they are not extensive enough. They do not test language
+production, and not the whole population, but only a sample of students of a specific
+age. Alternative empirical works are thus needed.
 % \cite{EisensteinDiffusionLexical2014} Twitter for geographical variation of linguistic variables
-% \cite{KretzschmarLanguageVariation2010} what is the "normal" variant depends on your social group who have different perceptions on language
+% \cite{GaoComputationalSocioeconomics2019} social media like Twitter to link SES and different social behaviours like
+In that vein, some past work has investigated the dependence on \ac{SES} of the
+frequency of a few markers of non-standard language in France, as seen on Twitter
+\cite{AbitbolSocioeconomicDependencies2018}, showing the potential of this data source
+for such an analysis.
+
 % \cite{LaksWhyThere2013} In such a conception, communication is a leading force in the emergence and stabilization of human linguistic competence, both diachronically and synchronically. In this approach, variation and heterogeneity are to be seen as core factors in shaping language. Thus, as argued some 50 years ago by Weinreich, variation and heterogeneity are to be regarded as structurally functional, and as fundamental dimensions of language.
 % \cite{KinzlerNativeLanguage2007} social groups are partly built and opposed based on language, and very early
-% \cite{LazerComputationalSocial2009} potential of computational social science
-% \cite{GaoComputationalSocioeconomics2019} social media like Twitter to link SES and different social behaviours like
+There are models for cultural transmission, like the literature centered around the
+Axelrod model
+\cite{AxelrodDisseminationCulture1997,CastellanoNonequilibriumPhase2000,KlemmGlobalCulture2003,KlemmNonequilibriumTransitions2003,BattistonLayeredSocial2017}.
+No dependence on intrinsic attribute, or group identity, have been taken into account.
+Cultural traits like the use of a language variety can depend on an individual sense of
+identity.
+
 
 In this work, we investigate this inter-dependence in the UK, by way of measuring how Twitter users abide by the rules of the standard variety of their language, which is the one taught at schools.
 
-\section{A role of SES?}
+
+
+\section{An influence of socio-economic status?}
 
 \subsection{Twitter data analysis}
-To do so, we analyse the Tweets of identified UK residents with LanguageTool, an
+To do so, we analyse the tweets of identified UK residents with LanguageTool, an
 open-source grammar, style and spell checker. As the tool is implemented in 15
 languages, our study can actually be replicated in other countries as well. It enables
 us to compute the frequency at which these users make different categories of mistakes,
-according to standard rules. To assign a \ac{SES} to these users, we determine their area of
-residence from the geotags attached to their Tweets. The areas considered are
+according to standard rules. To assign a \ac{SES} to these users, we determine their
+area of residence from the geotags attached to their tweets. The areas considered are
 administrative areas with a typical population of ten thousand. For those, we have the
-average annual net income of their residents from the census, which gives us a proxy for the
-\ac{SES} of our Twitter users.
+average annual net income of their residents from the census, which gives us a proxy for
+the \ac{SES} of our Twitter users.
 
-Our unit areas for the study are the \SI{7201}{} \acp{MSOA}, which are areas created for
-the output of the UK census estimates. They host at least \SI{5000}{} and at most
-\SI{15000}{} inhabitants, with a typical population of \SI{10000}{}. Their boundaries
-can be downloaded from the Open Geography portal of the Office for National
+Our unit areas for the study are the \SI{7201}{} \acp{MSOA}, which are areas created by
+the Office for National Statistics of the UK for the output of the census estimates.
+They host at least \SI{5000}{} and at most \SI{15000}{} inhabitants, with a typical
+population of \SI{10000}{}. Their boundaries can be downloaded from the Open Geography
+portal of the Office for National
 Statistics\footnote{\url{https://geoportal.statistics.gov.uk/maps/msoa-dec-2011-boundaries-generalised-clipped-bgc-ew-v3}}.
 In the following, we only keep cells in which we had sufficient text from Twitter. Our
 criterion is set so that we keep cells with at least 15 resident users, each of whom
 must have written at least 100 words. This leaves us with \SI{4879}{} \acp{MSOA} for our
 analysis.
 
+
 \subsection{SES x grammar mistakes correlations}
+The 2018 net annual income for \acp{MSOA} of England and Wales was obtained from the
+census\footnote{\url{https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/smallareaincomeestimatesformiddlelayersuperoutputareasenglandandwales}}
+
 Focusing on grammar mistakes, we then find a significant, but weak correlation (Pearson
 r equal to -0.25) between the net income and the average frequency of mistakes in all
 areas of the country. We then focus on metropolitan areas because we expect them to host
@@ -87,53 +110,111 @@ more linguistic and socio-economic heterogeneity than their rural counterparts. 
 happen to have more data in these on both mobility and language production, due to the
 fact that Twitter users tend to be more urban. We therefore consider the 8 largest
 metropolitan areas in England, and find large differences between these areas, with
-correlations ranging from -0.07 in Sheffield to -0.5 in Bristol.
-\begin{figure}[hb]
+correlations ranging from -0.07 in Sheffield to -0.5 in Bristol. The average frequency
+of grammar mistakes is plotted against the average of net annual income of their
+residents for all \acp{MSOA} of England and Wales, London, Manchester and Sheffield in
+\cref{fig:ses_x_grammar_corrs}.
+\begin{figure}
 \centering
   \includegraphics[width=\textwidth]{ses_x_grammar_corrs}
-  \caption{Light blue \SI{95}{\percent} confidence interval for the regression estimate}
+  \caption{ Correlation between frequency of grammar mistakes and net income. We show
+  them for all \acp{MSOA} of England and Wales, and then of the metropolitan areas of
+  London, Manchester and Sheffield. Each grey dot corresponds to an \ac{MSOA}, while
+  blue lines indicate the result of a linear regression, with the corresponding Pearson
+  r and p-value given in each legend. The areas colored in light blue indicate the
+  \SI{95}{\percent} confidence interval for the regression estimates.}
   \label{fig:ses_x_grammar_corrs}
 \end{figure}
 
 
-
 \subsection{The role of assortativity}
-The 2018 net annual income for \acp{MSOA} of England and Wales was obtained from the census\footnote{\url{https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/smallareaincomeestimatesformiddlelayersuperoutputareasenglandandwales}}
+% \cite{EagleNetworkDiversity2010} We find that the diversity of individuals’
+% relationships is strongly correlated with the economic development of communities.
+% hence why we turn to measuring social mixing next. hein??
 
-To find out what could
-make these cities so different in that regard, we measure the assortativity in the
-mobility patterns of their residents \cite{HilmanSocioeconomicBiases2022}. We thus
-determine how likely people from different socio-economic classes are to interact with
-each other.
+To find out what could make these cities so different in that regard, we measure the
+assortativity in the mobility patterns of their residents
+\cite{HilmanSocioeconomicBiases2022}. We thus determine how likely people from different
+socio-economic classes are to interact with each other.
 
-Excluding Tweets from their cell of residence. \ac{SES} classes are defined such that each class has roughly the same population. Since our proxy for \ac{SES} is the average income in every \ac{MSOA}, every resident of a cell will necessarily be assigned to the same class. Considering the cells in a given metropolitan area, we rank them by increasing average net income. We get their population from the census\footnote{\url{https://www.nomisweb.co.uk/census/2011/ks101uk}}, denoted $N_c$ for each cell $c$ in the following.
-Set of cells less populated than $c$: $S_c = \left\{ c' \in C \mid N_{c'} < N_c \right\}$, 
+Excluding tweets from their cell of residence. \ac{SES} classes are defined such that
+each class has roughly the same population. Since our proxy for \ac{SES} is the average
+income in every \ac{MSOA}, every resident of a cell will necessarily be assigned to the
+same class. Considering the cells in a given metropolitan area, we rank them by
+increasing average net income. We get their population from the
+census\footnote{\url{https://www.nomisweb.co.uk/census/2011/ks101uk}}, denoted $N_c$ for
+each cell $c$ in the following. Denoting $P_c$ the set of cells less populated than $c$,
+formally defined as $P_c = \left\{ c' \in C \mid N_{c'} < N_c \right\}$, we define the
+\ac{SES} class of $c$ as follows:
 \begin{equation}
-  \mathcal{C}_c = n_{\mathcal{C}} \left\lceil \frac{\sum_{c' \in S_c} N_{c'}}{\sum_{c' \in C} N_{c'}} \right\rceil
+  S_c = n_S \left\lceil \frac{\sum_{c' \in P_c} N_{c'}}{\sum_{c' \in C} N_{c'}} \right\rceil,
 \end{equation}
-with $\left\lceil \cdot \right\rceil$ representing the ceil function and $n_{\mathcal{C}}$ the number of classes we wish to define. $m_{u, c}$ the number of trips made by user $u$ to cell $c$. 
+with $\left\lceil \cdot \right\rceil$ representing the ceiling function and $n_S$ the
+number of classes we wish to define. We denote $m_{u, c}$ the number of trips made by
+user $u$ to cell $c$, and introduce the probability for an individual residing in a cell
+of class $i$ to visit another of class $j$:
 \begin{equation}
+  \label{eq:class_visit_proba}
   M_{i, j} = \frac{
-      \sum_{u \in \mathcal{C}_i} \sum_{c \in \mathcal{C}_j} m_{u, c}
+      \sum_{u \in S_i} \sum_{c \in S_j} m_{u, c}
     }{
-      \sum_{j \in \mathcal{C}_j} \sum_{u \in \mathcal{C}_i} \sum_{c \in \mathcal{C}_j} m_{u, c}
-    }
+      \sum_{j \in S_j} \sum_{u \in S_i} \sum_{c \in S_j} m_{u, c}
+    },
 \end{equation}
-\begin{figure}[h]
+which is normalised row-wise, meaning $\sum_j M_{i, j} = 1$. Such matrices computed for
+our eight metropolitan areas are represented in \cref{fig:cities_SES_mobility}. They
+show completely different patterns, from cities where the diagonal elements slightly
+stand out as in London or Manchester, to cities in which one specific class of cells is
+the destination of most outward mobility, as in Newcastle or Bristol.
+\begin{figure}
 \centering
-  \includegraphics[width=\textwidth]{cities_SES_mobility}
-  \caption{}
+  \includegraphics[width=0.9\textwidth]{cities_SES_mobility}
+  \caption{ Matrices of stratification of \ac{SES} classes in their mobility in eight
+  metropolitan areas of England. For every pair of \ac{SES} classes for the cell of
+  residence and the cell visited by Twitter users, this shows the proportion of trips
+  that were made from the latter to the former. A square located at $(x, y) = (i, j)$
+  corresponds to $M_{j, i}$, as it is defined in \cref{eq:class_visit_proba}. The
+  normalization is thus column-wise on this representation.}
   \label{fig:cities_SES_mobility}
 \end{figure}
 
-What we find is a very clear correlation between this assortativity measured
-at the city level, and the correlation between SES and the frequency of grammar
-mistakes, as shown in Figure \ref{fig:cities_assort_vs_grammar_and_SES_corr}. This indicates that the more mixing in the
-population, the less the frequency of mistakes is determined by the SES of origin.
-\begin{figure}[hb]
+These patterns can be summarised by a measure of how strongly diagonal these matrices
+are: their Pearson r value, denoted $r_M$ in our case. It is defined as follows:
+\begin{equation}
+  r_M = \frac{
+      \sum_{i, j} M_{i, j} \cdot \sum_{i, j} i j M_{i, j}
+      - \sum_{i, j} i M_{i, j} \cdot \sum_{i, j} j M_{i, j}
+    }{
+      \sqrt{\sum_{i, j} i^2 M_{i, j} - \left( \sum_{i, j} i M_{i, j} \right)^2}
+      \cdot \sqrt{\sum_{i, j} j^2 M_{i, j} - \left( \sum_{i, j} j M_{i, j} \right)^2}
+    }.
+\end{equation}
+This then gives us a measure of assortativity, meaning that this metric gives us a sense
+of how much people of similar classes tend to stay together. The closer to 1, the more
+individuals tend to go to areas of similar \ac{SES} (assortative mixing), and the closer
+to -1, the more they will stay with people of opposite \ac{SES} (disassortative mixing).
+Values close to 0 indicate no assortativity, meaning no preference in mixing. We then
+measure this assortativity for our metropolitan areas from the matrices shown in
+\cref{fig:cities_SES_mobility}, and show the results in
+\cref{fig:cities_assort_vs_grammar_and_SES_corr} against the correlation we computed
+previously between socio-economic status and the average frequency of grammar mistakes.
+What we find is a very clear correlation between this assortativity measured at the city
+level, and the correlation between SES and the frequency of grammar mistakes, as shown
+in Figure \cref{fig:cities_assort_vs_grammar_and_SES_corr}. This indicates that the more
+mixing in the population, the less the frequency of mistakes is determined by the SES of
+origin. Further, as shown in the bottom panel of
+\cref{fig:cities_assort_vs_grammar_and_SES_corr}, more mixing tends to imply more
+frequent mistakes. It then appears that it favours the spread in popularity of
+non-standard English.
+\begin{figure}
 \centering
-  \includegraphics[width=\textwidth]{cities_assort_vs_grammar_and_SES_corr}
-  \caption{}
+  \includegraphics[width=0.9\textwidth]{cities_assort_vs_grammar_and_SES_corr}
+  \caption{The influence of assortativity on the frequency of grammar mistakes (bottom)
+  and their dependence on \ac{SES} of origin (top). The latter clearly decreases as
+  assortativity increases. This means that the more \ac{SES} classes mix with one
+  another, the less the usage of the standard form of individuals will depend on their
+  own \ac{SES}. As for the frequency of mistakes, it seems to rather increase with
+  mixing.}
   \label{fig:cities_assort_vs_grammar_and_SES_corr}
 \end{figure}
 
@@ -143,38 +224,51 @@ population, the less the frequency of mistakes is determined by the SES of origi
 
 \subsection{Definition}
 Having identified the importance of social mixing, we wish to understand the mechanisms
-behind this effect with a simple model.
-There are several effects we wish to consider, described below.
+behind this observation with a simple model. There are several effects we wish to
+consider, described below.
 \begin{enumerate}[(i)]
   \item One of the two varieties of the language may be more prestigious than the other.
   This is for example the case of the standard form: it is taught at schools and spoken
-  by the mainstream media and the public institutions \cite{DavilaInevitabilityStandard2016}.
-  \item Even though one variety may be less prestigious, it might still be preferred by a
+  by mainstream media and public institutions \cite{DavilaInevitabilityStandard2016}.
+  \item Even though one variety is less prestigious, it might still be preferred by a
   part of the population that has some kind of cultural attachment to it. For instance,
   slang can be preferred by members of lower \ac{SES}, as using it might give them a
-  sense of group identity \cite{LabovSocialStratification1966,TrudgillSocialDifferentiation1974}.
+  sense of group identity
+  \cite{LabovSocialStratification1966,TrudgillSocialDifferentiation1974}.
   \item We previously observed very different mixing patterns in UK metropolises.
   Indeed, mobility can be very heterogeneous, so it should be possible to plug in any
   mobility pattern into the model to be able to understand how different mixing may
   affect the dynamics of the linguistic varieties.
 \end{enumerate}
-
-It considers agent who can have one of two \ac{SES} classes, living in two separate
-cells, and who can either speak standard, or not. The standard form has a higher
-prestige $l_v$ because it is for instance preferred in schools and in the media. Then,
-each \ac{SES} class has a preference for one form, the lower class 1 is attached to the
-non-standard form with a factor $q_1$, and inversely the higher class 2 is attached to
-the standard one with $q_2$. When either of these three parameters has a value above
-$0.5$, it means there is a preference for the respective form. Then for instance, when
-an agent of low \ac{SES} speaking non-standard interacts with another agent speaking
-standard, they have a probability $l_v (1 - q_1)$ to start using the standard form as
-well. The agents can move from their residence cell with a probability $m_{i,j}$ at each
-step, which thus controls the mixing of the two populations. Figure
-\ref{fig:model_diagram} provides a summary of the model.
-\begin{figure}[hb]
+With these considerations in mind, we propose an \ac{ABM}, that we describe next. It
+considers agent who can have one of two \ac{SES} classes, each class living in one of
+two cells, and who can either speak standard, or not. The standard form has an intrinsic
+prestige $l_v$, whose values we will always set above 0.5 in the following, to account
+for (i). Now turning to (ii), each \ac{SES} class has a preference for one form: the
+lower class 1 is attached to the non-standard form with a factor $q_1$, and inversely
+the higher class 2 is attached to the standard one with $q_2$. When one of these three
+parameters has a value above $0.5$, it means there is a preference for the respective
+form. Then for instance, when an agent of low \ac{SES} speaking non-standard interacts
+with another agent speaking standard, they have a probability $l_v (1 - q_1)$ to start
+using the standard form as well. The agents can move from their residence cell with a
+probability $m_{i,j}$ at each step, which thus controls the mixing of the two
+populations, as discussed in (iii). \cref{fig:model_diagram} provides a summary of the
+model.
+\begin{figure}
 \centering
   \includegraphics[width=\textwidth]{model_diagram}
-  \caption{Diagram summarizing our agent-based model for the adoption of a linguistic variety. It features two \ac{SES} classes, represented by circles and triangles, which can speak one of two varieties of their language: the standard form (filled shapes) and the non-standard (empty shapes). Each agent has a cell of residence, and a mobility matrix with elements $m_{i, j}$ defines the probabilities for a resident of $i$ to be at different cells at each time step. After they have moved, for every agent, another agent is picked randomly for them to interact with, and if they happen to interact with an agent using the other variety, in function of their \ac{SES} class of origin they have different probabilities to adopt this variety. For instance, when a triangle (\ac{SES} 1) speaking non-standard interacts with another agent speaking standard, they have a probability equal to $l_v (1 - q_1)$ to adopt the standard form (transition represented in the bottom left).}
+  \caption{Diagram summarizing our agent-based model for the adoption of a linguistic
+  variety. It features two \ac{SES} classes, represented by circles and triangles, which
+  can speak one of two varieties of their language: the standard form (filled shapes)
+  and the non-standard (empty shapes). Each agent has a cell of residence, and a
+  mobility matrix with elements $m_{i, j}$ defines the probabilities for a resident of
+  $i$ to be at different cells at each time step. After they have moved, for every
+  agent, another agent is picked randomly for them to interact with, and if they happen
+  to interact with an agent using the other variety, in function of their \ac{SES} class
+  of origin they have different probabilities to adopt this variety. For instance, when
+  a triangle (\ac{SES} 1) speaking non-standard interacts with another agent speaking
+  standard, they have a probability equal to $l_v (1 - q_1)$ to adopt the standard form
+  (transition represented in the bottom left).}
   \label{fig:model_diagram}
 \end{figure}
 
@@ -186,20 +280,20 @@ step, which thus controls the mixing of the two populations. Figure
 
 
 \subsection{Simulating the model on a toy example}
-We ran simulations with $200$ agents spread evenly between two SES classes,
-with each class in its own residence cell. We set the standard form to be the more
-prestigious one, agents with higher SES to be indifferent and ones with lower SES to be
-more attached to the non-standard form. In Figure \ref{fig}(c), we show the result of
-this simulation when we set a very low inter-cell mobility. For Figure \ref{fig}(d), the
+We ran simulations with $200$ agents spread evenly between two SES classes, with each
+class in its own residence cell. We set the standard form to be the more prestigious
+one, agents with higher SES to be indifferent and ones with lower SES to be more
+attached to the non-standard form. In Figure \cref{fig}(c), we show the result of this
+simulation when we set a very low inter-cell mobility. For Figure \cref{fig}(d), the
 mobility was greatly increased. We can see that the more the two populations mix, the
 closer they are to using the two forms in the same proportions, reflecting what we
 observed in the data.
 
 
 \subsection{Simulating the model in real metropolitan areas}
-This promising result calls for further investigation of the
-model, and particularly how it would fare when initialised with the actual data that we
-have in the metropolitan areas of England.
+This promising result calls for further investigation of the model, and particularly how
+it would fare when initialised with the actual data that we have in the metropolitan
+areas of England.
 
 
 % fig with interesting simulation results: toy two cells into real populations?
