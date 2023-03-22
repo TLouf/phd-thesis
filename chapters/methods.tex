@@ -49,6 +49,7 @@ comparison, our ability to retrieve it is quite limited.
 
 
 \subsection{Traditional sources in linguistics}
+\label{sec:method_trad_data}
 This was especially true historically. The field of linguistics is centuries-old, and
 has relied mostly on written texts and transcriptions of interviews throughout its
 history. But despite the considerable efforts that have been made to conserve written records, only a tiny proportion of texts survived through
@@ -133,6 +134,7 @@ or a certain microblogging website called Twitter \cite{MocanuTwitterBabel2013,A
 
 
 \subsection{The case of Twitter}
+\label{sec:methods_twitter}
 
 The biggest source of data we have used throughout this thesis is Twitter. Twitter is a
 microblogging website where people can register to share and view short posts called
@@ -474,6 +476,7 @@ found to be locals of one of several multilingual regions, using these criteria.
 \end{table}
 
 \subsubsection{Caveats}
+\label{sec:twitter_biases}
 No data source is without bias, and Twitter is no exception. First, at the global scale,
 as we already mentioned, Twitter is more representative of people living in western,
 developed countries with widespread access to the Internet
@@ -572,6 +575,7 @@ works \cite{EpsteinWhyModel2008}. Theoretical models thus remain invaluable, and
 
 
 \subsection{What kind?}
+\label{sec:method_theoretical_models}
 One of the first things to consider when trying to model a phenomenon is at what level
 we wish to study it. % TODO meh
 We will here distinguish between two levels: the microscopic and the macroscopic. To
@@ -601,7 +605,7 @@ depends on an exponent $a > 0$ and a factor $s \in [0, 1]$ called the relative s
 language A. When this status has a value above 0.5, A is relatively more prestigious
 than B, and the inverse is true when it is below 0.5. The exponent $a$, later on called
 (inverse) volatility, controls the effect of social pressure. For instance, in the first
-term of equation \eqref{eq:AS_dt}, it controls how much influence the proportion of A
+term of \cref{eq:AS_dt}, it controls how much influence the proportion of A
 speakers $p_A$ will have on the B speakers --- present in a proportion equal to $(1 -
 p_A)$ --- when considering learning A. The lower $a$, or the higher the volatility, the
 more importance this term will have, so the easier the switch. A clear advantage of such
@@ -661,7 +665,7 @@ modelled, but the evolution of the state of each individual, or agent, in that
 population. Their state could be linked to a linguistic variable, or even a set of them.
 In the case of language competition, it may be the language(s) they speak. The model
 then defines switching rules between states. For instance, one can rewrite the
-Abrams-Strogatz model of \eqref{eq:AS_dt} as an \ac{ABM}, writing the following
+Abrams-Strogatz model of \cref{eq:AS_dt} as an \ac{ABM}, writing the following
 transition probabilities:
 \begin{equation}
   \label{eq:AS_ABM}
@@ -673,7 +677,7 @@ transition probabilities:
 from A to B, and B to A, respectively. Each agent, in function of their current state,
 may switch to another, with potentially their own probability. Indeed, if each agent
 sees different proportions $p_A$, because they interact with different people, then the
-social structure can be reflected in \eqref{eq:AS_ABM}. And from this transition rule,
+social structure can be reflected in \cref{eq:AS_ABM}. And from this transition rule,
 any kind of social structure can be plugged into the model, from the very basic but
 mathematically-tractable complete network, to more realistic social networks from
 synthetic models or even real-world data. \Acp{ABM} of language competition have thus
