@@ -8,10 +8,10 @@
 \label{ch:multiling}
 
 \epigraph{
-    To be rooted is perhaps the most important and least recognized need of the
-    human soul. It is one of the hardest to define.
+  To be rooted is perhaps the most important and least recognized need of the
+  human soul. It is one of the hardest to define.
 }{
-    \epigraphcite{WeilNeedRoots2002}
+  \epigraphcite{WeilNeedRoots2002}
 }
 
 The following chapter is in part a reprint of an article,
@@ -172,16 +172,16 @@ Starting from the counts $N_{L,i}$ of $L$-speakers residing in cell $i$ obtained
 the data, we wish to gain insights on the spatial distributions of language use. To do
 so we need to define a few basic metrics:
 \begin{itemize}
-       \item concentration in cell $i$ of $L$-speakers:
-       \begin{equation}
-       \label{eq:def_conc}
-              c_{L,i} = \frac{N_{L,i}}{N_L},
-       \end{equation}
-       \item proportion of $L$-speakers in $i$'s population:
-       \begin{equation}
-       \label{eq:def_prop}
-              p_{L,i} = \frac{N_{L,i}}{N_i},
-       \end{equation}
+  \item concentration in cell $i$ of $L$-speakers:
+    \begin{equation}
+    \label{eq:def_conc}
+          c_{L,i} = \frac{N_{L,i}}{N_L},
+    \end{equation}
+  \item proportion of $L$-speakers in $i$'s population:
+    \begin{equation}
+    \label{eq:def_prop}
+          p_{L,i} = \frac{N_{L,i}}{N_i},
+    \end{equation}
 \end{itemize}
 where $N_L$ are all the users classified as $L$-speakers in the country or region
 considered, and $N_i$ is the population of Twitter users residing in cell $i$ speaking
@@ -190,7 +190,7 @@ polarisation of a language A for every cell $i$ in a bilingual system with langu
 and B as 
 \begin{equation}
 \label{eq:def_polar}
-    \theta_{A, i} = \frac{1}{2} (1 + p_{A,i} - p_{B,i}). 
+  \theta_{A, i} = \frac{1}{2} (1 + p_{A,i} - p_{B,i}). 
 \end{equation}
 The polarisation vanishes when there are only B monolinguals, takes the neutral value of
 $0.5$ when there are as many A-speakers as B-speakers, and goes to $1$ when there are
@@ -236,20 +236,20 @@ signatures $P = \{ (i, c_i) \}$ and $Q_L = \{ (i, c_{L,i}) \}$. We then define
 $\text{EMD}_L$ as 
 \begin{equation}
 \label{eq:emd_def}
-    \text{EMD}_L \equiv \text{EMD}(P, Q_L) = \sum_{i,j} \hat{f}_{ij} d_{ij},
+  \text{EMD}_L \equiv \text{EMD}(P, Q_L) = \sum_{i,j} \hat{f}_{ij} d_{ij},
 \end{equation}
 with $d_{ij}$ the distances between cells $i$ and $j$, and $\hat{f}_{ij}$ the optimal
 flows to reshape $P$ into $Q_L$, obtained by minimizing $\sum_{i,j} f_{ij} d_{ij}$ under
 the following constraints:
 \begin{equation}
-    \left\{
-    \begin{aligned}
-        f_{ij} & \geq 0, \forall \, i,j \\
-        \sum_j f_{ij} & = c_{L,i}, \forall \, i \\
-        \sum_i f_{ij} & = c_j, \forall \, j \\
-        \sum_{i} \sum_j f_{ij} & = \sum_i c_{L,i} = \sum_j c_j = 1,
-    \end{aligned}
-    \right.
+  \left\{
+  \begin{aligned}
+    f_{ij} & \geq 0, \forall \, i,j \\
+    \sum_j f_{ij} & = c_{L,i}, \forall \, i \\
+    \sum_i f_{ij} & = c_j, \forall \, j \\
+    \sum_{i} \sum_j f_{ij} & = \sum_i c_{L,i} = \sum_j c_j = 1,
+  \end{aligned}
+  \right.
 \end{equation}
 where $c_i$ and $c_{L,i}$ are the concentrations of the population and $L$-speakers in
 every cell $i$, as defined above. $\text{EMD}_L$ quantifies thus the distance between
@@ -265,12 +265,12 @@ be very high in Quebec, for instance, since the geographical scales are large ev
 though its northern part is scarcely populated. This is why we choose instead the
 average distance between individuals:
 \begin{equation}
-    k_\text{EMD} = \frac{\sum_i \sum_j N_i N_j d_{ij} }{\left( \sum_k N_k \right)^2}.
+  k_\text{EMD} = \frac{\sum_i \sum_j N_i N_j d_{ij} }{\left( \sum_k N_k \right)^2}.
 \end{equation}
 Our final metric is then the normalised version of the \ac{EMD}, the \acf{EMR}, defined
 as:
 \begin{equation}
-    \text{EMR}_L = \frac{\text{EMD}_L}{k_\text{EMD}} .
+  \text{EMR}_L = \frac{\text{EMD}_L}{k_\text{EMD}} .
 \end{equation}
 The \ac{EMR} is a global parameter. The higher it is, the more segregated a linguistic
 community. On the contrary, if the \ac{EMR} is close to zero this community is
@@ -320,25 +320,25 @@ natures from one region to another, from sustaining a minority language while be
 spatially mixed or isolated, to standing at the border between monolingual communities.
 
 \begin{figure*}[h!]
-    \centering
-    \includegraphics{EMR_countries}
-    \caption{\acp{EMR} of the (a) monolingual and (b) multilingual groups of
-    multilingual regions of interest, ranked left to right by increasing average of the
-    $y$-axis values. In (b), the point for trilinguals in Switzerland is not displayed
-    because its value was deemed unreliable. A rich diversity of mixing patterns is
-    shown, beyond the two paradigmatic cases of Catalonia and Belgium.}
-    \label{fig:EMR_countries}
+  \centering
+  \includegraphics{EMR_countries}
+  \caption{\acp{EMR} of the (a) monolingual and (b) multilingual groups of
+  multilingual regions of interest, ranked left to right by increasing average of the
+  $y$-axis values. In (b), the point for trilinguals in Switzerland is not displayed
+  because its value was deemed unreliable. A rich diversity of mixing patterns is
+  shown, beyond the two paradigmatic cases of Catalonia and Belgium.}
+  \label{fig:EMR_countries}
 \end{figure*}
 
 \begin{figure}[h!]
-    \centering
-    \includegraphics{EMR_cell_size_invariance}
-    \caption{Robustness of the \ac{EMR} with regard to the choice of cell size. For cell
-    sizes ranging from $5 \times 5 \, \si{\kilo \meter \squared}$ to $15 \times 15 \,
-    \si{\kilo \meter \squared}$ in Catalonia, Belgium and Switzerland, the values of the
-    \ac{EMR} (a) between the monolinguals in each language and the whole population, and
-    (b) between the multilinguals and the whole population are shown.}
-    \label{fig:EMR_cell_size_invariance}
+  \centering
+  \includegraphics{EMR_cell_size_invariance}
+  \caption{Robustness of the \ac{EMR} with regard to the choice of cell size. For cell
+  sizes ranging from $5 \times 5 \, \si{\kilo \meter \squared}$ to $15 \times 15 \,
+  \si{\kilo \meter \squared}$ in Catalonia, Belgium and Switzerland, the values of the
+  \ac{EMR} (a) between the monolinguals in each language and the whole population, and
+  (b) between the multilinguals and the whole population are shown.}
+  \label{fig:EMR_cell_size_invariance}
 \end{figure}
 
 All metrics introduced in this section can be computed using similar data taken from
@@ -383,14 +383,14 @@ Extinction of A (B), for instance, corresponds to $p_{\text{A}} = p_{\text{AB}} 
 ($p_{\text{B}} = p_{\text{AB}} = 0$).
 \begin{figure}
 \centering
-    \includegraphics{models_diagram}
-    \caption{Diagrams of the models presented in the text, showing the transition
-    probabilities from one state to another. (a) Abrams-Strogatz model from
-    \cite{AbramsModellingDynamics2003}. (b) Bilinguals model from
-    \cite{CastelloOrderingDynamics2006}. (c) Our model of bilinguals including both
-    their preference and the ease to learn the other language (see
-    \cref{eq:bipref_model}).}
-    \label{fig:models_diagram}
+  \includegraphics{models_diagram}
+  \caption{Diagrams of the models presented in the text, showing the transition
+  probabilities from one state to another. (a) Abrams-Strogatz model from
+  \cite{AbramsModellingDynamics2003}. (b) Bilinguals model from
+  \cite{CastelloOrderingDynamics2006}. (c) Our model of bilinguals including both
+  their preference and the ease to learn the other language (see
+  \cref{eq:bipref_model}).}
+  \label{fig:models_diagram}
 \end{figure}
 
 The first model to mention is the one introduced in \cite{AbramsModellingDynamics2003}
@@ -466,7 +466,7 @@ their single language is transmitted. If they were bilingual, one of their two l
 might get lost in the process of transmission. This loss occurs according to the
 following transition probability:
 \begin{equation}
-    P (\text{AB} \rightarrow \text{X}) = \mu \, s_\text{X} \, \left[ p_{\text{X}} + q_\text{X} \, p_{\text{AB}} \right],
+  P (\text{AB} \rightarrow \text{X}) = \mu \, s_\text{X} \, \left[ p_{\text{X}} + q_\text{X} \, p_{\text{AB}} \right],
 \end{equation}
 where, as in the other models, $s_\text{X}$ refers to the prestige of language X, which
 can be either A or B. The other parameters are $\mu \in [0, 1]$, that is the fixed
@@ -479,7 +479,7 @@ The second kind of transition is horizontal, it is related to the learning of a 
 language by a monolingual in the course of their lives. This transition occurs according
 to the following transition probability:
 \begin{equation}
-    P (\text{X} \rightarrow \text{AB}) = c \, (1 - \mu) \, s_\text{Y} \, \left[ p_\text{Y} + q_\text{Y} \,  p_{\text{AB}} \right],
+  P (\text{X} \rightarrow \text{AB}) = c \, (1 - \mu) \, s_\text{Y} \, \left[ p_\text{Y} + q_\text{Y} \,  p_{\text{AB}} \right],
 \end{equation}
 where Y is the language other than X, and, critically, $c \in [0, 1]$ is a factor
 adjusting the learning rate. The time scales of the learning process and of a
@@ -501,10 +501,10 @@ probabilities that define it:
 \label{eq:bipref_model}
 \left\{
 \begin{aligned}
-    P (\text{A} \rightarrow \text{AB}) &= c \, (1 - \mu) \, (1-s) \, \left[ p_{\text{B}} + (1-q) \,  p_{\text{AB}} \right] \\
-    P (\text{B} \rightarrow \text{AB}) &= c \, (1 - \mu) \, s \, \left[ p_{\text{A}} + q \, p_{\text{AB}} \right] \\
-    P (\text{AB} \rightarrow \text{A}) &= \mu \, s \, \left[ p_{\text{A}} + q \, p_{\text{AB}} \right] \\
-    P (\text{AB} \rightarrow \text{B}) &= \mu \, (1-s) \, \left[ p_{\text{B}} + (1-q) \, p_{\text{AB}} \right]
+  P (\text{A} \rightarrow \text{AB}) &= c \, (1 - \mu) \, (1-s) \, \left[ p_{\text{B}} + (1-q) \,  p_{\text{AB}} \right] \\
+  P (\text{B} \rightarrow \text{AB}) &= c \, (1 - \mu) \, s \, \left[ p_{\text{A}} + q \, p_{\text{AB}} \right] \\
+  P (\text{AB} \rightarrow \text{A}) &= \mu \, s \, \left[ p_{\text{A}} + q \, p_{\text{AB}} \right] \\
+  P (\text{AB} \rightarrow \text{B}) &= \mu \, (1-s) \, \left[ p_{\text{B}} + (1-q) \, p_{\text{AB}} \right]
 \end{aligned}
 \right. .
 \end{equation}
@@ -529,33 +529,33 @@ unnecessary complexity.
 \subsection{A single population}
 
 \begin{figure*}
-    \centering
-    \includegraphics[width=\textwidth]{single_pop_stream_plots.png}
-    \caption{Flow diagrams for the dynamics of two languages according to our model
-    described in \cref{eq:bipref_model} set in a well-mixed population. $p_{\text{A}}$
-    and $p_{\text{B}}$ denote the proportions of monolinguals in A and B, respectively,
-    and the proportion of bilinguals $p_{\text{AB}}$ is such that $p_{\text{A}} +
-    p_{\text{B}} + p_{\text{AB}} = 1$. The mortality rate is fixed at $\mu = 0.02$. (a)
-    For $s = q = 1/2$ and $c=0.02$, the stable outcome is extinction of one of the two
-    languages. (b) For $s = q = 1/2$ and $c = 0.05$, the higher learning rate leads to a
-    solution featuring stable coexistence. (c) For $s = 0.57$, $q = 0.45$ and $c =
-    0.05$, despite the lower prestige, B survives in a small community of bilinguals as
-    it is the preferred language among them.}
-    \label{fig:stream_plots}
+  \centering
+  \includegraphics[width=\textwidth]{single_pop_stream_plots.png}
+  \caption{Flow diagrams for the dynamics of two languages according to our model
+  described in \cref{eq:bipref_model} set in a well-mixed population. $p_{\text{A}}$
+  and $p_{\text{B}}$ denote the proportions of monolinguals in A and B, respectively,
+  and the proportion of bilinguals $p_{\text{AB}}$ is such that $p_{\text{A}} +
+  p_{\text{B}} + p_{\text{AB}} = 1$. The mortality rate is fixed at $\mu = 0.02$. (a)
+  For $s = q = 1/2$ and $c=0.02$, the stable outcome is extinction of one of the two
+  languages. (b) For $s = q = 1/2$ and $c = 0.05$, the higher learning rate leads to a
+  solution featuring stable coexistence. (c) For $s = 0.57$, $q = 0.45$ and $c =
+  0.05$, despite the lower prestige, B survives in a small community of bilinguals as
+  it is the preferred language among them.}
+  \label{fig:stream_plots}
 \end{figure*}
 
 We first analyse the model in the simplest setting of a single well-mixed population to
 determine the typology of possible solutions. A mean field approximation yields:
 \begin{equation}
-    \label{eq:dt_bipref_model}
-    \left\{
-    \begin{aligned}
-        \dv{p_\text{A}}{t} &= (1 - p_\text{A} - p_\text{B}) P (\text{AB} \rightarrow \text{A})
-            - p_\text{A} P (\text{A} \rightarrow \text{AB})
-        \\
-        \dv{p_\text{B}}{t} &= (1 - p_\text{A} - p_\text{B}) P (\text{AB} \rightarrow \text{B})
-            - p_\text{B} P (\text{B} \rightarrow \text{AB})
-    \end{aligned}
+  \label{eq:dt_bipref_model}
+  \left\{
+  \begin{aligned}
+    \dv{p_\text{A}}{t} &= (1 - p_\text{A} - p_\text{B}) P (\text{AB} \rightarrow \text{A})
+        - p_\text{A} P (\text{A} \rightarrow \text{AB})
+    \\
+    \dv{p_\text{B}}{t} &= (1 - p_\text{A} - p_\text{B}) P (\text{AB} \rightarrow \text{B})
+        - p_\text{B} P (\text{B} \rightarrow \text{AB})
+  \end{aligned}
     \right. .
 \end{equation}
 Fixed points are the solutions for which $\dv{p_\text{A}}{t} = \dv{p_\text{B}}{t} = 0$.
@@ -576,15 +576,15 @@ less prestigious language within a relatively small bilingual community. These r
 show already the flexibility of the model even in a single population.
 
 \begin{figure}[h]
-\centering
-    \includegraphics[width=7cm]{single_pop_param_space}
-    \caption{Region of the parameter space where the dynamics of our model in a single
-    population converge to stable coexistence of languages. We show two 2D cuts of the
-    coexistence region in the ($q$, $r$) space for fixed values of $s=0.5, 0.4$, with $r
-    = \mu / (c \, (1-\mu))$. Lower values of $r$ favour coexistence, as well as a
-    neutral prestige and bilingual preference $q$. When $s < 0.5$, coexistence is
-    favoured for an optimal value $q^\text{opt} > 1-s$.}
-    \label{fig:coex_region}
+  \centering
+  \includegraphics[width=7cm]{single_pop_param_space}
+  \caption{Region of the parameter space where the dynamics of our model in a single
+  population converge to stable coexistence of languages. We show two 2D cuts of the
+  coexistence region in the ($q$, $r$) space for fixed values of $s=0.5, 0.4$, with $r
+  = \mu / (c \, (1-\mu))$. Lower values of $r$ favour coexistence, as well as a
+  neutral prestige and bilingual preference $q$. When $s < 0.5$, coexistence is
+  favoured for an optimal value $q^\text{opt} > 1-s$.}
+  \label{fig:coex_region}
 \end{figure}
 
 We change now the viewpoint from the phase space to the parameter space. In
@@ -633,18 +633,18 @@ mobility, such as gravity, radiation or distance-kernel-based models
 \cite{BarbosaHumanMobility2018,BurridgeSpatialEvolution2017,BurridgeInferringDrivers2021}.
 
 \begin{figure}[hp!]
-\centering
-    \includegraphics{single_to_metapop_BE.png}
-    \caption{Types of stable states of convergence of our model in a metapopulation set
-    for Belgium. (a) Diagram illustrating the effect of adding metapopulations in the
-    stable states of a single population: the former extinction state bifurcates in full
-    extinction and in a boundary-like state with monolinguals separated in space. Larger
-    values of $r$ favour homogeneity, either by full extinction or by separation states.
-    Below are the regions of the parameter space $(s,q)$ where these stable solutions
-    emerge, (b) with $r=1$ and (c) with $r=0.45$. Finally, two polarisation maps show
-    examples of states the model converges to, (d) a boundary-like state for $r=1$,
-    $s=0.467$, $q=0.667$, and (e) complete mixing for $r=0.45$, $s=0.45$, $q=0.592$.}
-    \label{fig:single_to_metapop_BE}
+  \centering
+  \includegraphics{single_to_metapop_BE.png}
+  \caption{Types of stable states of convergence of our model in a metapopulation set
+  for Belgium. (a) Diagram illustrating the effect of adding metapopulations in the
+  stable states of a single population: the former extinction state bifurcates in full
+  extinction and in a boundary-like state with monolinguals separated in space. Larger
+  values of $r$ favour homogeneity, either by full extinction or by separation states.
+  Below are the regions of the parameter space $(s,q)$ where these stable solutions
+  emerge, (b) with $r=1$ and (c) with $r=0.45$. Finally, two polarisation maps show
+  examples of states the model converges to, (d) a boundary-like state for $r=1$,
+  $s=0.467$, $q=0.667$, and (e) complete mixing for $r=0.45$, $s=0.45$, $q=0.592$.}
+  \label{fig:single_to_metapop_BE}
 \end{figure}
 
 The populations and commuting patterns at the municipality level are thus obtained from
@@ -719,27 +719,27 @@ elsewhere.
 
 \subsection{Dynamics in the parameters}
 \begin{figure}
-\centering
-    \includegraphics{varying_c_sep_to_mix_to_sep.png}
-    \caption{Evolution of the state of the metapopulation model in Belgium when $c$
-    varies, first slowly increased and then decreased to recover the original value. We
-    fixed $s=q=1/2$ and $\mu=0.02$. (a) Evolution of the global proportions $p_L$ of
-    individuals belonging to each $L$-group. The blue curve corresponds to French
-    monolinguals, light green to Dutch monolinguals and dark green to bilinguals. (b)
-    Trajectory of the system in the \ac{EMR} space: on the $x$-axis the average of the
-    \ac{EMR} between each monolingual community and the whole population, and on the
-    $y$-axis the one between bilinguals and the whole population. The initial state and
-    the stable states the system went through are marked by coloured circles, while
-    black ones mark additional points where the \ac{EMR} was calculated, and the dashed
-    line the interpolation between them. (c) Polarisation maps of French in the initial
-    and final states, both featuring a boundary but located in different areas, thus
-    showing the irreversibility of the dynamics. (d)-(e) Polarisation maps of French in
-    the final states of simulations including transborder commuters from France and the
-    Netherlands, respectively with proportions $p_{\text{TB}}$ equal to $0.5\%$ and
-    $0.2\%$ of the population of the border municipalities of these two countries. The
-    points in the \ac{EMR} space corresponding to these final states are also
-    represented in panel (b).}
-    \label{fig:varying_c_sep_to_mix_to_sep}
+  \centering
+  \includegraphics{varying_c_sep_to_mix_to_sep.png}
+  \caption{Evolution of the state of the metapopulation model in Belgium when $c$
+  varies, first slowly increased and then decreased to recover the original value. We
+  fixed $s=q=1/2$ and $\mu=0.02$. (a) Evolution of the global proportions $p_L$ of
+  individuals belonging to each $L$-group. The blue curve corresponds to French
+  monolinguals, light green to Dutch monolinguals and dark green to bilinguals. (b)
+  Trajectory of the system in the \ac{EMR} space: on the $x$-axis the average of the
+  \ac{EMR} between each monolingual community and the whole population, and on the
+  $y$-axis the one between bilinguals and the whole population. The initial state and
+  the stable states the system went through are marked by coloured circles, while
+  black ones mark additional points where the \ac{EMR} was calculated, and the dashed
+  line the interpolation between them. (c) Polarisation maps of French in the initial
+  and final states, both featuring a boundary but located in different areas, thus
+  showing the irreversibility of the dynamics. (d)-(e) Polarisation maps of French in
+  the final states of simulations including transborder commuters from France and the
+  Netherlands, respectively with proportions $p_{\text{TB}}$ equal to $0.5\%$ and
+  $0.2\%$ of the population of the border municipalities of these two countries. The
+  points in the \ac{EMR} space corresponding to these final states are also
+  represented in panel (b).}
+  \label{fig:varying_c_sep_to_mix_to_sep}
 \end{figure}
     
 The effect of multilingual education or, in general, policies favouring the use of one
