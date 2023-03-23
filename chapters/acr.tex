@@ -313,7 +313,7 @@ and \textit{peak}) or characterize the same particular dialect (\textit{bruh} an
 intrinsic to real individuals' behaviors, but also potentially resulting from an
 imperfect filtering of Twitter data, as aforementioned. The most important dimensions of
 regional lexical variation are then found by subjecting the hotspot maps for the
-complete set of words to a principal component analysis
+complete set of words to a \ac{PCA}
 \cite{LieskeRegionalSubcultures1993,WoldPrincipalComponent1987}. Another possible
 approach would have consisted in performing topic modelling, for instance by ways of a
 latent Dirichlet allocation on the word frequency matrix, to then infer a distribution
@@ -323,7 +323,7 @@ internal coherence \cite{ArunFindingNatural2010,HasanNormalizedApproach2021}. In
 like ours where documents are so large (aggregating all tweets in a county), it is far
 from obvious to select a number of topics such that there is little overlap between
 them, and to know that these topics are actually representative of the dataset as a
-whole. This is much more clear when selecting components in \ac{PC} analysis, as we show
+whole. This is much more clear when selecting components in \ac{PCA}, as we show
 below.
 
 From the $N_w = \SI{10000}{}$ dimensions of our dataset, we thus project to a \ac{PC}
@@ -358,19 +358,18 @@ units.
 \begin{figure}[ht!]
 \centering
   \includegraphics[width=1\textwidth]{whole_data_decomp.pdf}
-  \caption{Result of the principal component analysis carried out on our whole dataset.
-  (a-d) Four maps show the projection of the data along the first four components,
-  highlighting regional lexical variations. Note that the scale on the divergent color
-  scales are not symmetrical around zero in order to utilize the full range of colors of
-  the color map. (e) Word cloud showing the words with the strongest positive (red) and
-  negative (blue) loadings for the second component, with each word's font size
-  depending on its loading's absolute value. (f) Explained variance of the principal
-  components compared to the broken-stick model on a logarithmic scale, which shows how
-  the number of components to keep is selected at the first intersection of the two
-  curves. The cumulative proportion of the variance explained by the components is also
-  plotted, showing that our dimension reduction explains around 92\% of the observed
-  variance. The first four components shown in panels (a-d) capture alone 31\% of the
-  variance.}
+  \caption{Result of the \ac{PCA} carried out on our whole dataset. (a-d) Four maps show
+  the projection of the data along the first four components, highlighting regional
+  lexical variations. Note that the scale on the divergent color scales are not
+  symmetrical around zero in order to utilize the full range of colors of the color map.
+  (e) Word cloud showing the words with the strongest positive (red) and negative (blue)
+  loadings for the second component, with each word's font size depending on its
+  loading's absolute value. (f) Explained variance of the \acp{PC} compared to the
+  broken-stick model on a logarithmic scale, which shows how the number of components to
+  keep is selected at the first intersection of the two curves. The cumulative
+  proportion of the variance explained by the components is also plotted, showing that
+  our dimension reduction explains around 92\% of the observed variance. The first four
+  components shown in panels (a-d) capture alone 31\% of the variance.}
   \label{fig:whole_data_decomp}
 \end{figure}
 
@@ -388,7 +387,7 @@ clusters $n_{\text{clusters}}$ \cite{RousseeuwSilhouettesGraphical1987}. The
 hierarchical nature of the clustering is useful to see how regions are grouped together
 at different levels of clustering, indicating which regions are closer together.
 Importantly, applying hierarchical clustering to the principal dimensions of variation
-of the data obtained through \ac{PC} analysis allows us to focus on the main regional
+of the data obtained through \ac{PCA} allows us to focus on the main regional
 patterns of variation. Applying the algorithm directly to the $\SI{10000}{}$-word
 distance matrix would yield highly noisy results.
 

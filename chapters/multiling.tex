@@ -400,7 +400,7 @@ notation and features of the model. The model only contains monolinguals, who ca
 their languages with a probability that depends on the proportion of speakers of the
 other language to an exponent $a$ (called volatility), which controls if the dependence
 on the proportion of the other language group is linear ($a = 1$), sublinear ($a<1$) or
-super-linear ($a>1$). Besides, they also include a parameter $s$ between zero and one,
+superlinear ($a>1$). Besides, they also include a parameter $s$ between zero and one,
 which stands for the prestige of the language A. If $s$ is close to one, all the
 individuals will forget B and start to speak A alone.
 % Set in a single population and in mean field, this model was shown to fit historical
@@ -657,7 +657,7 @@ mentioned in \cref{sec:twitter_biases}, and besides, tweets reflect language use
 not necessarily the offline practices in the full population. Since in the census we
 found information on the total number of persons per language group and of residents per
 municipality, we have scaled the $L$-speakers that we find on Twitter to match these two
-sets of marginal sums via iterative proportional fitting
+sets of marginal sums via \ac{IPF}
 \cite{DemingLeastSquares1940,FienbergIterativeProcedure1970}. By imposing these two
 constraints, it is assumed that the two biases are independent: the bias in the choice
 of language used online is space-independent in a specific multilingual society, and the
