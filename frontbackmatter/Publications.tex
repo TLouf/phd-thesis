@@ -8,16 +8,15 @@
 \pdfbookmark[1]{Publications}{publications}
 \chapter*{Publications}
 
+\Setmaxbibnames{100}
 Most of the ideas, results and figures presented in this thesis have appeared previously
 in the following publications:
+\addtocategory{thesis_articles}{LoufCapturingDiversity2021,LoufAmericanCultural2022}
+\printbibliography[heading=none,category=thesis_articles]
 
-\begin{refsection}[ownpubs]
-    \Setmaxbibnames{100}
-    \small
-    \nocite{*} % is local to to the enclosing refsection
-    \printbibliography[heading=none]
-\end{refsection}
-
-% TODO: separate/remove airport stuff?
+We also had the occasion to explore different topics over the course of this thesis, some leading to other publications not discussed in this here manuscript:
+\addtocategory{other_articles}{GanicDynamicNoise2020}
+\nocite{GanicDynamicNoise2020}
+\printbibliography[heading=none,category=other_articles]
 
 \end{document}
