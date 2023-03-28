@@ -278,7 +278,7 @@ model.
   variety. It features two \ac{SES} classes, represented by circles and triangles, which
   can speak one of two varieties of their language: the standard form (filled shapes)
   and the non-standard (empty shapes). Each agent has a cell of residence, and a
-  mobility matrix with elements $m_{i, j}$ defines the probabilities for a resident of
+  mobility matrix with elements $M_{i, j}$ defines the probabilities for a resident of
   $i$ to be at different cells at each time step. After they have moved, for every
   agent, another agent is picked randomly for them to interact with, and if they happen
   to interact with an agent using the other variety, in function of their \ac{SES} class
@@ -292,11 +292,11 @@ model.
 
 
 
-\subsection{Properties of the model and behaviour in mean-field}
+\subsection{Properties and behaviour in mean-field}
 % fig with analytic result, stream plots, this kind of thing
 
 
-\subsection{Simulating the model on a toy example}
+\subsection{Simulations on a toy example}
 We ran simulations with $200$ agents spread evenly between two \ac{SES} classes, with each
 class in its own residence cell. We set the standard form to be the more prestigious
 one, agents with higher \ac{SES} to be indifferent and ones with lower \ac{SES} to be more
@@ -307,7 +307,7 @@ closer they are to using the two forms in the same proportions, reflecting what 
 observed in the data.
 
 
-\subsection{Simulating the model in real metropolitan areas}
+\subsection{Simulations in real metropolitan areas}
 This promising result calls for further investigation of the model, and particularly how
 it would fare when initialised with the actual data that we have in the metropolitan
 areas of England.
