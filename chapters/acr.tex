@@ -4,7 +4,7 @@
 \addbibresource{biblio_own.bib}
 \begin{document}
 
-\chapter{American cultural regions mapped through the lexical analysis of social media data}
+\chapter[Inferring American cultural regions]{Inferring American cultural regions through the lexical analysis of social media data}
 \label{ch:acr}
 
 \epigraph{
@@ -34,7 +34,7 @@ their educational, social, and welfare needs. Similarly, from an economic standp
 is important to identify where certain services and products are most required and how
 best to engage with populations in different regions of the country. In general,
 defining the cultural regions of a nation is therefore a crucial part of understanding
-the complex landscape of human behavior that nation encompasses, providing an accessible
+the complex landscape of human behaviour that nation encompasses, providing an accessible
 and broad classification of the populations of a country~\cite{lane2016culture}.
 
 
@@ -133,7 +133,7 @@ originating from that region, including on social media. Furthermore, previous w
 show that cultural factors often show related regional patterns, owing presumably to
 interrelationships between these different factors. For example, regional settlement
 patterns can help explain differences in ethnicity and religion which can have long term
-effects on voting patterns. Consequently, analyzing these regional topical patterns in
+effects on voting patterns. Consequently, analysing these regional topical patterns in
 the aggregate can be used to infer broader cultural regions. Crucially, there is no need
 to predefine what these topical patterns are or how much they matter: the topics
 themselves and their relative importance can be inferred through the analysis of
@@ -197,7 +197,7 @@ where future works could build on it comes to conclude the chapter.
 
 
 \section{Measuring regional variation}
-We analyze 3.3 billion geotagged tweets from the contiguous US, posted from January
+We analyse 3.3 billion geotagged tweets from the contiguous US, posted from January
 $1^\text{st}$, 2015 to December $31^\text{st}$, 2021. Importantly, we discard users
 according to the criteria given in \cref{sec:method_users_select}. In our dataset, we
 thus retain 17 million users. We clean the tweets' text and use the \ac{CLD} to
@@ -271,7 +271,7 @@ are defined as:
 with $\bar{f_w}$ the average frequency of $w$ over the whole dataset, $\sigma_w$ the
 standard deviation in $w$'s frequencies, and $W_{c, c'}$ are the elements of a proximity
 matrix, which we take as equal to $1$ if $c' = c$ or $c'$ belonging to $c$'s 10 nearest
-neighbors, and equal to $0$ otherwise.
+neighbours, and equal to $0$ otherwise.
 
 The metric given by \cref{eq:Gi_star} ultimately diminishes spurious data variation and
 smooths spatial patterns, allowing us to discern a regional pattern in a word's usage.
@@ -285,17 +285,17 @@ The usage hotspots of \textit{mountain} display the main mountain ranges of the 
 While the map for \textit{traffic} is correlated with large urban areas (and can be
 interpreted as a topical word), the dialect word \textit{bruh} seems to be significantly
 more used in counties pertaining to the Deep South. We see here that different
-attributes that define a culture (interests, behavior, dialect) are captured within our
+attributes that define a culture (interests, behaviour, dialect) are captured within our
 scheme and, notably, are treated on equal footing.
 
 
 \section{Obtaining the principal dimensions of regional variation}
 The $G_i^*$ distributions for all \SI{10000}{} top words by usage thus hold valuable
-information. However, a considerable part of this information can be analyzed more
+information. However, a considerable part of this information can be analysed more
 efficiently, since some words may belong to the same semantic field (\textit{mountain}
 and \textit{peak}) or characterize the same particular dialect (\textit{bruh} and
 \textit{aight}). Furthermore, a few variations may simply be uninformative noise,
-intrinsic to real individuals' behaviors, but also potentially resulting from an
+intrinsic to real individuals' behaviours, but also potentially resulting from an
 imperfect filtering of Twitter data, as aforementioned. The most important dimensions of
 regional lexical variation are then found by subjecting the hotspot maps for the
 complete set of words to a \ac{PCA}
@@ -338,8 +338,8 @@ second component.
   \includegraphics[width=1\textwidth]{whole_data_decomp.pdf}
   \caption{Result of the \ac{PCA} carried out on our whole dataset. (a-d) Four maps show
   the projection of the data along the first four components, highlighting regional
-  lexical variations. Note that the scale on the divergent color scales are not
-  symmetrical around zero in order to utilize the full range of colors of the color map.
+  lexical variations. Note that the scale on the divergent colour scales are not
+  symmetrical around zero in order to utilize the full range of colours of the colour map.
   (e) Word cloud showing the words with the strongest positive (red) and negative (blue)
   loadings for the second component, with each word's font size depending on its
   loading's absolute value. (f) Explained variance of the \acp{PC} compared to the
@@ -381,7 +381,7 @@ divide. The North is then further fragmented into the clusters 2, 3 and 4 shown 
 \cref{fig:whole_data_clust}(a), whereas the South group splits into the clusters 1 and
 5. For the most part, our map in \cref{fig:whole_data_clust}(a) is consistent with
 standard theories of American cultural regions, with all five of our regions finding
-analogs in existing systems. Yet, taken as a whole our clusters do not match any
+analogues in existing systems. Yet, taken as a whole our clusters do not match any
 previous system and reveal non-contiguous culture regions such as the clusters 3 and 4.
 Moreover, in contrast to previous proposals our results have the advantage of being
 data-driven, based on variation in the topics people care to discuss as opposed to
@@ -390,11 +390,11 @@ uncontrolled biases than our Twitter data).
 
 Further, to be able to better interpret the obtained regions, it is insightful to know
 which words characterize each cluster the most. To infer them, we start by taking the
-center of each cluster in words-$G_i^*$-space. Hence, for each cluster we take the
+centre of each cluster in words-$G_i^*$-space. Hence, for each cluster we take the
 average $G_i^*$ score over its counties for all words. From these $n_{\text{clusters}}$
 vectors of $N_w$ elements, we calculate the minimum absolute difference between each
-cluster center's word's score and the ones of all other clusters, i.e., we take the
-distance to the closest cluster's center along the word's dimension. More formally, we
+cluster centre's word's score and the ones of all other clusters, i.e., we take the
+distance to the closest cluster's centre along the word's dimension. More formally, we
 define the specificity $S_{C, w}$ of word $w$ for cluster $C$ as:
 \begin{equation}
 \label{eq:spec}
@@ -425,7 +425,7 @@ for each cluster we see three basic type of lexical patterns.
   along with their specificity values. (d) The dendrogram allows seeing which clusters
   are first joined if going to a higher level of clustering, and thus which ones are
   closer together. It clearly shows that the strongest division is the one between the
-  North and the Southeast (excluding Florida) with further splittings as the cluster
+  North and the Southeast (excluding Florida), further splitting as the cluster
   distance increases.}
   \label{fig:whole_data_clust}
 \end{figure}  
@@ -434,7 +434,7 @@ First, we see words associated directly with those locations, most commonly the 
 cities, states, and sports teams. This is basic evidence that the method works: we would
 expect these words to be associated with the cultural regions that contain them.
 However, these results also reflect how often people from different cities and states
-refer to each other. For example, the fifth cluster which is centered on Texas also
+refer to each other. For example, the fifth cluster which is centred on Texas also
 includes Oklahoma, which contributes various place names to the list of words most
 strongly associated with this region. This means not only that people in Texas and
 Oklahoma talk more about place names in their own states, as would be expected, but that
@@ -446,7 +446,7 @@ regional differences. In this case, our approach can be seen as discovering topi
 patterns and by extension cultural patterns that distinguish between different regions
 of the US. For example, cluster 2 is strongly associated with the discussion of a range
 of American sports, as well as the names of the states that fall within this region.
-Although we would expect that a region centered around the Midwest would be associated
+Although we would expect that a region centred around the Midwest would be associated
 with the names for Midwestern states, their preoccupation with the discussion of sports
 on Twitter is not so easy to predict. 
 
@@ -527,7 +527,7 @@ at least on social media. Taken together, the third and fourth clusters suggest 
 opposition in the culture of more rural and urban areas in the US, which appear to
 engage in more positive and negative discourse respectively~\cite{vanderbeck2003young}. 
 
-Finally, the fifth cluster [cyan in \cref{fig:whole_data_clust}(a)], which is centered
+Finally, the fifth cluster [cyan in \cref{fig:whole_data_clust}(a)], which is centred
 around South Central States, especially Texas and Oklahoma, is characterized by frequent
 reference to place names, relative to the other clusters, especially in these two
 states, as has already been noted. For example, the first five most strongly associated
@@ -577,7 +577,7 @@ that America is fundamentally far more culturally fragmented
 \section{Temporal aspect of the results}
 Given the success of our analysis, it would be interesting to see how the cultural
 regions found in \cref{fig:whole_data_clust} change with time, as has been done in other
-research analyzing diachronic corpora
+research analysing diachronic corpora
 \cite{BochkarevAverageWord2015,BentleyBooksAverage2014,KarjusQuantifyingDynamics2020,MomeniModelingEvolution2018,AlshaabiStorywranglerMassive2021}.
 Although we would not expect significant changes due to the short timescale imposed by
 our Twitter dataset, we can still carry out a diachronic study to validate the very
@@ -599,8 +599,8 @@ short time period considered in this work.
   Maps of the data projected along the first \ac{PC} obtained for the years 2015-2016,
   2017-2018 and 2019-2021, respectively. Apart from slight variations in California and
   Florida, the first component translates the same division between the Southeast and
-  the rest of the US. Note that the scale on the divergent color scales are not
-  symmetrical around zero in order to utilize the full range of colors of the color map.
+  the rest of the US. Note that the scale on the divergent colour scales are not
+  symmetrical around zero in order to utilize the full range of colours of the colour map.
   (d) Evolution of the distributions of inter-cluster distances along the years spanned
   by our dataset. The box plots show the median, first and third quartile, and the
   boundaries of the whiskers are within the 1.5 interquartile range value. We use the
@@ -620,7 +620,7 @@ $G_{c, w}^*$ (see \cref{eq:Gi_star}). We thus obtain the evolution with time of 
 inter-cluster distances distribution as shown in \cref{fig:evol_comp1_dists}(d). The box
 plots demonstrate that (i) the median distance is roughly constant over the years, and
 (ii) the distance distribution shows little variation. Both findings suggest that the
-detected cultural regions are no artifact of the method, but a genuine data structure
+detected cultural regions are no artefact of the method, but a genuine data structure
 that exists within our corpus.
 % mention clustering can yield any result, there will always be clusters detected, but to have stable picture shows 
 % But on the short timescale our dataset spans, or even of Twitter's own lifespan, we
@@ -628,7 +628,7 @@ that exists within our corpus.
 
 
 \section{Discussion}
-Overall, our analysis has therefore identified regional patterns of lexical variation of
+Overall, our analysis has identified regional patterns of lexical variation of
 clear cultural importance. Furthermore, the themes associated with each of these
 patterns provide a new perspective on American cultural geography. For example, although
 our analysis has confirmed that factors such as ethnicity and religion are important for
@@ -642,7 +642,7 @@ allowed us to identify cultural factors that are important for defining these re
 at least in this communicative context, providing a foundation for a more complete
 picture of the American cultural landscape.
 
-Clearly, this study has only analyzed one genre of American English. The specific topical
+Clearly, this study has only analysed one genre of American English. The specific topical
 patterns on Twitter would not be exactly replicated in other genres, especially given
 the communicative purpose and user base associated with microblogging platforms.
 Nevertheless, assuming that American cultural regions are important and pervasive
