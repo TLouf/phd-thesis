@@ -1,9 +1,151 @@
 \documentclass[../thesis.tex]{subfiles}
 \graphicspath{{\subfix{../figs/}}}
+\addbibresource{biblio.bib}
 \begin{document}
 
 \chapter{Conclusion}
 \label{ch:conclusion}
 
+\epigraph{
+  \begin{center}
+    \textnormal{Guido (Marcello Mastroianni)}\\
+  \end{center}
+  I'm not afraid anymore of telling the truth, of the things I don't know, what I'm
+  looking for and what I haven't found yet. This is the only way I can feel alive and I
+  can look into your faithful eyes without shame.
+}{
+  \epigraphcite{Fellini1963}
+}
+
+
+\section{Summary of our findings}
+
+
+
+\section{What we learned along the way}
+
+% clarity. from philosophy: first and foremost, define what it is you're talking about. from physics and maths: clearly define the problem before trying to solve it. 
+
+% blabla importance of quantitative aspects and complexity science approach, adapt first sentence of next subsec when this is written
+
+\subsection{Crossing disciplinary boundaries}
+Given this approach that I took throughout these years of PhD, it is only natural that I ended up crossing disciplinary boundaries. In practice, this is reflected first in the researchers I had the chance to collaborate with
+% I had the opportunity to work with Jack Grieve, who is, among other things, a
+% computational sociolinguist. This made me aware of a whole new range of literature and research areas I had never heard of. This is again, mostly, because this literature was from people outside of the field of complexity science, and consequently published in different journals.
+
+Second, and as just said above, this is partly due to our first point: this
+cross-disciplinarity is apparent from the diversity of literature cited throughout this
+thesis. I can illustrate how twisted navigating this diversity can be, but how rewarding
+it is with the example of how I stumbled upon a metric such as the \ac{EMD}, that I use
+in \cref{ch:multiling}.
+% came to me from: I need some kind of distance between two probability distributions embedded in a metric space.
+First finding out the shortcomings of spatial entropies, widely accepted in the field of
+spatial complex systems \cite{BattyEntropyComplexity2014} It has mainly been used within
+the field of computer vision \cite{RubnerMetricDistributions1998}, and it was shown to
+be a proper distance (in the metric sense) between probability distributions
+\cite{LevinaEarthMover2001}. Nothing but a particular version of the Wasserstein or
+Mallows distance, well known in transport theory. Only to find out a year after writing
+this article that the geographer
+\citefirstlastauthor{JakubsDistancebasedSegregation1981} had defined a metric equivalent
+to the \ac{EMR} in 1981 \cite{JakubsDistancebasedSegregation1981}, much before computer
+vision had the occasion to exploit it. Natural that different fields end up using
+different terms. In this case, mathematicians have defined a general distance, which is
+used in other applied fields within a particular case. So the mathematicians need this
+more general name. And would anyone really think that a geographer or engineer in
+computer vision should give up the very evocative \ac{EMD} in favour of ``the
+Wasserstein 1-distance on discrete empirical distributions''? So what can be done to
+bridge these gaps? Mostly curiosity that drove me to find all of this out. One should
+not be afraid to search for literature outside of their field, and to simply acknowledge
+them. Citing a work outside of your field is much more valuable than citing another
+everyone within your field, who are probably going to be most of your readers, already
+know.
+% reviews not of a field but of an idea nad how it's being used across disciplines
+
+
+\subsection{Science and trends}
+% At the end of these roughly 3 years and a half, there is one thing I am particularly
+% proud of: the word ``COVID'' does not appear once in any of my works. Some may say they
+% heard society's cry for help and flew to its rescue. While some may have had this kind
+% of genuine intentions, I remain quite sceptical that everyone who jumped on the
+% scientific hype train had them. Some may seem more like churning out more material for
+% the scientific publishing machine. But the truth is, I do not know anything about
+% epidemiology, and it does not interest me at all.
+
+The number of researchers interested in language competition models like the one we
+presented in \cref{ch:multiling} is very low. The hype has passed, it was 20 years ago
+when \citeauthor{AbramsModellingDynamics2003} published a piece in \textit{Nature}. Yet
+the problem has not been solved at all, as we have shown ourselves. 
+
+
+
+\section{Uncharted directions worth exploring}
+While I believe the results summarised above provide valuable insights to
+sociolinguistic matters, they leave many questions unanswered, and maybe even raise more
+questions than answers. In the following I will list some potential directions for
+future research that could build on top of the work we have presented here. First are
+the directions that naturally emerge from the following question: what else could the
+approaches or methods we have developed be applied to?
+
+For instance, can the model of language shift we presented in \cref{ch:multiling} be
+equally applied to diachronic data? A dataset with historical data spanning centuries
+was for example used recently in \cite{SeoaneAreDutch2022}. One could try to see if our
+model can be fit to these data, and, if not, what ingredients may be missing. A
+comparison with the results obtained in \cite{SeoaneAreDutch2022} with a different model
+can also bring valuable insights to the field. 
+
+The central idea behind the inference of American cultural regions we presented in
+\cref{ch:acr} can also lead to many further developments. One could look at countries
+that share a language and uncover their cultural differences. Interesting questions can
+then be investigated. Can some areas of a country be more similar to another country's
+than their own? It would also be interesting to see how the colonial past of some
+countries is reflected in those. Did more conflictual decolonisation processes lead to
+starker cultural differences? Or, does a more recent split imply more similarity?
+
+The second kind of directions are not based on methodology, but rather on gaps in
+understanding that remain open.
+
+An idea about modelling language competition that is worth looking into and that we have
+not mentioned yet is to consider language as a property not only of the individuals but
+also of their interactions, as suggested in \cite{CarroCoupledDynamics2016}. Indeed, as
+shown in this article, a language might be preserved within a tight-knit community that
+uses it internally, while being able to switch to another to communicate with others.
+This applies to language shift models of \cref{ch:multiling}, but also to models of
+usage of a language's varieties, as the one of \cref{ch:ses_ling}. What is missing here
+is more empirical work on the question. This would imply a considerable effort, as
+obtaining a network of interactions along with the language in which they take place
+from real-world data is very challenging. But this direction shows great promise, so
+these efforts to put together such a dataset may well be worthwhile.
+
+% something on ses-ling?
+
+Third are simply interesting questions that arose while I worked on this thesis, as, while investigating matters of sociolinguistics, we stumbled upon interesting
+issues in social science that are not confined to the realm of linguistics.
+
+One is segregation. This theme permeates \cref{ch:multiling},
+\cref{ch:ses_ling}, and also \cref{ch:acr} to a lesser extent. But these are
+segregations of different kinds: linguistic, cultural and socio-economic. A question
+that remains very much open is how these types of segregation are interrelated, also
+taking into account the segregation in social contacts, also known as assortativity or
+homophily.
+
+Both models presented in \cref{ch:multiling} and \cref{ch:ses_ling} integrate effects of social pressure. They simply assume that the most people around you speaks a language or a variety, the more likely you are to adopt it too.
+% in psychology \cite{LatanePsychologySocial1981}. Link with social contagion on complex networks \cite{WattsInfluentialsNetworks2007}, including recent investigations into higher-order effect \cite{IacopiniSimplicialModels2019}. threshold effect vs psychosocial law, that states that the $N^\text{th}$ with some behaviour has less impact on you than the $(N - 1)^\text{th}$, which is equivalent to having a sublinear functional dependence of social impact on the proportion of different agents ($a < 1$ in the models presented in \cref{ch:multiling}).
+
+Another is the impact of cultural differences on social behaviours in general. What
+features matter the most when building social groups? How does this change from one area
+of the world to another?
+
+There are thus many more directions worth exploring, and, for now, to most questions the
+most sensible answer I can provide is: I don't know. But while one could consider
+knowledge as comforting some faith in the universe, I believe uncertainty to be much
+more entertaining. Let us then keep asking questions to keep things that way.
+% But while at first the realisation that one cannot know everything might make one's lose faith in the universe.
+At last, it may seem that the quest for understanding paradoxically leads to less
+understanding, but not to worry,
+% to quote some necessarily poorly translated French poetry,
+% \emph{c'qui compte c'est pas l'arrivée, c'est la quête}
+% as the poet would say,
+it's the quest itself that matters, not its destination, as the poet would say.
+% it's not the destination that matters, it's the quest.
 
 \end{document}
