@@ -307,7 +307,18 @@ the first case (especially in the region around Brussels and in the southern bor
 Luxembourg), and it is widespread in the second (\cref{fig:cat_be_maps}(e)-(f)). The
 results are summarised in \cref{fig:EMR_countries}(g)-(h), which presents the ranges of
 values reached by the \ac{EMR} of respectively the monolingual and multilingual groups
-in 14 of our 16 regions of interest. We filtered out regions where we deemed not
+in 14 of our 16 regions of interest.
+\begin{figure*}[h!]
+  \centering
+  \includegraphics{EMR_countries}
+  \caption{\acp{EMR} of the (a) monolingual and (b) multilingual groups of
+  multilingual regions of interest, ranked left to right by increasing average of the
+  $y$-axis values. In (b), the point for trilinguals in Switzerland is not displayed
+  because its value was deemed unreliable. A rich diversity of mixing patterns is
+  shown, beyond the two paradigmatic cases of Catalonia and Belgium.}
+  \label{fig:EMR_countries}
+\end{figure*}
+We filtered out regions where we deemed not
 sufficient the statistics gathered from Twitter. A wide diversity of situations can be
 observed. Multilingual societies may have rather balanced monolingual groups separated
 by a clear-cut border, which have thus high but quite similar \ac{EMR} values, like in
@@ -319,18 +330,6 @@ localised. Multilinguals may also be mixing well in the whole population, like t
 bilinguals in Galicia and Catalonia. These groups can thus be of completely different
 natures from one region to another, from sustaining a minority language while being
 spatially mixed or isolated, to standing at the border between monolingual communities.
-
-\begin{figure*}[h!]
-  \centering
-  \includegraphics{EMR_countries}
-  \caption{\acp{EMR} of the (a) monolingual and (b) multilingual groups of
-  multilingual regions of interest, ranked left to right by increasing average of the
-  $y$-axis values. In (b), the point for trilinguals in Switzerland is not displayed
-  because its value was deemed unreliable. A rich diversity of mixing patterns is
-  shown, beyond the two paradigmatic cases of Catalonia and Belgium.}
-  \label{fig:EMR_countries}
-\end{figure*}
-
 \begin{figure}[h!]
   \centering
   \includegraphics{EMR_cell_size_invariance}
@@ -693,32 +692,39 @@ states have negative real parts, and they are thus stable fixed points.
 
 To explore the parameter space systematically, we perform a number of simulations until
 convergence to a stable state. We show the results for the metapopulation setting of
-Belgium in \cref{fig:single_to_metapop_BE}. Remarkably, a new kind of stable state
-emerges. While in a single population we had only two stable configurations: extinction
-or mixing, here we can find full mixing (\cref{fig:single_to_metapop_BE}(e)), global
-extinction and local extinction of a language in part of the territory leading to a
-boundary-like state (\cref{fig:single_to_metapop_BE}(d)). This state of convergence is
-similar to the initial conditions, corresponding to the language border we observe
-today. We have thus checked that our model, in these conditions, is able to obtain the
-present state as a stable solution. A surprising aspect of the results is that
-decreasing $r$, or in other words making it easier or more common to learn the other
-language, does not necessarily favour coexistence. Indeed, as $r$ decreases, at one
-point boundary states become unstable and this may not necessarily lead to fully mixed
-states. When $r$ shrinks bilinguals become more numerous on the boundary, until they
-expand beyond the boundary and spread bilingualism across the region. Still, if this
-happens when $r$ is not low enough, the two languages cannot coexist and one ends up
-extinct, as the coexistence region of the parameter space in a single population shown
-in \cref{fig:coex_region} may not have been reached. 
+Belgium in \cref{fig:single_to_metapop_BE} and \cref{fig:metapop_phase_space_all_c}.
+Remarkably, a new kind of stable state emerges. While in a single population we had only
+two stable configurations: extinction or mixing, here we can find full mixing
+(\cref{fig:single_to_metapop_BE}(e)), global extinction and local extinction of a
+language in part of the territory leading to a boundary-like state
+(\cref{fig:single_to_metapop_BE}(d)). This state of convergence is similar to the
+initial conditions, corresponding to the language border we observe today. We have thus
+checked that our model, in these conditions, is able to obtain the present state as a
+stable solution. A surprising aspect of the results is that decreasing $r$, or in other
+words making it easier or more common to learn the other language, does not necessarily
+favour coexistence, as shown in \cref{fig:metapop_phase_space_all_c}. Indeed, as $r$
+decreases, at one point boundary states become unstable and this may not necessarily
+lead to fully mixed states. When $r$ shrinks bilinguals become more numerous on the
+boundary, until they expand beyond the boundary and spread bilingualism across the
+region. Still, if this happens when $r$ is not low enough, the two languages cannot
+coexist and one ends up extinct, as the coexistence region of the parameter space in a
+single population shown in \cref{fig:coex_region} may not have been reached. 
+\begin{figure}[p]
+  \centering
+  \includegraphics{smaller_metapop_phase_space_all_c}
+  \caption{Phase space of the stable states of convergence of our model when iterated within our metapopulation framework in Belgium. Colours show the kind of convergence state reached for the corresponding set of parameters. A lower learning rate, that is a lower value of $c$, favours the separate coexistence of French and Flemish, while a higher one favours mixed coexistence. In the transition between the two however, coexistence is almost impossible, as the corresponding region in the $(s,q)$ space becomes very narrow.}
+  \label{fig:metapop_phase_space_all_c}
+\end{figure}
 
-We also wished to explore the possibility of having a hybrid state, consisting in an
-area where a minority language survives through bilinguals within an otherwise
-monolingual region. This is the case of Sundanese and Javanese in Java for instance. We
-initialised a hypothetical population in Belgium, with only monolinguals in Dutch,
-except in a pocket of cells in the South of the country, where there are only
-bilinguals. The latter were attached a $q = 0.62$, while $q = 0.5$ for the rest.
-Iterating the model yields a stable solution similar to this initial state, with a mix
-of bilinguals and Dutch monolinguals in the pocket, and only Dutch monolinguals
-elsewhere.
+% We also wished to explore the possibility of having a hybrid state, consisting in an
+% area where a minority language survives through bilinguals within an otherwise
+% monolingual region. This is the case of Sundanese and Javanese in Java for instance. We
+% initialised a hypothetical population in Belgium, with only monolinguals in Dutch,
+% except in a pocket of cells in the South of the country, where there are only
+% bilinguals. The latter were attached a $q = 0.62$, while $q = 0.5$ for the rest.
+% Iterating the model yields a stable solution similar to this initial state, with a mix
+% of bilinguals and Dutch monolinguals in the pocket, and only Dutch monolinguals
+% elsewhere.
 % TODO: include? (see SI Fig. S15 \cite{supp}).
 
 
@@ -776,16 +782,16 @@ exterior influences, notably from its direct neighbours. Thus, we ran the same
 simulation with transborder proportions $p_{\text{TB}}$ equal to $0.5\%$ and $0.2\%$ of
 the population of the border municipalities of France and the Netherlands commuting to
 Belgium. We use the population censuses of these two countries at a municipality
-level\footnote{Available at \url{https://www.insee.fr/fr/statistiques/4989724} and
-\url{https://opendata.cbs.nl/statline/\#/CBS/nl/dataset/70072ned/table?dl=3B993} for
-France and the Netherlands, respectively.} to determine how many commuters will come
-from each municipality close to the border. On each side of the two borders, we only
-keep cells and municipalities located less than \SI{50}{\kilo \meter} away from the
-border. We take a fixed proportion $p_{\text{TB}}$ of the population of each of these
-municipalities as our transborder commuters. Then, to spread the commuters of each
-municipality to the cells in Belgium, we use a very simple gravity law
-\cite{SenGravityModels1995}, stating that the number of commuters going from
-municipality $\gamma$ to cell $j$ is such that
+level\footnote{Available at \url{https://www.insee.fr/fr/statistiques/4989724} for
+France and at
+\url{https://opendata.cbs.nl/statline/\#/CBS/nl/dataset/70072ned/table?dl=3B993} for the
+Netherlands.} to determine how many commuters will come from each municipality close to
+the border. On each side of the two borders, we only keep cells and municipalities
+located less than \SI{50}{\kilo \meter} away from the border. We take a fixed proportion
+$p_{\text{TB}}$ of the population of each of these municipalities as our transborder
+commuters. Then, to spread the commuters of each municipality to the cells in Belgium,
+we use a very simple gravity law \cite{SenGravityModels1995}, stating that the number of
+commuters going from municipality $\gamma$ to cell $j$ is such that
 \begin{equation}
   T_{\gamma j} \propto \frac{P_\gamma P_j}{d_{\gamma j}^2},
 \end{equation}
@@ -794,7 +800,7 @@ for every $\gamma$ is given by
 \begin{equation}
   \sum_{j \in \mathcal{B}} T_{\gamma j} = p_{\text{TB}} P_\gamma,
 \end{equation}
-with $\mathcal{B}$ the ensemble of border cells. These commuters $T_{\gamma j}$ then
+with $\mathcal{B}$ the set of border cells. These commuters $T_{\gamma j}$ then
 appear as an additional fixed population of monolinguals at every work step in the cell
 $j$. These boundary conditions stabilize the final state of convergence, as the
 linguistic boundary resulting from the process of varying $c$ is similar for the two
@@ -821,7 +827,7 @@ was indeed confirmed.
 \label{sec:multiling_discussion}
 This chapter has presented our exploration of the spatial distribution patterns of
 language competition and coexistence in multilingual societies. It consisted in first
-introducing the Earth Mover's Ratio, a metric capable of measuring the spatial
+introducing the \ac{EMR}, a metric capable of measuring the spatial
 segregation of a group in a given society, starting from a distance between its
 distribution and that of the whole population. Two main configurations have thus been
 observed: either spatial mixing with multilinguals widespread, or separate linguistic
