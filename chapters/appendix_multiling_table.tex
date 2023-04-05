@@ -1,0 +1,63 @@
+\documentclass[../thesis.tex]{subfiles}
+\graphicspath{{\subfix{../figs/}}}
+\pgfplotstableset{
+  search path={\subfix{data}},
+}
+\begin{document}
+
+%********************************************************************
+% Appendix
+%*******************************************************
+% If problems with the headers: get headings in appendix etc. right
+%\markboth{\spacedlowsmallcaps{Appendix}}{\spacedlowsmallcaps{Appendix}}
+\chapter{Metrics computed on language groups across multilingual regions}
+
+\begin{table}[h!]
+    \centering
+    \caption{Summary metrics for 16 regions of interest. For each group of monolinguals
+        and multilinguals, we give the number of residents of that region found to
+        belong to this group based on their tweets. We also give the \ac{EMR}
+        of each group, which measures their sptial segregation in that region.}
+    \label{tab:region_summary}
+    \pgfplotstabletypeset[
+    %   skip rows between index={24}{\pgfplotstablerows},
+      skip rows between index={24}{31},
+      skip rows between index={34}{\pgfplotstablerows},
+      column type=r,
+      assign column name/.style={/pgfplots/table/column name={\textbf{#1}}},
+      every head row/.style={after row=\hline\hline},
+      every nth row={3}{before row=\hline},
+      columns={Region,L group,Count,EMR},
+      columns/Region/.style={string type, column type=l},
+      columns/{L group}/.style={string type, column type=l},
+      columns/Count/.style={int detect},
+      columns/EMR/.style={fixed, fixed zerofill, precision=3, column type=r},
+    ]
+    {summary_table_tex.csv}
+  \end{table}
+  
+  \begin{table}[p]
+    \centering
+    \pgfplotstabletypeset[
+      skip rows between index={0}{24},
+      skip rows between index={31}{34},
+      column type=r,
+      assign column name/.style={/pgfplots/table/column name={\textbf{#1}}},
+      every head row/.style={after row=\hline\hline},
+      every row no 7/.style={before row=\hline},
+      every row no 14/.style={before row=\hline},
+      every row no 21/.style={before row=\hline},
+      every row no 24/.style={before row=\hline},
+      every row no 27/.style={before row=\hline},
+      every row no 34/.style={before row=\hline},
+      columns={Region,L group,Count,EMR},
+      columns/Region/.style={string type, column type=l},
+      columns/{L group}/.style={string type, column type=l},
+      columns/Count/.style={int detect},
+      columns/EMR/.style={fixed, fixed zerofill, precision=3, column type=r},
+    ]
+    {summary_table_tex.csv}
+  \end{table}
+
+
+\end{document}
