@@ -155,15 +155,15 @@ formally defined as $P_c = \left\{ c' \in C \mid N_{c'} < N_c \right\}$, we defi
   S_c = n_S \left\lceil \frac{\sum_{c' \in P_c} N_{c'}}{\sum_{c' \in C} N_{c'}} \right\rceil,
 \end{equation}
 with $\left\lceil \cdot \right\rceil$ representing the ceiling function and $n_S$ the
-number of classes we wish to define. We denote $m_{u, c}$ the number of trips made by
+number of classes we wish to define. We denote $t_{u, c}$ the number of trips made by
 user $u$ to cell $c$, and introduce the probability for an individual residing in a cell
 of class $i$ to visit another of class $j$:
 \begin{equation}
   \label{eq:class_visit_proba}
   M_{i, j} = \frac{
-      \sum_{u \in S_i} \sum_{c \in S_j} m_{u, c}
+      \sum_{u \in S_i} \sum_{c \in S_j} t_{u, c}
     }{
-      \sum_{j \in S_j} \sum_{u \in S_i} \sum_{c \in S_j} m_{u, c}
+      \sum_{j \in S_j} \sum_{u \in S_i} \sum_{c \in S_j} t_{u, c}
     },
 \end{equation}
 which is normalised row-wise, meaning $\sum_j M_{i, j} = 1$. Since we are interested in
@@ -259,18 +259,19 @@ considers agent who can have one of two \ac{SES} classes,
 % each class living in one of
 % two cells, and
 % TODO: keep this way? stay general on number of cells/classes?
-who can either speak standard, or not. The standard form has an intrinsic
-prestige $l_v$, whose value we will always set above 0.5 in the following, to account
-for (i). Now turning to (ii), each \ac{SES} class has a preference for one form: the
-lower class 1 is attached to the non-standard form with a factor $q_1$, and inversely
-the higher class 2 is attached to the standard one with $q_2$. When one of these two
+who can either speak standard, or not. The standard form has an intrinsic prestige
+$l_v$, the value of which belongs to the unit interval, but that we will always set
+above 0.5 in the following, to account for (i). Now turning to (ii), each \ac{SES} class
+has a preference for one form: the lower class 1 is attached to the non-standard form
+with a factor $q_1$, and inversely the higher class 2 is attached to the standard one
+with $q_2$. They are also comprised between 0 and 1, and when one of these two
 parameters has a value above $0.5$, it means there is a preference for the respective
 form. Then for instance, when an agent of low \ac{SES} speaking non-standard interacts
 with another agent speaking standard, they have a probability $l_v (1 - q_1)$ to start
 using the standard form as well. The agents can move from their residence cell with a
-probability $m_{i,j}$ at each step, which thus controls the mixing of the two
-populations, as discussed in (iii). \cref{fig:model_diagram} provides a summary of the
-model.
+probability $M_{i,j}$ at each step, which thus controls the mixing of the two
+populations, as discussed in (iii). A summary diagram of the model is provided in
+\cref{fig:model_diagram}.
 \begin{figure}
 \centering
   \includegraphics[width=\textwidth]{model_diagram}
@@ -290,9 +291,169 @@ model.
 \end{figure}
 
 
-
-
 \subsection{Properties and behaviour in mean-field}
+The process we just described above can be simulated for any number of cells and
+arrangements of the populations of different \ac{SES} classes. Here, however, we will
+consider a rather simple case in order to present succinct equations that lend
+themselves to interpretation and mathematical analysis. We will consider only two cells,
+with $N_1$ individuals of class 1 residing in cell 1, and $N_2$ individuals of class 2
+residing in cell 2. This is a situation of complete socio-economic segregation. We will
+denote $p_1$ the proportion of individuals of class 1 speaking non-standard (variety 1),
+and $p_2$ the proportion of individuals of class 2 speaking standard (variety 2).
+Individuals have to speak either 1 or 2, which implies that for instance a proportion
+$(1 - p_1)$ of individuals of class 1 speak the variety 2. The two variables therefore
+summarise the linguistic state of the system at any given time. Regarding the mobility,
+we introduce a new variable $m_{i, j}$, such that:
+\begin{equation}
+  m_{i, j} \equiv \frac{N_{i} M_{i, j}}{\sum_{i'} N_{s_{i'}} M_{i', j}},
+\end{equation}
+which can be understood as the probability to pick an individual with residence in $i$
+from $j$. They satisfy $\sum_i m_{i, j} = 1$. Further, since there are only two cells,
+people either stay at their residence or move to the other cell. As a result, to account
+for different mobility patterns, out of the $2 \times 2$ mobility matrix with elements
+$M_{i, j}$, we only retain the parameters $M_1 \equiv M_{1, 2}$ and $M_2 \equiv M_{2,
+1}$, the probabilities for people of each class to move away from their residence cell.
+Likewise, the matrix of $m_{i, j}$ can be summarised with the corresponding $m_1$ and
+$m_2$. Under all these assumptions and new notation, we can then write the probability
+to pick an individual speaking a variety in each cell:
+% TODO: add to appendix?
+\begin{equation}
+  \label{eq:prev_step_mob}
+  \begin{aligned}
+      P(2 \mid c = c_1)
+          = (1 - m_2) (1 - p_1) + m_2 p_2
+      \\
+      P(2 \mid c = c_2)
+          = m_1 (1 - p_1) + (1 - m_1) p_2
+      \\
+      P(1 \mid c = c_1)
+          = (1 - m_2) p_1 + m_2 (1 - p_2)
+      \\
+      P(1 \mid c = c_2)
+          = m_1 p_1 + (1 - m_1) (1 - p_2)
+  \end{aligned}
+\end{equation}
+This further enables us to determine the probabilities to switch from one variant to
+another, depending on one's \ac{SES} class:
+\begin{equation}
+  \label{eq:final_trans_probs}
+  \begin{aligned}
+      P(1 \rightarrow 2 \mid s = s_1)
+          &= l_v (1 - q_1)
+          \begin{aligned}[t]
+            &[P(2 \mid c = c_1) (1 - M_1)
+            \\
+            &+ P(2 \mid c = c_2) M_1]
+          \end{aligned}
+      \\[5pt]
+      P(1 \rightarrow 2 \mid s = s_2)
+          &= l_v q_2
+          \begin{aligned}[t]
+              &[P(2 \mid c = c_1) M_2
+              \\
+              &+ P(2 \mid c = c_2)(1 - M_2)]
+          \end{aligned}
+      \\[5pt]
+      P(2 \rightarrow 1 \mid s = s_1)
+          &= (1 - l_v) q_1
+          \begin{aligned}[t]
+              &[P(1 \mid c = c_1) (1 - M_1)
+              \\
+              & + P(1 \mid c = c_2) M_1]
+          \end{aligned}
+      \\[5pt]
+      P(2 \rightarrow 1 \mid s = s_2)
+          &= (1 - l_v) (1 - q_2)
+          \begin{aligned}[t]
+              &[P(1 \mid c = c_1) M_2
+              \\
+              &+ P(1 \mid c = c_2) (1 - M_2)]
+          \end{aligned}
+  \end{aligned}
+\end{equation}
+% \begin{equation}
+%   \label{eq:final_trans_probs}
+%   \begin{aligned}
+%       P(1 \rightarrow 2 \mid s = s_1)
+%           &= l_v (1 - q_1) [
+%             (1 - M_1) P(2 \mid c = c_1)  + M_1 P(2 \mid c = c_2)
+%           ]
+%       \\
+%       P(1 \rightarrow 2 \mid s = s_2)
+%           &= l_v q_2 [
+%             M_2 P(2 \mid c = c_1) + (1 - M_2) P(2 \mid c = c_2)
+%           ]
+%       \\
+%       P(2 \rightarrow 1 \mid s = s_1)
+%           &= (1 - l_v) q_1 [
+%             (1 - M_1)P(1 \mid c = c_1) + M_1 P(1 \mid c = c_2)
+%             ]
+%       \\
+%       P(2 \rightarrow 1 \mid s = s_2)
+%           &= (1 - l_v) (1 - q_2) [
+%             M_2 P(1 \mid c = c_1) + (1 - M_2) P(1 \mid c = c_2)
+%           ]
+%   \end{aligned}
+% \end{equation}
+Working in mean field, we can write the following differential equations:
+\begin{equation}
+    \label{eq:time_evol}
+    \begin{aligned}
+        % v and c depend on t
+        \dv{p_1}{t} 
+            &= (1 - p_1) P(2 \rightarrow 1 \mid s = s_1)
+                - p_1 P(1 \rightarrow 2 \mid s = s_1)
+        \\
+        \dv{p_2}{t} 
+            &= (1 - p_2) P(1 \rightarrow 2 \mid s = s_2)
+                 - p_2 P(2 \rightarrow 1 \mid s = s_2)
+    \end{aligned}
+\end{equation}
+
+Now if we simplify further and assume that the two \ac{SES} classes have the same
+population, and the same mobility $M = M_1 = M_2$, then we get that $m_1 = m_2 = M$, and
+it follows that
+\begin{equation}
+  \label{eq:time_evol_eq_mob}
+  \begin{aligned}
+      % v and c depend on t
+      \dv{p_1}{t} 
+          &= \eqnmarkbox[NavyBlue]{mob1}{
+            2 M (1 - M) (1 - p_1 - p_2) [q_1 (1 - l_v) - p_1 (q_1 - l_v)]
+          }
+      \\
+          & \quad + \eqnmarkbox[OliveGreen]{g1}{p_1 (1 - p_1) (q_1 - l_v)}
+      \\[5pt]
+      \dv{p_2}{t} 
+          &= \eqnmarkbox[NavyBlue]{mob2}{
+            2 M (1 - M) (1 - p_1 - p_2) [q_2 l_v - p_2 (l_v + q_2 - 1)]
+          }
+      \\
+          & \quad + \eqnmarkbox[OliveGreen]{g2}{p_2 (1 - p_2) (l_v + q_2 - 1)}
+  \end{aligned}
+\end{equation}
+%% TODO investigate why this does not work but works in test article
+% \annotatetwo[yshift=-1em,xshift=0.2ex]{below}{mob1}{mob2}{lol}
+% \annotate[yshift=-1em,xshift=0.2ex]{below}{g2}{lol}
+One can first notice how each equation features a first term linked to the groups'
+mobility, maximum for $M = \frac{1}{2}$, which is the situation of maximum mixing. This
+term is null when $p_1 = 1 - p_2$, and thus tends to smooth out differences in variety
+usage between \ac{SES} classes. Indeed, in the first equation, given that $q_1 - l_v =
+q_1 (1 - l_v / q_1)$, and that, as these parameters belong to the unit interval, $1 -
+l_v / q_1 > 1 - l_v$, then this term's sign follows the one of $(1 - p_1 - p_2)$. It is
+therefore negative if $p_1 > 1 - p_2$ and positive otherwise, meaning it pushes $p_1$
+towards $1 - p_2$. Similarly in the second equation, since $q_2 l_v - q_2 - l_v > -1$,
+the mobility term pushes $p_2$ towards $1 - p_1$.
+
+The second term of each evolution equation is one of ``self-growth'', independent of
+mobility and maximum for $p_k = \frac{1}{2}$. This term thus pushes a given class $k$
+away from a state of maximum entropy, and rather towards homogeneity. For $k = 1$ for
+instance, it does it either towards $p_1 = 0$ for $q_1 < l_v$, or towards $p_1 = 1$ for
+$q_1 > l_v$. When there is no mixing, for $M = 0$ or $M = 1$, as expected the two
+populations become completely independent, and one can directly see that the only stable
+fixed points of the system are homogeneous populations in terms of the variety they use.
+Which one they will end up using depends on the sign of $(q_1 - l_v)$ and $(l_v + q_2 -
+1)$ for classes 1 and 2, respectively.
 % fig with analytic result, stream plots, this kind of thing
 
 
