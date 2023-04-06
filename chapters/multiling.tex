@@ -1,7 +1,6 @@
 \documentclass[../thesis.tex]{subfiles}
 \graphicspath{{\subfix{figs/multiling/}}}
 \addbibresource{biblio.bib}
-\addbibresource{biblio_own.bib}
 \begin{document}
 
 \chapter{Capturing the diversity of multilingual societies}
@@ -14,19 +13,20 @@
   \epigraphcite{WeilNeedRoots2002}
 }
 
-This chapter is in part a reprint of an article,
+Much of the work presented in this chapter is included in an article entitled
 \citetitle{LoufCapturingDiversity2021}, that was previously published by the author of
 this thesis with Jos\'{e} J. Ramasco and David S\'{a}nchez
 \cite{LoufCapturingDiversity2021}.
 \\
 
-The research presented in this chapter is concerned with the study of how multiple
-languages interact with one another, which emerged a few decades ago as a hot topic when
-linguists realised that the world may be facing a mass extinction of languages
+The research presented in this chapter is concerned with the study of languages in
+contact, that is how different languages interact with one another, which emerged a few
+decades ago as a hot topic when linguists realised that the world may be facing a mass
+extinction of languages
 \cite{KraussWorldLanguages1992,GrenobleEndangeredLanguages1998,CrystalLanguageDeath2000}.
 As we pointed out in \cref{sec:lang_as_commodity}, there is a great cultural wealth
-embedded in these endangered languages, and its loss would be irreversible. Hence
-the need to understand what drives individuals to shift from one language to another.
+embedded in these endangered languages, and its loss would be irreversible. Hence the
+need to understand what mechanisms drive shifts from one language to another.
 
 Modelling language shift has been the subject of much research in the last decades
 \cite{CastellanoStatisticalPhysics2009,BoissonneaultSystematicInterdisciplinary2021},
@@ -49,11 +49,13 @@ environment which may be defined in many ways.
 % population sizes. As a result, models based on global evolution equations are a subset
 % of the more general, agent-based ones. Moreover,
 As explained in \cref{sec:method_theoretical_models}, \acp{ABM} allow to freely define a
-linguistic environment, and thus may enable us to assess the impact of the social
-structure on the language dynamics. That is why this chapter's focus will be on
-\acp{ABM}. However, we might turn to slightly more complex models that one as simple as
-the Abrams-Strogatz model, which simply considers the possibility of two monolingual
-states.
+linguistic environment, and can thus enable us to assess the impact of the social
+structure on the language dynamics. That is why in this chapter we will formulate
+existing models and a new proposal of ours in the framework of \acp{ABM}, before showing
+the strength of our proposal in both completely interconnected populations and in a
+metapopulation framework incorporating the mobility of individuals. We will here turn to
+slightly more complex models than one as simple as the Abrams-Strogatz model, which
+simply considers the possibility of two monolingual states.
 
 Indeed, the existence of around \SI{6000}{} spoken languages in 200 nations implies that
 multilingualism is a pervasive phenomenon worldwide. In almost every country, the
@@ -66,7 +68,7 @@ subject. Multiple modelling attempts have been made in that direction
 In these models, agents can be in a third state AB through which they have to pass to
 switch from being monolingual in a language to another. Apart from
 \cite{ProchazkaQuantifyingDriving2017} which relied on census data, none of the
-aforementioned models have been iterated over real-world spatial distributions of
+aforementioned models have been tested against real-world spatial distributions of
 speakers, as they were rather implemented in fully-connected populations or in toy
 models, like lattices or random networks. This is a shortcoming we will address here.
 
@@ -74,22 +76,22 @@ Speech communities are distributed in regions which are heterogeneous, and even
 discontinuous when their boundaries cannot be arranged into a single closed curve. This
 spatial component cannot be neglected in the study of language dynamics, as the
 sociolinguistic environment in which individuals interact is of paramount importance for
-the dynamics. That is why this work also seeks to obtain and the spatial distribution of
-languages in order to evaluate the models. As data on language use with a fine spatial
-resolution and large sample sizes are hard to come by using the traditional sources
-mentioned in \cref{sec:method_trad_data}, we rather strive to extract these spatial
-distributions from Twitter data.
+the dynamics. That is why this work also seeks to obtain and analyse the spatial
+distribution of languages in order to evaluate the models. As data on language use with
+a fine spatial resolution and large sample sizes are hard to come by using the
+traditional sources mentioned in \cref{sec:method_trad_data}, we rather strive to
+extract these spatial distributions from Twitter data.
 
 In this chapter, we therefore present results obtained through a combination of a
 \graffito{Almost all data analyses, simulations and plots were made using Python code, freely available on GitHub \cite{LoufMultilingtwitter2022}.}
-large-scale empirical study of the spatial distribution of languages with agent-based
+large-scale empirical study of the spatial distribution of languages with metapopulation
 modelling.
 In \cref{sec:multiling_data}, we show empirically that multilingual societies
 are characterised by different spatial patterns in the populations of monolinguals and
 bilinguals, encompassing fully mixed states and segregated distributions with a clear
 linguistic boundary. As the existing \acp{ABM} are not able to explain the range of
 spatial mixing observed, we introduce in \cref{sec:multiling_models} a model able to
-capture the diversity seen in the data. The model also shows how the behaviour of
+capture the diversity seen in the data. The model also shows how the preference of
 bilinguals and the ease of learning a language have their importance for the coexistence
 of languages. Finally, we present a brief discussion of all the results presented in
 this chapter in \cref{sec:multiling_discussion}.
@@ -112,31 +114,30 @@ As already mentioned in \cref{sec:methods_twitter}, Twitter has good potential a
 source to extract spatial distributions of language use. Here, we are not so much
 interested in language distributions fitting perfectly what exists in the offline world,
 but rather in the kind of distributions we may encounter. Despite all the biases
-introduced by the differences of usage of Twitter across the population, it could hence
-still provide valuable insights for regions in which close to no other data are
-available. Then to obtain spatial distributions of languages, we selected 16 countries
-and regions in which there was potential to gather sufficient statistics for
-multilingual communities (see the list in \cref{tab:region_counts}), and analysed
-geotagged tweets sent from them from early 2015 to the end of 2019.
+introduced by the differences of usage of Twitter across the population mentioned in
+\cref{sec:twitter_biases}, it could hence still provide valuable insights for regions in
+which close to no other data are available. Then to obtain spatial distributions of
+languages, we selected 16 countries and regions in which there was potential to gather
+sufficient statistics for multilingual communities (see the list in
+\cref{tab:region_counts}), and analysed hundreds of millions of geotagged tweets sent
+from them from early 2015 to the end of 2019.
 
 A regular grid was laid over each area of interest, dividing them in square cells (see
 for instance the grids laid over Belgium and Catalonia in \cref{fig:cat_be_maps}). The
 choice of the size of the cells is critical, as it defines the bins of the spatial
 distributions that we are studying. There are two limits to the cell size. First is an
-upper one, because if too many users are aggregated, we simply cannot see segregation
-anymore. The second is a lower one due to the nature of the geolocation data at hand:
-the Twitter places data described in \cref{sec:method_geoloc}. The typical size of
-places varies between countries, as for instance cities in America are typically more
-extended than in Europe. Considering these two constraints, we thus have to choose cell
-sizes carefully for each region considered. Usually, a range of cell sizes is
-acceptable, and although we choose to show only one in \cref{fig:cat_be_maps} for
-instance, our analysis can also be carried out for other sizes. To show the soundness of
-our choices, and the robustness of our results to reasonable cell sizes changes, we show
-the results of \ac{EMR} computations for different cell sizes in
-\cref{fig:EMR_cell_size_invariance}.
+upper one, because if too many users are aggregated, we may smooth out relevant
+geographical variations in the languages' distributions. The second is a lower one due
+to the nature of the geolocation data at hand: the Twitter places data described in
+\cref{sec:method_geoloc}. The typical size of places varies between countries, as for
+instance cities in America are typically more extended than in Europe. Considering these
+two constraints, we thus have to choose cell sizes carefully for each region considered.
+Usually, a range of cell sizes is acceptable, and although we choose to show only one in
+\cref{fig:cat_be_maps} for instance, our analysis can also be carried out for other
+sizes. We will thus show later the robustness of our metrics against cell size changes. 
 
 After thoroughly cleaning and analysing the collected tweets, as described in
-\cref{sec:methods_twitter}, we obtained a sample of local Twitter users to which a cell
+\cref{sec:methods_twitter}, we obtain a sample of local Twitter users to which a cell
 of residence and their frequency of usage of different languages. As a user may
 occasionally tweet in a language they do not speak by way of quoting someone else or
 using a translator, we do not keep all of them. We set that at least \SI{10}{\percent}
@@ -144,8 +145,9 @@ or 5 of the tweets of a user must be in a certain language to consider them a sp
 this language. 
 
 Out of hundreds of millions of geotagged tweets posted over a 4-year range, we thus
-obtain counts of local users by language group by cell in 16 regions of interest. These
-aggregated data have been deposited on figshare \cite{LoufSpatialDistributions2021}.
+obtain counts of local users by language group by cell in our 16 regions of interest.
+These aggregated data have been deposited on figshare
+\cite{LoufSpatialDistributions2021}.
 
 % The data about the knowledge of official languages (English or French or both) by
 % census subdivisions in Quebec were obtained from the 2016 Canadian
@@ -156,10 +158,8 @@ aggregated data have been deposited on figshare \cite{LoufSpatialDistributions20
 Before introducing any metric, let us specify our definition of language groups. First,
 we focus only on the languages considered to be local in the area under consideration.
 For instance, the use of English is widespread on Twitter, but we do not register those
-tweets unless English is one of the local languages (e.g., in Canada or Malaysia). A
-user is classified as a speaker of a language if at least $10\%$ or 5 of their tweets
-are detected in that language. One individual can thus be naturally in a monolingual or
-in a multilingual group if they fulfil the condition in respectively one and more than
+tweets unless English is one of the local languages (e.g., in Canada or Malaysia). An individual can naturally be in a monolingual or
+in a multilingual group if they fulfil the conditions given above in respectively one and more than
 one language. The groups defined here are mutually exclusive: each user must be in one
 of the monolingual and multilingual groups that are possible to form with the given set
 of local languages. For the purposes of our work, we consider language as a social
@@ -184,8 +184,8 @@ so we need to define a few basic metrics:
           p_{L,i} = \frac{N_{L,i}}{N_i},
     \end{equation}
 \end{itemize}
-where $N_L$ are all the users classified as $L$-speakers in the country or region
-considered, and $N_i$ is the population of Twitter users residing in cell $i$ speaking
+where $N_L = \sum_i N_{L, i}$ are all the users classified as $L$-speakers in the country or region
+considered, and $N_i = \sum_L N_{L, i}$ is the population of Twitter users residing in cell $i$ speaking
 any of the local languages. As in \cite{MocanuTwitterBabel2013}, we can define the
 polarisation of a language A for every cell $i$ in a bilingual system with languages A
 and B as 
@@ -193,10 +193,12 @@ and B as
 \label{eq:def_polar}
   \theta_{A, i} = \frac{1}{2} (1 + p_{A,i} - p_{B,i}). 
 \end{equation}
-The polarisation vanishes when there are only B monolinguals, takes the neutral value of
-$0.5$ when there are as many A-speakers as B-speakers, and goes to $1$ when there are
-only A monolinguals. We will use this metric in bilingual regions as an indicator of the
-mixing at the cell level. 
+The polarisation vanishes when there are only B monolinguals and goes to $1$ when there
+are only A monolinguals. It takes the neutral value of $0.5$ when there are as many
+A-speakers as B-speakers. It also takes this value when there are only bilinguals, as
+the proportion of bilingual does not impact this metric and we would then have no
+A-speakers and B-speakers --- in the sense given above. We will use this metric in
+bilingual regions as an indicator of the mixing at the cell level. 
 
 \begin{figure*}[p!]
   \centering
@@ -223,11 +225,16 @@ distributed compared to the whole population. Segregation is thus conceptualised
 departure from a baseline, the unsegregated scenario, in which regardless of the group
 an individual belongs to, they would be distributed according to the whole population's
 distribution. Explicitly, the concentrations corresponding to this baseline, or null
-model, are $c_i = N_i / N$. To quantify language mixing, we would then like to measure a
+model, are
+\begin{equation}
+  \label{eq:cell_concentrations}
+  c_i = N_i / N.
+\end{equation}
+To quantify language mixing, we would then like to measure a
 distance between the spatial distribution of a given language group and that of the
 whole population.
 
-To this end, at a full country or region scale, we define the so-called \ac{EMD}. This
+To this end, at a full country or region scale, we employ the so-called \ac{EMD}. This
 metric allows us to quantify the discrepancy between two distributions embedded in a
 metric space of any number of dimensions. It has mainly been used within the field of
 computer vision \cite{RubnerMetricDistributions1998}, and it was shown to be a proper
@@ -253,46 +260,47 @@ the following constraints:
   \right.
 \end{equation}
 where $c_i$ and $c_{L,i}$ are the concentrations of the population and $L$-speakers in
-every cell $i$, as defined above. $\text{EMD}_L$ quantifies thus the distance between
-the concentration distributions of $L$-speakers and of the whole population, as needed.
-The computation of the \ac{EMD} was implemented with \cite{FlamaryPOTPython2021}, which
-uses the method of \cite{BonneelDisplacementInterpolation2011}. However, in its raw
-form, it is dependent on the spatial scale of the system considered. Hence the need for
-a normalisation factor $k_\text{EMD}$ in order to enable comparisons between regions of
-different sizes. The first, obvious choice for $k_\text{EMD}$ would be the maximum
-distance between two cells of the region. However, such a choice would neglect the
-disparities of population density existing between different regions. The factor would
-be very high in Quebec, for instance, since the geographical scales are large even
-though its northern part is scarcely populated. This is why we choose instead the
-average distance between individuals:
+every cell $i$, as defined in \cref{eq:cell_concentrations} and \cref{eq:def_conc}.
+$\text{EMD}_L$ quantifies thus the distance between the concentration distributions of
+$L$-speakers and of the whole population, as needed. The computation of the \ac{EMD} was
+implemented with \cite{FlamaryPOTPython2021}, which uses the method of
+\cite{BonneelDisplacementInterpolation2011}. However, in its raw form, it is dependent
+on the spatial scale of the system considered. Hence the need for a normalisation factor
+$k_\text{EMD}$ in order to enable comparisons between regions of different sizes. The
+first, obvious choice for $k_\text{EMD}$ would be the maximum distance between two cells
+of the region. However, such a choice would neglect the disparities of population
+density existing between different regions. The factor would be very high in Quebec, for
+instance, since the geographical scales are large even though its northern part is
+scarcely populated. This is why we choose instead the average distance between
+individuals:
 \begin{equation}
   k_\text{EMD} = \frac{\sum_i \sum_j N_i N_j d_{ij} }{\left( \sum_k N_k \right)^2}.
 \end{equation}
 Our final metric is then the normalised version of the \ac{EMD}, the \acf{EMR}, defined
 as:
 \begin{equation}
+  \label{eq:emr_def}
   \text{EMR}_L = \frac{\text{EMD}_L}{k_\text{EMD}} .
 \end{equation}
 The \ac{EMR} is a global parameter. The higher it is, the more segregated a linguistic
 community. On the contrary, if the \ac{EMR} is close to zero this community is
-distributed according to the total population and the mixing is complete. As shown in
-\cref{fig:EMR_cell_size_invariance} the \ac{EMR} is cell-size-invariant for reasonable
-choices of cell sizes. Seeing the relatively low counts of users found in some language
-groups, one may wonder whether such samples may yield reliable measures of segregation
-through the \ac{EMR}. Therefore, to determine whether the measure of the \ac{EMR} for a
-group can be deemed reliable, we first set a hard minimum of 50 users detected in that
-group. Then, we order the cells by descending concentration of the whole population, and
-take as group count threshold the inverse of the concentration in the cell corresponding
-to the $90^\textrm{th}$ percentile of the cumulative distribution. This way, the sample
-we have can be expected to have been sufficient to populate significant cells. However,
-this threshold may not be passed for a minority group localised in low-density areas,
-while we may still have a sufficient sample relatively to its actual size. For this
-reason, we also test whether the \ac{EMR} calculation is robust to bootstrap resampling,
-as we generate 50 samples from the concentration distribution of this group, calculate
-the \ac{EMR} each time, and if the relative standard deviation of these is below
-\SI{10}{\percent}, we consider the measured \ac{EMR} of the group to be reliable. We
-have thus determined that the \ac{EMR} calculated for the bilinguals in Cyprus, all the
-multilingual groups in Luxembourg and the trilinguals in Switzerland were not reliable.
+distributed according to the total population and the mixing is complete. Seeing the
+relatively low counts of users found in some language groups, one may wonder whether
+such samples may yield reliable measures of segregation through the \ac{EMR}. Therefore,
+to determine whether the measure of the \ac{EMR} for a group can be deemed reliable, we
+first set a hard minimum of 50 users detected in that group. Then, we order the cells by
+descending concentration of the whole population, and take as group count threshold the
+inverse of the concentration in the cell corresponding to the $90^\textrm{th}$
+percentile of the cumulative distribution. This way, the sample we have can be expected
+to have been sufficient to populate significant cells. However, this threshold may not
+be passed for a minority group localised in low-density areas, while we may still have a
+sufficient sample relatively to its actual size. For this reason, we also test whether
+the \ac{EMR} calculation is robust to bootstrap resampling, as we generate 50 samples
+from the concentration distribution of this group, calculate the \ac{EMR} each time, and
+if the relative standard deviation of these is below \SI{10}{\percent}, we consider the
+measured \ac{EMR} of the group to be reliable. We have thus determined that the \ac{EMR}
+calculated for the bilinguals in Cyprus, all the multilingual groups in Luxembourg and
+the trilinguals in Switzerland were not reliable.
 
 
 \subsection{Empirical results}
@@ -304,24 +312,26 @@ frequently appear across the world in multilingual societies: either a marked bo
 between mostly monolingual domains (Belgium) or high mixing in every cell with local
 coexistence (Catalonia). The population of bilingual users concentrates in the border in
 the first case (especially in the region around Brussels and in the southern border with
-Luxembourg), and it is widespread in the second (\cref{fig:cat_be_maps}(e)-(f)). The
-results are summarised in \cref{fig:EMR_countries}(g)-(h), which presents the ranges of
-values reached by the \ac{EMR} of respectively the monolingual and multilingual groups
-in 14 of our 16 regions of interest.
-\begin{figure*}[h!]
+Luxembourg), and it is widespread in the second (\cref{fig:cat_be_maps}(e)-(f)).
+
+The results are summarised in \cref{fig:EMR_countries}(a)-(b), which presents the ranges
+of values reached by the \ac{EMR} of respectively the monolingual and multilingual
+groups in 14 of our 16 regions of interest.
+\begin{figure}[b!]
   \centering
   \includegraphics{EMR_countries}
-  \caption{\acp{EMR} of the (a) monolingual and (b) multilingual groups of
-  multilingual regions of interest, ranked left to right by increasing average of the
-  $y$-axis values. In (b), the point for trilinguals in Switzerland is not displayed
-  because its value was deemed unreliable. A rich diversity of mixing patterns is
-  shown, beyond the two paradigmatic cases of Catalonia and Belgium.}
+  \caption{\acp{EMR} of the (a) monolingual and (b) multilingual groups of multilingual
+  regions of interest, ranked left to right by increasing average of the $y$-axis
+  values. In (b), the point for trilinguals in Switzerland is not displayed because its
+  value was deemed unreliable. All values of the \ac{EMR} shown here, as well as those
+  that we discarded are given in \cref{tab:table_multiling_charac}. A rich diversity of
+  mixing patterns is shown, beyond the two paradigmatic cases of Catalonia and Belgium.}
   \label{fig:EMR_countries}
-\end{figure*}
-We filtered out regions where we deemed not
-sufficient the statistics gathered from Twitter. A wide diversity of situations can be
-observed. Multilingual societies may have rather balanced monolingual groups separated
-by a clear-cut border, which have thus high but quite similar \ac{EMR} values, like in
+\end{figure}
+As mentioned previously, we filtered out regions where we deem not sufficient the
+statistics gathered from Twitter. A wide diversity of situations can be observed.
+Multilingual societies may have rather balanced monolingual groups separated by a
+clear-cut border, which have thus high but quite similar \ac{EMR} values, like in
 Belgium and Switzerland. One can also see unbalanced situations where one language is
 spoken by the majority, and has thus a much lower \ac{EMR} than the monolinguals and
 multilinguals of other smaller, isolated languages. This is for example the case on the
@@ -330,6 +340,10 @@ localised. Multilinguals may also be mixing well in the whole population, like t
 bilinguals in Galicia and Catalonia. These groups can thus be of completely different
 natures from one region to another, from sustaining a minority language while being
 spatially mixed or isolated, to standing at the border between monolingual communities.
+To demonstrate the robustness of the \ac{EMR} as a metric on spatial distributions and
+the soundness of our choices of cell sizes, we show in
+\cref{fig:EMR_cell_size_invariance} that the \ac{EMR} is cell-size-invariant for
+reasonable choices of cell sizes.
 \begin{figure}[h!]
   \centering
   \includegraphics{EMR_cell_size_invariance}
@@ -470,10 +484,11 @@ following transition probability:
 \end{equation}
 where, as in the other models, $s_\text{X}$ refers to the prestige of language X, which
 can be either A or B. The other parameters are $\mu \in [0, 1]$, that is the fixed
-probability for an agent to die at each step; and, $q_\text{X} \in [0, 1]$ that reflects
-the preference of bilinguals to speak X. So bilingual speakers may be more inclined to
-transmit only language X when it is more prestigious, preferred by other bilinguals, and
-more spoken around them.
+probability for an agent to die at each step, present in the model of
+\cite{MinettModellingEndangered2008}, and $q_\text{X} \in [0, 1]$, that reflects the
+preference of bilinguals to speak X, which has not been considered in previous works. So
+bilingual speakers may be more inclined to transmit only language X when it is more
+prestigious, preferred by other bilinguals, and more spoken around them.
 
 The second kind of transition is horizontal, it is related to the learning of a new
 language by a monolingual in the course of their lives. This transition occurs according
@@ -527,29 +542,10 @@ unnecessary complexity.
 
 
 \subsection{A single population}
-
-\begin{figure*}
-  \centering
-  \includegraphics[width=\textwidth]{single_pop_stream_plots.png}
-  \caption{Flow diagrams for the dynamics of two languages according to our model
-  described in \cref{eq:bipref_model} set in a well-mixed population. $p_{\text{A}}$
-  and $p_{\text{B}}$ denote the proportions of monolinguals in A and B, respectively,
-  and the proportion of bilinguals $p_{\text{AB}}$ is such that $p_{\text{A}} +
-  p_{\text{B}} + p_{\text{AB}} = 1$. The mortality rate is fixed at $\mu = 0.02$. (a)
-  For $s = q = 1/2$ and $c=0.02$, the stable outcome is extinction of one of the two
-  languages. (b) For $s = q = 1/2$ and $c = 0.05$, the higher learning rate leads to a
-  solution featuring stable coexistence. (c) For $s = 0.57$, $q = 0.45$ and $c =
-  0.05$, despite the lower prestige, B survives in a small community of bilinguals as
-  it is the preferred language among them.}
-  \label{fig:stream_plots}
-\end{figure*}
-
-
-We first analyse the model
-\graffito{Figures shown in this section were generated with Mathematica code, freely
-available on GitHub \cite{LoufMultilinganalytical2022}.}
-in the simplest setting of a single well-mixed population to
-determine the typology of possible solutions. A mean field approximation yields:
+We first analyse the model \graffito{Figures shown in this section were generated with
+Mathematica code, freely available on GitHub \cite{LoufMultilinganalytical2022}.} in the
+simplest setting of a single completely interconnected population to determine the
+typology of possible solutions. A mean field approximation yields:
 \begin{equation}
   \label{eq:dt_bipref_model}
   \left\{
@@ -568,34 +564,49 @@ around them, which requires the calculation of the Jacobian of the linearised eq
 and of its eigenvalues. Points for which all the eigenvalues have strictly negative real
 parts are stable, while if any eigenvalue's real part is zero or positive the fixed
 point is unstable. Stream plots in \cref{fig:stream_plots} show where the model
-converges to in three characteristic examples, depending on the model parameters. In the
-first one (\cref{fig:stream_plots}(a)), the stable (blue) points lie over the axis at
-values 1 and the system has as only solution the extinction of one of the two languages.
-In \cref{fig:stream_plots}(b), the stable fixed point falls in the middle of the diagram
-and, therefore, the solution is symmetric coexistence with a majority ($\sim 1/2$) of
-bilinguals. Finally, in \cref{fig:stream_plots}(c), we find a stable fixed point over
-the $x$-axis that represents the extinction of monolinguals B but coexistence between
-A-monolinguals and bilinguals. Surprisingly enough, this represents the survival of a
-less prestigious language within a relatively small bilingual community. These results
-show already the flexibility of the model even in a single population.
-
-\begin{figure}[h]
+converges to in three characteristic examples, depending on the model parameters.
+\begin{figure}[b!]
   \centering
-  \includegraphics[width=7cm]{single_pop_param_space}
-  \caption{Region of the parameter space where the dynamics of our model in a single
-  population converge to stable coexistence of languages. We show two 2D cuts of the
-  coexistence region in the ($q$, $r$) space for fixed values of $s=0.5, 0.4$, with $r
-  = \mu / (c \, (1-\mu))$. Lower values of $r$ favour coexistence, as well as a
-  neutral prestige and bilingual preference $q$. When $s < 0.5$, coexistence is
-  favoured for an optimal value $q^\text{opt} > 1-s$.}
-  \label{fig:coex_region}
+  \includegraphics[width=\textwidth]{single_pop_stream_plots.png}
+  \caption{Flow diagrams for the dynamics of two languages according to our model
+  described in \cref{eq:bipref_model} set in a well-mixed population. $p_{\text{A}}$
+  and $p_{\text{B}}$ denote the proportions of monolinguals in A and B, respectively,
+  and the proportion of bilinguals $p_{\text{AB}}$ is such that $p_{\text{A}} +
+  p_{\text{B}} + p_{\text{AB}} = 1$. The mortality rate is fixed at $\mu = 0.02$. (a)
+  For $s = q = 1/2$ and $c=0.02$, the stable outcome is extinction of one of the two
+  languages. (b) For $s = q = 1/2$ and $c = 0.05$, the higher learning rate leads to a
+  solution featuring stable coexistence. (c) For $s = 0.57$, $q = 0.45$ and $c =
+  0.05$, despite a lower prestige, B survives in a small community of bilinguals as
+  it is the preferred language among them.}
+  \label{fig:stream_plots}
 \end{figure}
+In the first one (\cref{fig:stream_plots}(a)), the stable (blue) points lie over the
+axis at values 1 and the system has as only solution the extinction of one of the two
+languages. In \cref{fig:stream_plots}(b), the stable fixed point falls in the middle of
+the diagram and, therefore, the solution is symmetric coexistence with a majority ($\sim
+1/2$) of bilinguals. Finally, in \cref{fig:stream_plots}(c), we find a stable fixed
+point over the $x$-axis that represents the extinction of monolinguals B but coexistence
+between A-monolinguals and bilinguals. Surprisingly enough, this represents the survival
+of a less prestigious language within a relatively small bilingual community. These
+results show already the flexibility of the model even in a single population.
+Remarkably, it does so without introducing extra parameters to fit. Indeed, $\mu$ and
+$q$ are both quantities that can be measured in real-world scenarios, as opposed, for
+instance, to the inter-linguistic similarity introduced by
+\cite{MiraInterlinguisticSimilarity2005} that is, as said explicitly in this work, not
+straightforward at all to calculate, and is thus an extra parameter that needs to be fit
+to data. Moreover, although it is out of the scope of this work, the parameter $q$ can
+naturally be measured on an individual level, which can be used to initialise more
+realistic simulations within an \ac{ABM} framework.
 
 We change now the viewpoint from the phase space to the parameter space. In
 \cref{fig:coex_region}, we plot the region of parameters where the model converges to
 stable coexistence. Since $c$ and $\mu$ act over the stability only in a combined form,
-their contributions can be merged into a new variable $r$ defined as $r = \mu/(c \,
-(1-\mu))$, which stands for the ratio between the mortality and learning rates. The
+their contributions can be merged into a new variable $r$ defined as
+\begin{equation}
+  \label{eq:r_def}
+  r = \frac{\mu}{c \,(1-\mu)},
+\end{equation}
+which stands for the ratio between the mortality and learning rates. The
 other two parameters, $s$ and $q$, are considered independently. We observe that the
 coexistence region expands when $r$ decreases. This means that increasing the ease to
 learn one language when knowing the other (with a fixed mortality rate) makes
@@ -605,7 +616,18 @@ the prestige of language A is lower than that of B, we find that there exists an
 value of $q$ making possible the coexistence, $q^\text{opt} > 1-s$. For $q <
 q^\text{opt}$, $A$ is more at risk of extinction whereas for $q > q^\text{opt}$, the
 endangered language is $B$. There is thus a balance between prestige and bilingual
-preference that enables coexistence. 
+preference that enables coexistence.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=7cm]{single_pop_param_space}
+  \caption{Region of the parameter space where the dynamics of our model in a single
+  population converge to stable coexistence of languages. We show two 2D cuts of the
+  coexistence region in the ($q$, $r$) space for fixed values of $s=0.5, 0.4$, with $r$
+  as defined in \cref{eq:r_def}. Lower values of $r$ favour coexistence, as well as a
+  neutral prestige and bilingual preference $q$. When $s < 0.5$, coexistence is favoured
+  for an optimal value $q^\text{opt} > 1-s$.}
+  \label{fig:coex_region}
+\end{figure}
 
 This model opens up unique classes of stable solutions: from the extinction of a
 language to coexistence when prestige is neutral, but also when it favours one of the
@@ -613,12 +635,11 @@ two languages, and even only through a community of bilinguals. However, these a
 results in a fully-connected population do not suffice, as they do not show if the model
 is able to reproduce a case such as Belgium, where in the majority of cells there
 remains almost exclusively one language, except on the boundary between the two large
-communities. Consequently, we now analyse the model in a metapopulation framework to
-uncover the effect of including space and check whether this pattern can arise.
+communities. Consequently, we will now analyse the model in a metapopulation framework
+to uncover the effect of including space and check whether this pattern can arise.
 
 
 \subsection{The model in space}
-
 In our context, we would need some information to build the extended model within this
 metapopulation framework. The basic ingredients are a spatial division, the population
 in each division, the mobility between them and the characteristics of the populations
@@ -645,9 +666,11 @@ mobility, such as gravity, radiation or distance-kernel-based models
   extinction and in a boundary-like state with monolinguals separated in space. Larger
   values of $r$ favour homogeneity, either by full extinction or by separation states.
   Below are the regions of the parameter space $(s,q)$ where these stable solutions
-  emerge, (b) with $r=1$ and (c) with $r=0.45$. Finally, two polarisation maps show
-  examples of states the model converges to, (d) a boundary-like state for $r=1$,
-  $s=0.467$, $q=0.667$, and (e) complete mixing for $r=0.45$, $s=0.45$, $q=0.592$.}
+  emerge, (b) with $r=1$ and (c) with $r=0.45$. Finally, two maps of the French
+  polarisation (A = French and B = Dutch in \cref{eq:def_polar}) show examples of
+  states the model converges to, (d) a boundary-like state for $r=1$, $s=0.467$,
+  $q=0.667$, and (e) complete mixing for $r=0.45$, $s=0.45$, $q=0.592$. $s$ and $q$ are
+  defined as the prestige of and preference for French.}
   \label{fig:single_to_metapop_BE}
 \end{figure}
 
@@ -655,17 +678,27 @@ The populations and commuting patterns at the municipality level are thus obtain
 the national census of
 2011\footnote{\url{https://statbel.fgov.be/en/open-data/census-2011-matrix-commutes-sex}}.
 We implement a mapping process from municipalities to our cells based on area overlap,
-similarly to what we described in \cref{sec:method_geoloc}. Regarding the language
-groups, Twitter data may suffer from different socio-demographic biases that we
-mentioned in \cref{sec:twitter_biases}, and besides, tweets reflect language use online,
-not necessarily the offline practices in the full population. Since in the census we
-found information on the total number of persons per language group and of residents per
-municipality, we have scaled the $L$-speakers that we find on Twitter to match these two
-sets of marginal sums via \ac{IPF}
-\cite{DemingLeastSquares1940,FienbergIterativeProcedure1970}. By imposing these two
-constraints, it is assumed that the two biases are independent: the bias in the choice
-of language used online is space-independent in a specific multilingual society, and the
-over-representation of urban people is $L$-group-independent.
+similarly to what we described in \cref{sec:method_geoloc}.
+
+Regarding the language groups, since we are mixing commuting data from the census with
+data from Twitter, we first have to up-scale the number of individuals we found from
+Twitter data to match the number of commuters. Instead of up-scaling uniformly by the
+ratio between these two numbers, we choose here to alleviate the socio-demographic
+biases that we mentioned in \cref{sec:twitter_biases} through re-scaling factors
+$k_{L,i}$, which are different between cells and language groups. The first bias to
+address is how users are more urban than average
+\cite{MisloveUnderstandingDemographics2011}, which leads us to impose the constraint
+$\sum_L k_{L,i} N_{L,i} = N_i^\text{(census)}$. The second one is how language usage is
+different on Twitter, because one's audience is wider, potentially more cosmopolitan
+than offline \cite{NguyenAudienceUse2015}, and with different demographics
+\cite{MisloveUnderstandingDemographics2011}. Hence we want to also re-scale such that
+$\sum_i k_{L,i} N_{L,i} = N_L^\text{(census)}$, with $N_L^\text{(census)}$ the global
+numbers of $L$-speakers, data which are much more widely available than the counts for
+each census tract. By imposing these two constraints, it is assumed that the two biases
+are independent: the bias in the choice of language used online is space-independent in
+a specific multilingual society, and the over-representation of urban people is
+$L$-group-independent. In practice, we fit the values of the upscaling factors $k_{L,
+i}$ via \ac{IPF} \cite{DemingLeastSquares1940,FienbergIterativeProcedure1970}.
 
 Once the metapopulation has been initialised, the model can be simulated. As in
 \cite{Fernandez-GraciaVoterModel2014}, the day is divided in two parts: the individuals
@@ -680,15 +713,15 @@ In order to analyse the stability of the steady states reached by the extended m
 derive an approximate master equation for the full metapopulation setting. To this end,
 we adapt the methodology described in
 \cite{SattenspielStructuredEpidemic1995,BalcanModelingSpatial2010} for epidemiological
-models. The equations obtained are only
-%% TODO: give the equations??
-approximated but since they are analytic we can integrate them and calculate the
-Jacobian at their fixed points. To check the consistency of both approaches and that the
-fixed points of the dynamics are the same, we also introduce the initial conditions in
-the master equation, to then integrate it numerically using a standard Runge-Kutta
-algorithm. The fixed points reached by the simulations turn out to be fixed points as
-well for the equations. Not only that, all the eigenvalues of the Jacobian at these
-states have negative real parts, and they are thus stable fixed points.
+models. Our derivations and the resulting equations are given in
+\cref{ch:appendix_metapop_equations}. The equations obtained are only approximated, but
+since they are analytic we can integrate them and calculate the Jacobian at their fixed
+points. To check the consistency of both approaches and that the fixed points of the
+dynamics are the same, we also introduce the initial conditions in the master equation,
+to then integrate it numerically using a standard Runge-Kutta algorithm. The fixed
+points reached by the simulations turn out to be fixed points as well for the equations.
+Not only that, all the eigenvalues of the Jacobian at these states have negative real
+parts, and they are thus stable fixed points.
 
 To explore the parameter space systematically, we perform a number of simulations until
 convergence to a stable state. We show the results for the metapopulation setting of
@@ -712,7 +745,15 @@ single population shown in \cref{fig:coex_region} may not have been reached.
 \begin{figure}[p]
   \centering
   \includegraphics{smaller_metapop_phase_space_all_c}
-  \caption{Phase space of the stable states of convergence of our model when iterated within our metapopulation framework in Belgium. Colours show the kind of convergence state reached for the corresponding set of parameters. A lower learning rate, that is a lower value of $c$, favours the separate coexistence of French and Flemish, while a higher one favours mixed coexistence. In the transition between the two however, coexistence is almost impossible, as the corresponding region in the $(s,q)$ space becomes very narrow.}
+  \caption{Phase space of the stable states of convergence of our model when iterated
+  within our metapopulation framework in Belgium. Colours show the kind of convergence
+  state reached for the corresponding set of parameters. A lower learning rate, that is
+  a lower value of $c$, favours the separate coexistence of French and Flemish, while a
+  higher one favours mixed coexistence. In the transition between the two however,
+  coexistence is almost impossible, as the corresponding region in the $(s,q)$ space
+  becomes very narrow.
+  % Here again, $s$ and $q$ are defined as the prestige of and preference for French
+  }
   \label{fig:metapop_phase_space_all_c}
 \end{figure}
 

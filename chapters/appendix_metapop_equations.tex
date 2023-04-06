@@ -1,0 +1,186 @@
+\documentclass[../thesis.tex]{subfiles}
+\graphicspath{{\subfix{../figs/}}}
+\begin{document}
+
+\chapter[Approximate equations in a metapopulation]{Approximate evolution equations for our language competition model in a metapopulation framework}
+\label{ch:appendix_metapop_equations}
+
+Here we wish to derive a system of equations describing the evolution of the
+metapopulation under reasonable assumptions. Let us first rewrite
+\cref{eq:dt_bipref_model}, the global equations of our model, in terms of counts instead
+of proportions:
+\begin{equation}
+\label{eq:bipref_cell_eq}
+  \begin{aligned} 
+    \dv{N_{A, i}}{t} &= \mu s N_{AB, i}
+      \frac{
+          \sum_{k}  (N_{A, k} + q N_{AB,k})
+      }{
+          \sum_{k} N_{k}
+      }
+    \\
+    & \quad - c (1-\mu) (1-s) N_{A, i}
+      \frac{
+          \sum_{k} (N_{B,k} + (1-q) N_{AB, k})
+      }{
+          \sum_{k} N_{k}
+      },
+    \\[2ex]
+    \dv{N_{B, i}}{t} &= \mu (1-s) N_{AB, i}
+      \frac{
+          \sum_{k} (N_{B, k} + (1-q) N_{AB,k})
+      }{
+          \sum_{k} N_{k}
+      }
+    \\
+    & \quad - c (1-\mu) s N_{B, i}
+      \frac{
+          \sum_{k} (N_{A,k} + q N_{AB, k})
+      }{
+          \sum_{k} N_{k}
+      },
+  \end{aligned}
+\end{equation}
+for every cell $i$. Let us translate these to a metapopulation level, for which the
+equations hold for the subpopulations of each cell $i$. We will follow what was done in
+\cite{SattenspielStructuredEpidemic1995}, and divide every population $N_{L,i}$
+according to their work destination $j$. We thus introduce the notation $N_{L,ij} (t)$
+which is the number of $L$-speakers who are residents in $i$ and are at $j$ for work at
+time $t$. It is such that
+\begin{equation}
+  N_{L,i} (t) = \sum_j N_{L, ij} (t).
+\end{equation}
+Then, the equations we want to solve to get the equilibrium points are, for every $i$,
+\begin{equation}
+\label{eq:fixed_points_eq}
+  \begin{aligned} 
+    \dv{N_{A, i}}{t} &\equiv \sum_j \dv{N_{A, ij}}{t} = 0 \\
+    \dv{N_{B, i}}{t} &\equiv \sum_j \dv{N_{B, ij}}{t} = 0.
+  \end{aligned}
+\end{equation}
+
+Regarding commuting, we will here use the notations from
+\cite{BalcanModelingSpatial2010}, and introduce first $\sigma_{ij}$, the commuting rate
+between the subpopulation $i$ and every other cell $j$. The return rate of commuting
+individuals, that is the inverse of the timescale of their stay at work, is denoted
+$\tau$. The subpopulation size evolution (summing over all languages) due to commuting
+is then given by
+\begin{equation}
+\label{eq:subpop_commut_evo}
+  \begin{aligned}
+    \dv{N_{ii}}{t}
+      &= \tau \sum_j N_{ij} (t) - \sum_j \sigma_{ij} N_{ii} (t)  \\
+    \dv{N_{ij}}{t}
+      &= \sigma_{ij} N_{ii} (t) - \tau N_{ij} (t).
+  \end{aligned}
+\end{equation}
+Then, for monolinguals $A$, we can write the following:
+\begin{equation}
+  \begin{aligned}
+    \dv{N_{A,ii}}{t}
+      &= \text{A from every destination $j$ returning to their residence $i$} \\
+      &- \text{A from $i$ leaving $i$ for work} \\
+      &+ \text{AB from $i$ and currently at $i$ turning A} \\
+      &- \text{A from $i$ and currently at $i$ turning AB},
+  \end{aligned}
+\end{equation}
+which gives, using both the commuting part from \cref{eq:subpop_commut_evo} and the
+language competition part from \cref{eq:bipref_cell_eq},
+\begin{equation}
+\label{eq:N_Aii_evo}
+  \begin{aligned}
+    \dv{N_{A,ii}}{t} 
+      &= \tau \sum_j N_{A, ij} \\
+      &- \sum_j \sigma_{ij} N_{A,ii} \\
+      &+ \mu s (N_{ii} - N_{A, ii} - N_{B, ii}) \left( \frac{\sum_k (N_{A, ki} + q N_{AB, ki})}{\sum_k N_{ki}} \right)\\
+      &- c (1-\mu) (1-s) N_{A, ii}  \left( \frac{\sum_k (N_{B, ki} + (1-q) N_{AB, ki})}{\sum_k N_{ki}} \right).
+  \end{aligned}
+\end{equation}
+and similarly for every $j \neq i$:
+\begin{equation}
+  \begin{aligned}
+    \dv{N_{A,ij}}{t}
+      &= \text{A arriving at $j$ coming from their residence $i$} \\
+      &- \text{A currently at $j$ returning to their residence $i$} \\
+      &+ \text{AB from $i$ and currently at $j$ turning A} \\
+      &- \text{A from $i$ and currently at $j$ turning AB},
+  \end{aligned}
+\end{equation}
+which gives
+\begin{equation}
+\label{eq:N_Aij_evo}
+  \begin{aligned}
+    \dv{N_{A, ij}}{t} 
+      &= \sigma_{ij} N_{A, ii} \\
+      &- \tau N_{A, ij} \\
+      &+ \mu s (N_{ij} - N_{A, ij} - N_{B, ij}) \left( \frac{\sum_k (N_{A, kj} + q N_{AB, kj})}{\sum_k N_{kj}} \right) \\
+      &- c (1-\mu) (1-s) N_{A, ij} \left( \frac{\sum_k (N_{B, kj} + (1-q) N_{AB, kj})}{\sum_k N_{kj}} \right).
+  \end{aligned}
+\end{equation}
+
+Now when we sum \cref{eq:N_Aij_evo} over $j$ and add \cref{eq:N_Aii_evo} to try to solve
+for the system \cref{eq:fixed_points_eq}, we first see, as in \cite{SattenspielStructuredEpidemic1995}, that the commuting terms simplify. For the
+language competition terms, there remains to estimate the $N_{A, ij}$. We will use
+another result from \cite{BalcanModelingSpatial2010}, where they show that under the
+assumption that $\forall ~ i, \tau \gg \sigma_i$, we can make the following approximation:
+\begin{equation}
+  \begin{aligned}
+    N_{ii} &= \frac{N_i}{1 + \sigma_i / \tau} \\
+    N_{ij} &= \frac{N_i \sigma_{ij} / \tau}{1 + \sigma_i / \tau}.
+  \end{aligned}
+\end{equation}
+Let us introduce a matrix $\underline{\underline{\nu}}$ such that
+\begin{equation}
+  \begin{aligned}
+    \forall ~ i,
+      & ~ \nu_{ii} = \frac{1}{1 + \sigma_i / \tau}~,
+    \\
+    \forall ~ i, j \text{ such that } i \neq j,
+      & ~ \nu_{ij} = \frac{\sigma_{ij} / \tau}{1 + \sigma_i / \tau}~,
+  \end{aligned}
+\end{equation}
+so we can rewrite
+\begin{equation}
+  \forall ~ i, j, ~ N_{ij} = N_i \nu_{ij}.
+\end{equation}
+These counts, summed over all languages, are then constant. We can also use this
+approximation for each language, by identification in the equation below:
+\begin{equation}
+  N_{A, ij} (t) + N_{B, ij} (t) + N_{AB, ij} (t) = (N_{A, i} (t) + N_{B, i} (t) + N_{AB, i} (t)) \nu_{ij}.
+\end{equation}
+We thus obtain the following equivalent equations under our assumptions:
+\begin{equation}
+  \begin{aligned}
+    \dv{N_{A, i}}{t} 
+        &= \mu s (N_i - N_{A, i} - N_{B, i})
+        \sum_{j} \nu_{ij} [q (1 - \gamma_{B, j}) + (1 - q) \gamma_{A, j}]
+    \\
+        & \quad - c (1-\mu) (1-s) N_{A, i}
+        \sum_{j} \nu_{ij} [(1 - q) (1 - \gamma_{A, j}) + q \gamma_{B, j}]
+    \\
+    \dv{N_{B, i}}{t} 
+      &= \mu (1-s) (N_i - N_{A, i} - N_{B, i}) 
+      \sum_{j} \nu_{ij} [(1 - q) (1 - \gamma_{A, j}) + q \gamma_{B, j}]
+    \\
+      & \quad - c (1-\mu) s N_{B, i}
+      \sum_{j} \nu_{ij} [q (1 - \gamma_{B, j}) + (1 - q) \gamma_{A, j}],
+  \end{aligned}
+\end{equation}
+where
+\begin{equation}
+  \begin{aligned}
+  \gamma_{A, j} = \frac{
+          \sum_{k} N_{A, k} \nu_{kj}
+      }{
+          \sum_{k} N_{k} \nu_{kj}
+      },
+  \\
+  \gamma_{B, j} = \frac{
+          \sum_{k} N_{B, k} \nu_{kj}
+      }{
+          \sum_{k} N_{k} \nu_{kj}
+      }.
+  \end{aligned}
+\end{equation}
+
+\end{document}
