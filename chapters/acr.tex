@@ -1,7 +1,6 @@
 \documentclass[../thesis.tex]{subfiles}
 \graphicspath{{\subfix{figs/acr/}}}
 \addbibresource{biblio.bib}
-\addbibresource{biblio_own.bib}
 \begin{document}
 
 \chapter[Inferring American cultural regions]{Inferring American cultural regions through the lexical analysis of social media data}
@@ -14,10 +13,10 @@
   \epigraphcite{BrownStartingScratch1989}
 }
 
-This chapter is in part a reprint of an article,
-\citetitle{LoufAmericanCultural2022}, that was previously published by the author of
+Much of the work presented in this chapter is included in an article entitled
+\citetitle{LoufAmericanCultural2023}, that was previously published by the author of
 this thesis with Bruno Gon\c{c}alves, Jos\'{e} J. Ramasco, David S\'{a}nchez and Jack
-Grieve \cite{LoufAmericanCultural2022}. \\
+Grieve \cite{LoufAmericanCultural2023}. \\
 
 Cultural identity is an elusive notion because it depends on a wide range of different
 cultural factors --- including politics, religion, ethnicity, economics, and art, among
@@ -45,12 +44,12 @@ range of theories of American cultural regions having been proposed. Seven of th
 prominent theories
 \cite{OdumSouthernRegions1936,ElazarCitiesPrairie1970,ZelinskyCulturalGeography1992,GastilCulturalRegions1975,GarreauNineNations1996,LieskeRegionalSubcultures1993,WoodardAmericanNations2012}
 are mapped in \cref{fig:litt_cultural_regions}, showing considerable disagreement. For
-example, in \cite{ZelinskyCulturalGeography1992} the geographer Wilbur Zelinsky
+example, in \cite{ZelinskyCulturalGeography1992} Wilbur Zelinsky
 identified 5 major cultural regions --- New England, the Midland, the South, the Middle
 West, and the West --- based on a synthesis of regional patterns in a wide range of
 cultural factors, including ethnicity, religion, economics, and settlement history.
 Alternatively, in \cite{GastilCulturalRegions1975} drawing on a similar but more
-extensive range of cultural factors, the social scientist Raymond Gastil identified 13
+extensive range of cultural factors, the Raymond Gastil identified 13
 major cultural regions, offering a more complex theory than Zelinsky, including by
 dividing Zelinsky's Midland, Middle West, and West regions. The two studies illustrate
 two basic limitations with these types of approaches that subjectively synthesize a
@@ -100,14 +99,15 @@ important cultural factors, but they can be measured in various ways, and it is 
 how important they are relatively speaking and whether their importance varies across
 the United States.
 
-A basic question is therefore how can we infer general American cultural regions in an
-objective way? In particular, how can we both identify a complete or at least
-representative range of relevant cultural factors and somehow combine these factors in
-so as to map American cultural regions? Defining such regions does not mean that they do
-not contain internal variation or that they are separated by hard borders --- culture is
-dynamic and complex and humans are highly mobile --- but that we can find areas where the
-cultural practice and values of the people who live within that region are more similar
-to each other than to those of people who live outside that region.
+The research question will we address in this chapter is therefore: how can we infer
+general American cultural regions in an objective way? In particular, how can we both
+identify a complete or at least representative range of relevant cultural factors and
+somehow combine these factors in so as to map American cultural regions? Defining such
+regions does not mean that they do not contain internal variation or that they are
+separated by hard borders --- culture is dynamic and complex and humans are highly
+mobile --- but that we can find areas where the cultural practice and values of the
+people who live within that region are more similar to each other than to those of
+people who live outside that region.
 
 The goals of this work are therefore to address these issues, by (i) proposing a novel
 method for discovering cultural regions by identifying regional patterns in topics of
@@ -150,8 +150,9 @@ the topics that Americans tend to discuss on social media through a quantitative
 analysis of ten thousand lexical items in over 3.3 billion geotagged tweets from across
 the US, collected between 2015 and 2021. Large corpora of geotagged Twitter data have
 been used frequently in computational
-sociolinguistics~\cite{NguyenComputationalSociolinguistics2016}, and also in particular
-to map patterns of dialect
+sociolinguistics~\cite{NguyenComputationalSociolinguistics2016} --- as mentioned in
+\cref{sec:methods_online_data} and done ourselves in the previous chapters --- and also
+in particular to map patterns of dialect
 variation~\cite{GrieveStatisticalMethod2011,EisensteinDiffusionLexical2014,GoncalvesCrowdsourcingDialect2014,HuangUnderstandingRegional2016,GrieveRegionalVariation2016,
 DonosoDialectometricAnalysis2017,GoncalvesMappingAmericanization2018,AbitbolSocioeconomicDependencies2018,GrieveMappingLexical2019},
 while others leveraged methods such as Latent Dirichlet Allocation to identify regional
@@ -162,15 +163,15 @@ of information to infer the location of general cultural regions.
 
 Of course, social media or any other form of language can only provide a partial picture
 of regional patterns in overall topics of discussion in a region. In general, big data
-corpora generated from microblogging platforms certainly present a number of biases that we cited in \cref{sec:twitter_biases}. However, if cultural regions are real and pervasive, then
-we should expect these regions to manifest themselves in any large sample of everyday
-language that encompass a large proportion of the population, even if the specific
-topics of interest vary across these different domains. Furthermore, right now, Twitter
-is the only variety of geotagged natural language data available in sufficient amounts
-to allow reliable automatic analyses, and is a very popular social media platform used
-regularly by millions of people from across the US, mostly in interactive
-contexts~\cite{AuxierSocialMedia2021}, serving as a perfect domain to apply our
-data-driven approach for automatically mapping cultural regions.
+corpora generated from microblogging platforms certainly present a number of biases that
+we cited in \cref{sec:twitter_biases}. However, if cultural regions are real and
+pervasive, then we should expect these regions to manifest themselves in any large
+sample of everyday language that encompass a large proportion of the population, even if
+the specific topics of interest vary across these different domains. Furthermore, as
+highlighted in the discussion of \cref{sec:methods_twitter}, right now, Twitter is the
+only variety of geotagged natural language data available in sufficient amounts to allow
+reliable automatic analyses, and it serves as a perfect domain to apply our data-driven
+approach for automatically mapping cultural regions.
 
 Our main finding is that the modern US can be divided into five primary cultural areas,
 each defined by its own topical patterns. We emphasize that this result stems from a
@@ -358,19 +359,42 @@ regions by clustering together counties with similar lexical signature. To do so
 subject the previous \ac{PC} maps to a hierarchical clustering, using the Euclidean
 distance and the Ward variance minimization algorithm \cite{EverittClusterAnalysis2011}.
 This is how we define the cultural regions from our corpus, as depicted in
-\cref{fig:whole_data_clust}. From the dendrogram and the evolution of the average
-silhouette score for different levels of clustering, we select a meaningful number of
-clusters $n_{\text{clusters}}$ \cite{RousseeuwSilhouettesGraphical1987}. The
-hierarchical nature of the clustering is useful to see how regions are grouped together
-at different levels of clustering, indicating which regions are closer together.
-Importantly, applying hierarchical clustering to the principal dimensions of variation
-of the data obtained through \ac{PCA} allows us to focus on the main regional
+\cref{fig:whole_data_clust}.
+
+The hierarchical nature of the clustering is useful to see how regions are grouped
+together at different levels of clustering, indicating which regions are closer
+together. Importantly, applying hierarchical clustering to the principal dimensions of
+variation of the data obtained through \ac{PCA} allows us to focus on the main regional
 patterns of variation. Applying the algorithm directly to the $\SI{10000}{}$-word
 distance matrix would yield highly noisy results.
 
+The hierarchy we obtain has all possible levels, from the highest with only two
+clusters, to the lowest with as many clusters as counties. Not all these levels are
+equally relevant though, so we need to select a number of clusters $n_{\text{clusters}}$
+to consider. To do so, we first compute the silhouette score
+\cite{RousseeuwSilhouettesGraphical1987} for different number of clusters, which is
+defined as:
+\begin{equation}
+  s = \underset{c}{\text{mean}} \left(
+    \frac{
+      d_{c}^{\text{inter}} - d_{c}^{\text{intra}}
+      }{
+        \max (d_{c}^{\text{inter}}, d_{c}^{\text{intra}})
+      } 
+    \right),
+\end{equation}
+with $d_{c}^{\text{inter}}$ and $d_{c}^{\text{intra}}$ the mean intra- and inter-cluster
+distances for county $c$. The higher it is, the more cohesive clusters for the level
+corresponding to a number of clusters is. We show its values for up to 9 clusters in
+\cref{fig:whole_data_clust}(b). Second, we draw a dendrogram, presented in
+\cref{fig:whole_data_clust}(d). It is a tree that shows how clusters are merged together
+and the distance between those that are merged, here on the x-axis. For the sake of
+clarity we do not show the branches all the way to individual counties on the right, but
+rather start at the merges relevant for the formation of $n_{\text{clusters}} = 5$.
+
 We plot the main divisions in \cref{fig:whole_data_clust}(a). This is the main result of
 the chapter. In the map, we present the division into five clusters since it is one of the
-two best options as characterized by the Silhouette score analysis in
+two best options as characterized by the silhouette score analysis in
 \cref{fig:whole_data_clust}(b), and at a clear-cut on the dendrogram in
 \cref{fig:whole_data_clust}(d). The optimal choices correspond to the two significant
 drops in the score: the first (second) corresponds to a cluster number equal to 2 (5). 
@@ -412,14 +436,14 @@ to the specificity metric defined in \cref{eq:spec}. In all cases, the five cult
 regions are linked to clear and distinct topical patterns (see
 \cref{ch:appendix_acr_words} for a more exhaustive list). We stress that these
 characteristic words are automatically identified based on the quantitative analysis
-presented above. Notably, for each cluster we see three basic type of lexical patterns. 
+presented above. Notably, for each cluster we see three basic types of lexical patterns. 
 
 \begin{figure}[ht!]
 \centering
   \includegraphics[width=1\textwidth]{whole_data_clust.pdf}
   \caption{Cultural regions obtained from our whole dataset. (a) Map of the five
   clusters obtained through hierarchical clustering, selected from a high value of (b)
-  the mean Silhouette score. A significant drop of the Silhouette score after 5 levels
+  the mean silhouette score. A significant drop of the silhouette score after 5 levels
   indicates that further splitting counties in more region does not yield coherent
   cultural regions. (c) Five most specific words for the five clusters shown in (a),
   along with their specificity values. (d) The dendrogram allows seeing which clusters
@@ -436,10 +460,10 @@ expect these words to be associated with the cultural regions that contain them.
 However, these results also reflect how often people from different cities and states
 refer to each other. For example, the fifth cluster which is centred on Texas also
 includes Oklahoma, which contributes various place names to the list of words most
-strongly associated with this region. This means not only that people in Texas and
-Oklahoma talk more about place names in their own states, as would be expected, but that
-they talk more about place names in each other's states. This is one type of regional
-topical patterns that our approach draws to identify cultural regions.
+strongly associated with this region. This means that people in Texas and Oklahoma talk
+more about place names in their own states than people in other regions we identified.
+This is one type of regional topical patterns that our approach draws to identify
+cultural regions.
 
 Second, we observe words connected with non-regional topics, which nonetheless show
 regional differences. In this case, our approach can be seen as discovering topical
@@ -537,7 +561,10 @@ tend to discuss place more on Twitter, but implies that this cultural region is
 characterized by a relatively high amount of local pride. Correspondingly, this region
 is also associated with a relatively large number of dialect terms, both of Anglo (e.g.
 \textit{yalls, fixing}) and Hispanic (e.g. \textit{queso, taco}) origins, reflecting the
-diverse makeup of this region.
+diverse makeup of this region. This is characteristic of a situation of language contact
+in multilingual regions, as the ones analysed in \cref{ch:multiling}. Although the
+appearance of such code switching is intriguing, this is one aspect we have not covered
+in that chapter, in which we made the assumption that languages were immutable entities. 
 
 Given the lack of consensus in previous research, our results can help resolve
 long-standing debates relating to the distribution of American cultural regions. We find
@@ -564,13 +591,14 @@ identified discontinuous cultural regions
 \cite{LieskeRegionalSubcultures1993,WoodardAmericanNations2012}.
 
 Our analysis is further useful for understanding the relationship between these regions.
-It divides the South into two regions, splitting Texas off from the rest of the
-Southeast, and splits the Midwest off from the rest of the North, divided into
-discontinuous countryside/coastal regions, rather than contiguous cultural regions.
-However, on the question of the number of primary American cultural regions, we can only
-safely say that with our data and methodology, at least 5 distinct regions can be
-discerned. We do not see it here, but we still cannot discard recent theories that claim
-that America is fundamentally far more culturally fragmented
+As shown by the dendrogram of \cref{fig:whole_data_clust}, it divides the South into two
+regions, splitting Texas off from the rest of the Southeast, and splits the Midwest off
+from the rest of the North, divided into discontinuous countryside/coastal regions,
+rather than contiguous cultural regions. However, on the question of the number of
+primary American cultural regions, we can only safely say that with our data and
+methodology, at least 5 distinct regions can be discerned. We do not see it here, but we
+still cannot discard recent theories that claim that America is fundamentally far more
+culturally fragmented
 \cite{GarreauNineNations1996,LieskeRegionalSubcultures1993,WoodardAmericanNations2012}.
 
 
@@ -642,16 +670,16 @@ allowed us to identify cultural factors that are important for defining these re
 at least in this communicative context, providing a foundation for a more complete
 picture of the American cultural landscape.
 
-Clearly, this study has only analysed one genre of American English. The specific topical
-patterns on Twitter would not be exactly replicated in other genres, especially given
-the communicative purpose and user base associated with microblogging platforms.
-Nevertheless, assuming that American cultural regions are important and pervasive
-forces, similar regional patterns should be reflected across all popular genres. This issue
-could be further clarified when more richly annotated natural language data becomes
-available in a near future. Our methods, however, will remain valid for any such
-dataset. Crucially, we expect that our main idea of inferring cultural regions and the
-topics defining them from people's speech will be applicable to any big data resource
-with linguistic value.
+Clearly, the study presented in this chapter has only analysed one genre of American
+English. The specific topical patterns on Twitter would not be exactly replicated in
+other genres, especially given the communicative purpose and user base associated with
+microblogging platforms. Nevertheless, assuming that American cultural regions are
+important and pervasive forces, similar regional patterns should be reflected across all
+popular genres. This issue could be further clarified when more richly annotated natural
+language data becomes available in a near future. Our methods, however, will remain
+valid for any such dataset. Crucially, we expect that our main idea of inferring
+cultural regions and the topics defining them from people's speech will be applicable to
+any big data resource with linguistic value.
 
 
 \end{document}
