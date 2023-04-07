@@ -1,0 +1,260 @@
+\documentclass[../thesis.tex]{subfiles}
+\graphicspath{{\subfix{../figs/}}}
+\begin{document}
+
+\chapter{Derivation of analytic results for the model of variety adoption}
+\label{ch:appendix_ses_model}
+
+\section{Notation}
+Let us introduce the following notation:
+\begin{itemize}
+    \item $S$ the set of \ac{SES} classes in a population
+        \begin{equation}
+            S = \left\{ s_k \mid k \in [1, n_S] \right\},
+        \end{equation}
+    \item $C$ the set of cells of residence:
+        \begin{equation}
+             C = \left\{ c_i \mid i \in [1, n_C] \right\},
+        \end{equation}
+    \item $N_{c, s}$ the number of residents of cell $c$ with class $s$,
+    \item $N_{c} \equiv N_{c, \cdot}$ the population of cell $c$,
+    \item $N_{s} \equiv N_{\cdot, s}$ the population of class $s$,
+    \item $N \equiv N_{\cdot, \cdot}$ the total population,
+    \item $M_{i, j}$ the probability for a resident of $c_i$ to move to $c_j$.
+\end{itemize}
+
+
+\section{Assumptions}
+Let there be only two cells: $n_C = 2$, and two \ac{SES} classes: $n_S = 2$, completely
+separated, with the whole $s_1$ population in $c_1$ and the whole $s_2$ population in
+$c_2$:
+\begin{equation}
+    \begin{aligned}
+        N_1 \equiv N_{c_1, s_1} = N_{s_1}, \\
+        N_2 \equiv N_{c_2, s_2} = N_{s_2}.
+    \end{aligned}
+\end{equation}
+This implies that the $M_{i,j}$ can be summarized with just two values, each
+corresponding to a class:
+\begin{equation}
+    \begin{aligned}
+        M_1 \equiv M_{1, 2} = 1 - M_{1, 1}, \\
+        M_2 \equiv M_{2, 1} = 1 - M_{2, 2}.
+    \end{aligned}
+\end{equation}
+Let us consider two varieties $v_1$ and $v_2$. This could be the use of standard
+language ($v_1$ means they do, $v_2$ means they don't). Now let us introduce an
+intrinsic prestige $l_v$ for the variant 2, such that:
+\begin{equation}
+    \begin{aligned}
+        P(1 \rightarrow 2) &\propto l_v \\
+        P(2 \rightarrow 1) &\propto 1 - l_v.
+    \end{aligned}
+\end{equation}
+Without loss of generality, let us assume $l_v > 1/2$, meaning 2 is more prestigious
+than 1. And let us introduce an asymmetric attachment of each group for their own
+variant, $q_1$ and $q_2$:
+\begin{equation}
+    \begin{aligned}
+        P(2 \rightarrow 1 \mid s = s_1) &\propto q_1 > 1/2, \quad&  P(1 \rightarrow 2 \mid s = s_1) \propto 1 - q_1, \\
+        P(1 \rightarrow 2 \mid s = s_2) &\propto q_2, \quad&  P(2 \rightarrow 1 \mid s = s_2) \propto 1 - q_2.
+    \end{aligned}
+\end{equation}
+So 2 is more prestigious than 1 but $s_1$ prefers 1.
+% TODO: keep > 1/2 stuff?
+
+\section{Deriving the master equations}
+We can then write the following transition probabilities:
+\begin{equation}
+    \label{eq:first_trans_probs}
+    \begin{aligned}
+        % v and c depend on t
+        P(1 \rightarrow 2 \mid s = s_1, c_t = c_j)
+            &= l_v (1 - q_1) P(v_{t-1} = 2 \mid c_t = c_j)
+        \\
+        P(1 \rightarrow 2 \mid s = s_2, c_t = c_j)
+            &= l_v q_2 P(v_{t-1} = 2 \mid c_t = c_j)
+        \\
+        P(2 \rightarrow 1 \mid s = s_1, c_t = c_j)
+            &= (1 - l_v) q_1 P(v_{t-1} = 1 \mid c_t = c_j)
+        \\
+        P(2 \rightarrow 1 \mid s = s_2, c_t = c_j)
+            &= (1 - l_v) (1 - q_2) P(v_{t-1} = 1 \mid c_t = c_j)
+    \end{aligned}
+\end{equation}
+with $P(1 \rightarrow 2) \equiv P(v_t = 2 \mid v_{t-1} = 1)$, $P(2 \rightarrow 1) \equiv
+P(v_t = 1 \mid v_{t-1} = 2)$, $t$ denoting the current time step, $P(v_{t-1} = v \mid
+c_t = c_j)$ the probability to pick an individual who had variant $v$ at $t-1$ who is at
+cell $c_j$ at $t$. Decomposing it by \ac{SES} class, and using Bayes' rule, we get:
+\begin{equation}
+    \begin{aligned}
+        &P(v_{t-1} = v \mid c_t = c_j)
+        \\[1ex]
+        &
+        \begin{aligned}
+            & = \sum_{k \in S} P(v_{t-1} = v, s = s_k \mid c_t = c_j) \\
+            &= \sum_{k \in S} P(v_{t-1} = v, s = s_k)
+                \cdot \frac{P(c_t = c_j \mid v_{t-1} = v, s = s_k)}{P(c_t = c_j)} \\
+            &= \sum_{k \in S} P(v_{t-1} = v \mid s = s_k)
+                \cdot P(s = s_k)
+                \cdot \frac{P(c_t = c_j \mid v_{t-1} = v, s = s_k)}{P(c_t = c_j)}. \\
+        \end{aligned}
+    \end{aligned}
+\end{equation}
+Let us introduce $p_{v, s_k} \equiv P(v_{t-1} = v \mid s = s_k)$ to simplify equations
+further, and that summarizes the state of the system at the previous step. Also, since
+they satisfy $\sum_v p_{v, s_k} = 1$, we will only write in terms of $p_1 \equiv p_{1,
+1}$ and $p_2 \equiv p_{2, 2}$. We also have $P(s = s_k) = \frac{N_{s_k}}{\sum_k
+N_{s_k}}$. The final term in the product is related to the mobility of the
+different SES classes. Indeed, using the fact that $c_t = c_j \mid s = s_k$ is
+independent from $v_{t-1} = v$, and aligning the indices of the SES class with the one
+of their cell of residence, we have
+\begin{equation}
+\label{eq:mob_by_SES}
+    P(c_t = c_j \mid v_{t-1} = v, s = s_k) = P(c = c_j \mid s = s_k) = M_{k, j},
+\end{equation}
+and
+\begin{equation}
+    P(c_t = c_j) = \sum_k P(c = c_j \mid s = s_k) P(s = s_k) = \sum_k M_{k, j} \frac{N_{s_k}}{\sum_k
+    N_{s_k}}.
+\end{equation}
+% and $\sum_j m_{k, j} = 1$.
+Let us further introduce
+\begin{equation}
+    m_{k, j} \equiv \frac{N_{s_k} M_{k, j}}{\sum_{k'} N_{s_{k'}} M_{k', j}},
+\end{equation}
+which satisfy $\sum_k m_{k, j} = 1$ (unlike the $M_{k, j}$ that satisfy $\sum_j M_{k, j}
+= 1$). It is simply the expected proportion of individuals that will appear in $j$ that
+have status $k$. We can then write
+\begin{equation}
+\label{eq:decomp_prev_by_SES}
+    P(v_{t-1} = v \mid c_t = c_j) = \sum_k p_{v, s_k} m_{k, j}
+\end{equation}
+
+We will further abuse notation and only use $m_1 \equiv
+m_{1,2}$ and $m_2 \equiv m_{2, 1}$, which summarize how mobile each group is. Let us then rewrite
+\eqref{eq:decomp_prev_by_SES} in terms of $m_1$, $m_2$, $p_1$ and $p_2$ only:
+\begin{equation}
+    \label{eq:prev_step_mob}
+    \begin{aligned}
+        P(v_{t-1} = v_2 \mid c = c_1)
+            = (1 - m_2) (1 - p_1) + m_2 p_2
+        \\
+        P(v_{t-1} = v_2 \mid c = c_2)
+            = m_1 (1 - p_1) + (1 - m_1) p_2
+        \\
+        P(v_{t-1} = v_1 \mid c = c_1)
+            = (1 - m_2) p_1 + m_2 (1 - p_2)
+        \\
+        P(v_{t-1} = v_1 \mid c = c_2)
+            = m_1 p_1 + (1 - m_1) (1 - p_2)
+    \end{aligned}
+\end{equation}
+We can them write the forms in \eqref{eq:first_trans_probs} in terms of these 4
+variables only. But what we actually want is to write $P(v_t = v \mid v_{t-1} = v', s
+= s_k)$ for $v' \neq v$. Decomposing this one by cell, we can get the following:
+\begin{equation}
+    \label{eq:trans_probs_cell_decomp}
+    \begin{aligned}
+        & P(v_t = v \mid v_{t-1} = v', s = s_k)
+        \\[1ex]
+        &
+        \begin{aligned}
+            \quad & = \sum_j P(c = c_j \mid s = s_k)
+            \cdot P(v_t = v \mid v_{t-1} = v', s = s_k, c_t = c_j)
+        \\
+            & = \sum_j M_{k, j} P(v_t = v \mid v_{t-1} = v', s = s_k, c_t = c_j)
+        \end{aligned}
+    \end{aligned}
+\end{equation}
+Finally, inserting into \eqref{eq:trans_probs_cell_decomp} the result of the insertion
+of \eqref{eq:prev_step_mob} into \eqref{eq:first_trans_probs}, we get:
+\begin{equation}
+    \label{eq:final_trans_probs}
+    \begin{aligned}
+        P(1 \rightarrow 2 \mid s = s_1)
+            &= l_v (1 - q_1)
+            \begin{aligned}[t]
+            &[(1 - M_1) ((1 - m_2) (1 - p_1) + m_2 p_2)
+            \\
+            & + M_1 (m_1 (1 - p_1) + (1 - m_1) p_2)]
+            \end{aligned}
+        \\
+        P(1 \rightarrow 2 \mid s = s_2)
+            &= l_v q_2
+            \begin{aligned}[t]
+                &[M_2 ((1 - m_2) (1 - p_1) + m_2 p_2)
+                \\
+                &+ (1 - M_2) (m_1 (1 - p_1) + (1 - m_1) p_2)]
+            \end{aligned}
+        \\
+        P(2 \rightarrow 1 \mid s = s_1)
+            &= (1 - l_v) q_1
+            \begin{aligned}[t]
+                &[(1 - M_1) ((1 - m_2) p_1 + m_2 (1 - p_2))
+                \\
+                &+ M_1 (m_1 p_1 + (1 - m_1) (1 - p_2))]
+            \end{aligned}
+        \\
+        P(2 \rightarrow 1 \mid s = s_2)
+            &= (1 - l_v) (1 - q_2)
+            \begin{aligned}[t]
+                &[M_2 ((1 - m_2) p_1 + m_2 (1 - p_2))
+                \\
+                &+ (1 - M_2) (m_1 p_1 + (1 - m_1) (1 - p_2))]
+            \end{aligned}
+    \end{aligned}
+\end{equation}
+
+Working in mean field, one can write the following master equations:
+\begin{equation}
+    \label{eq:time_evol}
+    \begin{aligned}
+        % v and c depend on t
+        \dv{p_1}{t} 
+            &= (1 - p_1) P(2 \rightarrow 1 \mid s = s_1)
+                - p_1 P(1 \rightarrow 2 \mid s = s_1)
+        \\
+        \dv{p_2}{t} 
+            &= (1 - p_2) P(1 \rightarrow 2 \mid s = s_2)
+                 - p_2 P(2 \rightarrow 1 \mid s = s_2)
+    \end{aligned}
+\end{equation}
+
+% Note: the mobility matrix' Pearson r in this case is equal to $r_M = 1 - M_1 - M_2$.
+
+
+\section{Case of equal populations and mobility}
+In the following, we will assume $N_{s_1} = N_{s_2}$, which implies $m_{k, j} =
+\frac{M_{k, j}}{\sum_{k'} M_{k', j}}$. If we assume equal mobility, that is $M \equiv
+M_1 = M_2$, we have $m_1 = m_2 = M$, and it follows that:
+\begin{equation}
+    \begin{aligned}
+        P(1 \rightarrow 2 \mid s = s_1)
+            &= l_v (1 - q_1)
+            \left[
+                2 M (1 - M) (p_1 + p_2 - 1) + 1 - p_1
+            \right]
+        \\
+        P(1 \rightarrow 2 \mid s = s_2)
+            &= l_v q_2
+            \left[
+                2 M (1 - M) (1 - p_1 - p_2) + p_2
+            \right]
+        \\
+        P(2 \rightarrow 1 \mid s = s_1)
+            &= (1 - l_v) q_1
+            \left[
+                2 M (1 - M) (1 - p_1 - p_2) + p_1
+            \right]
+        \\
+        P(2 \rightarrow 1 \mid s = s_2)
+            &= (1 - l_v) (1 - q_2)
+            \left[
+                2 M (1 - M) (p_1 + p_2 - 1) + 1 - p_2
+            \right]
+    \end{aligned}
+\end{equation}
+The result presented in \cref{eq:ses_ling_time_evol_eq_mob} then follows.
+
+\end{document}
