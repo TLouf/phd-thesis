@@ -207,7 +207,7 @@ measure this assortativity for our metropolitan areas from the matrices shown in
 previously between socio-economic status and the average frequency of grammar mistakes.
 What we find is a very clear correlation between this assortativity measured at the city
 level, and the correlation between \ac{SES} and the frequency of grammar mistakes, as
-shown in Figure \cref{fig:cities_assort_vs_grammar_and_SES_corr}. This indicates that
+shown in \cref{fig:cities_assort_vs_grammar_and_SES_corr}. This indicates that
 the more mixing in the population, the less the frequency of mistakes is determined by
 the \ac{SES} of origin. Further, as shown in the bottom panel of
 \cref{fig:cities_assort_vs_grammar_and_SES_corr}, more mixing tends to imply more
@@ -318,7 +318,6 @@ $m_2$. Under all these assumptions and new notation, we can then write the proba
 to pick an individual speaking a variety in each cell:
 % TODO: add to appendix?
 \begin{equation}
-  \label{eq:prev_step_mob}
   \begin{aligned}
       P(2 \mid c = c_1)
           = (1 - m_2) (1 - p_1) + m_2 p_2
@@ -330,13 +329,12 @@ to pick an individual speaking a variety in each cell:
           = (1 - m_2) p_1 + m_2 (1 - p_2)
       \\
       P(1 \mid c = c_2)
-          = m_1 p_1 + (1 - m_1) (1 - p_2)
+          = m_1 p_1 + (1 - m_1) (1 - p_2).
   \end{aligned}
 \end{equation}
 This further enables us to determine the probabilities to switch from one variant to
 another, depending on one's \ac{SES} class:
 \begin{equation}
-  \label{eq:final_trans_probs}
   \begin{aligned}
       P(1 \rightarrow 2 \mid s = s_1)
           &= l_v (1 - q_1)
@@ -397,7 +395,7 @@ another, depending on one's \ac{SES} class:
 % \end{equation}
 Working in mean field, we can write the following differential equations:
 \begin{equation}
-    \label{eq:time_evol}
+    \label{eq:ses_ling_time_evol}
     \begin{aligned}
         % v and c depend on t
         \dv{p_1}{t} 
@@ -414,22 +412,30 @@ Now if we simplify further and assume that the two \ac{SES} classes have the sam
 population, and the same mobility $M = M_1 = M_2$, then we get that $m_1 = m_2 = M$, and
 it follows that
 \begin{equation}
-  \label{eq:time_evol_eq_mob}
+  \label{eq:ses_ling_time_evol_eq_mob}
   \begin{aligned}
       % v and c depend on t
       \dv{p_1}{t} 
-          &= \eqnmarkbox[NavyBlue]{mob1}{
+          &=
+            % \eqnmarkbox[NavyBlue]{mob1}{
             2 M (1 - M) (1 - p_1 - p_2) [q_1 (1 - l_v) - p_1 (q_1 - l_v)]
-          }
+          % }
       \\
-          & \quad + \eqnmarkbox[OliveGreen]{g1}{p_1 (1 - p_1) (q_1 - l_v)}
+          & \quad +
+          % \eqnmarkbox[OliveGreen]{g1}{
+            p_1 (1 - p_1) (q_1 - l_v)
+          % }
       \\[1ex]
       \dv{p_2}{t} 
-          &= \eqnmarkbox[NavyBlue]{mob2}{
+          &=
+            % \eqnmarkbox[NavyBlue]{mob2}{
             2 M (1 - M) (1 - p_1 - p_2) [q_2 l_v - p_2 (l_v + q_2 - 1)]
-          }
+          % }
       \\
-          & \quad + \eqnmarkbox[OliveGreen]{g2}{p_2 (1 - p_2) (l_v + q_2 - 1)}
+          & \quad +
+          % \eqnmarkbox[OliveGreen]{g2}{
+            p_2 (1 - p_2) (l_v + q_2 - 1).
+            % }
   \end{aligned}
 \end{equation}
 %% TODO investigate why this does not work but works in test article
@@ -442,7 +448,7 @@ usage between \ac{SES} classes. Indeed, in the first equation, given that $q_1 -
 q_1 (1 - l_v / q_1)$, and that, as these parameters belong to the unit interval, $1 -
 l_v / q_1 > 1 - l_v$, then this term's sign follows the one of $(1 - p_1 - p_2)$. It is
 therefore negative if $p_1 > 1 - p_2$ and positive otherwise, meaning it pushes $p_1$
-towards $1 - p_2$. Similarly in the second equation, since $q_2 l_v - q_2 - l_v > -1$,
+towards $1 - p_2$. Similarly, in the second equation, since $q_2 l_v - q_2 - l_v > -1$,
 the mobility term pushes $p_2$ towards $1 - p_1$.
 
 The second term of each evolution equation is one of ``self-growth'', independent of
@@ -454,15 +460,29 @@ populations become completely independent, and one can directly see that the onl
 fixed points of the system are homogeneous populations in terms of the variety they use.
 Which one they will end up using depends on the sign of $(q_1 - l_v)$ and $(l_v + q_2 -
 1)$ for classes 1 and 2, respectively.
-% fig with analytic result, stream plots, this kind of thing
+\begin{figure}
+\centering
+  \includegraphics{mean_field_analytic}
+  \caption{Properties of the model's fixed points in a simple setting. We here analyse
+  the mean-field form of the model, given in \cref{eq:time_evol_eq_mob}, with $q_2$ set
+  at the neutral value of $0.5$. Stream plots on the top row show the fixed points of
+  the model for $l_v = 0.6$, $q_1 = 0.7$, and (a) $M = 0.05$, (b) $M = 0.4$. It shows
+  how increasing $M$ moves the stable fixed point of coexistence toward the line $p_2 =
+  1 - p_1$. The regions of the $(q_1, M)$ parameter space where different kinds of
+  stable solutions emerge are shown on the bottom row, for (c) $l_v = 0.6$ and (d) $l_v
+  = 0.7$. Stable coexistence of varieties 1 and 2 is favoured for rather low mobility
+  and a preference of class 1 for variety 1 $q_1$ higher than the second variety's
+  prestige $l_v$.}
+  \label{fig:mean_field_analytic}
+\end{figure}
 
 
 \subsection{Simulations on a toy example}
 We ran simulations with $200$ agents spread evenly between two \ac{SES} classes, with each
 class in its own residence cell. We set the standard form to be the more prestigious
 one, agents with higher \ac{SES} to be indifferent and ones with lower \ac{SES} to be more
-attached to the non-standard form. In Figure \cref{fig}(c), we show the result of this
-simulation when we set a very low inter-cell mobility. For Figure \cref{fig}(d), the
+attached to the non-standard form. In \cref{fig}(c), we show the result of this
+simulation when we set a very low inter-cell mobility. For \cref{fig}(d), the
 mobility was greatly increased. We can see that the more the two populations mix, the
 closer they are to using the two forms in the same proportions, reflecting what we
 observed in the data.
