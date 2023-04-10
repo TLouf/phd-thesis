@@ -93,8 +93,26 @@ variety adoption across classes.
 % TODO: simulations
 
 In \cref{ch:acr}, we again focus on the English language, but this time on the US to
-investigate how lexical variation may reflect cultural differences. 
-
+investigate how lexical variation may reflect cultural differences. We proposed an
+alternative to the works of cultural geographers who defined US cultural regions based
+on qualitative arguments, or on quantitative ones, but in either case based on quite
+arbitrary choices in the definition of the important cultural factors. Our alternative
+is rather based on inferring both cultural regions and features from what people care to
+discuss, here again in particular on Twitter. From billions of geotagged tweets, we
+derived the word frequency distributions in all counties of the contiguous US. We
+extracted the regional hotspots, if any, in the usage of the \SI{10000}{} most frequent
+word forms using a metric of local spatial autocorrelation. In order to focus on
+relevant signal and not spurious variations in some words' frequencies, we then
+determined the principal dimensions of geographical variation with a \ac{PCA}.
+Projecting the autocorrelation matrix along the \acp{PC} thus obtained, we performed a
+hierarchical clustering to infer groups of counties that may constitute cultural regions
+for different numbers of splits. We found a very strong two-way split, between the
+South-East of the country and the rest, mostly defined by a strong influence of
+African-American culture. We have shown how the country can be further divided into 5
+coherent cultural regions, based on topics as diverse as politics, one's natural
+surroundings, spectator sports or local pride. This work has thus shown how culture is
+indeed deeply embedded into language, and how this can be leveraged to determine the
+factors that are actually important in a people's culture.
 
 
 \section{What I learned along the way}
