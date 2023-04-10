@@ -3,7 +3,7 @@
 \addbibresource{biblio.bib}
 \begin{document}
 
-\chapter{SES x language}
+\chapter{Socio-economic boundaries and standard language}
 \label{ch:ses_ling}
 
 \epigraph{
@@ -67,7 +67,7 @@ language.
 \section{An influence of socio-economic status?}
 
 \subsection{Twitter data analysis}
-To do so, we analyse the tweets written in English of users identified as UK residents,
+To do so, we analyse the tweets written in English by users identified as UK residents,
 following the methodology described in \cref{sec:methods_twitter}. To assign a \ac{SES}
 to these users, we also determine their area of residence from the geotags attached to
 their tweets. Our unit areas for the study are the \SI{7201}{} \acp{MSOA}, which are
@@ -82,43 +82,43 @@ census\footnote{In particular the 2018 net annual income estimates, available at
 which gives us a proxy for the \ac{SES} of our Twitter users.
 
 The second ingredient we need for our analysis is their propensity to deviate from the
-rules defining standard English. The key to this measurement is LanguageTool, an
-open-source grammar, style and spell checker. The first advantage of using such a tool
-over a pre-defined set of rules, as in \cite{AbitbolSocioeconomicDependencies2018}, is
-that the tool is implemented in 15 languages. Our study can thus quite easily be
-replicated in other countries. The second advantage is that it covers a very wide
-spectrum of potential mistakes: it has more than \SI{5500}{} rules defined for the
-English language. These rules are categorised in 11 categories, among which are grammar
-mistakes, confused words or typos. In this work we focus on grammar mistakes, as they
-are among the most common and are the most characteristic of non-standard language.
-LanguageTool therefore enables us to compute the frequency at which Twitter users
-identified as UK residents make grammar of mistakes, according to standard rules. From
-this raw frequency we then compute the frequency of mistakes per word written by the
-user. As in the previous chapter we compute this frequency on a user level, to try and
-be more representative of the general population, and not only of the few, very active
-users. At the cell level, we then compute the average of these relative frequencies for
-all residents. This implies that we cannot keep all users, as some have been so little
-active that they did not write enough to make mistakes, so we keep only users who have
-written at least 100 words. Also, to exclude cells with too little statistics, in the
-following we only keep cells with at least 15 residents left after this previous filter.
-This leaves us with \SI{131402}{} users spread across \SI{4879}{} \acp{MSOA}. In each of
-these cells, our analysis yields estimates of the income of its residents and of the
-frequency at which they make grammar mistakes.
+rules defining standard English. The solution we picked to measure these deviations is
+LanguageTool, an open-source grammar, style and spell checker. The first advantage of
+using such a tool over a pre-defined set of rules, as in
+\cite{AbitbolSocioeconomicDependencies2018}, is that the tool is implemented in 15
+languages. Our study can thus quite easily be replicated in other countries. The second
+advantage is that it covers a very wide spectrum of potential mistakes: it has more than
+\SI{5500}{} rules defined for the English language. These rules are categorised in 11
+categories, among which are grammar mistakes, confused words or typos. In this work we
+focus on grammar mistakes, as they are among the most common and are the most
+characteristic of non-standard language. LanguageTool therefore enables us to compute
+the frequency at which Twitter users identified as UK residents make grammar mistakes,
+according to standard rules. From this raw frequency we then compute the frequency of
+mistakes per word written by the user. As in the previous chapter, we compute this
+frequency on a user level, to try and be more representative of the general population,
+and not only of the few, very active users. At the cell level, we then compute the
+average of these relative frequencies for all residents. This implies that we cannot
+keep all users, as some have been so little active that they did not write enough to
+make mistakes, so we keep only users who have written at least 100 words. Also, to
+exclude cells with too little statistics, in the following we only keep cells with at
+least 15 residents left after this previous filter. This leaves us with \SI{131402}{}
+users spread across \SI{4879}{} \acp{MSOA}. In each of these cells, our analysis yields
+an estimate of the income of its residents and of the frequency at which they make
+grammar mistakes.
 
 
 \subsection{Correlations with the frequency of mistakes}
-We find a significant, but weak correlation (Pearson r
-equal to -0.25) between the net income and the average frequency of mistakes in all
-cells of the country. We then focus on metropolitan areas because we expect them to host
-more linguistic and socio-economic heterogeneity than their rural counterparts. We also
-happen to have more data in these on both mobility and language production, due to the
-fact that Twitter users tend to be more urban
-\cite{MisloveUnderstandingDemographics2011}. We therefore consider the 8 largest
-metropolitan areas in England, and find large differences between these areas, with
-correlations ranging from -0.07 in Sheffield to -0.5 in Bristol. The average frequency
-of grammar mistakes is plotted against the average of net annual income of their
-residents for all \acp{MSOA} of England and Wales, London, Manchester and Sheffield in
-\cref{fig:ses_x_grammar_corrs}.
+We find a significant, but weak correlation (Pearson r equal to -0.25) between the net
+income and the average frequency of mistakes in all cells of the country. We then focus
+on metropolitan areas because we expect them to host more linguistic and socio-economic
+heterogeneity than their rural counterparts. We also happen to have more data in these
+on both mobility and language production, due to the fact that Twitter users tend to be
+more urban \cite{MisloveUnderstandingDemographics2011}. We therefore consider the 8
+largest metropolitan areas in England, and find large differences between these areas,
+with correlations ranging from -0.07 in Sheffield to -0.5 in Bristol. The average
+frequency of grammar mistakes is plotted against the average of net annual income of
+their residents for all \acp{MSOA} of England and Wales, London, Manchester and
+Sheffield in \cref{fig:ses_x_grammar_corrs}.
 \begin{figure}
 \centering
   \includegraphics[width=\textwidth]{ses_x_grammar_corrs}
@@ -181,7 +181,7 @@ outward mobility, as in Newcastle or Bristol.
   residence and the cell visited by Twitter users, this shows the proportion of trips
   that were made from the latter to the former. A square located at $(x, y) = (i, j)$
   corresponds to $M_{j, i}$, as it is defined in \cref{eq:class_visit_proba}. The
-  normalization is thus column-wise on this representation.}
+  normalisation is thus column-wise on this representation.}
   \label{fig:cities_SES_mobility}
 \end{figure}
 
@@ -200,16 +200,15 @@ This gives us a measure of assortativity, meaning that this metric gives us a se
 how much people of similar classes tend to stay together. The closer to 1, the more
 individuals tend to go to areas of similar \ac{SES} (assortative mixing), and the closer
 to -1, the more they will stay with people of opposite \ac{SES} (disassortative mixing).
-Values close to 0 indicate no assortativity, meaning no preference in mixing. We then
-measure this assortativity for our metropolitan areas from the matrices shown in
+Values close to 0 indicate no assortativity, meaning no preference in mixing. We measure
+this assortativity for our metropolitan areas from the matrices shown in
 \cref{fig:cities_SES_mobility}, and show the results in
 \cref{fig:cities_assort_vs_grammar_and_SES_corr} against the correlation we computed
 previously between socio-economic status and the average frequency of grammar mistakes.
 What we find is a very clear correlation between this assortativity measured at the city
-level, and the correlation between \ac{SES} and the frequency of grammar mistakes, as
-shown in \cref{fig:cities_assort_vs_grammar_and_SES_corr}. This indicates that
-the more mixing in the population, the less the frequency of mistakes is determined by
-the \ac{SES} of origin. Further, as shown in the bottom panel of
+level, and the correlation between \ac{SES} and the frequency of grammar mistakes. This
+indicates that the more mixing in the population, the less the frequency of mistakes is
+determined by the \ac{SES} of origin. Further, as shown in the bottom panel of
 \cref{fig:cities_assort_vs_grammar_and_SES_corr}, more mixing tends to imply more
 frequent mistakes. It then appears to favour the spread in popularity of non-standard
 English.
@@ -300,23 +299,23 @@ with $N_1$ individuals of class 1 residing in cell 1, and $N_2$ individuals of c
 residing in cell 2. This is a situation of complete socio-economic segregation. We will
 denote $p_1$ the proportion of individuals of class 1 speaking non-standard (variety 1),
 and $p_2$ the proportion of individuals of class 2 speaking standard (variety 2).
-Individuals have to speak either 1 or 2, which implies that for instance a proportion
+Individuals have to speak either 1 or 2, which implies that. for instance, a proportion
 $(1 - p_1)$ of individuals of class 1 speak the variety 2. The two variables therefore
 summarise the linguistic state of the system at any given time. Regarding the mobility,
 we introduce a new variable $m_{i, j}$, such that:
 \begin{equation}
   m_{i, j} \equiv \frac{N_{i} M_{i, j}}{\sum_{i'} N_{s_{i'}} M_{i', j}},
 \end{equation}
-which can be understood as the probability to pick an individual with residence in $i$
-from $j$. They satisfy $\sum_i m_{i, j} = 1$. Further, since there are only two cells,
+which can be understood as the probability to pick from $j$ an individual with residence
+in $i$. They satisfy $\sum_i m_{i, j} = 1$. Further, since there are only two cells,
 people either stay at their residence or move to the other cell. As a result, to account
 for different mobility patterns, out of the $2 \times 2$ mobility matrix with elements
 $M_{i, j}$, we only retain the parameters $M_1 \equiv M_{1, 2}$ and $M_2 \equiv M_{2,
 1}$, the probabilities for people of each class to move away from their residence cell.
 Likewise, the matrix of $m_{i, j}$ can be summarised with the corresponding $m_1$ and
 $m_2$. Under all these assumptions and new notation, we can then write the probability
-to pick an individual speaking a variety in each cell:
-% TODO: add to appendix?
+to pick an individual speaking a variety in each cell as:
+% TODO: ref appendix? include this here?
 \begin{equation}
   \begin{aligned}
       P(2 \mid c = c_1)
@@ -446,7 +445,7 @@ mobility, maximum for $M = \frac{1}{2}$, which is the situation of maximum mixin
 term is null when $p_1 = 1 - p_2$, and thus tends to smooth out differences in variety
 usage between \ac{SES} classes. Indeed, in the first equation, given that $q_1 - l_v =
 q_1 (1 - l_v / q_1)$, and that, as these parameters belong to the unit interval, $1 -
-l_v / q_1 > 1 - l_v$, then this term's sign follows the one of $(1 - p_1 - p_2)$. It is
+l_v / q_1 > 1 - l_v$, this term's sign follows the one of $(1 - p_1 - p_2)$. It is
 therefore negative if $p_1 > 1 - p_2$ and positive otherwise, meaning it pushes $p_1$
 towards $1 - p_2$. Similarly, in the second equation, since $q_2 l_v - q_2 - l_v > -1$,
 the mobility term pushes $p_2$ towards $1 - p_1$.
