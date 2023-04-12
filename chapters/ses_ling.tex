@@ -150,7 +150,7 @@ population from the
 census\footnote{\url{https://www.nomisweb.co.uk/census/2011/ks101uk}}, denoted $N_c$ for
 each cell $c$ in the following. Denoting $P_c$ the set of cells less populated than $c$,
 formally defined as $P_c = \left\{ c' \in C \mid N_{c'} < N_c \right\}$, we define the
-\ac{SES} class of $c$ as follows:
+\ac{SES} class of $c$ as:
 \begin{equation}
   S_c = n_S \left\lceil \frac{\sum_{c' \in P_c} N_{c'}}{\sum_{c' \in C} N_{c'}} \right\rceil,
 \end{equation}
@@ -226,7 +226,7 @@ English.
 
 
 
-\section{Model}
+\section{A model for language variety adoption}
 
 \subsection{Definition}
 Having identified the importance of social mixing, we wish to understand the mechanisms
@@ -415,7 +415,7 @@ Working in mean field, we can write the following system of differential equatio
 
 Now if we simplify further and assume that the two \ac{SES} classes have the same
 population, and the same mobility $M = M_1 = M_2$, then we get that $m_1 = m_2 = M$, and
-it follows that
+following the steps detailed in \cref{ch:appendix_ses_model}, we get
 \begin{equation}
   \label{eq:ses_ling_time_evol_eq_mob}
   \left\{
@@ -467,32 +467,72 @@ populations become completely independent, and one can directly see that the onl
 fixed points of the system are homogeneous populations in terms of the variety they use.
 Which one they will end up using depends on the sign of $(q_1 - l_v)$ and $(l_v + q_2 -
 1)$ for classes 1 and 2, respectively.
+
+This system of equation lends itself to mathematical analysis, in particular of its
+fixed points and their stability. Two fixed points can be trivially found from a quick
+look at the equations: they are $(p_1, p_2) = (0, 1)$ and $(1, 0)$. As in
+\cref{ch:multiling}, we compute the eigenvalues of the Jacobian of the system evaluated
+at the fixed points, and are thus able to say that a fixed point is stable if and only
+if all the corresponding eigenvalues have a strictly negative real part. For $M = 0.2$
+$q_2= 0.5$, $q_1 = 0.7$, and $l_v \in \{ 0.5, 0.6, 0.7\}$, we show in
+\cref{fig:mean_field_analytic_coex_pos}(a-b-c) the position of the fixed points of the
+model and whether they are stable, within stream plots that give a glimpse of the
+dynamics leading to convergence.
 \begin{figure}
 \centering
-  \includegraphics{mean_field_analytic}
+  \includegraphics{mean_field_analytic_coex_pos}
   \caption{Properties of the model's fixed points in a simple setting. We here analyse
-  the mean-field form of the model, given in \cref{eq:time_evol_eq_mob}, with $q_2$ set
-  at the neutral value of $0.5$. Stream plots on the top row show the fixed points of
-  the model for $l_v = 0.6$, $q_1 = 0.7$, and (a) $M = 0.05$, (b) $M = 0.4$. It shows
-  how increasing $M$ moves the stable fixed point of coexistence toward the line $p_2 =
-  1 - p_1$. The regions of the $(q_1, M)$ parameter space where different kinds of
-  stable solutions emerge are shown on the bottom row, for (c) $l_v = 0.6$ and (d) $l_v
-  = 0.7$. Stable coexistence of varieties 1 and 2 is favoured for rather low mobility
-  and a preference of class 1 for variety 1 $q_1$ higher than the second variety's
-  prestige $l_v$.}
-  \label{fig:mean_field_analytic}
+  the mean-field form of the model, given in \cref{eq:ses_ling_time_evol_eq_mob}, with
+  $q_2$ set at the neutral value of $0.5$. Stream plots show the fixed points of the
+  model for $M = 0.2$, $q_1 = 0.7$ and (a) $l_v = 0.5$, (b) $l_v = 0.6$ and (c) $l_v =
+  0.7$. The points $(1, 0)$ and $(0, 1)$ are shown to consistently feature as fixed
+  points, the first being stable for $l_v$ signficantly lower than $q_1$ (a) and the
+  second for $l_v$ close to or higher than $q_1$ (c). A third fixed point featuring
+  coexistence of the two varieties may appear for intermediate values of $l_v$ (c). (d)
+  For $l_v = 0.6$ as in (b) are also shown trajectories of the stable fixed point
+  corresponding to coexistence when varying $M$ from $0$ to $0.5$, for different values
+  of $q_1$, written in grey next to the corresponding lines. This shows how increasing
+  $M$ moves the stable fixed point of coexistence toward the dashed line corresponding
+  to $p_2 = 1 - p_1$, and towards the extinction of variety 1 or 2 for respectively low
+  or high values of $q_1$.}
+  \label{fig:mean_field_analytic_coex_pos}
+\end{figure}
+For $l_v$ significantly lower than $q_1$ as in panel
+(a), the stable fixed point is that of dominance of variety 1, while $l_v = q_1$ implies
+a stable dominance of variety 2, as shown in panel (c). Coexistence of the two varieties
+is possible for intermediate values of $l_v < q_1$, such as $0.6$ in panel (c).
+\Cref{fig:mean_field_analytic_coex_pos} shows how this stable solution moves in the
+$(p_1, p_2)$ space when varying $M$, for $l_v = 0.6$ and different values of $q_1$. As
+shown earlier, increasing $M$ does push the system towards $p_2 = 1 - p_1$, and whether
+it is biased in favour of variety 1 or 2 depends on the difference between $q_1$ and
+$l_v$.
+
+\Cref{fig:mean_field_analytic_q-M_space} presents the regions of the $(q_1, M)$ space
+where the kinds of stable solutions we just mentioned appear. For a prestige favouring
+variety 2, but still low enough as in the left panel, three distinct domains appear in
+the parameter space: two corresponding to dominance of one variety and extinction of the
+other, and a third corresponding to coexistence of the two varieties. Higher values of
+$l_v$ prohibit stable solutions associated to the dominance of 1, as shown in the right
+panel. Coexistence is facilitated by less mixing between the different classes, so this
+coexistence is a relatively separate one. Still, for a given range of values of $q_1$,
+no matter how much populations mix, the two varieties can still coexist.
+\begin{figure}
+  \centering
+  \includegraphics{mean_field_analytic_q-M_space}
+  \caption{Parameter space of the model in a simple setting split by kind of stable
+  fixed point. We here analyse the mean-field form of the model, given in
+  \cref{eq:ses_ling_time_evol_eq_mob}, with $q_2$ set at the neutral value of $0.5$. The
+  regions of the $(q_1, M)$ parameter space where different kinds of stable solutions
+  emerge are shown, for $l_v = 0.6$ (left) and $l_v = 0.7$ (right). There are three such
+  kinds: the extinction of variety 2 and dominance of 1 labelled with ``$1$'', inversely
+  the dominance of 2 labelled with ``$2$'', and the coexistence of both varieties
+  labelled with ``$1~\&~2$''. Examples for each of these are respectively shown in
+  \cref{fig:mean_field_analytic_coex_pos}(a-c-b). Stable coexistence of varieties 1 and
+  2 is favoured for rather low mobility and a preference of class 1 for variety 1 $q_1$
+  higher than the second variety's prestige $l_v$.}
+  \label{fig:mean_field_analytic_q-M_space}
 \end{figure}
 
-
-\subsection{Simulations on a toy example}
-We ran simulations with $200$ agents spread evenly between two \ac{SES} classes, with each
-class in its own residence cell. We set the standard form to be the more prestigious
-one, agents with higher \ac{SES} to be indifferent and ones with lower \ac{SES} to be more
-attached to the non-standard form. In \cref{fig}(c), we show the result of this
-simulation when we set a very low inter-cell mobility. For \cref{fig}(d), the
-mobility was greatly increased. We can see that the more the two populations mix, the
-closer they are to using the two forms in the same proportions, reflecting what we
-observed in the data.
 
 
 \subsection{Simulations in real metropolitan areas}
