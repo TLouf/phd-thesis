@@ -3,7 +3,7 @@
 \addbibresource{biblio.bib}
 \begin{document}
 
-\chapter{Socio-economic boundaries and standard language}
+\chapter{Socio-economic and linguistic boundaries}
 \label{ch:ses_ling}
 
 \epigraph{
@@ -26,21 +26,21 @@ which is also a strong marker of social divides. As we already emphasized in
 \cref{ch:origins_lang_diversity}, language variation in a population is driven by many
 factors, among which the socio-economic background of individuals is essential. And as
 we also said previously, one's ability to use the standard form of their language can be
-associated to a higher linguistic capital, and has thus economic values. It is not
+associated to a higher linguistic capital, and has thus economic value. It is not
 uncommon that some classes of the population, particularly those of relatively low
-\ac{SES}, prefer to use the non-standard form. This has been shown by prominent
+\ac{SES}, prefer to use the non-standard form. This has been shown by some
 sociolinguists in the past, as they conducted field studies and analysed differences
 between socio-economic classes
-\cite{LabovSocialStratification1966,TrudgillSocialDifferentiation1974}. Although this
-phenomenon has long been known \cite{ChambersSociolinguisticTheory2007}, it has been
-observed on very limited scales, and, more importantly, no real explanation of how it
-might emerge has been proposed. These are the two shortcomings we wish to address in
-this chapter. As groups of lower \ac{SES} have less linguistic capital, their economic
-opportunities will also be affected. \Ac{SES} and this linguistic variation are thus
-mutually sustaining: one inherits a \ac{SES} along which comes a linguistic capital that
-contributes --- among other things --- to constrain them to their status of origin.
-Understanding the mechanisms that lead to this linguistic segregation is therefore of
-great importance. 
+\cite{LabovSocialStratification1966,TrudgillSocialDifferentiation1974}. As groups of
+lower \ac{SES} have less linguistic capital, their economic opportunities will also be
+affected. \Ac{SES} and this linguistic variation are thus mutually sustaining: one
+inherits a \ac{SES} along which comes a linguistic capital that contributes --- among
+other things --- to constrain them to their status of origin. Understanding the
+mechanisms that lead to this linguistic segregation is therefore of great importance.
+Although this phenomenon has long been known \cite{ChambersSociolinguisticTheory2007},
+it has been observed on very limited scales, and, more importantly, no model explaining
+how it might emerge has been proposed. These are the two shortcomings we wish to address
+in this chapter. 
 
 First, as we have already shown in previous chapters, a first step toward understanding
 is to measure the phenomenon. It has already been quantified by the PISA reports of the
@@ -56,8 +56,8 @@ past to study geographical variation of linguistic variables
 work has investigated the dependence on \ac{SES} of the frequency of a few markers of
 non-standard language in France, as seen on Twitter
 \cite{AbitbolSocioeconomicDependencies2018}, showing the potential of this data source
-for such an analysis. Here, we investigate these dependencies in England and Wales, by way of
-measuring how Twitter users abide by the rules of the standard variety of their
+for such an analysis. Here, we investigate these dependencies in England and Wales, by
+way of measuring how Twitter users abide by the rules of the standard variety of their
 language.
 
 
@@ -72,12 +72,13 @@ following the methodology described in \cref{sec:methods_twitter}. To assign a \
 to these users, we also determine their area of residence from the geotags attached to
 their tweets. Our unit areas for the study are the \SI{7201}{} \acp{MSOA}, which are
 areas created by the Office for National Statistics of the UK for the output of the
-census estimates. They host at least \SI{5000}{} and at most \SI{15000}{} inhabitants,
-with a typical population of \SI{10000}{}. Their boundaries can be downloaded from the
-Open Geography portal of the Office for National
-Statistics\footnote{\url{https://geoportal.statistics.gov.uk/maps/msoa-dec-2011-boundaries-generalised-clipped-bgc-ew-v3}}.
-Importantly, the average annual net income of their residents can be obtained from the
-census\footnote{In particular the 2018 net annual income estimates, available at
+census estimates\footnote{Their boundaries can be downloaded from the Open Geography
+portal of the Office for National Statistics:
+\url{https://geoportal.statistics.gov.uk/maps/msoa-dec-2011-boundaries-generalised-clipped-bgc-ew-v3}}.
+They host at least \SI{5000}{} and at most \SI{15000}{} inhabitants, with a typical
+population of \SI{10000}{}. Importantly, the average annual net income of their
+residents can be obtained from the census\footnote{In particular the 2018 net annual
+income estimates, available at
 \url{https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/smallareaincomeestimatesformiddlelayersuperoutputareasenglandandwales}},
 which gives us a proxy for the \ac{SES} of our Twitter users.
 
@@ -88,15 +89,15 @@ using such a tool over a pre-defined set of rules, as in
 \cite{AbitbolSocioeconomicDependencies2018}, is that the tool is implemented in 15
 languages. Our study can thus quite easily be replicated in other countries. The second
 advantage is that it covers a very wide spectrum of potential mistakes: it has more than
-\SI{5500}{} rules defined for the English language. These rules are categorised in 11
+\SI{5500}{} rules defined for the English language. These rules are split into 11
 categories, among which are grammar mistakes, confused words or typos. In this work we
 focus on grammar mistakes, as they are among the most common and are the most
 characteristic of non-standard language. LanguageTool therefore enables us to compute
-the frequency at which Twitter users identified as UK residents make grammar mistakes,
+the frequency at which Twitter users identified as UK residents make grammar mistakes
 according to standard rules. From this raw frequency we then compute the frequency of
 mistakes per word written by the user. As in the previous chapter, we compute this
 frequency on a user level, to try and be more representative of the general population,
-and not only of the few, very active users. At the cell level, we then compute the
+and not only of the few, very active users. At the cell level, we compute the
 average of these relative frequencies for all residents. This implies that we cannot
 keep all users, as some have been so little active that they did not write enough to
 make mistakes, so we keep only users who have written at least 100 words. Also, to
@@ -109,16 +110,17 @@ grammar mistakes.
 
 \subsection{Correlations with the frequency of mistakes}
 We find a significant, but weak correlation (Pearson r equal to -0.25) between the net
-income and the average frequency of mistakes in all cells of the country. We then focus
-on metropolitan areas because we expect them to host more linguistic and socio-economic
-heterogeneity than their rural counterparts. We also happen to have more data in these
-on both mobility and language production, due to the fact that Twitter users tend to be
-more urban \cite{MisloveUnderstandingDemographics2011}. We therefore consider the 8
-largest metropolitan areas in England, and find large differences between these areas,
-with correlations ranging from -0.07 in Sheffield to -0.5 in Bristol. The average
-frequency of grammar mistakes is plotted against the average of net annual income of
-their residents for all \acp{MSOA} of England and Wales, London, Manchester and
-Sheffield in \cref{fig:ses_x_grammar_corrs}.
+income and the average frequency of mistakes in all cells of the country, as shown in
+the top left panel of \cref{fig:ses_x_grammar_corrs}. We then focus on metropolitan
+areas because we expect them to host more linguistic and socio-economic heterogeneity
+than their rural counterparts. We also happen to have more data in these on both
+mobility and language production, due to the fact that Twitter users tend to be more
+urban \cite{MisloveUnderstandingDemographics2011}. We therefore consider the 8 largest
+metropolitan areas in England, and find large differences between these areas, with
+correlations ranging from -0.07 in Sheffield to -0.5 in Bristol. The average frequency
+of grammar mistakes is plotted against the average of net annual income of their
+residents for all \acp{MSOA} of England and Wales, London, Manchester and Sheffield in
+\cref{fig:ses_x_grammar_corrs}.
 \begin{figure}
 \centering
   \includegraphics[width=\textwidth]{ses_x_grammar_corrs}
@@ -149,7 +151,7 @@ metropolitan area, we rank them by increasing average net income. We get their
 population from the
 census\footnote{\url{https://www.nomisweb.co.uk/census/2011/ks101uk}}, denoted $N_c$ for
 each cell $c$ in the following. Denoting $P_c$ the set of cells less populated than $c$,
-formally defined as $P_c = \left\{ c' \in C \mid N_{c'} < N_c \right\}$, we define the
+formally defined as $P_c = \left\{ c' \in C \mid N_{c'} < N_c \right\}$, we determine the
 \ac{SES} class of $c$ as:
 \begin{equation}
   S_c = n_S \left\lceil \frac{\sum_{c' \in P_c} N_{c'}}{\sum_{c' \in C} N_{c'}} \right\rceil,
@@ -188,6 +190,7 @@ outward mobility, as in Newcastle or Bristol.
 These patterns can be summarised by a measure of how strongly diagonal these matrices
 are: their Pearson r value, denoted $r_M$ in our case. It is defined as follows:
 \begin{equation}
+  \label{eq:def_mobility_r}
   r_M = \frac{
       \sum_{i, j} M_{i, j} \cdot \sum_{i, j} i j M_{i, j}
       - \sum_{i, j} i M_{i, j} \cdot \sum_{i, j} j M_{i, j}
@@ -202,7 +205,7 @@ individuals tend to go to areas of similar \ac{SES} (assortative mixing), and th
 to -1, the more they will stay with people of opposite \ac{SES} (disassortative mixing).
 Values close to 0 indicate no assortativity, meaning no preference in mixing. We measure
 this assortativity for our metropolitan areas from the matrices shown in
-\cref{fig:cities_SES_mobility}, and show the results in
+\cref{fig:cities_SES_mobility}, and present the results in
 \cref{fig:cities_assort_vs_grammar_and_SES_corr} against the correlation we computed
 previously between socio-economic status and the average frequency of grammar mistakes.
 What we find is a very clear correlation between this assortativity measured at the city
@@ -238,7 +241,7 @@ behind this observation with a simple model.
 % Cultural traits like the use of a language variety can depend on an individual sense of
 % identity.
 There are several effects we wish to
-consider, that we describe below.
+consider, described below.
 \begin{enumerate}[(i)]
   \item One of the two varieties of the language may be more prestigious than the other.
   This is for example the case of the standard form: it is taught at schools and spoken
@@ -262,19 +265,19 @@ who can either speak standard, or not. The standard form has an intrinsic presti
 $l_v$, the value of which belongs to the unit interval, but that we will always set
 above 0.5 in the following, to account for (i). Now turning to (ii), each \ac{SES} class
 has a preference for one form: the lower class 1 is attached to the non-standard form
-with a factor $q_1$, and inversely the higher class 2 is attached to the standard one
-with $q_2$. They are also comprised between 0 and 1, and when one of these two
-parameters has a value above $0.5$, it means there is a preference for the respective
-form. Then for instance, when an agent of low \ac{SES} speaking non-standard interacts
-with another agent speaking standard, they have a probability $l_v (1 - q_1)$ to start
-using the standard form as well. The agents can move from their residence cell with a
-probability $M_{i,j}$ at each step, which thus controls the mixing of the two
-populations, as discussed in (iii). A summary diagram of the model is provided in
-\cref{fig:model_diagram}.
+(denoted 1) with a factor $q_1$, and inversely the higher class 2 is attached to the
+standard one (denoted 2) with $q_2$. They are also comprised between 0 and 1, and when
+one of these two parameters has a value above $0.5$, it means there is a preference for
+the respective form. Then for instance, when an agent of \ac{SES} class 1 speaking
+non-standard interacts with another agent speaking standard, they have a probability
+$l_v (1 - q_1)$ to start using the standard form as well. The agents can move from their
+residence cell with a probability $M_{i,j}$ at each step, which thus controls the mixing
+of the two populations, as discussed in (iii). A summary diagram of the model is
+provided in \cref{fig:model_diagram}.
 \begin{figure}
 \centering
   \includegraphics[width=\textwidth]{model_diagram}
-  \caption{Diagram summarizing our agent-based model for the adoption of a linguistic
+  \caption{Diagram summarizing our agent-based model for the adoption of a language
   variety. It features two \ac{SES} classes, represented by circles and triangles, which
   can speak one of two varieties of their language: the standard form (filled shapes)
   and the non-standard (empty shapes). Each agent has a cell of residence, and a
@@ -296,8 +299,8 @@ arrangements of the populations of different \ac{SES} classes. Here, however, we
 consider a rather simple case in order to present succinct equations that lend
 themselves to interpretation and mathematical analysis. We will consider only two cells,
 with $N_1$ individuals of class 1 residing in cell 1, and $N_2$ individuals of class 2
-residing in cell 2. This is a situation of complete socio-economic segregation. We will
-denote $p_1$ the proportion of individuals of class 1 speaking non-standard (variety 1),
+residing in cell 2. We will
+write $p_1$ the proportion of individuals of class 1 speaking non-standard (variety 1),
 and $p_2$ the proportion of individuals of class 2 speaking standard (variety 2).
 Individuals have to speak either 1 or 2, which implies that. for instance, a proportion
 $(1 - p_1)$ of individuals of class 1 speak the variety 2. The two variables therefore
@@ -312,9 +315,11 @@ people either stay at their residence or move to the other cell. As a result, to
 for different mobility patterns, out of the $2 \times 2$ mobility matrix with elements
 $M_{i, j}$, we only retain the parameters $M_1 \equiv M_{1, 2}$ and $M_2 \equiv M_{2,
 1}$, the probabilities for people of each class to move away from their residence cell.
-Likewise, the matrix of $m_{i, j}$ can be summarised with the corresponding $m_1$ and
-$m_2$. Under all these assumptions and new notation, we can then write the probability
-to pick an individual speaking a variety in each cell as:
+Note that these parameters summarise how much the classes mix, as the mobility
+matrix' Pearson r of \cref{eq:def_mobility_r} satisfies $r_M = 1 - M_1 - M_2$. Likewise,
+the matrix of $m_{i, j}$ can be summarised with the corresponding $m_1$ and $m_2$. Under
+all these assumptions and new notation, we can then write the probability to pick an
+individual speaking a variety in each cell as:
 % TODO: ref appendix? include this here?
 \begin{equation}
   \left\{
@@ -396,7 +401,8 @@ another depending on one's \ac{SES} class:
 %           ]
 %   \end{aligned}
 % \end{equation}
-Working in mean field, we can write the following system of differential equations:
+Subsequently, working in mean field, we can write the following system of differential
+equations:
 \begin{equation}
     \label{eq:ses_ling_time_evol}
     \left\{
@@ -468,13 +474,13 @@ fixed points of the system are homogeneous populations in terms of the variety t
 Which one they will end up using depends on the sign of $(q_1 - l_v)$ and $(l_v + q_2 -
 1)$ for classes 1 and 2, respectively.
 
-This system of equation lends itself to mathematical analysis, in particular of its
+This system of equation lends itself to further mathematical analysis, in particular of its
 fixed points and their stability. Two fixed points can be trivially found from a quick
-look at the equations: they are $(p_1, p_2) = (0, 1)$ and $(1, 0)$. As in
-\cref{ch:multiling}, we compute the eigenvalues of the Jacobian of the system evaluated
-at the fixed points, and are thus able to say that a fixed point is stable if and only
-if all the corresponding eigenvalues have a strictly negative real part. For $M = 0.2$
-$q_2= 0.5$, $q_1 = 0.7$, and $l_v \in \{ 0.5, 0.6, 0.7\}$, we show in
+look at \cref{eq:ses_ling_time_evol_eq_mob}: they are $(p_1, p_2) = (0, 1)$ and $(1,
+0)$. As in \cref{ch:multiling}, we compute the eigenvalues of the Jacobian of the system
+evaluated at the fixed points, and are thus able to say that a fixed point is stable if
+and only if all the corresponding eigenvalues have a strictly negative real part. For $M
+= 0.2$, $q_2= 0.5$, $q_1 = 0.7$, and $l_v \in \{ 0.5, 0.6, 0.7\}$, we show in
 \cref{fig:mean_field_analytic_coex_pos}(a-b-c) the position of the fixed points of the
 model and whether they are stable, within stream plots that give a glimpse of the
 dynamics leading to convergence.
@@ -536,9 +542,9 @@ no matter how much populations mix, the two varieties can still coexist.
 
 
 \subsection{Simulations in real metropolitan areas}
-This promising result calls for further investigation of the model, and particularly how
-it would fare when initialised with the actual data that we have in the metropolitan
-areas of England.
+These interesting properties of the model call for further investigation, and
+particularly how it would fare when initialised with the actual data that we have in the
+metropolitan areas of England.
 
 
 % fig with interesting simulation results: toy two cells into real populations?
