@@ -122,9 +122,11 @@ factors that are actually important in a people's culture.
 
 % blabla importance of quantitative aspects and complexity science approach, adapt first sentence of next subsec when this is written
 
+% section about research data?
+
 \subsection{Crossing disciplinary boundaries}
-Given this approach I took throughout my years of PhD, it is only natural that I ended
-up crossing disciplinary boundaries. In practice, this is reflected first in the
+Given the approach I have taken throughout my years of PhD, it is only natural that I
+ended up crossing disciplinary boundaries. In practice, this is reflected first in the
 different backgrounds of the researchers I had the chance to collaborate with. For
 instance, I had the opportunity to collaborate on the work presented in \cref{ch:acr}
 with Jack Grieve, whose background is in linguistics. While I was mostly focused on the
@@ -134,73 +136,74 @@ literature and research areas I had never heard of. This is mostly because this
 literature was from people outside the field of complexity science, and consequently
 published in different journals.
 
-Second, and as just said above, this is partly due to the first point: this
-cross-disciplinarity is apparent from the diversity of literature cited throughout this
-thesis. I can illustrate how twisted navigating this diversity can be, but how rewarding
-it is with the example of how I stumbled upon a metric such as the \ac{EMD}, that I use
-in \cref{ch:multiling}.
-% came to me from: I need some kind of distance between two probability distributions embedded in a metric space.
-% chequerboard problem \cite{WhiteMeasurementSpatial1983}
-First finding out the shortcomings of spatial entropies, widely accepted in the field of
-spatial complex systems \cite{BattyEntropyComplexity2014} It has mainly been used within
-the field of computer vision \cite{RubnerMetricDistributions1998}, and it was shown to
-be a proper distance (in the metric sense) between probability distributions
-\cite{LevinaEarthMover2001}. Nothing but a particular version of the Wasserstein or
-Mallows distance, well known in transport theory. Only to find out a year after writing
-this article that the geographer
-\citefirstlastauthor{JakubsDistancebasedSegregation1981} had defined a metric equivalent
-to the \ac{EMR} in 1981 \cite{JakubsDistancebasedSegregation1981}, much before computer
-vision had the occasion to exploit it. Natural that different fields end up using
-different terms. In this case, mathematicians have defined a general distance, which is
-used in other applied fields within a particular case. So the mathematicians need this
-more general name. And would anyone really think that a geographer or engineer in
-computer vision should give up the very evocative \ac{EMD} in favour of ``the
-Wasserstein 1-distance on discrete empirical distributions''? So what can be done to
-bridge these gaps? Mostly curiosity that drove me to find all of this out. One should
-not be afraid to search for literature outside their field, and to simply acknowledge
-them. Citing a work outside your field is much more valuable than citing another
-everyone within your field already knows, as they are probably going to be most of your
-readers.
-% reviews not of a field but of an idea nad how it's being used across disciplines
+Second, and this is partly due to the point made above: this cross-disciplinarity is
+apparent from the diversity of literature cited throughout this thesis. I can illustrate
+how twisted navigating this diversity can be, but how rewarding it is with the example
+of how I stumbled upon a metric such as the \ac{EMD}, that I use in \cref{ch:multiling}.
+For a brief context, in this work we wanted to give a quantitative estimate of how
+segregated different language groups were in some multilingual regions. 
+% Since traditional metrics for the field of complexity science, such as entropy
+One way to conceptualise a metric giving this kind of estimate is as a distance between
+two spatially embedded distributions: the one of the total population, and the one of
+the language group in under consideration. 
+% % chequerboard problem \cite{WhiteMeasurementSpatial1983}
+% First finding out the shortcomings of spatial entropies, widely accepted in the field of
+% spatial complex systems \cite{BattyEntropyComplexity2014}
+It was with this kind of formulation in mind that I stumbled upon the \ac{EMD} as used
+within the field of computer vision \cite{RubnerMetricDistributions1998}. Indeed, the
+\ac{EMD} is nothing but a particular version of the Wasserstein or Mallows distance,
+well known in transport theory, and is thus a proper distance (in the metric sense)
+between probability distributions, as shown in \cite{LevinaEarthMover2001}. As it turns
+out, I found out roughly a year after writing this article linked to this chapter that
+the geographer \citefirstlastauthor{JakubsDistancebasedSegregation1981} had defined a
+metric equivalent to the \ac{EMR} in 1981 \cite{JakubsDistancebasedSegregation1981},
+much before the term \ac{EMD} was adopted. With a different formulation of the problem,
+he came up with a metric very similar to mine. Only it is most of the time only
+mentioned in passing in posterior works and never applied in large scale studies --- due
+to computation limitations more than theoretical flaws, I suspect. This dive into
+literature from a mix of computer vision, mathematics and geography, in the completely
+wrong order, has shown me how researchers from different fields can talk about the same
+concepts with completely different words, and also arrive to the same conclusions with
+different train of thoughts.
+% Natural that different fields end up using different terms. In this case,
+% mathematicians have defined a general distance, which is used in other applied fields
+% within a particular case. So the mathematicians need this more general name. And would
+% anyone really think that a geographer or engineer in computer vision should give up
+% the very evocative \ac{EMD} in favour of ``the Wasserstein 1-distance on discrete
+% empirical distributions''? So what can be done to bridge these gaps?
+That is why, among other reasons, I thus believe being curious about what ``other
+fields'' do and how they conceptualise problems is definitely worth the invested time.
+% One should not be afraid to search for literature outside their field, and to
+% simply acknowledge them.
+Further, citing a work outside your field is much more valuable than citing another
+everyone within your field already knows, as most of your readers are probably going to
+be from your field.
 
 All in all, the people and the research you interact with are highly interdependent. And
-as I have shown, more diversity in those can be the foundation for more throrough and
-further-reaching research. While desirable, increasing this diversity in one's research
-is far from straightforward. Beyond the point made above that looking for and citing
-other fields' literature can help, or the obvious that one should try to go to different
-conferences or make project proposals with an actually interdisciplinary team, I would
-like to highlight the lack of interdisciplinary reviews. Review articles are the first
-literature one seeks to enter into a field. Yet, the notion of field itself limits the
-scope of reviews such as \cite{CastellanoStatisticalPhysics2009}, which is a very good
-review of physics-inspired models of social phenomena, but exactly as such, it targets
-almost exclusively researchers with a background in physics. While there is no doubt
-this kind of review adds great value, another kind that would focus rather on an issue
-that is tackled by multiple fields, and that would review their different approaches and
-confront or relate them, would also be beneficial. For instance, instead of answering
-the question ``what physics-inspired models have been used to study social dynamics?'',
-they would answer one such as ``what is the state of research on language competition
-and multilingualism, from the (mostly) qualitative models of linguists to the
-quantitative ones of physicists, also considering empirical works?''. This would provide
-scientists from different fields insights into  what others have to say about a
+as I think this thesis shows, more diversity in those can be the foundation for more
+thorough and further-reaching research. But while desirable, increasing this diversity
+in one's research is far from straightforward. Beyond the point made above that looking
+for and citing other fields' literature can help, or the obvious that one should try to
+go to different conferences or pursue projects with actually interdisciplinary teams, I
+would like to highlight the lack of interdisciplinary reviews. Review articles are the
+first literature one seeks to enter into a field. Yet, the notion of field itself limits
+the scope of reviews such as \cite{CastellanoStatisticalPhysics2009}, which is a very
+good review of physics-inspired models of social phenomena, but exactly as such, it
+targets almost exclusively researchers with a background in physics. While there is no
+doubt this kind of review adds great value, another kind that would focus rather on an
+issue that is tackled by multiple fields, and that would review their different
+approaches and confront or relate them, would also be beneficial. For instance, instead
+of answering the question ``what physics-inspired models have been used to study social
+dynamics?'', they would answer one such as ``what is the state of research on language
+competition and multilingualism, from the (mostly) qualitative models of linguists to
+the quantitative ones of physicists, also considering empirical works?''. This would
+provide scientists from different fields insights into  what others have to say about a
 question, and who they might collaborate with to further everyone's understanding. The
 more recent \cite{BoissonneaultSystematicInterdisciplinary2021} is the closest to being
 this kind of interdisciplinary review that I am aware of, although more is necessary as
 it does not confront the conclusions of the research coming from different fields.
 
 
-\subsection{Science and trends}
-% At the end of these roughly 3 years and a half, there is one thing I am particularly
-% proud of: the word ``COVID'' does not appear once in any of my works. Some may say they
-% heard society's cry for help and flew to its rescue. While some may have had this kind
-% of genuine intentions, I remain quite sceptical that everyone who jumped on the
-% scientific hype train had them. Some may seem more like churning out more material for
-% the scientific publishing machine. But the truth is, I do not know anything about
-% epidemiology, and it does not interest me at all.
-
-The number of researchers interested in language competition models like the one we
-presented in \cref{ch:multiling} is very low. The hype has passed, it was 20 years ago
-when \citeauthor{AbramsModellingDynamics2003} published a piece in \textit{Nature}. Yet
-the problem has not been solved at all, as we have shown ourselves. 
 
 
 
