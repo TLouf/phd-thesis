@@ -317,6 +317,7 @@ $m_2$. Under all these assumptions and new notation, we can then write the proba
 to pick an individual speaking a variety in each cell as:
 % TODO: ref appendix? include this here?
 \begin{equation}
+  \left\{
   \begin{aligned}
       P(2 \mid c = c_1)
           = (1 - m_2) (1 - p_1) + m_2 p_2
@@ -328,12 +329,14 @@ to pick an individual speaking a variety in each cell as:
           = (1 - m_2) p_1 + m_2 (1 - p_2)
       \\
       P(1 \mid c = c_2)
-          = m_1 p_1 + (1 - m_1) (1 - p_2).
+          = m_1 p_1 + (1 - m_1) (1 - p_2)
   \end{aligned}
+  \right.
 \end{equation}
-This further enables us to determine the probabilities to switch from one variant to
-another, depending on one's \ac{SES} class:
+This allows us to write the probabilities to switch from one variant to
+another depending on one's \ac{SES} class:
 \begin{equation}
+  \left\{
   \begin{aligned}
       P(1 \rightarrow 2 \mid s = s_1)
           &= l_v (1 - q_1)
@@ -367,6 +370,7 @@ another, depending on one's \ac{SES} class:
               &+ P(1 \mid c = c_2) (1 - M_2)]
           \end{aligned}
   \end{aligned}
+  \right.
 \end{equation}
 % \begin{equation}
 %   \label{eq:final_trans_probs}
@@ -392,9 +396,10 @@ another, depending on one's \ac{SES} class:
 %           ]
 %   \end{aligned}
 % \end{equation}
-Working in mean field, we can write the following differential equations:
+Working in mean field, we can write the following system of differential equations:
 \begin{equation}
     \label{eq:ses_ling_time_evol}
+    \left\{
     \begin{aligned}
         % v and c depend on t
         \dv{p_1}{t} 
@@ -405,6 +410,7 @@ Working in mean field, we can write the following differential equations:
             &= (1 - p_2) P(1 \rightarrow 2 \mid s = s_2)
                  - p_2 P(2 \rightarrow 1 \mid s = s_2)
     \end{aligned}
+    \right.
 \end{equation}
 
 Now if we simplify further and assume that the two \ac{SES} classes have the same
@@ -412,6 +418,7 @@ population, and the same mobility $M = M_1 = M_2$, then we get that $m_1 = m_2 =
 it follows that
 \begin{equation}
   \label{eq:ses_ling_time_evol_eq_mob}
+  \left\{
   \begin{aligned}
       % v and c depend on t
       \dv{p_1}{t} 
@@ -433,9 +440,10 @@ it follows that
       \\
           & \quad +
           % \eqnmarkbox[OliveGreen]{g2}{
-            p_2 (1 - p_2) (l_v + q_2 - 1).
+            p_2 (1 - p_2) (l_v + q_2 - 1)
             % }
   \end{aligned}
+  \right.
 \end{equation}
 %% TODO investigate why this does not work but works in test article
 % \annotatetwo[yshift=-1em,xshift=0.2ex]{below}{mob1}{mob2}{lol}

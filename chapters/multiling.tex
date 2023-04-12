@@ -244,7 +244,7 @@ signatures $P = \{ (i, c_i) \}$ and $Q_L = \{ (i, c_{L,i}) \}$. We then define
 $\text{EMD}_L$ as 
 \begin{equation}
 \label{eq:emd_def}
-  \text{EMD}_L \equiv \text{EMD}(P, Q_L) = \sum_{i,j} \hat{f}_{ij} d_{ij},
+  \text{EMD}_L \equiv \text{EMD}(P, Q_L) = \sum_{i,j} \hat{f}_{ij} d_{ij}\,,
 \end{equation}
 with $d_{ij}$ the distances between cells $i$ and $j$, and $\hat{f}_{ij}$ the optimal
 flows to reshape $P$ into $Q_L$, obtained by minimizing $\sum_{i,j} f_{ij} d_{ij}$ under
@@ -255,7 +255,7 @@ the following constraints:
     f_{ij} & \geq 0, \forall \, i,j \\
     \sum_j f_{ij} & = c_{L,i}, \forall \, i \\
     \sum_i f_{ij} & = c_j, \forall \, j \\
-    \sum_{i} \sum_j f_{ij} & = \sum_i c_{L,i} = \sum_j c_j = 1,
+    \sum_{i} \sum_j f_{ij} & = \sum_i c_{L,i} = \sum_j c_j = 1
   \end{aligned}
   \right.
 \end{equation}
@@ -521,7 +521,7 @@ probabilities that define it:
   P (\text{AB} \rightarrow \text{A}) &= \mu \, s \, \left[ p_{\text{A}} + q \, p_{\text{AB}} \right] \\
   P (\text{AB} \rightarrow \text{B}) &= \mu \, (1-s) \, \left[ p_{\text{B}} + (1-q) \, p_{\text{AB}} \right]
 \end{aligned}
-\right. .
+\right.
 \end{equation}
 Given the normalisation condition $p_\text{A} + p_\text{B} + p_\text{AB} = 1$, these
 transition probabilities can actually be rewritten in terms of, let us say, $p_\text{A}$
@@ -556,7 +556,7 @@ typology of possible solutions. A mean field approximation yields:
     \dv{p_\text{B}}{t} &= (1 - p_\text{A} - p_\text{B}) P (\text{AB} \rightarrow \text{B})
         - p_\text{B} P (\text{B} \rightarrow \text{AB})
   \end{aligned}
-    \right. .
+    \right.
 \end{equation}
 Fixed points are the solutions for which $\dv{p_\text{A}}{t} = \dv{p_\text{B}}{t} = 0$.
 The stability of these points is studied by performing a linear perturbation analysis
