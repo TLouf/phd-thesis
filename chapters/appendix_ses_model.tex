@@ -47,7 +47,7 @@ language ($v_1$ means they do, $v_2$ means they don't). Now let us introduce an
 intrinsic prestige $l_v$ for the variant 2, such that:
 \begin{equation}
     \begin{aligned}
-        P(1 \rightarrow 2) &\propto l_v \\
+        P(1 \rightarrow 2) &\propto l_v, \\
         P(2 \rightarrow 1) &\propto 1 - l_v.
     \end{aligned}
 \end{equation}
@@ -102,7 +102,7 @@ cell $c_j$ at $t$. Decomposing it by \ac{SES} class, and using Bayes' rule, we g
     \end{aligned}
 \end{equation}
 Let us introduce $p_{v, s_k} \equiv P(v_{t-1} = v \mid s = s_k)$ to simplify equations
-further, and that summarizes the state of the system at the previous step. Also, since
+further, and that summarise the state of the system at the previous step. Also, since
 they satisfy $\sum_v p_{v, s_k} = 1$, we will only write in terms of $p_1 \equiv p_{1,
 1}$ and $p_2 \equiv p_{2, 2}$. We also have $P(s = s_k) = \frac{N_{s_k}}{\sum_k
 N_{s_k}}$. The final term in the product is related to the mobility of the
@@ -128,7 +128,7 @@ which satisfy $\sum_k m_{k, j} = 1$ (unlike the $M_{k, j}$ that satisfy $\sum_j 
 have status $k$. We can then write
 \begin{equation}
 \label{eq:decomp_prev_by_SES}
-    P(v_{t-1} = v \mid c_t = c_j) = \sum_k p_{v, s_k} m_{k, j}
+    P(v_{t-1} = v \mid c_t = c_j) = \sum_k p_{v, s_k} m_{k, j}.
 \end{equation}
 
 We will further abuse notation and only use $m_1 \equiv
@@ -163,7 +163,7 @@ variables only. But what we actually want is to write $P(v_t = v \mid v_{t-1} = 
             \quad & = \sum_j P(c = c_j \mid s = s_k)
             \cdot P(v_t = v \mid v_{t-1} = v', s = s_k, c_t = c_j)
         \\
-            & = \sum_j M_{k, j} P(v_t = v \mid v_{t-1} = v', s = s_k, c_t = c_j)
+            & = \sum_j M_{k, j} P(v_t = v \mid v_{t-1} = v', s = s_k, c_t = c_j).
         \end{aligned}
     \end{aligned}
 \end{equation}
