@@ -257,4 +257,52 @@ M_1 = M_2$, we have $m_1 = m_2 = M$, and it follows that:
 \end{equation}
 The result presented in \cref{eq:ses_ling_time_evol_eq_mob} then follows.
 
+
+\section*{Coexistence solution}
+\label{sec:appendix_coex_sol_ses_model}
+Let us assume there exists a fixed point of \cref{eq:ses_ling_time_evol_eq_mob}, denoted
+$(p_1^*, p_2^*)$, which is such that $0 < p_1^* < 1$ and $0 < p_2^* < 1$. This would
+correspond to a state of coexistence of the two varieties. We want here to find out
+under what conditions the existence of such a fixed point is not possible. We assume all
+parameters of the system are in the open unit interval. We found through symbolic
+computations that $q_1 \leq l_v$ prohibits its existence, but let us prove it by
+contradiction in a simple case, which is the one relevant to our case.
+
+First, for $q_1 = l_v$:
+\begin{equation}
+    \dv{p_1}{t} = 0 \Rightarrow p_1^* = 1 - p_2^*.
+\end{equation}
+It then directly follows from the condition $\dv{p_2}{t} = 0$ that $p_2^*$ must be
+either $0$ or $1$. In this case, there is therefore no possible coexistence.
+
+Let us then assume $q_1 < l_v$. We have
+\begin{equation}
+    \label{eq:appendix_eq_points}
+    \begin{aligned}
+        & \dv{p_1}{t} = 0
+        \\[1ex]
+        & \Rightarrow 2 M (1 - M) (1 - p_1^* - p_2^*) \left[q_1 \frac{1 - l_v}{l_v - q_1} + p_1^* \right] = p_1^* (1 - p_1^*).
+    \end{aligned}
+\end{equation}
+As $l_v - q_1 > 0$ and $0 < p_1^* < 1$, both the right hand side and the term in square
+bracket of the left hand side are strictly positive. But we also have
+\begin{equation}
+    \begin{aligned}
+        & \dv{p_2}{t} = 0
+        \\[1ex]
+        & \Rightarrow 2 M (1 - M) (1 - p_1^* - p_2^*)
+            = - \frac{p_2^* (1 - p_2^*) (l_v + q_2 - 1)}{q_2 l_v - p_2^* (l_v + q_2 - 1)}.
+    \end{aligned}
+\end{equation}
+Now, let us assume that $l_v + q_2 - 1 > 0$. It is the case that makes physical sense,
+since variety 2, corresponding to standard language, has a higher prestige than 1, so
+$l_v > 0.5$, and at least a neutral bias of the high \ac{SES} class, so $q_2 \geq 0.5$.
+Since $0 < p_2^* < 1$, this implies that the right hand side above is negative, hence 
+\begin{equation}
+    2 M (1 - M) (1 - p_1^* - p_2^*) < 0.
+\end{equation}
+This is in contradiction with the signs of the other terms in
+\cref{eq:appendix_eq_points}. It is therefore strictly impossible to have coexistence
+solutions when $q_1 < l_v$ and $l_v + q_2 - 1 > 0$.
+
 \end{document}
