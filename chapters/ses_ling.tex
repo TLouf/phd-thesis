@@ -454,12 +454,16 @@ following the steps detailed in \cref{ch:appendix_ses_model}, we get
 %% TODO investigate why this does not work but works in test article
 % \annotatetwo[yshift=-1em,xshift=0.2ex]{below}{mob1}{mob2}{lol}
 % \annotate[yshift=-1em,xshift=0.2ex]{below}{g2}{lol}
+% TODO: use colors to identify terms and refer to them in text?
 One can first notice how each equation features a first term linked to the groups'
 mobility, maximum for $M = \frac{1}{2}$, which is the situation of maximum mixing. This
 term is null when $p_1 = 1 - p_2$, and thus tends to smooth out differences in variety
-usage between \ac{SES} classes. Indeed, in the first equation, given that $q_1 - l_v =
-q_1 (1 - l_v / q_1)$, and that, as these parameters belong to the unit interval, $1 -
-l_v / q_1 > 1 - l_v$, this term's sign follows the one of $(1 - p_1 - p_2)$. It is
+usage between \ac{SES} classes. Indeed, in the first equation, if $q_1 \leq l_v$, the
+term in square brackets is clearly striclty positive. If $q_1 > l_v$, we have
+\begin{equation}
+  q_1 (1 - l_v) - p_1 (q_1 - l_v) > q_1 (1 - l_v) - (q_1 - l_v) = l_v (1 - q_1) > 0.
+\end{equation}
+It results that th mobility term's sign follows the one of $(1 - p_1 - p_2)$. It is
 therefore negative if $p_1 > 1 - p_2$ and positive otherwise, meaning it pushes $p_1$
 towards $1 - p_2$. Similarly, in the second equation, since $q_2 l_v - q_2 - l_v > -1$,
 the mobility term pushes $p_2$ towards $1 - p_1$.
