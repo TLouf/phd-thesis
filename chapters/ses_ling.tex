@@ -56,9 +56,10 @@ past to study geographical variation of linguistic variables
 work has investigated the dependence on \ac{SES} of the frequency of a few markers of
 non-standard language in France, as seen on Twitter
 \cite{AbitbolSocioeconomicDependencies2018}, showing the potential of this data source
-for such an analysis. Here, we investigate these dependencies in England and Wales, by
-way of measuring how Twitter users abide by the rules of the standard variety of their
-language.
+for such an analysis. Here,\graffito{Almost all data analyses, simulations and plots
+were made using Python code, freely available on GitHub \cite{LoufSesling2023}.} we
+investigate these dependencies in England and Wales, by way of measuring how Twitter
+users abide by the rules of the standard variety of their language.
 
 
 % \cite{LaksWhyThere2013} In such a conception, communication is a leading force in the emergence and stabilization of human linguistic competence, both diachronically and synchronically. In this approach, variation and heterogeneity are to be seen as core factors in shaping language. Thus, as argued some 50 years ago by Weinreich, variation and heterogeneity are to be regarded as structurally functional, and as fundamental dimensions of language.
@@ -97,15 +98,16 @@ the frequency at which Twitter users identified as UK residents make grammar mis
 according to standard rules. From this raw frequency we then compute the frequency of
 mistakes per word written by the user. As in the previous chapter, we compute this
 frequency on a user level, to try and be more representative of the general population,
-and not only of the few, very active users. At the cell level, we compute the
-average of these relative frequencies for all residents. This implies that we cannot
-keep all users, as some have been so little active that they did not write enough to
-make mistakes, so we keep only users who have written at least 100 words. Also, to
-exclude cells with too little statistics, in the following we only keep cells with at
-least 15 residents left after this previous filter. This leaves us with \SI{131402}{}
-users spread across \SI{4879}{} \acp{MSOA}. In each of these cells, our analysis yields
-an estimate of the income of its residents and of the frequency at which they make
-grammar mistakes.
+and not only of the few, very active users. At the cell level, we compute the average of
+these relative frequencies for all residents. This implies that we cannot keep all
+users, as some have been so little active that they did not write enough to make
+mistakes, so we keep only users who have written at least 100 words. Also, to exclude
+cells with too little statistics, in the following we only keep cells with at least 15
+residents left after this previous filter. This leaves us with \SI{131402}{} users
+spread across \SI{4879}{} \acp{MSOA}. In each of these cells, our analysis yields an
+estimate of the income of its residents and of the frequency at which they make grammar
+mistakes. The result of our data processing is available in the form of aggregated data
+that we deposited on a public repository \cite{LoufFrequencyDetected2023}.
 
 
 \subsection{Correlations with the frequency of mistakes}
@@ -294,14 +296,15 @@ provided in \cref{fig:model_diagram}.
 
 
 \subsection{Properties and behaviour in mean-field}
-The process we just described above can be simulated for any number of cells and
-arrangements of the populations of different \ac{SES} classes. Here, however, we will
-consider a rather simple case in order to present succinct equations that lend
-themselves to interpretation and mathematical analysis. We will consider only two cells,
-with $N_1$ individuals of class 1 residing in cell 1, and $N_2$ individuals of class 2
-residing in cell 2. We will
-write $p_1$ the proportion of individuals of class 1 speaking non-standard (variety 1),
-and $p_2$ the proportion of individuals of class 2 speaking standard (variety 2).
+\graffito{Figures shown in this section were generated with Mathematica code, freely
+available on GitHub \cite{LoufSeslinganalytical2023}.} The process we just described
+above can be simulated for any number of cells and arrangements of the populations of
+different \ac{SES} classes. Here, however, we will consider a rather simple case in
+order to present succinct equations that lend themselves to interpretation and
+mathematical analysis. We will consider only two cells, with $N_1$ individuals of class
+1 residing in cell 1, and $N_2$ individuals of class 2 residing in cell 2. We will write
+$p_1$ the proportion of individuals of class 1 speaking non-standard (variety 1), and
+$p_2$ the proportion of individuals of class 2 speaking standard (variety 2).
 Individuals have to speak either 1 or 2, which implies that. for instance, a proportion
 $(1 - p_1)$ of individuals of class 1 speak the variety 2. The two variables therefore
 summarise the linguistic state of the system at any given time. Regarding the mobility,
