@@ -118,11 +118,81 @@ factors that are actually important in a people's culture.
 
 \section{What I learned along the way}
 
-% clarity. from philosophy: first and foremost, define what it is you're talking about. from physics and maths: clearly define the problem before trying to solve it. 
+\subsection{The state of open data}
+If not for the continued effort made by technicians of my institute to collect Twitter
+data over more than seven years, most of the research presented here would never have
+come to light. This work has thus been made possible first thanks to these technicians'
+work, to whom I am grateful, but also fundamentally because Twitter allowed it. And no
+one, me included, can deny that having so much research rely on a single, private source
+of data, is highly problematic. Indeed, counting on the good will of private online
+platforms is not a viable foundation for research
+\cite{AusloosOperationalizingResearch2020}. As we already mentioned in
+\cref{sec:methods_online_data}, since private companies are driven by economic growth and
+(sometimes) profit, they have no incentive to contribute to academic
+research, apart maybe for some marginal publicity. Hence why platforms that are generous in
+the data they provide to researchers through their \ac{API} are few. And they seem to be
+getting fewer, as recent announcements about academic access to Twitter \ac{API} seem to
+indicate. One could object that researchers could still pay for access to these data to
+make it an agreeable deal. But this still poses the problem of the power these private
+entities could hold over public, independent research. For instance, for as long as it
+has existed, academic access to the Twitter \ac{API} has been subject to their approval,
+after an internal review based on opaque criteria. If they wished to do so, they had
+every right to revoke the access of a researcher. This threatens the independence of the
+researchers that may wish to study these platforms, through a potential censorship by
+the platforms, but also any induced self-censorship of the researcher, whether conscious
+or not.
 
-% blabla importance of quantitative aspects and complexity science approach, adapt first sentence of next subsec when this is written
+There is potential for public regulation to tackle this issue. A first step in the right
+direction may very well be in the making as the Digital Services Act of the European
+Union will come into force, in particular its article 40 \cite{DigitalServices2022}. It
+aims at facilitating independent auditing of very popular online media, for instance to
+quantify the effects their algorithms or potential moderation may have on public debate
+or political polarisation. To reach this goal, it outlines a process that allows vetted
+European researchers to send data requests to a European institution for them to
+evaluate their pertinence, and if they approve it, to forward the request to the
+designated platform, that is legally bound to comply reasonably well with the request.
+The research topics that fall within the scope of this article is thus quite limited,
+but it constitutes a great step forward as a framework for academic data access mediated
+by public authorities. If successful, one can imagine it extended to other kinds of
+companies such as cell phone companies or online retailers
+\cite{PersilyProposalResearcher2021}. If a robust framework is laid out to vet research
+projects that can give guarantees that the researchers will comply with privacy laws and
+keep the data they were handed in the academic realm, private companies may be less
+reluctant if future legislation extends the scope of research that can make such data
+requests. This thesis has demonstrated how online social media data can be extremely
+valuable to sociolinguistic study, but many other subjects of public importance can
+benefit. One can take the example of the study of mobility patterns, for which data-rich
+companies such as Google or mobile network operators exceptionally shared data for
+COVID-related studies \cite{AguilarImpactUrban2022,GozziEstimatingEffect2021}. They were
+shared with a few research groups only, but these kinds of precedents show trust can be
+built between these private companies and researchers.
+% A major problem then seems to be trust
 
-% section about research data?
+% but also to enable independent
+% auditing, that platforms have repeatedly failed to comply with
+% \cite{AusloosOperationalizingResearch2020}.
+
+% mention do not know if individuals actively sharing thier data (ref contact tracing
+% apps) is realistic. stuff like mobility may be because everyone has a phone with GPS,
+% could just store their location history locally and share it for research (b/c anyway
+% it's shared with Google ha). but speech production like this thesis? communication
+% necessarily goes through a service that's going to be operated by a company, or maybe
+% decentralised instances (ref fediverse). theoretically possible but lots of questions
+% to answer, complex problem. SO would be cool for this thing to be opt in, but won't
+% happen tomorrow
+
+% An alternative can also be to obtain data from people themselves, and not from the
+% companies that collect them from them. While this is much more desirable as it is much
+% more democratic and  ndividual data ownership .
+
+% Again, trust is of the essence. Only if robust, transparent processes are put into place
+% will the general public be willing to share their data for research purposes.
+% Decentralised platforms in which users have much more power over their own data. Example
+% of Fediverse, can review servers' policies, and if they end up changing it, can just
+% easily switch servers without losing anything. If they wish to make their data available
+% for researchers, should be easy way to do so. Decentralised nature makes the data
+% request and access more complex though.
+
 
 \subsection{Crossing disciplinary boundaries}
 Given the approach I have taken throughout my years of PhD, it is only natural that I
@@ -179,7 +249,7 @@ Further, citing a work outside your field is much more valuable than citing anot
 everyone within your field already knows, as most of your readers are probably going to
 be from your field.
 
-All in all, the people and the research you interact with are highly interdependent. And
+All in all, the people and the research one interacts with are highly interdependent. And
 as I think this thesis shows, more diversity in those can be the foundation for more
 thorough and further-reaching research. But while desirable, increasing this diversity
 in one's research is far from straightforward. Beyond the point made above that looking
@@ -209,11 +279,11 @@ it does not confront the conclusions of the research coming from different field
 
 \section{Uncharted directions worth exploring}
 While I believe the results summarised above provide valuable insights to
-sociolinguistic matters, they leave many questions unanswered, and maybe even raise more
-questions than answers. In the following I will list some potential directions for
-future research that could build on top of the work we have presented here. First are
-unresolved questions in sociolinguistics that naturally arise from the results we have
-presented.
+sociolinguistic matters, they leave many questions unanswered, and may actually even
+raise more questions than answers. In the following I will list some potential
+directions for future research that could build on top of the work we have presented
+here. First are unresolved questions in sociolinguistics that naturally arise from the
+results we have presented.
 
 For instance, can the model of language shift we presented in \cref{ch:multiling} be
 equally applied to diachronic data? A dataset with historical data spanning centuries
@@ -280,10 +350,11 @@ studying social contagion in complexity science \cite{WattsInfluentialsNetworks2
 including the more recent investigations into higher-order effect
 \cite{IacopiniSimplicialModels2019}.
 
-There are thus many more directions worth exploring, and, for now, to most questions the
-most sensible answer I can provide is: I don't know. But while one could consider
-knowledge as comforting some faith in the universe, I believe uncertainty to be much
-more entertaining. Let us then keep asking questions to keep things that way.
+There are thus many more directions worth exploring, and, for now, to most questions
+raised in the above, and to many others I have not yet been able to formulate, the most
+sensible answer I can provide is: I don't know. But while one could consider knowledge
+as comforting some faith in the universe, I believe uncertainty to be much more
+entertaining. Let us then keep asking questions to keep things that way.
 % But while at first the realisation that one cannot know everything might make one's lose faith in the universe.
 At last, it may seem that the quest for understanding paradoxically leads to less
 understanding, but not to worry:
