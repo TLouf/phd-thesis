@@ -23,43 +23,44 @@ Throughout this thesis, we have strived to push further the understanding of
 sociolinguistic phenomena, by first and foremost always relying on some representative
 measurement of them, in particular from social media data. Delving into large amounts of
 data allowed us to give quantitative descriptions, but we should and did not stop at
-these, and proposed theoretical models inspired by complexity science that are the ones
-really that can really push further our understanding, and also lay down a fertile
-ground for later developments.
+these, as we proposed theoretical models inspired by complexity science that are the
+ones that can really push further our understanding, and also lay down a fertile ground
+for later developments.
 
 In the first study we presented in \cref{ch:multiling}, we applied this methodological
-framework to the study of language diversity and its decline, and the potential for a
-recovery. Leveraging geotagged Twitter data from multilingual regions around the globe,
-we observed and quantified how the distributions of speakers of different languages can
-display widely different spatial arrangements. Indeed, if those were random, people from
-different linguistic communities would be spread evenly, and the geographical
-distribution of each group should be indistinguishable from the whole. We thus
-quantified how these groups were segregated by introducing the \ac{EMR}, which
-quantifies the departure from this state. At the two extremes, we found regions in which
-language groups are almost completely separated, such as Switzerland or Belgium, and
-others in which they mix almost indifferently, such as Catalonia or Galicia. We
-subsequently proposed a model that tries to capture the mechanisms behind this
-observation. It features two languages, and individuals that can speak one of the two
-languages, or both. The transition probabilities from one language group to another do
-not only depend on the proportion of speakers of each language, or on the external
-prestige attributed by institutions to one of the two languages, that were introduced in
-previous studies, but also on the relative ease to learn one language when knowing the
-other, and on the preference of bilinguals for one of the two languages. To understand
-if and how stable coexistence of languages may emerge within this model, we determined
-the stable fixed points of the model in mean-field and set in an interconnected
-population. The two parameters we introduced were found to be crucial to pass from
-stable solutions of extinction and dominance to ones of coexistence. They even allow to
-have a stable community of bilingual sustain a minority language. Then, as there still
-remained to understand how different spatial configurations can emerge, we simulated the
-model in a metapopulation framework, incorporating the daily commuting of individuals in
-Belgium. Remarkably, we found that the present state featuring a boundary between
-Flemish and French can be stable if the relative rate of learning the other language
-remains low enough. Further, if the latter increases, at some point bilingualism would
-spread in the country, as is the case in Catalonia. Still, if it increases, but not
-enough, one language may actually spread over the boundary and overshadow the other. Our
-modelling effort has thus proved fruitful, as it uncovered that cultural attachment to a
-language and policies facilitating language learning can be critical in enabling
-language coexistence.
+framework to the study of language diversity and the potential for a recovery from its
+current decline. Leveraging geotagged Twitter data from multilingual regions around the
+globe, we observed and quantified how the distributions of speakers of different
+languages can display widely different spatial arrangements. Indeed, if those were
+random, people from different linguistic communities would be spread evenly, and the
+geographical distribution of each group should be indistinguishable from the whole. We
+thus quantified how these groups were segregated by introducing the \ac{EMR}, which
+quantifies the departure from this theoretical unsegregated scenario. At the two
+extremes, we found regions in which language groups are almost completely separated,
+such as Switzerland or Belgium, and others in which they mix almost indifferently, such
+as Catalonia or Galicia. We subsequently proposed a model that tries to capture the
+mechanisms behind this observation. It features two languages, and individuals that can
+speak one of the two languages, or both. The transition probabilities from one language
+group to another do not only depend on the proportion of speakers of each language, or
+on the external prestige attributed by institutions to one of the two languages, that
+were introduced in previous studies, but also on the relative ease to learn one language
+when knowing the other, and on the preference of bilinguals for one of the two
+languages. To understand if and how stable coexistence of languages may emerge within
+this model, we determined the stable fixed points of the model in mean-field and set in
+a completely interconnected population. The two parameters we introduced were found to
+be crucial to pass from stable solutions of extinction and dominance to ones of
+coexistence. They even allow to have a stable community of bilinguals sustain a minority
+language. Then, as there still remained to understand how different spatial
+configurations can emerge, we simulated the model in a metapopulation framework,
+incorporating the daily commuting of individuals in Belgium. Remarkably, we found that
+the present state featuring a boundary between Flemish and French can be stable if the
+relative rate of learning the other language remains low enough. Further, if this rate
+were to increase, at some point bilingualism would spread across the country, as is the
+case in Catalonia. Still, if it were to increase, but not enough, one language may
+actually spread over the boundary and overshadow the other. Our modelling effort has
+thus proved fruitful, as it uncovered that cultural attachment to a language and
+policies facilitating language learning can be critical in enabling language
+coexistence.
 
 Our second study presented in \cref{ch:ses} is very much similar to the first in terms
 of methodology, but it is however applied to a very different issue. This time, we
@@ -69,27 +70,26 @@ therefore focussed on one language in particular, the English language, in one c
 the UK. We ran a grammar and spell checker on geotagged tweets of more than a hundred
 thousand Twitter users for whom we could determine the \ac{MSOA} of residence. This
 enabled us an analysis of the correlation between the frequency of grammar mistakes
-these users make, and the average income of the area where they live, serving as a
-approximate proxy for their \ac{SES}. We found a rather weak but significant trend for
-users from poorer areas to make more mistakes. However, zooming in separately on eight
-metropolitan areas of England, we spotted very different correlations for the same
-variables across these areas. Remarkably, after inferring the broad mobility patterns of
-different \ac{SES} classes in these areas from their user's geotagged tweets, we
-discovered that these correlations are actually lower the higher their assortativity in
-this city. In other words, our results could imply that mixing of different classes
-smoothes out linguistic differences between them. We subsequently proposed an \ac{ABM}
-that tries to explain this phenomenon. It considers individuals that can belong to one
-of two \ac{SES} classes, which is a fixed property, and may speak one of two varieties
-of their language, which is subject to change. Similarly to our model of language
-competition, it incorporates the prestige of one of the two varieties, as well as the
-relative preference of each class for each variant. To account for the effect of
-assortativity, individuals have a cell of residence that they share with others of
-similar \ac{SES}, and can have different probabilities to move to other cells. In a
-simple setting with just two cells and symmetric mobility patterns of the classes, we
-have shown through a mathematical analysis of the fixed points of the model set in
-mean-field that a strong preference of the lower class to speak non-standard can help
-sustain this variety, and that more mixing does indeed push toward more similar
-variety adoption across classes.
+these users make, and the average income of the area where they live, which serves as a
+proxy for their \ac{SES}. We found a rather weak but significant trend for users from
+poorer areas to make more mistakes. However, zooming in separately on eight metropolitan
+areas of England, we spotted very different correlations for the same variables across
+these areas. Remarkably, after inferring the broad mobility patterns of different
+\ac{SES} classes in these areas from their user's geotagged tweets, we discovered that
+these correlations are actually lower the higher their assortativity in this city. In
+other words, our results could imply that mixing of different classes smoothes out
+linguistic differences between them. We subsequently proposed an \ac{ABM} that tries to
+explain this phenomenon. It considers individuals that can belong to one of two \ac{SES}
+classes, which is a fixed property, and may speak one of two varieties of their
+language, which is subject to change. Similarly to our model of language competition, it
+incorporates the prestige of one of the two varieties, as well as the relative
+preference of each class for each variant. To account for the effect of assortativity,
+individuals have a cell of residence that they share with others of similar \ac{SES},
+and can have different probabilities to move to other cells. In a simple setting with
+just two cells and symmetric mobility patterns of the classes, we have shown through a
+mathematical analysis of the fixed points of the model set in mean-field that a strong
+preference of the lower class to speak non-standard can help sustain this variety, and
+that more mixing does indeed push toward more similar variety adoption across classes.
 % TODO: simulations
 
 In \cref{ch:acr}, we again focus on the English language, but this time on the US to
@@ -97,9 +97,9 @@ investigate how lexical variation may reflect cultural differences. We proposed 
 alternative to the works of cultural geographers who defined US cultural regions based
 on qualitative arguments, or on quantitative ones, but in either case based on quite
 arbitrary choices in the definition of the important cultural factors. Our alternative
-is rather based on inferring both cultural regions and features from what people care to
-discuss, here again in particular on Twitter. From billions of geotagged tweets, we
-derived the word frequency distributions in all counties of the contiguous US. We
+is rather based on inferring both cultural regions and their features from what people
+care to discuss, here again in particular on Twitter. From billions of geotagged tweets,
+we derived the word frequency distributions in all counties of the contiguous US. We
 extracted the regional hotspots, if any, in the usage of the \SI{10000}{} most frequent
 word forms using a metric of local spatial autocorrelation. In order to focus on
 relevant signal and not spurious variations in some words' frequencies, we then
@@ -110,7 +110,7 @@ for different numbers of splits. We found a very strong two-way split, between t
 South-East of the country and the rest, mostly defined by a strong influence of
 African-American culture. We have shown how the country can be further divided into 5
 coherent cultural regions, based on topics as diverse as politics, one's natural
-surroundings, spectator sports or local pride. This work has thus shown how culture is
+surroundings, spectator sports, or local pride. This work has thus shown how culture is
 indeed deeply embedded into language, and how this can be leveraged to determine the
 factors that are actually important in a people's culture.
 
@@ -119,32 +119,36 @@ factors that are actually important in a people's culture.
 \section{What I learned along the way}
 
 \subsection{The state of open data}
-If not for the continued effort made by technicians of my institute to collect Twitter
-data over more than seven years, most of the research presented here would never have
-come to light. This work has thus been made possible first thanks to these technicians'
-work, to whom I am grateful, but also fundamentally because Twitter allowed it. And no
-one, me included, can deny that having so much research rely on a single, private source
-of data, is highly problematic. Indeed, counting on the good will of private online
-platforms is not a viable foundation for research
-\cite{AusloosOperationalizingResearch2020}. As we already mentioned in
-\cref{sec:methods_online_data}, since private companies are driven by economic growth and
-(sometimes) profit, they have no incentive to contribute to academic
-research, apart maybe for some marginal publicity. Hence why platforms that are generous in
-the data they provide to researchers through their \ac{API} are few. And they seem to be
-getting fewer, as recent announcements about academic access to Twitter \ac{API} seem to
+A perceptive reader will have noticed from the last section that Twitter data has been
+central in every work I have presented here. Therefore, if not for the continued effort
+made by technicians of my institute to collect Twitter data over more than seven years,
+most of the research presented here would never have come to light. This work has thus
+been made possible first thanks to these technicians' work, to whom I am grateful, but
+also fundamentally because Twitter allowed it. And no one, me included, can deny that
+having so much research rely on a single, private source of data, is highly problematic.
+Indeed, counting on the good will of private online platforms is not a viable foundation
+for research \cite{AusloosOperationalizingResearch2020}. As we already mentioned in
+\cref{sec:methods_online_data}, since private companies are driven by economic growth
+and (sometimes) profit, they have no incentive to contribute to academic research, apart
+maybe for some marginal publicity. Hence why platforms that are generous in the data
+they provide to researchers through their \ac{API} are few. And they seem to be getting
+fewer, as recent announcements about academic access to Twitter \ac{API} seem to
 indicate. One could object that researchers could still pay for access to these data to
 make it an agreeable deal. But this still poses the problem of the power these private
-entities could hold over public, independent research. For instance, for as long as it
-has existed, academic access to the Twitter \ac{API} has been subject to their approval,
-after an internal review based on opaque criteria. If they wished to do so, they had
-every right to revoke the access of a researcher. This threatens the independence of the
-researchers that may wish to study these platforms, through a potential censorship by
-the platforms, but also any induced self-censorship of the researcher, whether conscious
-or not.
+entities could hold over public, a priori independent research. For instance, for as
+long as it has existed, academic access to the Twitter \ac{API} has been free but
+subject to their approval, after an internal review based on opaque criteria. If they
+wished to do so, they had every right to revoke the access of a researcher. This
+threatens the independence of the researchers that may wish to study these platforms,
+through a potential censorship by the platforms, but also any induced self-censorship of
+the researcher, whether conscious or not. It is hard to imagine Twitter censoring the
+kind of works I have presented here, but for instance, people who are interested in the
+inner workings of the platform and its potential harmfulness to society could be
+concerned.
 
 There is potential for public regulation to tackle this issue. A first step in the right
 direction may very well be in the making as the Digital Services Act of the European
-Union will come into force, in particular its article 40 \cite{DigitalServices2022}. It
+Union is coming into force, in particular its article 40 \cite{DigitalServices2022}. It
 aims at facilitating independent auditing of very popular online media, for instance to
 quantify the effects their algorithms or potential moderation may have on public debate
 or political polarisation. To reach this goal, it outlines a process that allows vetted
@@ -156,16 +160,20 @@ but it constitutes a great step forward as a framework for academic data access 
 by public authorities. If successful, one can imagine it extended to other kinds of
 companies such as cell phone companies or online retailers
 \cite{PersilyProposalResearcher2021}. If a robust framework is laid out to vet research
-projects that can give guarantees that the researchers will comply with privacy laws and
-keep the data they were handed in the academic realm, private companies may be less
-reluctant if future legislation extends the scope of research that can make such data
-requests. This thesis has demonstrated how online social media data can be extremely
-valuable to sociolinguistic study, but many other subjects of public importance can
-benefit. One can take the example of the study of mobility patterns, for which data-rich
-companies such as Google or mobile network operators exceptionally shared data for
-COVID-related studies \cite{AguilarImpactUrban2022,GozziEstimatingEffect2021}. They were
-shared with a few research groups only, but these kinds of precedents show trust can be
-built between these private companies and researchers.
+projects that can give guarantees that the researchers will comply with privacy laws,
+and keep the data they were handed within the academic realm, private companies may be
+less reluctant if future legislation extends the scope of research that can make such
+data requests. This thesis has demonstrated how online social media data can be
+extremely valuable to sociolinguistic study, but many other subjects of public
+importance can benefit. One can take the example of the study of mobility patterns, for
+which data-rich companies such as Google or mobile network operators exceptionally
+shared data for studies related to the latest COVID pandemic
+\cite{AguilarImpactUrban2022,GozziEstimatingEffect2021}. They were shared with a few
+research groups only, but these kinds of precedents show trust can be built between
+private companies and researchers. Having public authorities mediate between the two has
+the potential to democratise the access of the research community to the very valuable
+datasets these companies hold. There only remains to see how well these new rules will
+actually be implemented, which could also inspire other countries.
 % A major problem then seems to be trust
 
 % but also to enable independent
@@ -215,7 +223,7 @@ segregated different language groups were in some multilingual regions.
 % Since traditional metrics for the field of complexity science, such as entropy
 One way to conceptualise a metric giving this kind of estimate is as a distance between
 two spatially embedded distributions: the one of the total population, and the one of
-the language group in under consideration. 
+the language group under consideration. 
 % % chequerboard problem \cite{WhiteMeasurementSpatial1983}
 % First finding out the shortcomings of spatial entropies, widely accepted in the field of
 % spatial complex systems \cite{BattyEntropyComplexity2014}
@@ -224,17 +232,17 @@ within the field of computer vision \cite{RubnerMetricDistributions1998}. Indeed
 \ac{EMD} is nothing but a particular version of the Wasserstein or Mallows distance,
 well known in transport theory, and is thus a proper distance (in the metric sense)
 between probability distributions, as shown in \cite{LevinaEarthMover2001}. As it turns
-out, I found out roughly a year after writing this article linked to this chapter that
+out, I found out roughly a year after writing the article linked to this chapter that
 the geographer \citefirstlastauthor{JakubsDistancebasedSegregation1981} had defined a
 metric equivalent to the \ac{EMR} in 1981 \cite{JakubsDistancebasedSegregation1981},
-much before the term \ac{EMD} was adopted. With a different formulation of the problem,
-he came up with a metric very similar to mine. Only it is most of the time only
-mentioned in passing in posterior works and never applied in large scale studies --- due
-to computation limitations more than theoretical flaws, I suspect. This dive into
-literature from a mix of computer vision, mathematics and geography, in the completely
-wrong order, has shown me how researchers from different fields can talk about the same
-concepts with completely different words, and also arrive to the same conclusions with
-different train of thoughts.
+much before the term \ac{EMD} was discussed in the realm of computer vision. With a
+different formulation of the problem, he came up with a metric very similar to mine.
+Only it has most of the time only been mentioned in passing in posterior works and never
+applied in large scale studies --- due to computation limitations more than theoretical
+flaws, I suspect. This dive into literature from a mix of computer vision, mathematics
+and geography, in the completely wrong order, has shown me how researchers from
+different fields can talk about the same concepts with completely different words, and
+also arrive to the same conclusions with different trains of thoughts.
 % Natural that different fields end up using different terms. In this case,
 % mathematicians have defined a general distance, which is used in other applied fields
 % within a particular case. So the mathematicians need this more general name. And would
@@ -249,48 +257,47 @@ Further, citing a work outside your field is much more valuable than citing anot
 everyone within your field already knows, as most of your readers are probably going to
 be from your field.
 
-All in all, the people and the research one interacts with are highly interdependent. And
-as I think this thesis shows, more diversity in those can be the foundation for more
-thorough and further-reaching research. But while desirable, increasing this diversity
-in one's research is far from straightforward. Beyond the point made above that looking
-for and citing other fields' literature can help, or the obvious that one should try to
-go to different conferences or pursue projects with actually interdisciplinary teams, I
-would like to highlight the lack of interdisciplinary reviews. Review articles are the
-first literature one seeks to enter into a field. Yet, the notion of field itself limits
-the scope of reviews such as \cite{CastellanoStatisticalPhysics2009}, which is a very
-good review of physics-inspired models of social phenomena, but exactly as such, it
-targets almost exclusively researchers with a background in physics. While there is no
-doubt this kind of review adds great value, another kind that would focus rather on an
-issue that is tackled by multiple fields, and that would review their different
-approaches and confront or relate them, would also be beneficial. For instance, instead
-of answering the question ``what physics-inspired models have been used to study social
-dynamics?'', they would answer one such as ``what is the state of research on language
-competition and multilingualism, from the (mostly) qualitative models of linguists to
-the quantitative ones of physicists, also considering empirical works?''. This would
-provide scientists from different fields insights into  what others have to say about a
+All in all, the people and the research one interacts with are highly interdependent.
+And, as I think this thesis shows, more diversity in those can be the foundation for
+more thorough and further-reaching research. But while desirable, increasing this
+diversity in one's research is far from straightforward. Beyond the point made above
+that looking for and citing other fields' literature can help, or the obvious that one
+should try to go to different conferences, or pursue projects with actually
+interdisciplinary teams, I would like to highlight the lack of interdisciplinary
+reviews. Review articles are the first literature one seeks to enter into a field. Yet,
+the notion of field itself limits the scope of reviews such as
+\cite{CastellanoStatisticalPhysics2009}, which, while a very good review of
+physics-inspired models of social phenomena, exactly as such it targets almost
+exclusively researchers with a background in physics. While there is no doubt this kind
+of review adds great value, I believe another kind that would focus rather on an issue that is
+tackled by multiple fields, and that would review their different approaches and
+confront or relate them, would also be beneficial. For instance, instead of answering
+the question ``what physics-inspired models have been used to study social dynamics?'',
+they would answer one such as ``what is the state of research on language competition
+and multilingualism, from the (mostly) qualitative models of linguists to the
+quantitative ones of physicists, also considering empirical works?''. This would provide
+scientists from different fields insights into what others have to say about a
 question, and who they might collaborate with to further everyone's understanding. The
 more recent \cite{BoissonneaultSystematicInterdisciplinary2021} is the closest to being
 this kind of interdisciplinary review that I am aware of, although more is necessary as
 it does not confront the conclusions of the research coming from different fields.
 
 
-
-
-
 \section{Uncharted directions worth exploring}
 While I believe the results summarised above provide valuable insights to
 sociolinguistic matters, they leave many questions unanswered, and may actually even
-raise more questions than answers. In the following I will list some potential
+raise more new questions than answers. In the following, I will list some potential
 directions for future research that could build on top of the work we have presented
 here. First are unresolved questions in sociolinguistics that naturally arise from the
 results we have presented.
 
-For instance, can the model of language shift we presented in \cref{ch:multiling} be
-equally applied to diachronic data? A dataset with historical data spanning centuries
-was for example used recently in \cite{SeoaneAreDutch2022}. One could try to see if our
-model can be fit to these data, and, if not, what ingredients may be missing. A
-comparison with the results obtained in \cite{SeoaneAreDutch2022} with a different model
-can also bring valuable insights to the field. 
+For instance, we studied only the stable fixed points of the model of language shift
+presented in \cref{ch:multiling}. But could it be equally applied to diachronic data? A
+dataset with historical data from Belgium spanning centuries was for example used
+recently in \cite{SeoaneAreDutch2022}. One could try to see if our model can be fit to
+these data, and, if not, what ingredients may be missing. A comparison with the results
+obtained in \cite{SeoaneAreDutch2022} with a different model can also bring valuable
+insights to the field. 
 
 Another idea about modelling language competition that is worth looking into and that we
 have not mentioned yet is to consider language as a property not only of the individuals
@@ -313,10 +320,12 @@ countries is reflected in those. More interesting questions then arise. Did more
 conflictual decolonisation processes lead to starker cultural differences? Or, does a
 more recent split imply more similarity?
 
-\Ac{SES} may very well impact other aspects of people's speech than whether one abides
-by the rules defining the standard form of their language in writing. The persistence of
-different accents or some lexical items may also be linked to it, and in particular to
-the preferential attachment of the low \ac{SES} class to them. 
+On another topic, \ac{SES} may very well impact other aspects of people's speech than
+whether one abides by the rules defining the standard form of their language in writing.
+The persistence of different accents or some lexical items may also be linked to it, and
+in particular to the preferential attachment of the low \ac{SES} class to them. Are the
+dynamics for those linguistic features similar to those we have described in
+\cref{ch:ses_ling}? That is another question we cannot answer for the moment.
 
 The second kind of directions I would like to suggest are simply interesting questions
 that arose while I worked on this thesis, as, while investigating matters of
@@ -343,8 +352,8 @@ the $(N - 1)^\text{th}$, which is equivalent to having a sublinear functional de
 of social impact on the proportion of different agents ($a < 1$ in the models presented
 in \cref{ch:multiling}). Some empirical works using controlled experiments seem to
 confirm this theory, however there are also researchers arguing for the existence of a
-threshold effect in social contagion, made popular through the concept of social tipping
-point \cite{MilkoreitDefiningTipping2018}. It would be very interesting to bridge the
+threshold effect in social contagion, made popular with the concept of social tipping
+points \cite{MilkoreitDefiningTipping2018}. It would be very interesting to bridge the
 understanding between these works on social pressure and, for instance, all the works
 studying social contagion in complexity science \cite{WattsInfluentialsNetworks2007},
 including the more recent investigations into higher-order effect
