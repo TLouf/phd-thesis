@@ -9,7 +9,7 @@
    viewBox="0 0 433.94434 154.7664"
    sodipodi:docname="single_pop_stream_plots.svg"
    inkscape:version="1.2.2 (1:1.2.2+202212051552+b0a8486541)"
-   inkscape:export-filename="single_pop_stream_plots.png"
+   inkscape:export-filename="single_pop_stream_plots.pdf"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -28175,13 +28175,13 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="1.71662"
-     inkscape:cx="228.93826"
-     inkscape:cy="80.973075"
-     inkscape:window-width="1920"
-     inkscape:window-height="1043"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
+     inkscape:cx="311.65896"
+     inkscape:cy="71.069893"
+     inkscape:window-width="1504"
+     inkscape:window-height="425"
+     inkscape:window-x="345"
+     inkscape:window-y="1420"
+     inkscape:window-maximized="0"
      inkscape:current-layer="g10">
     <inkscape:page
        x="0"
@@ -28200,17 +28200,19 @@
        style="opacity:1;fill:#fd0000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1"
        id="path22"
        clip-path="url(#clipPath42212)"
-       transform="translate(-42.000111)" />
+       transform="matrix(1.25,0,0,1.25,-82.886611,-32.87575)" />
     <path
        d="m 24.3808,131.749 c 0,0.563 -0.225,1.109 -0.6247,1.503 -0.3998,0.401 -0.9398,0.624 -1.5023,0.624 -0.567,0 -1.107,-0.223 -1.5075,-0.624 -0.3997,-0.394 -0.6247,-0.94 -0.6247,-1.503 0,-0.562 0.225,-1.107 0.6247,-1.503 0.4005,-0.399 0.9405,-0.623 1.5075,-0.623 0.5625,0 1.1025,0.224 1.5023,0.623 0.3997,0.396 0.6247,0.941 0.6247,1.503"
        style="opacity:1;fill:#0000fd;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1"
        id="path40"
-       clip-path="url(#clipPath84743)" />
+       clip-path="url(#clipPath84743)"
+       transform="matrix(1.25,0,0,1.25,-5.5628,-32.937375)" />
     <path
        d="m 115.159,40.9707 c 0,0.5625 -0.225,1.104 -0.625,1.503 -0.399,0.4005 -0.939,0.6248 -1.502,0.6248 -0.562,0 -1.107,-0.2243 -1.503,-0.6248 -0.4,-0.399 -0.625,-0.9405 -0.625,-1.503 0,-0.567 0.225,-1.107 0.625,-1.5075 0.396,-0.3997 0.941,-0.6232 1.503,-0.6232 0.563,0 1.103,0.2235 1.502,0.6232 0.4,0.4005 0.625,0.9405 0.625,1.5075"
        style="opacity:1;fill:#0000fd;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1"
        id="path44"
-       clip-path="url(#clipPath25507)" />
+       clip-path="url(#clipPath25507)"
+       transform="matrix(1.25,0,0,1.25,-28.257875,-10.242312)" />
     <path
        d="m 54.134,71.4329 c 0,0.375 -0.1492,0.7357 -0.4162,1.002 -0.2663,0.267 -0.627,0.4162 -1.002,0.4162 -0.378,0 -0.738,-0.1492 -1.005,-0.4162 -0.2663,-0.2663 -0.4155,-0.627 -0.4155,-1.002 0,-0.378 0.1492,-0.738 0.4155,-1.0043 0.267,-0.264 0.627,-0.4132 1.005,-0.4132 0.375,0 0.7357,0.1492 1.002,0.4132 0.267,0.2663 0.4162,0.6263 0.4162,1.0043"
        style="opacity:1;fill:#0000fd;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1"
@@ -28220,7 +28222,8 @@
        d="m 54.8434,71.4329 c 0,0.5625 -0.2235,1.104 -0.624,1.503 -0.3998,0.4005 -0.9405,0.624 -1.503,0.624 -0.567,0 -1.107,-0.2235 -1.5075,-0.624 -0.3998,-0.399 -0.6233,-0.9405 -0.6233,-1.503 0,-0.567 0.2235,-1.1078 0.6233,-1.5068 0.4005,-0.396 0.9405,-0.6195 1.5075,-0.6195 0.5625,0 1.1032,0.2235 1.503,0.6195 0.4005,0.399 0.624,0.9398 0.624,1.5068"
        style="opacity:1;fill:#fd0000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1"
        id="path52"
-       clip-path="url(#clipPath78872)" />
+       clip-path="url(#clipPath78872)"
+       transform="matrix(1.25,0,0,1.25,-13.178625,-17.858312)" />
     <path
        d="m 27.0282,40.97 h -4.7753 v 90.779 l 1.1925,-1.195 1.1948,-1.192 7.1662,-7.166 v -0.003 h 0.003 l 7.1663,-7.166 1.1925,-1.195 1.1947,-1.193 7.1663,-7.166 v -0.003 h 0.003 l 7.1662,-7.1662 1.1918,-1.1948 1.1955,-1.1925 1.1955,-1.1955 1.1925,-1.1955 h 0.003 l 4.7752,-4.7752 v -0.003 h 0.003 l 9.5535,-9.5535 v -0.003 l 1.1955,-1.1925 1.1925,-1.1948 h 0.003 L 91.5312,62.471 v -0.006 l 1.1955,-1.1925 1.1925,-1.194 h 0.003 L 108.254,45.7483 v -0.006 l 1.195,-1.1888 1.192,-1.1947 h 0.003 l 2.388,-2.3888 z"
        style="opacity:1;fill:none;stroke:#000000;stroke-width:0.63;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:3.25;stroke-dasharray:none;stroke-opacity:1"
@@ -31107,13 +31110,13 @@
        style="opacity:1;fill:#0000fd;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1"
        id="path2384"
        clip-path="url(#clipPath31607)"
-       transform="translate(-42.000111)" />
+       transform="matrix(1.25,0,0,1.25,-88.071611,-15.314812)" />
     <path
        d="m 256.793,40.8602 c 0,0.5625 -0.224,1.104 -0.625,1.503 -0.399,0.4005 -0.939,0.6247 -1.501,0.6247 -0.563,0 -1.108,-0.2242 -1.504,-0.6247 -0.4,-0.399 -0.624,-0.9405 -0.624,-1.503 0,-0.567 0.224,-1.107 0.624,-1.5075 0.396,-0.3998 0.941,-0.6233 1.504,-0.6233 0.562,0 1.102,0.2235 1.501,0.6233 0.401,0.4005 0.625,0.9405 0.625,1.5075"
        style="opacity:1;fill:#fd0000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1"
        id="path2388"
        clip-path="url(#clipPath52870)"
-       transform="translate(-42.000111)" />
+       transform="matrix(1.25,0,0,1.25,-105.66661,-10.214663)" />
     <path
        d="m 168.662,40.8595 h -4.776 v 90.7795 l 1.193,-1.196 1.195,-1.191 7.167,-7.167 v -0.003 h 0.003 l 7.165,-7.166 1.193,-1.195 1.195,-1.192 7.166,-7.166 v -0.004 h 0.003 l 7.166,-7.1658 1.192,-1.1947 1.196,-1.1925 1.196,-1.1955 1.191,-1.1955 h 0.003 l 4.776,-4.7753 v -0.0029 h 0.002 l 9.555,-9.5536 v -0.0029 l 1.194,-1.1926 1.193,-1.1947 h 0.003 l 14.332,-14.3325 v -0.006 l 1.195,-1.1925 1.193,-1.194 h 0.003 l 14.331,-14.3303 v -0.006 l 1.196,-1.1887 1.192,-1.1948 h 0.004 l 2.387,-2.3887 z"
        style="opacity:1;fill:none;stroke:#000000;stroke-width:0.63;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:3.25;stroke-dasharray:none;stroke-opacity:1"
@@ -34617,19 +34620,19 @@
        style="opacity:1;fill:#0000fd;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1"
        id="path4876"
        clip-path="url(#clipPath37949)"
-       transform="translate(-82.50021)" />
+       transform="matrix(1.25,0,0,1.25,-178.93333,-10.246425)" />
     <path
        d="m 306.709,131.583 c 0,0.562 -0.226,1.108 -0.625,1.503 -0.4,0.4 -0.94,0.624 -1.503,0.624 -0.567,0 -1.106,-0.224 -1.507,-0.624 -0.399,-0.395 -0.625,-0.941 -0.625,-1.503 0,-0.563 0.226,-1.107 0.625,-1.503 0.401,-0.4 0.94,-0.623 1.507,-0.623 0.563,0 1.103,0.223 1.503,0.623 0.399,0.396 0.625,0.94 0.625,1.503"
        style="opacity:1;fill:#fd0000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1"
        id="path4880"
        clip-path="url(#clipPath81195)"
-       transform="translate(-82.50021)" />
+       transform="matrix(1.25,0,0,1.25,-158.64496,-32.895875)" />
     <path
        d="m 397.488,40.8044 c 0,0.5625 -0.226,1.104 -0.625,1.503 -0.401,0.4005 -0.941,0.6248 -1.503,0.6248 -0.563,0 -1.106,-0.2243 -1.503,-0.6248 -0.399,-0.399 -0.625,-0.9405 -0.625,-1.503 0,-0.567 0.226,-1.107 0.625,-1.5075 0.397,-0.3997 0.94,-0.6232 1.503,-0.6232 0.562,0 1.102,0.2235 1.503,0.6232 0.399,0.4005 0.625,0.9405 0.625,1.5075"
        style="opacity:1;fill:#fd0000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1"
        id="path4884"
        clip-path="url(#clipPath75475)"
-       transform="translate(-82.50021)" />
+       transform="matrix(1.25,0,0,1.25,-181.34021,-10.200738)" />
     <path
        d="m 309.356,40.8037 h -4.775 v 90.7793 l 1.192,-1.196 1.195,-1.191 7.166,-7.167 v -0.003 h 0.003 l 7.166,-7.166 1.193,-1.195 1.195,-1.192 7.166,-7.166 v -0.003 h 0.003 l 7.166,-7.1665 1.192,-1.1948 1.195,-1.1925 1.196,-1.1955 1.192,-1.1955 h 0.003 l 4.776,-4.7752 v -0.003 h 0.003 l 9.553,-9.5535 v -0.003 l 1.196,-1.1925 1.192,-1.1948 h 0.003 l 14.332,-14.3325 v -0.006 l 1.195,-1.1925 1.193,-1.194 h 0.002 L 390.582,45.582 v -0.006 l 1.195,-1.1888 1.192,-1.1947 h 0.003 l 2.388,-2.3888 z"
        style="opacity:1;fill:none;stroke:#000000;stroke-width:0.63;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:3.25;stroke-dasharray:none;stroke-opacity:1"
