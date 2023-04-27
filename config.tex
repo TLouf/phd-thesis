@@ -74,10 +74,14 @@
 % ********************************************************************
 % Packages with options that might require adjustments
 % ********************************************************************
-\PassOptionsToPackage{spanish,es-lcroman,french,UKenglish}{babel} % change this to your language(s), main language last
-% Spanish languages need extra options in order to work with this template
-%\PassOptionsToPackage{spanish,es-lcroman}{babel}
+
+% Pass language(s) here, main language last/ Spanish languages need extra options in
+% order to work with this template.
+\PassOptionsToPackage{spanish,es-lcroman,french,catalan,UKenglish}{babel} 
     \usepackage{babel}
+% Cannot make Spanish work for both LTeX and babel, so let's define a tag to have
+% unified name.
+\babeltags{es=spanish}
 
 \usepackage{csquotes}
 \usepackage{epigraph}
@@ -115,6 +119,22 @@
 
 \newrobustcmd*{\citefirstlastauthor}{\AtNextCite{\DeclareNameAlias{labelname}{given-family}}\citeauthor}
 \newcommand{\epigraphcite}[1]{--- \citefirstlastauthor{#1}, \citetitle{#1}~\cite{#1}}
+
+\DeclareFieldFormat[movie,misc]{editoratype}{\MakeUppercase{#1}}
+
+% \DeclareFieldFormat{uppercase}{\MakeUppercase{#1}}
+% \DeclareListFormat{uppercase}{\MakeUppercase{#1}}
+% \usepackage{xpatch}
+% \xpatchbibmacro{editoratype}{\printfield{editoratype}}{\printfield[uppercase]{editoratype}}{}{}
+
+% \DeclareSourcemap{
+%   \maps[datatype=bibtex]{
+%     \map{
+%       \step[typesource=movie, typetarget=video]
+%     }
+%   }
+% }
+
 
 \PassOptionsToPackage{fleqn}{amsmath}       % math environments and more by the AMS
   \usepackage{amsmath}
