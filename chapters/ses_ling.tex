@@ -166,10 +166,10 @@ cell will necessarily be assigned to the same class. Considering the cells in a 
 metropolitan area, we rank them by increasing average net income. We get their
 population from the
 census\footnote{\url{https://www.nomisweb.co.uk/census/2011/ks101uk}}, denoted $N_c$ for
-each cell $c$ in the following. Denoting $P_c$ the set of cells with an average income
-lower than $c$'s, we determine the \ac{SES} class of $c$ as:
+each cell $c$ in the following. Denoting $I_c$ the set of cells with an average income
+lower than or equal to $c$'s, we determine the \ac{SES} class of $c$ as:
 \begin{equation}
-  S_c = n_S \left\lceil \frac{\sum_{c' \in P_c} N_{c'}}{\sum_{c' \in C} N_{c'}} \right\rceil,
+  S_c = n_S \left\lceil \frac{\sum_{c' \in I_c} N_{c'}}{\sum_{c'} N_{c'}} \right\rceil,
 \end{equation}
 with $\left\lceil \cdot \right\rceil$ representing the ceiling function and $n_S$ the
 number of classes we wish to define. We denote $t_{u, c}$ the number of trips made by
