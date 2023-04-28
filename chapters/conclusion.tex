@@ -62,35 +62,38 @@ thus proved fruitful, as it uncovered that cultural attachment to a language and
 policies facilitating language learning can be critical in enabling language
 coexistence.
 
-Our second study presented in \cref{ch:ses} is very much similar to the first in terms
-of methodology, but it is however applied to a very different issue. This time, we
-looked into variation within a language, and in particular into variations away from the
-standard form, and how this variation may arise from socio-economic segregation. We
-therefore focussed on one language in particular, the English language, in one country,
-the UK. We ran a grammar and spell checker on geotagged tweets of more than a hundred
-thousand Twitter users for whom we could determine the \ac{MSOA} of residence. This
-enabled us an analysis of the correlation between the frequency of grammar mistakes
-these users make, and the average income of the area where they live, which serves as a
-proxy for their \ac{SES}. We found a rather weak but significant trend for users from
-poorer areas to make more mistakes. However, zooming in separately on eight metropolitan
-areas of England, we spotted very different correlations for the same variables across
-these areas. Remarkably, after inferring the broad mobility patterns of different
-\ac{SES} classes in these areas from their user's geotagged tweets, we discovered that
-these correlations are actually lower the higher their assortativity in this city. In
-other words, our results could imply that mixing of different classes smoothes out
-linguistic differences between them. We subsequently proposed an \ac{ABM} that tries to
-explain this phenomenon. It considers individuals that can belong to one of two \ac{SES}
-classes, which is a fixed property, and may speak one of two varieties of their
-language, which is subject to change. Similarly to our model of language competition, it
-incorporates the prestige of one of the two varieties, as well as the relative
-preference of each class for each variant. To account for the effect of assortativity,
-individuals have a cell of residence that they share with others of similar \ac{SES},
-and can have different probabilities to move to other cells. In a simple setting with
-just two cells and symmetric mobility patterns of the classes, we have shown through a
-mathematical analysis of the fixed points of the model set in mean-field that a strong
-preference of the lower class to speak non-standard can help sustain this variety, and
-that more mixing does indeed push toward more similar variety adoption across classes.
-% TODO: simulations
+Our second study presented in \cref{ch:ses_ling} builds upon a similar methodology, this
+time applied to a very different issue. We investigated variation within a language, and
+in particular into variations away from the standard form, and how this variation may
+arise from socio-economic segregation. We therefore focussed on one language in
+particular, the English language, in one country, the UK. We ran a grammar and spell
+checker on geotagged tweets of more than a hundred thousand Twitter users for whom we
+could determine the \ac{MSOA} of residence. This enabled us to compute correlations
+between the frequency of grammar mistakes these users make, which serves as an indicator
+of how much their language deviates from the standard form, and the average income of
+the area where they live, which serves as a proxy for their \ac{SES}. We thus found a
+rather weak but significant trend for users from poorer areas to use a less standard
+language. However, zooming in separately on eight metropolitan areas of England, we
+spotted very different correlations for the same variables across these areas.
+Remarkably, after inferring the broad mobility patterns of different \ac{SES} classes in
+these areas from their user's geotagged tweets, we discovered that these correlations
+are actually lower the higher their assortativity in this city. In other words, our
+results could imply that mixing of different classes smoothes out linguistic differences
+between them. We subsequently proposed an \ac{ABM} that tries to shed light on this
+phenomenon. It considers individuals that can belong to one of two \ac{SES} classes,
+which is a fixed property, and may speak one of two varieties of their language, between
+which they may switch at different points in time. Similarly to our model of language
+competition, it incorporates the prestige of one of the two varieties, as well as the
+relative preference of each class for each variety. To account for the effect of
+assortativity, individuals have a cell of residence that they share with others of
+similar \ac{SES}, and can have different probabilities to move to other cells. In a
+simple setting with just two cells and symmetric mobility patterns of the classes, we
+have shown through a mathematical analysis of the fixed points of the model set in
+mean-field that a strong preference of the lower class to speak non-standard can help
+sustain this variety, and that more mixing does indeed push toward more similar variety
+adoption across classes. We further obtained results consistent with the observations
+when simulating the \ac{ABM} using the populations from each metropolitan area and their
+mobility, that we measured previously.
 
 In \cref{ch:acr}, we again focus on the English language, but this time on the US to
 investigate how lexical variation may reflect cultural differences. We proposed an
