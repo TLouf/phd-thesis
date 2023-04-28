@@ -105,10 +105,11 @@ Let us introduce $p_{v, s_k} \equiv P(v_{t-1} = v \mid s = s_k)$ to simplify equ
 further, and that summarise the state of the system at the previous step. Also, since
 they satisfy $\sum_v p_{v, s_k} = 1$, we will only write in terms of $p_1 \equiv p_{1,
 1}$ and $p_2 \equiv p_{2, 2}$. We also have $P(s = s_k) = \frac{N_{s_k}}{\sum_k
-N_{s_k}}$. The final term in the product is related to the mobility of the
-different SES classes. Indeed, using the fact that $c_t = c_j \mid s = s_k$ is
-independent from $v_{t-1} = v$, and aligning the indices of the SES class with the one
-of their cell of residence, we have
+N_{s_k}}$. The final term in the product is related to the mobility of the different SES
+classes. Indeed, aligning the indices of the SES class with the one of their cell of
+residence, and using the fact that the random variable $C_{t}$, which represents the
+cell where an individual will be encountered at step $t$, is independent from $V_{t-1}$,
+which represents an individual's variety usage at the previous step, we have
 \begin{equation}
 \label{eq:mob_by_SES}
     P(c_t = c_j \mid v_{t-1} = v, s = s_k) = P(c = c_j \mid s = s_k) = M_{k, j},
@@ -303,6 +304,8 @@ Since $0 < p_2^* < 1$, this implies that the right hand side above is negative, 
 \end{equation}
 This is in contradiction with the signs of the other terms in
 \cref{eq:appendix_eq_points}. It is therefore strictly impossible to have coexistence
-solutions when $q_1 < l_v$ and $l_v + q_2 - 1 > 0$.
+solutions when $q_1 < l_v$ and $l_v + q_2 - 1 > 0$. In other words, the fact that
+\ac{SES} class 1 has a positive bias towards variety 1 (non-standard) higher than the
+prestige of the standard form is a necessary condition for the former to survive. 
 
 \end{document}
