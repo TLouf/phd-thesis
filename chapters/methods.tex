@@ -666,24 +666,36 @@ population. Their state could be linked to a linguistic variable, or even a set 
 In the case of language competition, it may be the language(s) they speak. The model
 then defines switching rules between states. For instance, one can rewrite the
 Abrams-Strogatz model of \cref{eq:AS_dt} as an \ac{ABM}, writing the following
-transition probabilities:
+transition probabilities for each agent $i$:
 \begin{equation}
   \label{eq:AS_ABM}
   \begin{aligned}
-    P(A \rightarrow B) &= (1 - s) (1 - p_A)^a, \\
-    P(B \rightarrow A) &= s p_A^a,
+    P_i(A \rightarrow B) &= (1 - s) (1 - p_{A, i})^a, \\
+    P_i(B \rightarrow A) &= s p_{A, i}^a,
   \end{aligned}
 \end{equation}
 from A to B, and B to A, respectively. Each agent, in function of their current state,
-may switch to another, with potentially their own probability. Indeed, if each agent
-sees different proportions $p_A$, because they interact with different people, then the
+may switch to another, each with potentially different probabilities. Indeed, each agent
+$i$ may see a different $p_{A, i}$, which is the proportion of agents speaking $A$ in
+their environment, because they have a uniue network of interactions. This is how the
 social structure can be reflected in \cref{eq:AS_ABM}. And from this transition rule,
 any kind of social structure can be plugged into the model, from the very basic but
 mathematically-tractable complete network, to more realistic social networks from
 synthetic models or even real-world data. \Acp{ABM} of language competition have thus
 been tested in 2D lattices, small-world networks \cite{WattsCollectiveDynamics1998}, or
 synthetic networks with community structure
-\cite{CastelloOrderingDynamics2006,MinettModellingEndangered2008,CaridiSchellingvoterModel2013,CastelloAgentbasedModels2013,VazquezAgentBased2010}. They may still allow for analytic study, especially working in the simple case of a complete network of interactions and in mean-field, as these approximations enable to write evolution equations that may provide a good, approximate prediction of the average global trend in the population \cite{VazquezAgentBased2010}. We have here cited works focused on language dynamics, from physicists mainly, but there is a long tradition of leveraging \acp{ABM} in the social sciences, with the seminal works of Axelrod on the dissemination of culture \cite{AxelrodDisseminationCulture1997}, or Schelling's on the emergence of segregation \cite{SchellingDynamicModels1971}.
+\cite{CastelloOrderingDynamics2006,MinettModellingEndangered2008,CaridiSchellingvoterModel2013,CastelloAgentbasedModels2013,VazquezAgentBased2010}.
+They may still allow for analytic study, especially working in the simple case of a
+complete network of interactions --- meaning $p_{A, i}$ is equal for every agent to a
+global $p_A$ --- and in mean-field --- meaning we shift the perspective from individual
+switch probabilities to expected proportions of the population who will switch. Indeed,
+these approximations enable to write differential evolution equations that may provide a
+good, approximate prediction of the average global trend in the population
+\cite{VazquezAgentBased2010}. We have here cited works focused on language dynamics,
+from physicists mainly, but there is a long tradition of leveraging \acp{ABM} in the
+social sciences, with the seminal works of Axelrod on the dissemination of culture
+\cite{AxelrodDisseminationCulture1997}, or Schelling's on the emergence of segregation
+\cite{SchellingDynamicModels1971}.
 
 Despite their nature, one should not expect these models to offer predictions at the
 micro, or individual, level. Even though they define rules at this level, they do not
