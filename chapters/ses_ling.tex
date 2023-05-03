@@ -220,7 +220,6 @@ are: their Pearson r value, denoted $r_M$ in our case. It is defined as follows:
       \cdot \sqrt{\sum_{i, j} j^2 M_{i, j} - \left( \sum_{i, j} j M_{i, j} \right)^2}
     }.
 \end{equation}
-% TODO: check numbers in math mode
 This gives us a measure of assortativity, meaning that this metric gives us a sense of
 how much people of similar classes tend to stay together. The closer to $1$, the more
 individuals tend to go to areas of similar \ac{SES} (assortative mixing, segregation),
@@ -456,35 +455,26 @@ following the steps detailed in \cref{ch:appendix_ses_model}, we get
   \label{eq:ses_ling_time_evol_eq_mob}
   \left\{
   \begin{aligned}
-      % v and c depend on t
       \dv{p_1}{t} 
           &=
-            % \eqnmarkbox[NavyBlue]{mob1}{
             2 M (1 - M) (1 - p_1 - p_2) [q_1 (1 - l_v) - p_1 (q_1 - l_v)]
           % }
       \\
           & \quad +
-          % \eqnmarkbox[OliveGreen]{g1}{
             p_1 (1 - p_1) (q_1 - l_v)
           % }
       \\[1ex]
       \dv{p_2}{t} 
           &=
-            % \eqnmarkbox[NavyBlue]{mob2}{
             2 M (1 - M) (1 - p_1 - p_2) [q_2 l_v - p_2 (l_v + q_2 - 1)]
           % }
       \\
           & \quad +
-          % \eqnmarkbox[OliveGreen]{g2}{
             p_2 (1 - p_2) (l_v + q_2 - 1)
             % }
   \end{aligned}
   \right.
 \end{equation}
-%% TODO investigate why this does not work but works in test article
-% \annotatetwo[yshift=-1em,xshift=0.2ex]{below}{mob1}{mob2}{lol}
-% \annotate[yshift=-1em,xshift=0.2ex]{below}{g2}{lol}
-% TODO: use colors to identify terms and refer to them in text?
 One can first notice how each equation features a first term linked to the groups'
 mobility, maximum for $M = \frac{1}{2}$, which is the situation of maximum mixing. This
 term is null when $p_1 = 1 - p_2$, and thus tends to smooth out differences in variety
