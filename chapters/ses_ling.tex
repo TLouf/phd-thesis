@@ -571,9 +571,21 @@ regardless of the mixing.
 
 
 \subsection{Simulations in metropolitan areas}
-These interesting properties of the model call for further investigation, and
-particularly how it would fare when initialised with the actual data that we have in the
-metropolitan areas of England.
+These interesting properties of the model call for further investigation, and particularly how it would fare when initialised with the actual data that we have in the metropolitan areas of England.
+We thus wish to run simulations in each of the eight metropolitan areas analysed in \cref{fig:cities_SES_mobility,fig:cities_assort_vs_grammar_and_SES_corr}.
+We populate their \acp{MSOA} with as many agents as they have inhabitants according to the census, and attribute the average income also given by the census to all agents of each area.
+In these simulations, we will again consider 5 \ac{SES} classes, so that we can compare their results to the outputs of our data analysis, such as \cref{fig:cities_assort_vs_grammar_and_SES_corr}.
+We would therefore need 3 more linguistic parameters than in the version with 2 classes presented in \cref{fig:ses_ling_model_diagram}, namely the preferences of each additional class for one of the two varieties.
+In order to limit the number of parameters over which to iterate, we only keep the preferences $q_1$ and $q_2$, which are this time the preference of class 1 (the poorest) for variety 1 and of class 5 (the richest) for variety 2.
+We then use a linear interpolation between $q_1$ and $1 - q_2$ to attribute preferences of each class for variety 1.
+To be consistent with the phenomenon we are interested in, this interpolation is always a decreasing function of the class number, as we run simulations with $q_1 > 0.5$ and $q_2 \geq 0.5$.
+Also, naturally, we only consider values of the prestige such that $l_v > 0.5$ and $q_1 > l_v$, to avoid states of convergence featuring a hegemony of standard language, that we are not interested in.
+The only ingredient left to run the simulations is the inter-\ac{MSOA} mobility of the agents.
+We will again leverage the mobility we observed from Twitter data used previously to compute the mobility matrices presented in \cref{fig:cities_SES_mobility}, but this time including the stays of the users within their resident cell.
+We thus obtain a matrix giving for each cell the probability of their residents to be in any cell at each simulation step.
+In summary, at most three random draws are performed at each step for each agent: a first to decide in which cell this agent will be interacting with others, a second to decide the other agent they will interact with, and, if the two are using different varieties, a third to decide whether they will switch, according to their class' switch probability (similarly to what is depicted in \cref{fig:ses_ling_model_diagram} for just two classes).
+
+
 
 
 % fig with interesting simulation results: toy two cells into real populations?
