@@ -71,7 +71,8 @@ users abide by the rules of the standard variety of their language.
 To do so, we analyse the tweets written in English by users identified as UK residents,
 following the methodology described in \cref{sec:methods_twitter}. To assign a \ac{SES}
 to these users, we also determine their area of residence from the geotags attached to
-their tweets. Our unit areas for the study are the \SI{7201}{} \acp{MSOA}, which are
+their tweets, following the heuristics described in \cref{sec:method_geoloc} and with the parameter values given in \cref{tab:twitter_criteria}.
+Our unit areas for the study are the \SI{7201}{} \acp{MSOA}, which are
 areas created by the Office for National Statistics of the UK for the output of the
 census estimates\footnote{Their boundaries can be downloaded from the Open Geography
 portal of the Office for National Statistics:
@@ -588,9 +589,21 @@ In summary, at most three random draws are performed at each step for each agent
 
 
 
-% fig with interesting simulation results: toy two cells into real populations?
 \section{Discussion}
+This chapter was the occasion for us to present our investigation of the inter-dependence between \ac{SES} and the usage of different linguistic varieties.
+Focusing on the dichotomy between standard and non-standard English usage in England and Wales, we found through a combination of Twitter and census data that he average frequency of grammar mistakes and average income are slightly correlated.
+More interesting though is that we found across eight metropolitan areas that the more different \ac{SES} classes mix together, the weaker this correlation, meaning the more similar the usage of English across classes.
 
+We have subsequently introduced an \ac{ABM} that proposes an explanation for this observation.
+It features transition probabilities from using one variety to the other that depend on both a globally shared overt prestige of the standard, and a class-dependent covert prestige or preference for one of the two.
+Similarly to what we have shown in the previous chapter regarding language shift, we have here shown again that the preferential attachment of a group for a linguistic feature can be crucial to sustain it, despite an unfavourable prestige.
+The analytic framework we presented here goes a step further than the previous one, in that it enabled us to also capture the role of social mixing between these different groups.
+In accordance with our observations made with Twitter data, we have shown it tends to smooth out linguistic differences between \ac{SES} classes.
+Remarkably, this smoothing does not necessarily imply homogeneous language, but may also mean comparable prominence of the two linguistic varieties in the two groups.
 
+This work provides a solid foundation for future works of the same vein.
+Our observations were made in the social context of Twitter, but individuals may choose to use a different language in other environments.
+This potential change of behaviour is therefore not captured by our model, but it could be relevant to the global dynamics.
+Observing the language production of individuals in different social contexts on a scale such as the one we presented here poses a great challenge, but it would definitely help further modelling endeavour and thus greatly contribute to our understanding of these linguistic phenomena.
 
 \end{document}
