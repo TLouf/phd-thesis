@@ -120,7 +120,10 @@
 \newrobustcmd*{\citefirstlastauthor}{\AtNextCite{\DeclareNameAlias{labelname}{given-family}}\citeauthor}
 \newcommand{\epigraphcite}[1]{--- \citefirstlastauthor{#1}, \citetitle{#1}~\cite{#1}}
 
-\DeclareFieldFormat[movie,misc]{editoratype}{\MakeUppercase{#1}}
+% \DeclareFieldFormat{editoratype}{\MakeUppercase{#1}}
+% \DeclareFieldFormat{editoratype}{Scriptwriter}
+\newbibmacro{geteditoratype}[1]{\iffieldundef{editoratype}{#1}{\thefield{editoratype}}}
+\DeclareFieldFormat{editoratype}{\usebibmacro{geteditoratype}{\MakeUppercase{#1}}}
 
 % \DeclareFieldFormat{uppercase}{\MakeUppercase{#1}}
 % \DeclareListFormat{uppercase}{\MakeUppercase{#1}}
@@ -264,32 +267,9 @@
 \usepackage{xurl}
 
 % ********************************************************************
-% Setup autoreferences (hyperref and babel)
-% ********************************************************************
-% There are some issues regarding autorefnames
-% http://www.tex.ac.uk/cgi-bin/texfaq2html?label=latexwords
-% you have to redefine the macros for the
-% language you use, e.g., american, ngerman
-% (as chosen when loading babel/AtBeginDocument)
+% Setup autoreferences (cleveref)
 % ********************************************************************
 \usepackage[capitalise,nameinlink,noabbrev]{cleveref}
-
-\makeatletter
-\@ifpackageloaded{babel}%
-  {%
-    \addto\extrasamerican{%
-      \renewcommand*{\figureautorefname}{Figure}%
-      \renewcommand*{\tableautorefname}{Table}%
-      \renewcommand*{\partautorefname}{Part}%
-      \renewcommand*{\chapterautorefname}{Chapter}%
-      \renewcommand*{\sectionautorefname}{Section}%
-      \renewcommand*{\subsectionautorefname}{Section}%
-      \renewcommand*{\subsubsectionautorefname}{Section}%
-    }%
-      % Fix to getting autorefs for subfigures right (thanks to Belinda Vogt for changing the definition)
-      \providecommand{\subfigureautorefname}{\figureautorefname}%
-    }{\relax}
-\makeatother
 
 % ********************************************************************
 % My own stuff
