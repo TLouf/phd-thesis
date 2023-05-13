@@ -16,7 +16,12 @@
   \addcontentsline{toc}{chapter}{\tocEntry{#1}}%
   \chapter*{#1}%
 }
-\printbibliography[heading=bibintoc,notcategory=other_articles,notcategory=thesis_articles]
+
+\printbibliography[heading=bibintoc,category=thesis_articles]
+\begin{refcontext}[sorting=none]
+\printbibliography[heading=none,category=other_articles]
+\end{refcontext}
+\printbibliography[heading=none,notcategory=other_articles,notcategory=thesis_articles]
 
 
 \end{document}
