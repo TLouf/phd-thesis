@@ -45,7 +45,7 @@ in this chapter.
 First, as we have already shown in previous chapters, a first step toward understanding
 is to measure the phenomenon. It has already been quantified by the PISA reports of the
 OECD \cite{OECDWhereAll2019}, which consistently show that students with lower
-socio-economic background tend to have a lower reading proficiency. While these confirm
+socio-economic background tend to have a lower reading proficiency. While these reports confirm
 there is an issue to tackle, they are not extensive enough. They do not test language
 production, and not the whole population but only a sample of students of a specific
 age. Alternative empirical works are thus needed. Data from social media have repeatedly
@@ -171,7 +171,8 @@ lower than or equal to $c$'s, we determine the \ac{SES} class of $c$ as:
   S_c = n_S \left\lceil \frac{\sum_{c' \in I_c} N_{c'}}{\sum_{c'} N_{c'}} \right\rceil,
 \end{equation}
 with $\left\lceil \cdot \right\rceil$ representing the ceiling function and $n_S$ the
-number of classes we wish to define. We denote $t_{u, c}$ the number of trips made by
+number of classes we wish to define. $S_c$ takes integer values between $1$ and $n_S$, both included, the former corresponding to the cells of lowest income, and the latter to the ones of highest income.
+We denote $t_{u, c}$ the number of trips made by
 user $u$ to cell $c$, which we obtain by counting the number of geotagged tweets posted
 by this user that can be reliably assigned to cell $c$. Let us then introduce the
 probability for an individual residing in a cell of class $i$ to visit another of cell
@@ -179,9 +180,9 @@ of class $j$:
 \begin{equation}
   \label{eq:class_visit_proba}
   M_{i, j} = \frac{
-      \sum_{u \in S_i} \sum_{c \in S_j} t_{u, c}
+      \sum_{c^* \in S_i} \sum_{u \in c^*} \sum_{c \in S_j} t_{u, c}
     }{
-      \sum_{j \in S_j} \sum_{u \in S_i} \sum_{c \in S_j} t_{u, c}
+      \sum_{c^* \in S_i} \sum_{u \in c^*} \sum_{k = 1}^{n_S} \sum_{c \in S_k} t_{u, c}
     },
 \end{equation}
 which is normalised row-wise, meaning $\sum_j M_{i, j} = 1$. Since we are interested in
