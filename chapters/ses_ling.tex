@@ -555,7 +555,27 @@ We will again leverage the mobility we observed from Twitter data used previousl
 We thus obtain a matrix giving for each cell the probability of their residents to be in any cell at each simulation step.
 In summary, at most three random draws are performed at each step for each agent: a first to decide in which cell this agent will be interacting with others, a second to decide the other agent they will interact with, and, if the two are using different varieties, a third to decide whether they will switch, according to their class' switch probability (similarly to what is depicted in \cref{fig:ses_ling_model_diagram} for just two classes).
 
-
+The results from our simulations are summarised in \cref{fig:ses_city_sims}.
+\begin{figure}
+\centering
+  \includegraphics{ses_city_sims}
+  \caption{Results from our \ac{ABM} simulations in eight metropolitan areas.
+  (a) Values of the correlation between cells' average income and proportion of speakers choosing variety 1 at the stable state of convergence of the simulations for $l_v = 0.55$, $q_1 = 0.7$ and $q_2 = 0.5$ is plotted against the cities' assortativity.
+  This example was selected for having one of the lowest correlations between x and y axis values, which are shown for other values of $q_1$ and $l_v$ for $q_2 = 0.5$ in (b), and of $q_1$ and $q_2$ for $l_v = 0.55$ in (c).}
+  \label{fig:ses_city_sims}
+\end{figure}
+We originally proposed the model with the aim to better understand how the interdependence between \ac{SES} and the usage of standard language may be lower the higher the social mixing, as suggested by the result shown in \cref{fig:cities_assort_vs_grammar_and_SES_corr}.
+That is why, from the stable state reached by the simulations in each city, we measure the proportion in each cell of agents using variety 1, which corresponds to non-standard language.
+Similarly to what we did from data in \cref{fig:cities_assort_vs_grammar_and_SES_corr}, we can then compute the correlation between the cells' average income and this proportion, and plot it against the cities' measured assortativity, as we do in \cref{fig:ses_city_sims}(a) for $l_v = 0.55$, $q_1 = 0.7$ and $q_2 = 0.5$.
+We can then compare the trend of \cref{fig:ses_city_sims}(a) with the one shown in the top panel of \cref{fig:cities_assort_vs_grammar_and_SES_corr}.
+Since these display two different proxies for the usage of non-standard language, values of the correlation shown on both y axes are different, but they show a remarkably similar trend when plotted against the assortativity.
+We did not run simulations just for this arbitrary set of parameter values, but performed a grid search, with an increment of $0.05$ in parameter values.
+As visible in \cref{fig:ses_city_sims}(b), simulations were run only for values of $q_1$ strictly superior to $l_v$, to avoid states of convergence that are irrelevant to us, as they would feature the extinction of variety 1 (non-standard language).
+This panel shows the values of the Pearson r correlation computed on plots such as panel (a), but for different parameter values.
+That is how we selected to plot the result for $l_v = 0.55$, $q_1 = 0.7$ and $q_2 = 0.5$ in this panel, which displays one of the r values closest to $-1$.
+The r values are shown in \cref{fig:ses_city_sims}(b)-(c) for $q_2 = 0.5$ and $l_v = 0.55$, respectively.
+The two panels clearly show that the pattern we wished to better understand with our model can be reproduced robustly, not just for one very specific set of parameter values, as multiple sets lead to stable states featuring r values relatively close to $-1$.
+That a simple model with only three parameters is able to capture our observations this well is truly noteworthy.
 
 
 \section{Discussion}
