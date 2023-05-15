@@ -154,10 +154,6 @@ quite remarkably, we find conspicuous differences among the cities, even though 
 
 
 \subsection{The role of assortativity}
-% \cite{EagleNetworkDiversity2010} We find that the diversity of individuals’
-% relationships is strongly correlated with the economic development of communities.
-% hence why we turn to measuring social mixing next. hein??
-
 To find out what could make these cities so different in that regard, we measure the
 assortativity in the mobility patterns of their residents
 \cite{HilmanSocioeconomicBiases2022}. We thus determine how likely people from different
@@ -402,30 +398,6 @@ another depending on one's \ac{SES} class:
   \end{aligned}
   \right.
 \end{equation}
-% \begin{equation}
-%   \label{eq:final_trans_probs}
-%   \begin{aligned}
-%       P(1 \rightarrow 2 \mid s = s_1)
-%           &= l_v (1 - q_1) [
-%             (1 - M_1) P(2 \mid c = c_1)  + M_1 P(2 \mid c = c_2)
-%           ]
-%       \\
-%       P(1 \rightarrow 2 \mid s = s_2)
-%           &= l_v q_2 [
-%             M_2 P(2 \mid c = c_1) + (1 - M_2) P(2 \mid c = c_2)
-%           ]
-%       \\
-%       P(2 \rightarrow 1 \mid s = s_1)
-%           &= (1 - l_v) q_1 [
-%             (1 - M_1)P(1 \mid c = c_1) + M_1 P(1 \mid c = c_2)
-%             ]
-%       \\
-%       P(2 \rightarrow 1 \mid s = s_2)
-%           &= (1 - l_v) (1 - q_2) [
-%             M_2 P(1 \mid c = c_1) + (1 - M_2) P(1 \mid c = c_2)
-%           ]
-%   \end{aligned}
-% \end{equation}
 Subsequently, we depart from the \ac{ABM} formulation as we did in
 \cref{sec:multiling_mean_field} to work in mean-field. This enables us to write the
 following system of differential equations:
@@ -455,20 +427,16 @@ following the steps detailed in \cref{ch:appendix_ses_model}, we get
       \dv{p_1}{t} 
           &=
             2 M (1 - M) (1 - p_1 - p_2) [q_1 (1 - l_v) - p_1 (q_1 - l_v)]
-          % }
       \\
           & \quad +
             p_1 (1 - p_1) (q_1 - l_v)
-          % }
       \\[1ex]
       \dv{p_2}{t} 
           &=
             2 M (1 - M) (1 - p_1 - p_2) [q_2 l_v - p_2 (l_v + q_2 - 1)]
-          % }
       \\
           & \quad +
             p_2 (1 - p_2) (l_v + q_2 - 1)
-            % }
   \end{aligned}
   \right.
 \end{equation}
