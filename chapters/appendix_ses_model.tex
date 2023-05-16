@@ -8,7 +8,7 @@
 \section*{Notation}
 Let us introduce the following notation:
 \begin{itemize}
-    \item $S$ the set of \ac{SES} classes in a population
+    \item $S$ the set of \ac{SES} classes in a population:
         \begin{equation}
             S = \left\{ s_k \mid k \in [1, n_S] \right\},
         \end{equation}
@@ -42,25 +42,25 @@ corresponding to a class:
         M_2 \equiv M_{2, 1} = 1 - M_{2, 2}.
     \end{aligned}
 \end{equation}
-Let us consider two varieties $v_1$ and $v_2$. This could be the use of standard
-language ($v_1$ means they do, $v_2$ means they don't). Now let us introduce an
-intrinsic prestige $l_v$ for the variant 2, such that:
+Let us consider two varieties $1$ and $2$. This could be the use of standard
+language ($1$ means they do, $2$ means they do not). Now let us introduce an
+intrinsic prestige $l_v$ for the variety $2$, such that:
 \begin{equation}
     \begin{aligned}
         P(1 \rightarrow 2) &\propto l_v, \\
         P(2 \rightarrow 1) &\propto 1 - l_v.
     \end{aligned}
 \end{equation}
-Without loss of generality, let us assume $l_v > 1/2$, meaning 2 is more prestigious
-than 1. And let us introduce an asymmetric attachment of each group for their own
-variant, $q_1$ and $q_2$:
+Without loss of generality, let us assume $l_v > 1/2$, meaning $2$ is more prestigious
+than $1$. And let us introduce an asymmetric attachment of each group for their own
+variety, $q_1$ and $q_2$:
 \begin{equation}
     \begin{aligned}
         P(2 \rightarrow 1 \mid s = s_1) &\propto q_1 > 1/2, \quad&  P(1 \rightarrow 2 \mid s = s_1) \propto 1 - q_1, \\
         P(1 \rightarrow 2 \mid s = s_2) &\propto q_2, \quad&  P(2 \rightarrow 1 \mid s = s_2) \propto 1 - q_2.
     \end{aligned}
 \end{equation}
-So 2 is more prestigious than 1 but $s_1$ prefers 1.
+So $2$ is more prestigious than $1$ but $s_1$ prefers $1$.
 
 
 \section*{Deriving the master equations}
@@ -84,7 +84,7 @@ We can then write the following transition probabilities:
 \end{equation}
 with $P(1 \rightarrow 2) \equiv P(v_t = 2 \mid v_{t-1} = 1)$, $P(2 \rightarrow 1) \equiv
 P(v_t = 1 \mid v_{t-1} = 2)$, $t$ denoting the current time step, $P(v_{t-1} = v \mid
-c_t = c_j)$ the probability to pick an individual who had variant $v$ at $t-1$ who is at
+c_t = c_j)$ the probability to pick an individual who used variety $v$ at $t-1$ who is at
 cell $c_j$ at $t$. Decomposing it by \ac{SES} class, and using Bayes' rule, we get:
 \begin{equation}
     \begin{aligned}
@@ -102,14 +102,14 @@ cell $c_j$ at $t$. Decomposing it by \ac{SES} class, and using Bayes' rule, we g
     \end{aligned}
 \end{equation}
 Let us introduce $p_{v, s_k} \equiv P(v_{t-1} = v \mid s = s_k)$ to simplify equations
-further, and that summarise the state of the system at the previous step. Also, since
+further, which summarise the state of the system at the previous step. Also, since
 they satisfy $\sum_v p_{v, s_k} = 1$, we will only write in terms of $p_1 \equiv p_{1,
 1}$ and $p_2 \equiv p_{2, 2}$. We also have $P(s = s_k) = \frac{N_{s_k}}{\sum_k
-N_{s_k}}$. The final term in the product is related to the mobility of the different SES
+N_{s_k}}$. The final term in the product above is related to the mobility of the different SES
 classes. Indeed, aligning the indices of the SES class with the one of their cell of
 residence, and using the fact that the random variable $C_{t}$, which represents the
 cell where an individual will be encountered at step $t$, is independent from $V_{t-1}$,
-which represents an individual's variety usage at the previous step, we have
+which represents an individual's variety usage at the previous step, we have:
 \begin{equation}
 \label{eq:mob_by_SES}
     P(c_t = c_j \mid v_{t-1} = v, s = s_k) = P(c = c_j \mid s = s_k) = M_{k, j},
@@ -138,16 +138,16 @@ m_{1,2}$ and $m_2 \equiv m_{2, 1}$, which summarize how mobile each group is. Le
 \begin{equation}
     \label{eq:prev_step_mob}
     \begin{aligned}
-        P(v_{t-1} = v_2 \mid c = c_1)
+        P(v_{t-1} = 2 \mid c = c_1)
             = (1 - m_2) (1 - p_1) + m_2 p_2
         \\
-        P(v_{t-1} = v_2 \mid c = c_2)
+        P(v_{t-1} = 2 \mid c = c_2)
             = m_1 (1 - p_1) + (1 - m_1) p_2
         \\
-        P(v_{t-1} = v_1 \mid c = c_1)
+        P(v_{t-1} = 1 \mid c = c_1)
             = (1 - m_2) p_1 + m_2 (1 - p_2)
         \\
-        P(v_{t-1} = v_1 \mid c = c_2)
+        P(v_{t-1} = 1 \mid c = c_2)
             = m_1 p_1 + (1 - m_1) (1 - p_2)
     \end{aligned}
 \end{equation}
@@ -168,41 +168,40 @@ variables only. But what we actually want is to write $P(v_t = v \mid v_{t-1} = 
         \end{aligned}
     \end{aligned}
 \end{equation}
-Finally, inserting into \eqref{eq:trans_probs_cell_decomp} the result of the insertion
-of \eqref{eq:prev_step_mob} into \eqref{eq:first_trans_probs}, we get:
+Finally, inserting \eqref{eq:first_trans_probs} into \eqref{eq:trans_probs_cell_decomp}, we get:
 \begin{equation}
     \label{eq:final_trans_probs}
     \begin{aligned}
         P(1 \rightarrow 2 \mid s = s_1)
             &= l_v (1 - q_1)
             \begin{aligned}[t]
-            &[(1 - M_1) ((1 - m_2) (1 - p_1) + m_2 p_2)
+            &[(1 - M_1) P(v_{t-1} = 2 \mid c = c_1)
             \\
-            & + M_1 (m_1 (1 - p_1) + (1 - m_1) p_2)]
+            & + M_1 P(v_{t-1} = 2 \mid c = c_2)]
             \end{aligned}
         \\
         P(1 \rightarrow 2 \mid s = s_2)
             &= l_v q_2
             \begin{aligned}[t]
-                &[M_2 ((1 - m_2) (1 - p_1) + m_2 p_2)
+                &[M_2 P(v_{t-1} = 2 \mid c = c_1)
                 \\
-                &+ (1 - M_2) (m_1 (1 - p_1) + (1 - m_1) p_2)]
+                &+ (1 - M_2) P(v_{t-1} = 2 \mid c = c_2)]
             \end{aligned}
         \\
         P(2 \rightarrow 1 \mid s = s_1)
             &= (1 - l_v) q_1
             \begin{aligned}[t]
-                &[(1 - M_1) ((1 - m_2) p_1 + m_2 (1 - p_2))
+                &[(1 - M_1) P(v_{t-1} = 1 \mid c = c_1)
                 \\
-                &+ M_1 (m_1 p_1 + (1 - m_1) (1 - p_2))]
+                &+ M_1 P(v_{t-1} = 1 \mid c = c_2)]
             \end{aligned}
         \\
         P(2 \rightarrow 1 \mid s = s_2)
             &= (1 - l_v) (1 - q_2)
             \begin{aligned}[t]
-                &[M_2 ((1 - m_2) p_1 + m_2 (1 - p_2))
+                &[M_2 P(v_{t-1} = 1 \mid c = c_1)
                 \\
-                &+ (1 - M_2) (m_1 p_1 + (1 - m_1) (1 - p_2))]
+                &+ (1 - M_2) P(v_{t-1} = 1 \mid c = c_2)]
             \end{aligned}
     \end{aligned}
 \end{equation}
@@ -234,29 +233,29 @@ M_1 = M_2$, we have $m_1 = m_2 = M$, and it follows that:
         P(1 \rightarrow 2 \mid s = s_1)
             &= l_v (1 - q_1)
             \left[
-                2 M (1 - M) (p_1 + p_2 - 1) + 1 - p_1
+              M^* (p_1 + p_2 - 1) + 1 - p_1
             \right]
         \\
         P(1 \rightarrow 2 \mid s = s_2)
             &= l_v q_2
             \left[
-                2 M (1 - M) (1 - p_1 - p_2) + p_2
+              M^* (1 - p_1 - p_2) + p_2
             \right]
         \\
         P(2 \rightarrow 1 \mid s = s_1)
             &= (1 - l_v) q_1
             \left[
-                2 M (1 - M) (1 - p_1 - p_2) + p_1
+              M^* (1 - p_1 - p_2) + p_1
             \right]
         \\
         P(2 \rightarrow 1 \mid s = s_2)
             &= (1 - l_v) (1 - q_2)
             \left[
-                2 M (1 - M) (p_1 + p_2 - 1) + 1 - p_2
+              M^* (p_1 + p_2 - 1) + 1 - p_2
             \right]
     \end{aligned}
 \end{equation}
-The result presented in \cref{eq:ses_ling_time_evol_eq_mob} then follows.
+with $M^* = 2 M (1 - M)$. The result presented in \cref{eq:ses_ling_time_evol_eq_mob} then follows.
 
 
 \section*{Coexistence solution}
