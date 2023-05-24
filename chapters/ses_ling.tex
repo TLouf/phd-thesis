@@ -42,7 +42,7 @@ it has been observed on very limited scales, and, more importantly, no model exp
 how it might emerge has been proposed. These are the two shortcomings we wish to address
 in this chapter. 
 
-First, as we have already shown in previous chapters, a first step toward understanding
+As we have already shown in previous chapters, a first step toward understanding
 is to measure the phenomenon. It has already been quantified by the PISA reports of the
 OECD \cite{OECDWhereAll2019}, which consistently show that students with lower
 socio-economic background tend to have a lower reading proficiency. While these reports confirm
@@ -102,7 +102,7 @@ frequency on a user level, to try and be more representative of the general popu
 and not only of the few, very active users. At the cell level, we compute the average of
 these relative frequencies for all residents. This implies that we cannot keep all
 users, as some have been so little active that they did not write enough to make
-mistakes, so we keep only users who have written at least $100$ words. Also, to exclude
+mistakes. That is why we keep only users who have written at least $100$ words. Also, to exclude
 cells with too little statistics, in the following we only keep cells with at least $15$
 residents left after this previous filter. This leaves us with \SI{131402}{} users
 spread across \SI{4879}{} \acp{MSOA}. A map of the population of Twitter users we found
@@ -467,8 +467,11 @@ Which one they will end up using depends on the sign of $(q_1 - l_v)$ and $(l_v 
 This system of equation lends itself to further mathematical analysis, in particular of its
 fixed points and their stability. Two fixed points can be trivially found from a quick
 look at \cref{eq:ses_ling_time_evol_eq_mob}: they are $(p_1, p_2) = (0, 1)$ and $(1,
-0)$. As in \cref{ch:multiling}, we compute the eigenvalues of the Jacobian of the system
-evaluated at the fixed points, and are thus able to say that a fixed point is stable if
+0)$.
+All subsequent analyses are then performed using symbolic
+computations.
+As in \cref{ch:multiling}, we compute the eigenvalues of the Jacobian of the system
+evaluated at its fixed points, and are thus able to say that a fixed point is stable if
 and only if all the corresponding eigenvalues have a strictly negative real part. For $M
 = 0.2$, $q_2= 0.5$, $q_1 = 0.7$, and $l_v \in \{ 0.5, 0.6, 0.7\}$, we show in
 \cref{fig:mean_field_analytic_coex_pos}(a-b-c) the position of the fixed points of the
@@ -552,7 +555,7 @@ To be consistent with the phenomenon we are interested in, this interpolation is
 Also, naturally, we only consider values of the prestige such that $l_v > 0.5$ and $q_1 > l_v$, to avoid states of convergence featuring a hegemony of standard language, that we are not interested in.
 The only ingredient left to run the simulations is the inter-\ac{MSOA} mobility of the agents.
 We will again leverage the mobility we observed from Twitter data used previously to compute the mobility matrices presented in \cref{fig:cities_SES_mobility}, but this time including the stays of the users within their resident cell.
-We thus obtain a matrix giving for each cell the probability of their residents to be in any cell at each simulation step.
+We thus obtain a matrix giving for each cell the probability for their residents to be in any cell at each simulation step.
 In summary, at most three random draws are performed at each step for each agent: a first to decide in which cell this agent will be interacting with others, a second to decide the other agent they will interact with, and, if the two are using different varieties, a third to decide whether they will switch, according to their class' switch probability (similarly to what is depicted in \cref{fig:ses_ling_model_diagram} for just two classes).
 
 The results from our simulations are summarised in \cref{fig:ses_city_sims}.
