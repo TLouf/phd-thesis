@@ -143,7 +143,7 @@ residents for all \acp{MSOA} of England and Wales, London, Manchester and Sheffi
   them for all \acp{MSOA} of England and Wales, and then of the metropolitan areas of
   London, Manchester and Sheffield. Each grey dot corresponds to an \ac{MSOA}, while
   blue lines indicate the result of a linear regression, with the corresponding Pearson
-  r and p-value given in each legend. The areas coloured in light blue indicate the
+  $r$ and p-value given in each legend. The areas coloured in light blue indicate the
   \SI{95}{\percent} confidence interval for the regression estimates.}
   \label{fig:ses_x_grammar_corrs}
 \end{figure}
@@ -172,22 +172,21 @@ lower than or equal to $c$'s, we determine the \ac{SES} class of $c$ as:
 \end{equation}
 with $\left\lceil \cdot \right\rceil$ representing the ceiling function and $n_S$ the
 number of classes we wish to define. $S_c$ takes integer values between $1$ and $n_S$, both included, the former corresponding to the cells of lowest income, and the latter to the ones of highest income.
-We denote $t_{u, c}$ the number of trips made by
+We denote $t_{u, c}$ the proportion of trips made by
 user $u$ to cell $c$, which we obtain by counting the number of geotagged tweets posted
 by this user that can be reliably assigned to cell $c$. Let us then introduce the
-probability for an individual residing in a cell of class $i$ to visit another of cell
-of class $j$:
+probability for an individual to visit a cell of class $k$ knowing that they reside in a cell of class $l$:
 \begin{equation}
   \label{eq:class_visit_proba}
-  M_{i, j} = \frac{
-      \sum_{c^* \in S_i} \sum_{u \in c^*} \sum_{c \in S_j} t_{u, c}
+  M_{k, l} = \frac{
+      \sum_{c^* \in S_l} \sum_{u \in c^*} \sum_{c \in S_k} t_{u, c}
     }{
-      \sum_{c^* \in S_i} \sum_{u \in c^*} \sum_{k = 1}^{n_S} \sum_{c \in S_k} t_{u, c}
+      \sum_{c^* \in S_l} \sum_{u \in c^*} \sum_{k' = 1}^{n_{\Sigma}} \sum_{c \in S_{k'}} t_{u, c}
     },
 \end{equation}
-which is normalised row-wise, meaning $\sum_j M_{i, j} = 1$. Since we are interested in
+which is normalised column-wise, meaning $\sum_k M_{k, l} = 1$. Since we are interested in
 how much individuals mix when they move, we exclude the tweets sent from their cell of
-residence to compute $M_{i, j}$. Such matrices computed for our eight metropolitan areas
+residence to compute $M_{k, l}$. Such matrices computed for our eight metropolitan areas
 are represented in \cref{fig:cities_SES_mobility}. There are some expected similarities
 between cities, such as the fact that the classes at the two extremes, 1 and 5,
 consistently have relatively high numbers of within-class trips. Overall though, they
@@ -196,28 +195,24 @@ stand out as in London or Manchester, to cities in which one specific class of c
 the destination of most outward mobility, as in Newcastle or Bristol. 
 \begin{figure}
 \centering
-  \includegraphics[width=0.9\textwidth]{cities_SES_mobility}
-  \caption{ Matrices of stratification of \ac{SES} classes in their mobility in eight
-  metropolitan areas of England. For every pair of \ac{SES} classes for the cell of
-  residence and the cell visited by Twitter users, this shows the proportion of trips
-  that were made from the latter to the former. A square located at $(x, y) = (i, j)$
-  corresponds to $M_{j, i}$, as it is defined in \cref{eq:class_visit_proba}. The
-  normalisation is thus column-wise on this representation.}
+  \includegraphics[width=0.85\textwidth]{cities_SES_mobility_nr_classes=5}
+  \caption{The $M_{k, l}$ mobility mixing matrices stratified by SES in eight metropolitan areas of England. Each matrix is column-wise normalised and depicts the probability for a user who resides in a location of class $l$ (x-axis) to make trips to a place of class $k$ (y-axis). For the definition of $M_{k, l}$, see \cref{eq:class_visit_proba}. For each metropolitan area, we give the $r_M$ assortativity coefficient measured from the corresponding mobility mixing matrix, as defined in \cref{eq:def_mobility_r}.}
   \label{fig:cities_SES_mobility}
 \end{figure}
 
 These patterns can be summarised by a measure of how strongly diagonal these matrices
-are: their Pearson r value, denoted $r_M$ in our case. It is defined as follows:
+are: their Pearson $r$ value, denoted $r_M$ in our case. It is defined as follows:
 \begin{equation}
   \label{eq:def_mobility_r}
   r_M = \frac{
-      \sum_{i, j} M_{i, j} \cdot \sum_{i, j} i j M_{i, j}
-      - \sum_{i, j} i M_{i, j} \cdot \sum_{i, j} j M_{i, j}
+    N_M \sum_{k, l} k l M_{k, l}
+      - \sum_{k, l} k M_{k, l} \cdot \sum_{k, l} l M_{k, l}
     }{
-      \sqrt{\sum_{i, j} i^2 M_{i, j} - \left( \sum_{i, j} i M_{i, j} \right)^2}
-      \cdot \sqrt{\sum_{i, j} j^2 M_{i, j} - \left( \sum_{i, j} j M_{i, j} \right)^2}
-    }.
+      \sqrt{N_M \sum_{k, l} k^2 M_{k, l} - \left( \sum_{k, l} k M_{k, l} \right)^2}
+      \cdot \sqrt{N_M \sum_{k, l} l^2 M_{k, l} - \left( \sum_{k, l} l M_{k, l} \right)^2}
+    },
 \end{equation}
+with $N_M = \sum_{k, l} M_{k, l}$, which is equal to $n_S$, by definition.
 This gives us a measure of assortativity, meaning that this metric gives us a sense of
 how much people of similar classes tend to stay together. The closer to $1$, the more
 individuals tend to go to areas of similar \ac{SES} (assortative mixing, segregation),
@@ -339,7 +334,7 @@ for different mobility patterns, out of the $2 \times 2$ mobility matrix with el
 $M_{i, j}$, we only retain the parameters $M_1 \equiv M_{1, 2}$ and $M_2 \equiv M_{2,
 1}$, the probabilities for people of each class to move away from their residence cell.
 Note that these parameters summarise how much the classes mix, as the mobility
-matrix' Pearson r of \cref{eq:def_mobility_r} satisfies $r_M = 1 - M_1 - M_2$. Likewise,
+matrix' Pearson $r$ of \cref{eq:def_mobility_r} satisfies $r_M = 1 - M_1 - M_2$. Likewise,
 the matrix of $m_{i, j}$ can be summarised with the corresponding $m_1$ and $m_2$. Under
 all these assumptions and new notation, we can then write the probability to pick an
 individual speaking a variety in each cell as:
@@ -564,7 +559,7 @@ The results from our simulations are summarised in \cref{fig:ses_city_sims}.
   \includegraphics{ses_city_sims}
   \caption{Results from our \ac{ABM} simulations in eight metropolitan areas.
   (a) Values of the correlation between cells' average income and proportion of speakers choosing variety 1 at the stable state of convergence of the simulations for $l_v = 0.55$, $q_1 = 0.7$ and $q_2 = 0.5$ is plotted against the cities' assortativity.
-  This example was selected for having one of the lowest correlations between x and y axis values, which are shown for other values of $q_1$ and $l_v$ for $q_2 = 0.5$ in (b), and of $q_1$ and $q_2$ for $l_v = 0.55$ in (c).}
+  This example was selected for having one of the lowest correlations between x and y axis values (Pearson $r = -0.83$) which are shown for other values of $q_1$ and $l_v$ for $q_2 = 0.5$ in (b), and of $q_1$ and $q_2$ for $l_v = 0.55$ in (c).}
   \label{fig:ses_city_sims}
 \end{figure}
 We originally proposed the model with the aim to better understand how the interdependence between \ac{SES} and the usage of standard language may be lower the higher the social mixing, as suggested by the result shown in \cref{fig:cities_assort_vs_grammar_and_SES_corr}.
@@ -574,10 +569,10 @@ We can then compare the trend of \cref{fig:ses_city_sims}(a) with the one shown 
 Since these display two different proxies for the usage of non-standard language, values of the correlation shown on both y axes are different, but they show a remarkably similar trend when plotted against the assortativity.
 We did not run simulations just for this arbitrary set of parameter values, but performed a grid search, with an increment of $0.05$ in parameter values.
 As visible in \cref{fig:ses_city_sims}(b), simulations were run only for values of $q_1$ strictly superior to $l_v$, to avoid states of convergence that are irrelevant to us, as they would feature the extinction of variety 1 (non-standard language).
-This panel shows the values of the Pearson r correlation computed on plots such as panel (a), but for different parameter values.
-That is how we selected to plot the result for $l_v = 0.55$, $q_1 = 0.7$ and $q_2 = 0.5$ in this panel, which displays one of the r values closest to $-1$.
-The r values are shown in \cref{fig:ses_city_sims}(b)-(c) for $q_2 = 0.5$ and $l_v = 0.55$, respectively.
-The two panels clearly show that the pattern we wished to better understand with our model can be reproduced robustly, not just for one very specific set of parameter values, as multiple sets lead to stable states featuring r values relatively close to $-1$.
+This panel shows the values of the Pearson $r$ correlation computed on plots such as panel (a), but for different parameter values.
+That is how we selected to plot the result for $l_v = 0.55$, $q_1 = 0.7$ and $q_2 = 0.5$ in this panel, which displays one of the $r$ values closest to $-1$.
+The $r$ values are shown in \cref{fig:ses_city_sims}(b)-(c) for $q_2 = 0.5$ and $l_v = 0.55$, respectively.
+The two panels clearly show that the pattern we wished to better understand with our model can be reproduced robustly, not just for one very specific set of parameter values, as multiple sets lead to stable states featuring $r$ values relatively close to $-1$.
 That a simple model with only three parameters is able to capture our observations this well is truly noteworthy.
 
 
